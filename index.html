@@ -927,7 +927,7 @@ function lsg(k){try{return localStorage.getItem(k);}catch(_){return null;}}
 function lss(k,v){try{localStorage.setItem(k,v);}catch(_){}}
 function lsd(k){try{localStorage.removeItem(k);}catch(_){}}
 const MAP={"permission-denied":"invalid_argument","not-found":"invalid_argument","invalid-argument":"invalid_argument","failed-precondition":"invalid_argument","unauthenticated":"invalid_argument","resource-exhausted":"resource_exhausted","unavailable":"unavailable","deadline-exceeded":"unavailable","aborted":"unavailable","cancelled":"unavailable","internal":"unavailable","unknown":"unavailable"};
-const err=e=>({code:MAP[e&&e.code]||"unavailable",message:(e&&e.message)||String(e)});
+const err=e=>({code:MAP[e&&e.code]||"unavailable",fbCode:e&&e.code,message:(e&&e.message)||String(e)});
 const wrapSnap=(d)=>({id:d.id,exists:!!d.exists,data:()=>d.data(),metadata:{fromCache:!!(d.metadata&&d.metadata.fromCache),hasPendingWrites:!!(d.metadata&&d.metadata.hasPendingWrites)}});
 
 let fs=null,auth=null;
@@ -1264,7 +1264,7 @@ function subscribe(col){
     if(!snap.metadata||!snap.metadata.fromCache){clearTimeout(t);S.subErr[col]=null;}
     S.subs[col]="live";const o={};snap.docs.forEach(d=>{if(d.exists){const v=d.data();if(v&&typeof v==="object")o[d.id]=v;}});
     S.server[col]=o;renderCol(col);resolveNames();if(ED&&ED.col===col)syncDialogFromServer();
-  },err=>{clearTimeout(t);S.subs[col]="error";S.subErr[col]=err&&err.code||"error";renderCol(col);});
+  },err=>{clearTimeout(t);S.subs[col]="error";S.subErr[col]=err&&err.fbCode==="permission-denied"?"rules":(err&&err.code||"error");renderCol(col);});
 }
 async function resolveNames(){
   if(!S.user||!S.user.profiles)return;const ids=new Set();
@@ -1475,6 +1475,7 @@ function statusLine(col,n,label){
   const s=document.querySelector(`[data-stline="${col}"]`);if(!s)return;
   if(!S.connected){s.textContent=S.tried?(FBM?gateMsg()||"Sign in with Google to see the team boards.":"Shared content needs claude.ai. Open this page there and sign in."):"Connecting...";return;}
   const e=S.subErr[col];if(e==="slow"){s.textContent="Can't reach the shared store yet. It'll update when it connects.";return;}
+  if(e==="rules"){s.textContent="The database rules don't cover this tab yet. In Firebase, go to Firestore Database, then Rules, paste the latest firestore.rules from GitHub, click Publish, then refresh.";return;}
   if(e){s.textContent=e==="revoked"?"No longer available in this view.":"Couldn't load. Refresh to try again.";return;}
   if(S.subs[col]!=="live"){s.textContent="Loading...";return;}
   const word=Array.isArray(label)?(n===1?label[0]:label[1]):(label+(n===1?"":"s"));s.textContent=`${n} ${word}. Live.`+(gateMsg()&&S.connected?" "+gateMsg():"");
