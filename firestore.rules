@@ -9,7 +9,8 @@ service cloud.firestore {
         && exists(/databases/$(database)/documents/config/access)
         && email() in get(/databases/$(database)/documents/config/access).data.emails);
     }
-    function board(c) { return c in ['personas','stakeholders','roles','deliverables','tasks','hmw','foursets','questions','ideas']; }
+    // Any shared board, now or added later. config, users and people have their own rules below.
+    function board(c) { return !(c in ['config','users','people']); }
 
     // Team list: only James can change it.
     match /config/access { allow read: if onTeam(); allow write: if isAdmin(); }

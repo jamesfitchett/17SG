@@ -216,6 +216,7 @@ table.m td b{font-weight:500}
 .idea h3{font-size:24px}
 .idea p{font-size:15px;color:var(--muted)}
 .idea .fit{border-top:1px solid var(--line);padding-top:10px;font-size:15px}
+.idea .board.four{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}
 
 /* dialog */
 .scrim{position:fixed;inset:0;background:rgba(10,12,14,.45);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
@@ -302,10 +303,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 header.top{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--rule)}
 header.top .row1{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
 header.top .row2{border-top:1px solid var(--line)}
-header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;height:44px;align-items:stretch}
-.navgroup{display:flex;align-items:stretch;border-left:1px solid var(--line)}
+header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;height:54px;align-items:stretch}
+.navgroup{display:flex;flex-direction:column;justify-content:flex-end;border-left:1px solid var(--line);flex:none}
 .navgroup:last-child{border-right:1px solid var(--line)}
-.navgroup .g{display:flex;align-items:center;padding:0 8px 0 12px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.navgroup .g{padding:7px 10px 0;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;line-height:1}
+.navgroup .lk{display:flex;align-items:stretch;height:38px}
 .navgroup a{display:flex;align-items:center;padding:0 10px;font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}
 .navgroup a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
 .navgroup a:hover{color:var(--ink)}
@@ -392,7 +394,45 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
   .dlvrow .big{font-size:48px}
   .toast{left:16px;right:16px;max-width:none}
 }
-.sec .side{top:116px}
+.sec .side{top:126px}
+
+/* company: values + intelligences */
+.vstate{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--line);color:var(--muted)}
+.vstate[data-v="Agreed"]{border-color:var(--ink);color:var(--ink)}
+.vrow{display:grid;grid-template-columns:220px minmax(0,1fr) 240px;gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}
+.vrow:first-child{border-top:1px solid var(--ink)}
+.vrow .k{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.vrow .mission{max-width:30ch}
+.vrow .note{font-size:15px;color:var(--muted);margin-top:14px;max-width:62ch}
+.vrow .side3{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.vhead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:64px 0 18px}
+.vhead h2{font-size:28px;font-weight:500;letter-spacing:-0.02em}
+.goal .meas{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+.goal .acts{margin-top:2px}
+.cv{border-top:1px solid var(--ink)}
+.cvrow{display:grid;grid-template-columns:64px minmax(0,1fr) 240px;gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}
+.cvrow .n{font-size:32px;font-weight:300;letter-spacing:-0.03em;line-height:1}
+.cvrow h4{font-size:22px;font-weight:500;letter-spacing:-0.01em}
+.cvrow p{font-size:16px;margin-top:6px}
+.cvrow .ip{font-size:14px;color:var(--muted);margin-top:10px}
+.pi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--line)}
+.pp{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.pp .who{display:flex;gap:14px;align-items:center}
+.pp .who svg{width:52px;height:52px;flex:none}
+.pp .who b{font-size:20px;font-weight:500;display:block}
+.pp .who span{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+.pp .ints{display:flex;flex-direction:column}
+.int{padding:14px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.int.pending{opacity:.6}
+.int h4{font-size:24px;font-weight:400;letter-spacing:-0.02em}
+.int .line{font-size:16px}
+.int .story{font-size:14px;color:var(--muted)}
+.int .ask{font-size:14px;color:var(--muted);font-style:italic}
+.pp .none{font-size:15px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.acts.compact .btn.small,.acts.compact .pin{min-height:26px;padding:3px 8px;font-size:11px}
+.chead{display:flex;gap:14px;align-items:center}
+.chead svg.cav{width:56px;height:56px;flex:none}
+@media (max-width:980px){.vrow{grid-template-columns:1fr;gap:14px}.cvrow{grid-template-columns:48px minmax(0,1fr)}.cvrow .side3{grid-column:2}.pi{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -402,10 +442,11 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
     <div class="who"><span class="whoami" id="whoami">Connecting...</span><button type="button" class="btn small" id="fb-access" hidden>Team access</button><button type="button" class="btn small" id="fb-signout" hidden>Sign out</button><button type="button" class="btn small solid" id="fb-signin" hidden>Sign in</button><button type="button" class="sync" id="sync" data-s="readonly"><i></i>Connecting</button></div>
   </div>
   <nav class="row2" aria-label="Pages"><div class="wrap">
-    <div class="navgroup"><span class="g">Pitch</span><a href="#pitch">Hub</a><a href="#ideas">Ideas</a></div>
-    <div class="navgroup"><span class="g">Plan</span><a href="#timeline">Timeline</a><a href="#team">Team</a><a href="#deliverables">Deliverables</a></div>
-    <div class="navgroup"><span class="g">Research</span><a href="#personas">Personas</a><a href="#stakeholders">Stakeholders</a><a href="#hmw">How might we</a><a href="#foursets">Four Sets</a></div>
-    <div class="navgroup"><span class="g">Discuss</span><a href="#questions">Questions</a><a href="#board">Comments</a></div>
+    <div class="navgroup"><span class="g">Pitch</span><div class="lk"><a href="#pitch">Hub</a><a href="#ideas">Ideas</a></div></div>
+    <div class="navgroup"><span class="g">Plan</span><div class="lk"><a href="#timeline">Timeline</a><a href="#team">Team</a><a href="#deliverables">Deliverables</a></div></div>
+    <div class="navgroup"><span class="g">Research</span><div class="lk"><a href="#personas">Personas</a><a href="#stakeholders">Stakeholders</a><a href="#hmw">How might we</a><a href="#foursets">Four Sets</a></div></div>
+    <div class="navgroup"><span class="g">Discuss</span><div class="lk"><a href="#questions">Questions</a><a href="#board">Comments</a></div></div>
+    <div class="navgroup"><span class="g">Company</span><div class="lk"><a href="#values">Values</a><a href="#intel">Intelligences</a></div></div>
   </div></nav>
 </header>
 <main class="view" id="v-pitch">
@@ -711,13 +752,13 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
 
 <!-- ================= TEAM IDEAS ================= -->
 <main class="view" id="v-ideas">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Nov 5 all-hands / plus anything new</div><h1>Team ideas</h1><p>Every concrete pitch so far, with a storyboard, the critique it got, and where it plugs into the Hub. Add new ones below.</p></div><div class="r"><button class="btn solid" data-add="ideas">Add an idea</button></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Nov 5 all-hands / plus anything new</div><h1>Team ideas</h1><p>Every pitch from the Nov 5 all-hands: a storyboard, what the round robin said, how to make it work, and where it plugs into the Hub. Add new ones below.</p></div><div class="r"><button class="btn solid" data-add="ideas">Add an idea</button></div></div></section>
   <section class="pbody"><div class="wrap"><div id="ideas"></div><div class="groupname">Added by the team</div><p class="status" data-stline="ideas"></p><div data-list="ideas"></div></div></section>
 </main>
 
 <!-- ================= TIMELINE ================= -->
 <main class="view" id="v-timeline">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / Oct 22 to Dec 16</div><h1>Timeline</h1><p>Every task and milestone through the end of the semester. Dates after Nov 5 are a first-pass plan: owners, adjust yours. Click a bar to edit it.</p></div><div class="r"><button class="btn solid" data-add="tasks">Add a task</button></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / Oct 22 to Dec 16</div><h1>Timeline</h1><p>Only the work that feeds the four deliverables, plus the milestones that matter. Owners, adjust your dates. Click a bar to edit it.</p></div><div class="r"><button class="btn solid" data-add="tasks">Add a task</button></div></div></section>
   <section class="pbody"><div class="wrap">
     <div class="legend"><span><i></i>Planned</span><span><i style="background:var(--acc);border-color:var(--acc)"></i>In progress</span><span><i style="background:var(--ink)"></i>Done</span><span><i style="border:2px solid var(--warn)"></i>At risk</span><span><i style="width:10px;height:10px;transform:rotate(45deg);background:var(--ink);border:0"></i>Milestone</span><span><i style="width:0;height:14px;border:0;border-left:1px solid var(--warn)"></i>Today</span></div>
     <p class="status" data-stline="tasks"></p>
@@ -727,7 +768,7 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
 
 <!-- ================= TEAM ================= -->
 <main class="view" id="v-team">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / roles set Nov 2, reassessed after winter break</div><h1>Team</h1><p>Who owns what. Prof. Kevin Jones and Dr. Mike Kretser advise the whole team, business and design. Design meets Mondays 8 to 9 PM, business Wednesdays 8 to 9 PM, all-hands Thursdays.</p></div><div class="r"><button class="btn solid" data-add="roles">Add a person</button></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / roles set Nov 2, reassessed after winter break</div><h1>Team</h1><p>Who owns what. Design meets Mondays 8 to 9 PM, business Wednesdays 8 to 9 PM, all-hands Thursdays.</p></div><div class="r"><button class="btn solid" data-add="roles">Add a person</button></div></div></section>
   <section class="pbody"><div class="wrap">
     <div class="spec three" style="border-top:1px solid var(--ink)">
       <div class="cell"><span class="label">Where we're headed</span><h4>Two teams, one game</h4><p>Design builds the prototype and trailer. Business builds the plan that turns it into a venture. James connects the two.</p></div>
@@ -783,6 +824,19 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
     <div class="cards" id="pinlist"></div>
   </div></section>
 </main>
+
+<!-- ================= VALUES ================= -->
+<main class="view" id="v-values">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Company / who we are</div><h1>Values</h1><p>Why 17SG exists, what we're aiming for, and how we work. Responsibility, Artistry, Discipline and Process come from our team whiteboard. Anything marked Draft is a proposal: edit it, or leave a comment.</p></div><div class="r"><button class="btn solid" data-add="values">Add a value</button></div></div></section>
+  <section class="pbody"><div class="wrap"><p class="status" data-stline="values"></p><div data-list="values"></div></div></section>
+</main>
+
+<!-- ================= PERSONAL INTELLIGENCES ================= -->
+<main class="view" id="v-intel">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Company / the lenses we bring</div><h1>Personal intelligences</h1><p>What each of us brings to 17SG, in our own words. Add yours, edit your own, and comment on anyone's. Advisors included.</p></div><div class="r"><button class="btn solid" data-add="intelligences">Add an intelligence</button></div></div></section>
+  <section class="pbody"><div class="wrap"><p class="status" data-stline="intelligences"></p><div data-list="intelligences"></div></div></section>
+</main>
+
 
 <footer><div class="wrap"><span>17SG / Inc.ub8 / UH 4504 / Virginia Tech</span><span>Team values: Responsibility / Artistry / Discipline / Process</span></div></footer>
 
@@ -939,8 +993,20 @@ window.FB={
   async signOut(){await sdk;await auth.signOut();location.reload();},
   async getAccess(){await sdk;const s=await fs.doc("config/access").get();return s.exists?(s.data().emails||[]):[];},
   async setAccess(list){await sdk;await fs.doc("config/access").set({emails:list,updatedAt:Date.now()});},
-  async seed(data,onProgress){await sdk;let n=0;for(const [col,docs] of Object.entries(data)){const ex=await fs.collection(col).limit(1).get();if(!ex.empty){onProgress&&onProgress(col+": already has content, skipped");continue;}
-    const ents=Object.entries(docs);for(let i=0;i<ents.length;i+=400){const b=fs.batch();ents.slice(i,i+400).forEach(([id,d])=>b.set(fs.doc(col+"/"+id),d));await b.commit();n+=Math.min(400,ents.length-i);}onProgress&&onProgress(col+": "+ents.length+" added");}return n;}
+  async seed(data,onProgress){await sdk;let n=0;for(const [col,docs] of Object.entries(data)){if(col.startsWith("__"))continue;const ex=await fs.collection(col).limit(1).get();if(!ex.empty){onProgress&&onProgress(col+": already has content, skipped");continue;}
+    const ents=Object.entries(docs);for(let i=0;i<ents.length;i+=400){const b=fs.batch();ents.slice(i,i+400).forEach(([id,d])=>b.set(fs.doc(col+"/"+id),d));await b.commit();n+=Math.min(400,ents.length-i);}onProgress&&onProgress(col+": "+ents.length+" added");}return n;},
+  async migrate(data){await sdk;const meta=data.__meta||{};const out=[];const now=Date.now();const SKIP=["by","at","editedBy","editedAt"];
+    const untouched=h=>h&&h.by==="seed"&&(!h.editedBy||h.editedBy==="seed")&&!h.deleted;
+    for(const [col,docs] of Object.entries(data)){if(col.startsWith("__"))continue;
+      const snap=await fs.collection(col).get();if(snap.empty)continue;const have={};snap.docs.forEach(d=>{have[d.id]=d.data();});
+      const b=fs.batch();let a=0,u=0,r=0;
+      for(const [id,d] of Object.entries(docs)){const h=have[id];
+        if(!h){b.set(fs.doc(col+"/"+id),d);a++;continue;}
+        if(!untouched(h))continue;const diff={};Object.keys(d).forEach(k=>{if(SKIP.includes(k))return;if(String(h[k]==null?"":h[k])!==String(d[k]==null?"":d[k]))diff[k]=d[k];});
+        if(Object.keys(diff).length){b.update(fs.doc(col+"/"+id),diff);u++;}}
+      ((meta.retire||{})[col]||[]).forEach(id=>{if(untouched(have[id])){b.update(fs.doc(col+"/"+id),{deleted:true,deletedBy:"seed",deletedAt:now});r++;}});
+      if(a+u+r){await b.commit();out.push(col+": "+[a?a+" added":"",u?u+" updated":"",r?r+" retired":""].filter(Boolean).join(", "));}}
+    return out;},
 };
 })();
 
@@ -995,8 +1061,13 @@ grow:()=>{const g=146;const bs=[[30,24],[54,36],[78,28],[102,46],[126,34],[150,5
 brief:()=>W(`<g class="a-drop"><rect x="60" y="24" width="200" height="108" class="lnb" style="stroke:var(--ink)"></rect>${T(74,42,"PROJECT BRIEF")}${T(74,62,"Clean water, informal settlement","txb")}${T(74,76,"ONE SEASON / LOCAL MATERIALS")}<rect x="74" y="94" width="86" height="26" class="fi"></rect>${T(117,111,"Stake 3x","txw","middle")}<rect x="168" y="94" width="78" height="26" class="lnb" style="stroke:var(--ink)"></rect>${T(207,111,"Walk away","txb","middle")}</g>`),
 tracks:()=>W(`<rect x="30" y="40" width="120" height="96" class="lnb" style="stroke:var(--ink)"></rect>${T(42,58,"TRACK A")}${T(42,78,"Science","txb")}${T(42,94,"Partner puzzles","tx")}<rect x="170" y="40" width="120" height="96" class="fi"></rect>${T(182,58,"TRACK B","txw")}${T(182,78,"Policy","txw")}${T(182,94,"Wicked problems","txw")}${T(160,92,"or","txb","middle")}`),
 nodes:()=>W(`${["M70 92 L150 56","M70 92 L150 128","M150 56 L240 92","M150 128 L240 92"].map((p,i)=>`<path d="${p}" class="sk a-draw" stroke-width="1.2" style="animation-delay:${i*0.3}s"></path>`).join("")}<rect x="38" y="80" width="64" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(70,96,"Source","txb","middle")}<rect x="118" y="44" width="64" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(150,60,"Filter","txb","middle")}<rect x="118" y="116" width="64" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(150,132,"Storage","txb","middle")}<rect x="208" y="80" width="70" height="24" class="fi"></rect>${T(243,96,"Network","txw","middle")}`),
-consequence:()=>W(`<rect x="20" y="40" width="76" height="24" class="fi"></rect>${T(58,56,"Build roads","txw","middle")}<path d="M96 52 L124 52" class="sk a-draw"></path><rect x="124" y="40" width="70" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(159,56,"Jobs up","txb","middle")}<path d="M58 64 L58 110 L84 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:.6s"></path><rect x="84" y="98" width="70" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(119,114,"Loan-funded","txb","middle")}<path d="M154 110 L178 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:1s"></path><rect x="178" y="98" width="50" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(203,114,"Debt","txb","middle")}<path d="M228 110 L246 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:1.4s"></path><rect x="246" y="98" width="62" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(277,114,"Mining rights","txb","middle")}${T(160,156,"PLAN ABOVE / WHAT GOES WRONG BELOW","tx","middle")}`),
+consequence:()=>W(`<rect x="20" y="40" width="76" height="24" class="fi"></rect>${T(58,56,"Build roads","txw","middle")}<path d="M96 52 L124 52" class="sk a-draw"></path><rect x="124" y="40" width="70" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(159,56,"Jobs up","txb","middle")}<path d="M58 64 L58 110 L84 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:.6s"></path><rect x="84" y="98" width="70" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(119,114,"Loan-funded","txb","middle")}<path d="M154 110 L178 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:1s"></path><rect x="178" y="98" width="50" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(203,114,"Debt","txb","middle")}<path d="M228 110 L238 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:1.4s"></path><rect x="238" y="98" width="78" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(277,114,"Mining rights","txb","middle")}${T(160,156,"PLAN ABOVE / WHAT GOES WRONG BELOW","tx","middle")}`),
 data:()=>{let s="";[[70,4],[120,7],[170,2]].forEach((c,k)=>{for(let i=0;i<c[1];i++)s+=`<rect x="${c[0]-6}" y="${126-i*14}" width="12" height="11" class="${k==2?"fm":"fi"} a-drop" style="animation-delay:${(i*0.15+k*0.1).toFixed(2)}s"></rect>`;});return W(`<line x1="44" y1="140" x2="196" y2="140" class="sk"></line>${s}${T(70,156,"IDEA A","tx","middle")}${T(120,156,"IDEA B","tx","middle")}${T(170,156,"IDEA C","tx","middle")}<path d="M204 90 L236 90" class="ska a-flow"></path><rect x="238" y="70" width="70" height="40" class="lnb" style="stroke:var(--acc)"></rect>${T(273,88,"Insight","txb","middle")}${T(273,101,"FOR PARTNERS","tx","middle")}`)},
+islands:()=>W(`${[[70,48,"FACTION A"],[250,48,"FACTION B"],[70,128,"FACTION C"],[250,128,"FACTION D"]].map((p,i)=>`<path d="M${p[0]} ${p[1]} L160 88" class="ska a-flow" style="animation-delay:${i*0.4}s"></path><ellipse cx="${p[0]}" cy="${p[1]}" rx="44" ry="20" class="lnb" style="stroke:var(--ink)"></ellipse>${[-24,-12,0,12,24].map((dx,k)=>`<circle cx="${p[0]+dx}" cy="${p[1]+(k%2?4:-3)}" r="2.6" fill="${C[(i*4+k)%17]}"></circle>`).join("")}${T(p[0],p[1]+(i<2?-26:34),p[2],"tx","middle")}`).join("")}<rect x="130" y="72" width="60" height="32" class="fi"></rect>${T(160,92,"Arena","txw","middle")}`),
+climates:()=>W(`<ellipse cx="160" cy="88" rx="112" ry="54" class="lnb" style="stroke:var(--ink)" stroke-width="1.2"></ellipse>${[[104,41.2,134.8],[160,34,142],[216,41.2,134.8]].map(l=>`<line x1="${l[0]}" y1="${l[1]}" x2="${l[0]}" y2="${l[2]}" class="ln" stroke-dasharray="2 4"></line>`).join("")}${[[78,"Snow","#26BDE2"],[132,"Forest","#3F7E44"],[188,"Desert","#DDA63A"],[242,"Coast","#0A97D9"]].map((z,i)=>`<circle cx="${z[0]}" cy="78" r="6" fill="${z[2]}" class="a-lit" style="animation-delay:${i*0.7}s;animation-duration:4s"></circle>${T(z[0],102,z[1],"txb","middle")}`).join("")}${T(160,166,"ONE ISLAND, EVERY CLIMATE","tx","middle")}`),
+tiers:()=>W(`${[[22,"FREE","Solo","Local crises","lnb"],[120,"PAID","Global","Raids, buy-in","fi"],[218,"SPONSORED","School","Class events","lnb"]].map((t,i)=>`<g class="a-say" style="animation-delay:${i*0.4}s"><rect x="${t[0]}" y="40" width="80" height="96" class="${t[4]}" style="${t[4]==="lnb"?"stroke:"+(i==2?"var(--acc)":"var(--ink)"):""}"></rect>${T(t[0]+10,60,t[1],t[4]==="fi"?"txw":"tx")}${T(t[0]+10,84,t[2],t[4]==="fi"?"txw":"txb")}${T(t[0]+10,104,t[3],t[4]==="fi"?"txw":"tx")}</g>`).join("")}${T(160,160,"ONE GAME, THREE WAYS IN","tx","middle")}`),
+leaderboard:()=>W(`${T(280,30,"TEAM LEADERBOARD","tx","end")}${[["1","Your team",200,1],["2","Delta",168,0],["3","Harbor",132,0],["4","North",96,0]].map((r,i)=>`${T(40,58+i*28,r[0],"txb")}${T(58,58+i*28,r[1],r[3]?"txb":"tx")}<rect x="132" y="${49+i*28}" width="${r[2]-50}" height="12" class="${r[3]?"fa":"fm"}" style="opacity:${r[3]?1:.45};transform-box:fill-box;transform-origin:left;animation:growx 1.4s ${i*0.15}s ease both"></rect>`).join("")}`),
+overtime:()=>W(`<line x1="40" y1="140" x2="290" y2="140" class="sk"></line><line x1="40" y1="30" x2="40" y2="140" class="sk"></line><line x1="96" y1="34" x2="96" y2="140" class="ln" stroke-dasharray="2 4"></line>${T(100,40,"Plant built")}<path d="M40 122 L96 118 L150 92 L210 74 L284 60" class="sk a-draw" stroke-width="2"></path><path d="M40 62 L96 64 L150 84 L210 108 L284 126" class="a-draw" style="stroke:#E5243B;fill:none;stroke-width:2;animation-delay:.4s"></path><rect x="196" y="28" width="9" height="9" class="fi"></rect>${T(210,36,"Power")}<rect x="196" y="44" width="9" height="9" fill="#E5243B"></rect>${T(210,52,"Biodiversity")}${T(165,160,"EFFECTS BUILD UP OVER TIME","tx","middle")}`),
 classroom:()=>{let s="";for(let i=0;i<8;i++){const x=46+(i%4)*36,y=56+Math.floor(i/4)*44;s+=`<rect x="${x}" y="${y}" width="26" height="18" class="${i<4?"fi":"fm"}" style="opacity:${i<4?1:.5}"></rect>`;}return W(s+T(100,42,"PLAN TEAM","tx","middle")+T(100,150,"CONSEQUENCE TEAM","tx","middle")+`<path d="M200 70 C 240 70, 240 110, 200 110" class="sk a-flow"></path>`+T(250,94,"Swap","txb"))},
 };
 
@@ -1041,12 +1112,12 @@ lab:[
 ]};
 const MODE={hub:"Hub",rapid:"Rapid Response",mini:"Mini games",lab:"Lab"};
 const IDEAS=[
-{id:"idea-avatar",title:"Avatar + social sim scenarios",by:"Teammate pitch",sum:"Make an avatar. Each goal plays out as a scenario with people to talk to. Plot armor powers. Rated, compared with real life, replayable as new events arrive.",art:["avatar","residents","rating","skill"],caps:["Create your avatar","Meet the people","Win or perfect win","Unlock upgrades"],crit:"Critique: needs more specificity and a stronger tie to the goals.",fit:"Avatar and residents in the Hub. Ratings everywhere. Skill tree in Mini games."},
-{id:"idea-islands",title:"Island factions + resource arena",by:"Teammate pitch",sum:"Each island is a faction of about 12. Real climate events hit your island. Send teammates to an arena to win resources. Help other islands, like foreign aid.",art:["places","alert","arena","aid"],caps:["Your faction","A climate event","The arena","Help others"],crit:"Critique: hard to build a starting player base.",fit:"Alliances in Hub multiplayer. The arena in Mini games."},
-{id:"idea-freepaid",title:"Free solo, paid global, school mode",by:"Teammate pitch",sum:"Free local crises solved with upgrades. Paid global events with a buy-in that also age-gates. Raids that need strangers to coordinate. A sponsored school edition. A share of profits to global issues.",art:["alert","respond","negotiate","classroom"],caps:["Local alert","Upgrade to solve","Global raid","School edition"],crit:"Critique: the purpose of multiplayer is unclear.",fit:"Revenue considerations and shared events."},
-{id:"idea-tree",title:"Decision tree of unintended consequences",by:"Eleazar",sum:"One group builds the plan, the other builds what goes wrong. They play each other's version and update. Example: roads, a foreign loan, debt, mining rights.",art:["consequence","classroom","council","data"],caps:["Build the plan","Swap teams","Branch","Update"],crit:"Critique: complex for younger players. The back-and-forth mechanic is the keeper.",fit:"Rapid Response choices and the Lab's consequences round."},
-{id:"idea-mun",title:"Model UN crisis sim",by:"Teammate pitch",sum:"Negotiate policy, react to surprise events, face moral dilemmas. Starts from real current events.",art:["negotiate","alert","council","streak"],caps:["Take a seat","A crisis breaks","Every option costs","Daily triage"],crit:"Critique: may not hook people. Fix: daily triage that builds on past play.",fit:"The policy vote in Rapid Response."},
-{id:"idea-city",title:"City builder with SDG trade-offs",by:"Teammate pitch",sum:"Every build affects the goals. A power plant hurts the ecosystem, and it shows over time.",art:["build","meters","grow","aid"],caps:["Place a build","Goals react","Effects build up","Share at crisis sites"],crit:"Critique: non-physical problems are hard to build.",fit:"The Hub's building layer and goal meters."}
+{id:"idea-avatar",title:"Avatar social sim, rated against reality",by:"Teammate pitch",sum:"Make an avatar and step into scenarios built from real events, with people to talk to. Plot-armor abilities let you try what you couldn't in real life. Win, or perfect win with no hits, for upgrades and skill-tree unlocks. Team co-op, leaderboards, and your result next to what really happened.",crit:"Needs more specificity and a clearer tie to the goals. Risks feeling like games that already exist.",fix:"Make it nonlinear and social. Low skill floor, high skill ceiling. Design for casual players, hobbyists and classrooms.",art:["avatar","residents","rating","leaderboard"],caps:["Create your avatar","Live a real event","Win or perfect win","Team leaderboards"],fit:"Avatar and AI residents in the Hub. Win or perfect win across modes. Skill tree in Mini games."},
+{id:"idea-freepaid",title:"Island management: free solo, paid global, school edition",by:"Teammate pitch",sum:"Run your own island or city and respond to quick-time crisis events. Solo is free and local. Multiplayer is paid and global: one island per player competing in online mini games, or many players on one world against other worlds. The buy-in doubles as an age gate. A sponsored school edition runs its own events, and a share of profits goes to global issues.",crit:"The point of multiplayer is unclear: teams or versus? One small island can't cover all 16 goals.",fix:"Give the island every climate zone, or link many islands with different conditions. Care for NPC residents. Keep upgrades as the free-to-play hook.",art:["build","alert","climates","tiers"],caps:["Manage your island","A quick-time crisis","Every climate","Free, paid, school"],fit:"Hub management and crisis alerts. Revenue options for the business team."},
+{id:"idea-islands",title:"Faction islands and a resource arena",by:"Teammate pitch",sum:"Every island is a faction of about 12 players. Real climate crises hit your island, like an Arctic melt. Your faction sends players to a central arena to win resources in mini games, and factions send aid to each other, like foreign aid.",crit:"Hard to build a starting player base. Solo players may not want factions. Real problems can feel less fun than fantasy party games.",fix:"Add stakes like prizes and skins to get people in, and a home-island management loop to bring them back.",art:["islands","alert","arena","aid"],caps:["Join a faction","A climate crisis","Win in the arena","Send aid"],fit:"Alliances and co-op aid in the Hub. The arena in Mini games."},
+{id:"idea-tree",title:"Decision tree of unintended consequences",by:"Eleazar",sum:"Players build real-world solutions through back-and-forth. One group builds the plan, the other builds what goes wrong. They play each other's version and update. Example: build roads with a foreign loan, the debt grows, mining rights get traded.",crit:"Feels more like a group research project than a game, with a high barrier to entry. Too complex for middle school. Who checks the trees for accuracy and bias?",fix:"Award points for unique or successful ideas. Open with lighter scenarios, like a sports scandal, before harder topics. The back-and-forth is the keeper.",art:["classroom","consequence","council","data"],caps:["Two teams","Plan vs. what goes wrong","Swap and play","Best ideas score"],fit:"Rapid Response choices and the Lab's consequences round."},
+{id:"idea-mun",title:"Model UN crisis sim",by:"Teammate pitch",sum:"Negotiate global policy, respond to surprise events, and face moral dilemmas where every solution has more consequences. Each round starts from current events, and players propose their own solutions.",crit:"May not hold attention or bring people back. No reward system. Not enough people care about solving UN problems.",fix:"Frame problems as ones that affect everyone. Make it a daily crisis triage that builds on your past play, so you never start from zero.",art:["negotiate","alert","council","streak"],caps:["Take a seat","A crisis breaks","Every option costs","Daily triage"],fit:"The policy vote in Rapid Response, and the daily habit loop."},
+{id:"idea-city",title:"City builder with SDG trade-offs",by:"Teammate pitch",sum:"Every build moves the goals. A power plant powers homes but hurts the ecosystem, and you see it in biodiversity and people's well-being. Trade-offs stay visible and build up over time.",crit:"Problems that aren't physical, like education, are hard to solve with buildings. Prefab pieces limit truly new solutions.",fix:"Let players run several cities, add more game modes, and share resources and collaborate at crisis sites.",art:["build","meters","overtime","aid"],caps:["Place a build","The goals react","Effects build up","Help at crisis sites"],fit:"The Hub's building layer and goal meters."}
 ];
 const M=[["Hub",[4,"Real places and residents make it personal."],[3,"Aid, comparisons, Hall nominations."],[5,"Retention and co-op invites."]],
 ["Rapid Response",[4,"One real trade-off a day."],[2,"Shows which choices players lean to."],[5,"Drives daily active users."]],
@@ -1074,15 +1145,15 @@ pitch(){
 },
 ideas(){
   const host=$("ideas");
-  host.innerHTML=IDEAS.map(d=>`<article class="idea"><div class="l"><span class="label">${d.by}</span><h3>${d.title}</h3><p>${d.sum}</p><p>${d.crit}</p><div class="fit"><span class="label">Plugs into</span><br>${d.fit}</div><div><button class="pin" data-t="${d.id}" data-l="Team idea: ${d.title}">Pin</button></div></div><div class="r"><div class="board four">${d.art.map((a,i)=>`<div class="panel">${frame(a,String(i+1).padStart(2,"0"))}<h4 style="font-size:14px">${d.caps[i]}</h4></div>`).join("")}</div></div></article>`).join("");
+  host.innerHTML=IDEAS.map(d=>`<article class="idea"><div class="l"><span class="label">${d.by}</span><h3>${d.title}</h3><p>${d.sum}</p><div class="fit"><span class="label">Why it could fail</span><br>${d.crit}</div><div class="fit"><span class="label">How to make it work</span><br>${d.fix}</div><div class="fit"><span class="label">Plugs into</span><br>${d.fit}</div><div><button class="pin" data-t="${d.id}" data-l="Team idea: ${d.title}">Pin</button></div></div><div class="r"><div class="board four">${d.art.map((a,i)=>`<div class="panel">${frame(a,String(i+1).padStart(2,"0"))}<h4 style="font-size:14px">${d.caps[i]}</h4></div>`).join("")}</div></div></article>`).join("");
   hydrateFrames(host);dressPins(host);
 }
 };
 ART.mp=()=>`<svg viewBox="0 0 320 200" aria-hidden="true"><circle cx="160" cy="100" r="78" class="ln" stroke-dasharray="3 5"></circle><circle cx="160" cy="100" r="28" class="fi"></circle><text x="160" y="104" class="txw" text-anchor="middle">You</text>${[[80,48,"Friend"],[246,60,"Friend"],[70,150,"Ally"],[250,150,"Ally"],[160,18,"Ally"]].map((p,i)=>`<path d="M${p[0]} ${p[1]} L160 100" class="ska a-flow" style="animation-delay:${i*0.3}s"></path><circle cx="${p[0]}" cy="${p[1]}" r="17" class="lnb" style="stroke:var(--ink)"></circle><text x="${p[0]}" y="${p[1]+4}" class="txb" text-anchor="middle">${p[2]}</text>`).join("")}</svg>`;
 
 /* ================= routing ================= */
-const VIEWS=["pitch","ideas","timeline","team","deliverables","personas","stakeholders","hmw","foursets","questions","board"];
-const VIEW_COLS={pitch:["people"],ideas:["people","ideas"],timeline:["people","tasks"],team:["people","roles"],deliverables:["people","deliverables"],personas:["people","personas"],stakeholders:["people","stakeholders"],hmw:["people","hmw"],foursets:["people","foursets"],questions:["people","questions"],board:["people"]};
+const VIEWS=["pitch","ideas","timeline","team","deliverables","personas","stakeholders","hmw","foursets","questions","board","values","intel"];
+const VIEW_COLS={pitch:["people"],ideas:["people","ideas"],timeline:["people","tasks"],team:["people","roles"],deliverables:["people","deliverables"],personas:["people","personas"],stakeholders:["people","stakeholders"],hmw:["people","hmw"],foursets:["people","foursets"],questions:["people","questions"],board:["people"],values:["people","values"],intel:["people","intelligences"]};
 const done={};let curView="pitch";
 function route(){
   const h=(location.hash||"#pitch").slice(1);const v=VIEWS.includes(h)?h:"pitch";curView=v;
@@ -1206,7 +1277,7 @@ async function resolveNames(){
     if(S.me)$("whoami").textContent="Signed in as "+(S.names[S.me]||"you");
     VIEWS.forEach(v=>{if(done[v])VIEW_COLS[v].forEach(renderCol);});}catch(_){}
 }
-function nameOf(id){if(!id)return "Unknown";if(id==="seed")return "Starter entry";return (S.names[id]||"Teammate")+(id===S.me?" (you)":"");}
+function nameOf(id){if(!id)return "Unknown";if(id==="seed")return "Starter cleanup";return (S.names[id]||"Teammate")+(id===S.me?" (you)":"");}
 const FBM=!!window.FB;
 function gateMsg(){
   if(FBM){if(S.fbReason==="signedout")return "Sign in with Google to see and edit the team boards.";if(S.fbReason==="notonteam")return "Your email isn't on the team list yet. Ask James to add it.";if(S.fbReason==="sdkfail")return "Couldn't load the sign-in service. Check your connection and refresh.";}
@@ -1261,16 +1332,41 @@ function renderPins(){
 }
 
 /* ================= shared boards ================= */
+const PEOPLE=[["James Fitchett","Project manager"],["Gray Siegler","Co-design lead, technical"],["Julia Schnittger","Co-design lead, creative"],["Eleazar Reiner","Scenarios and levels"],["Ashrita Sagar","Art and world"],["Mark Sangkharat","Trailer and playtest"],["Colin Larkin","Co-business lead, pricing"],["Henry Carey","Co-business lead, market"],["Prof. Kevin Jones","Advisor"],["Dr. Mike Kretser","Advisor"]];
+const hashS=t=>{let h=2166136261;for(const ch of String(t||""))h=Math.imul(h^ch.charCodeAt(0),16777619);return h>>>0;};
+function monogram(name){const parts=String(name).replace(/^(Prof\.|Dr\.)\s*/,"").split(/\s+/).filter(Boolean);const ini=((parts[0]||"")[0]||"")+((parts[parts.length-1]||"")[0]||"");const c=C[hashS(name)%17];
+  return `<svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="25" fill="none" stroke="${c}" stroke-width="2"></circle><text x="26" y="31" text-anchor="middle" style="font:500 15px var(--sans,system-ui);fill:var(--ink)">${ini.toUpperCase()}</text></svg>`;}
+const SKIN={Light:"#F1D3B5",Medium:"#D9A97C",Tan:"#B9845A",Brown:"#8A5A36",Deep:"#5A3825"};
+const HAIRC={Black:"#1E1E1E",Brown:"#5B3A22",Blonde:"#D8B260",Red:"#A3472A",Gray:"#B9B9B6"};
+const OUTFIT={Red:"#E5243B",Gold:"#DDA63A",Green:"#4C9F38",Teal:"#26BDE2",Blue:"#0A97D9",Navy:"#19486A",Orange:"#FD6925",Magenta:"#DD1367"};
+function character(v){
+  const h=hashS(v.name);const pickA=(val,list,k)=>val&&val!=="Auto"?val:list[(h>>>k)%list.length];
+  const older=/\b([5-9]\d)\b|retire|grand|older/i.test(v.segment||"");
+  const skin=SKIN[pickA(v.skin,Object.keys(SKIN),1)];const hair=pickA(v.hair,["Short","Long","Curly","Bun","Short","Long","Cap"],4);
+  const hc=HAIRC[v.hairColor&&v.hairColor!=="Auto"?v.hairColor:(older?"Gray":["Black","Brown","Black","Blonde","Brown","Red"][(h>>>8)%6])];
+  const oc=OUTFIT[pickA(v.color,Object.keys(OUTFIT),12)];
+  let back="",front="";
+  if(hair==="Long")back=`<path d="M19 30 C18 14 46 14 45 30 L46 47 Q41 49 39 45 L39 30 L25 30 L25 45 Q23 49 18 47 Z" fill="${hc}"></path>`;
+  if(hair==="Covered")back=`<path d="M17 36 C15 13 49 13 47 36 L48 50 L16 50 Z" fill="${oc}" opacity=".85"></path>`;
+  if(hair==="Short"||hair==="Long"||hair==="Bun")front=`<path d="M20.5 28 C20 16 44 16 43.5 28 C40 21.5 24 21.5 20.5 28 Z" fill="${hc}"></path>`;
+  if(hair==="Bun")front+=`<circle cx="32" cy="13" r="5" fill="${hc}"></circle>`;
+  if(hair==="Curly")front=[[23,21],[29,17],[35,17],[41,21],[20.5,27],[43.5,27]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="${hc}"></circle>`).join("");
+  if(hair==="Cap")front=`<path d="M20.5 26 C20 14 44 14 43.5 26 Z" fill="${oc}"></path><rect x="32" y="23.5" width="17" height="3" rx="1.5" fill="${oc}"></rect>`;
+  const r=hair==="Covered"?10:11;
+  return `<svg class="cav" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="var(--paper)" stroke="var(--line)"></circle>${back}<path d="M13 61 C14 47 23 42 32 42 C41 42 50 47 51 61 Z" fill="${oc}"></path><rect x="29" y="36" width="6" height="7" fill="${skin}"></rect><circle cx="32" cy="28" r="${r}" fill="${skin}"></circle>${front}<circle cx="28" cy="29" r="1.1" fill="#1E1E1E"></circle><circle cx="36" cy="29" r="1.1" fill="#1E1E1E"></circle></svg>`;
+}
 const SCHEMA={
-personas:{title:"Persona",t:"name",group:"type",groups:["Player","Buyer or gatekeeper","Partner"],fields:[["name","Name and one-line label","text"],["type","Type","select",["Player","Buyer or gatekeeper","Partner"]],["segment","Age and segment","text"],["who","Who they are","area"],["wants","What they want","area"],["frustrations","What turns them off","area"],["hook","Mode that hooks them","select",["Hub","Rapid Response","Mini games","The Lab","Not a player"]],["quote","In their words","text"]]},
+personas:{title:"Persona",t:"name",group:"type",groups:["Player","Buyer or gatekeeper","Partner"],fields:[["name","Name and one-line label","text"],["type","Type","select",["Player","Buyer or gatekeeper","Partner"]],["segment","Age and segment","text"],["who","Who they are","area"],["wants","What they want","area"],["frustrations","What turns them off","area"],["hook","Mode that hooks them","select",["Hub","Rapid Response","Mini games","The Lab","Not a player"]],["quote","In their words","text"],["skin","Character: skin","select",["Auto","Light","Medium","Tan","Brown","Deep"]],["hair","Character: hair","select",["Auto","Short","Long","Curly","Bun","Covered","Cap","None"]],["hairColor","Character: hair color","select",["Auto","Black","Brown","Blonde","Red","Gray"]],["color","Character: outfit color","select",["Auto","Red","Gold","Green","Teal","Blue","Navy","Orange","Magenta"]]]},
 stakeholders:{title:"Stakeholder",t:"name",group:"group",groups:["Team and school","Players and families","Education","Impact partners","Communities we depict","Industry and platforms","Funding","Policy and regulation"],fields:[["name","Name","text"],["group","Group","select",["Team and school","Players and families","Education","Impact partners","Communities we depict","Industry and platforms","Funding","Policy and regulation"]],["interest","What they care about","area"],["need","What we need from them","area"],["influence","Influence","select",["High","Medium","Low"]],["owner","Team owner","text"]]},
-roles:{title:"Team member",t:"name",group:"team",groups:["Project management","Design team","Business team"],fields:[["name","Name","text"],["role","Role","text"],["team","Team","select",["Project management","Design team","Business team"]],["owns","Owns","area"],["deliverables","Key deliverables and dates","area"],["outlook","Where this role is headed","area"],["advisor","Advisor (if specific)","text"]]},
+roles:{title:"Team member",t:"name",group:"team",groups:["Project management","Design team","Business team","Advisors"],fields:[["name","Name","text"],["role","Role","text"],["team","Team","select",["Project management","Design team","Business team","Advisors"]],["owns","Owns","area"],["deliverables","Key deliverables and dates","area"],["outlook","Where this role is headed","area"],["advisor","Advisor (if specific)","text"]]},
 deliverables:{title:"Deliverable",t:"name",fields:[["name","Deliverable","text"],["order","Order (1, 2, 3...)","text"],["what","What it is","area"],["why","Why it matters","area"],["doneLooks","Done looks like","area"],["owners","Owners","text"],["due","Due","date"],["status","Status","select",["Not started","In progress","Done","At risk"]]]},
 tasks:{title:"Task",t:"name",fields:[["name","Task","text"],["owner","Owner","text"],["team","Team","select",["All hands","Design team","Business team","Project management"]],["start","Start","date"],["end","End","date"],["kind","Type","select",["Task","Milestone"]],["status","Status","select",["Planned","In progress","Done","At risk"]]]},
 hmw:{title:"How might we",t:"statement",fields:[["statement","How might we...","text"],["goal","Company goal it serves","select",["1 / Make people feel it","2 / Turn play into action","3 / Scale to fund it","Cross-cutting"]],["source","Source","text"],["notes","Notes","area"]]},
 foursets:{title:"Four Sets entry",t:"text",group:"set",groups:["Desirability","Feasibility","Viability","Sustainability"],fields:[["set","Set","select",["Desirability","Feasibility","Viability","Sustainability"]],["kind","Type","select",["Hypothesis","Evidence","Risk","Test to run"]],["text","Entry","area"],["owner","Owner","text"]]},
 questions:{title:"Question",t:"question",group:"status",groups:["Open","Decided"],fields:[["question","Question","text"],["context","Context","area"],["owner","Owner","text"],["status","Status","select",["Open","Decided"]],["answer","Answer or decision","area"]]},
-ideas:{title:"Idea",t:"title",fields:[["title","Idea","text"],["pitchedBy","Pitched by","text"],["summary","Summary","area"],["fit","Where it plugs into the Hub","area"]]}
+ideas:{title:"Idea",t:"title",fields:[["title","Idea","text"],["pitchedBy","Pitched by","text"],["summary","Summary","area"],["fit","Where it plugs into the Hub","area"]]},
+values:{title:"Value",t:"text",fields:[["kind","Type","select",["Core value","Problem statement","Mission","Vision","Value statement","Objective"]],["title","Short name (values and objectives)","text"],["text","Statement","area"],["note","In practice, or how we measure it","area"],["status","Status","select",["Draft","Agreed"]],["order","Order (1, 2, 3...)","text"]]},
+intelligences:{title:"Intelligence",t:"name",fields:[["person","Whose","select",PEOPLE.map(p=>p[0]).concat(["Someone else"])],["name","Intelligence (a word or two)","text"],["line","In one line","text"],["story","Where it comes from","area"],["order","Order (1, 2, 3...)","text"]]}
 };
 const FIELDKEYS=c=>SCHEMA[c].fields.map(f=>f[0]);
 const pick=(c,v)=>{const o={};FIELDKEYS(c).forEach(k=>{o[k]=norm(v&&v[k]);});return o;};
@@ -1368,7 +1464,8 @@ function actions(col,id,v){
 function card(col,id,v,o){
   const c=el("div","c"+(v.__pending?" pending":"")+(v.deleted?" deleted":""));
   if(o.meta){const m=el("div","meta");o.meta.forEach(x=>{if(x)m.appendChild(el("span","label",x));});c.appendChild(m);}
-  c.appendChild(el("h4",null,esc(v[o.title||SCHEMA[col].t])));
+  const h4=el("h4",null,esc(v[o.title||SCHEMA[col].t]));
+  if(o.avatar){const hd=el("div","chead");hd.insertAdjacentHTML("beforeend",o.avatar);hd.appendChild(h4);c.appendChild(hd);}else c.appendChild(h4);
   if(o.quote&&v[o.quote])c.appendChild(el("q",null,esc(v[o.quote])));
   (o.fields||[]).forEach(([k,lab])=>{if(!v[k])return;const f=el("div","f");f.appendChild(el("span",null,lab));f.appendChild(document.createTextNode(esc(v[k])));c.appendChild(f);});
   c.appendChild(el("span","stamp",stamp(v)));c.appendChild(actions(col,id,v));return c;
@@ -1398,8 +1495,44 @@ grouped(col,label,opts){
 }
 };
 const RENDER={
+values(){
+  const col="values",host=document.querySelector('[data-list="values"]');if(!host)return;host.textContent="";const {live,del}=listItems(col);statusLine(col,live.length,"item");
+  if(!live.length&&S.subs[col]==="live")emptyBox(host,"Nothing here yet. Add the first one.");
+  const ord=(a,b)=>(parseFloat(a[1].order)||99)-(parseFloat(b[1].order)||99)||(a[1].at||0)-(b[1].at||0);
+  const of=k=>live.filter(([,v])=>(v.kind||"Core value")===k).sort(ord);
+  const STM=["Problem statement","Mission","Vision","Value statement"];
+  const stm=STM.flatMap(of);
+  if(stm.length){const box=el("div");stm.forEach(([id,v])=>{const r=el("div","vrow"+(v.__pending?" pending":""));
+    const k=el("div","k");k.appendChild(el("span","label",esc(v.kind)));const st=el("span","vstate",esc(v.status||"Draft"));st.dataset.v=v.status||"Draft";k.appendChild(st);r.appendChild(k);
+    const m=el("div");m.appendChild(el("p","mission",esc(v.text)));if(v.note)m.appendChild(el("p","note",esc(v.note)));r.appendChild(m);
+    const sd=el("div","side3");sd.appendChild(el("span","stamp",stamp(v)));const ac=actions(col,id,v);ac.classList.add("compact");sd.appendChild(ac);r.appendChild(sd);box.appendChild(r);});host.appendChild(box);}
+  const obj=of("Objective");
+  if(obj.length){const hd=el("div","vhead");hd.appendChild(el("h2",null,"Objectives"));hd.appendChild(el("span","label","What we measure ourselves by"));host.appendChild(hd);
+    const g=el("div","goals");obj.forEach(([id,v],i)=>{const d=el("div","goal"+(v.__pending?" pending":""));d.appendChild(el("span","k",String(i+1)));d.appendChild(el("b",null,esc(v.title)));d.appendChild(el("p",null,esc(v.text)));if(v.note)d.appendChild(el("span","meas","Measured by: "+esc(v.note)));const st=el("span","vstate",esc(v.status||"Draft"));st.dataset.v=v.status||"Draft";st.style.alignSelf="flex-start";d.appendChild(st);d.appendChild(el("span","stamp",stamp(v)));const a=actions(col,id,v);a.classList.add("compact");d.appendChild(a);g.appendChild(d);});host.appendChild(g);}
+  const cv=of("Core value");
+  const hd=el("div","vhead");hd.appendChild(el("h2",null,"Core values"));const ab=el("button","btn small","Add a core value");ab.type="button";ab.addEventListener("click",()=>openEntry(col,null,{kind:"Core value"}));hd.appendChild(ab);host.appendChild(hd);
+  if(!cv.length)emptyBox(host,"No core values yet.");
+  else{const box=el("div","cv");cv.forEach(([id,v],i)=>{const r=el("div","cvrow"+(v.__pending?" pending":""));r.appendChild(el("span","n",String(i+1).padStart(2,"0")));
+    const m=el("div");m.appendChild(el("h4",null,esc(v.title||v.text)));if(v.title)m.appendChild(el("p",null,esc(v.text)));if(v.note)m.appendChild(el("p","ip","In practice: "+esc(v.note)));r.appendChild(m);
+    const sd=el("div","side3");const st=el("span","vstate",esc(v.status||"Draft"));st.dataset.v=v.status||"Draft";sd.appendChild(st);sd.appendChild(el("span","stamp",stamp(v)));const ac=actions(col,id,v);ac.classList.add("compact");sd.appendChild(ac);r.appendChild(sd);box.appendChild(r);});host.appendChild(box);}
+  deletedToggle(col,host,del);dressPins(host);
+},
+intelligences(){
+  const col="intelligences",host=document.querySelector('[data-list="intelligences"]');if(!host)return;host.textContent="";const {live,del}=listItems(col);statusLine(col,live.length,["intelligence","intelligences"]);
+  const by={};live.forEach(([id,v])=>{(by[v.person||"Someone else"]=by[v.person||"Someone else"]||[]).push([id,v]);});
+  const ppl=PEOPLE.slice();Object.keys(by).forEach(n=>{if(!ppl.some(p=>p[0]===n))ppl.push([n,n==="Someone else"?"Not yet assigned":"Team"]);});
+  const grid=el("div","pi");
+  ppl.forEach(([name,role])=>{const p=el("section","pp");const w=el("div","who");w.insertAdjacentHTML("beforeend",monogram(name));const t=el("div");t.appendChild(el("b",null,name));t.appendChild(el("span",null,role));w.appendChild(t);p.appendChild(w);
+    const items=(by[name]||[]).sort((a,b)=>(parseFloat(a[1].order)||99)-(parseFloat(b[1].order)||99)||(a[1].at||0)-(b[1].at||0));
+    if(!items.length)p.appendChild(el("p","none","Nothing yet. What lens do you bring?"));
+    else{const box=el("div","ints");items.forEach(([id,v])=>{const it=el("div","int"+(v.__pending?" pending":""));it.appendChild(el("h4",null,esc(v.name)));
+      if(v.line)it.appendChild(el("p","line",esc(v.line)));if(v.story)it.appendChild(el("p","story",esc(v.story)));if(!v.line&&!v.story)it.appendChild(el("p","ask","Add a line on what this means to you."));
+      it.appendChild(el("span","stamp",stamp(v)));const a=actions(col,id,v);a.classList.add("compact");it.appendChild(a);box.appendChild(it);});p.appendChild(box);}
+    const add=el("button","btn small","Add to "+name.replace(/^(Prof\.|Dr\.)\s*/,"").split(" ")[0]);add.type="button";add.style.alignSelf="flex-start";add.addEventListener("click",()=>openEntry(col,null,{person:name}));p.appendChild(add);grid.appendChild(p);});
+  host.appendChild(grid);deletedToggle(col,host,del);dressPins(host);
+},
 people(){renderPins();statusLine("people",allPins().length,"comment");},
-personas(){R.grouped("personas","persona",{card:v=>({meta:[v.segment,v.hook],quote:"quote",fields:[["who","Who they are"],["wants","What they want"],["frustrations","What turns them off"]]})});},
+personas(){R.grouped("personas","persona",{card:v=>({avatar:character(v),meta:[v.segment,v.hook],quote:"quote",fields:[["who","Who they are"],["wants","What they want"],["frustrations","What turns them off"]]})});},
 stakeholders(){R.grouped("stakeholders","stakeholder",{card:v=>({meta:["Influence: "+(v.influence||"?"),v.owner?"Owner: "+v.owner:""],fields:[["interest","What they care about"],["need","What we need from them"]]})});},
 roles(){R.grouped("roles",["person","people"],{card:v=>({meta:[v.role,v.advisor?"Advisor: "+v.advisor:""],fields:[["owns","Owns"],["deliverables","Key deliverables"],["outlook","Where it's headed"]]})});},
 questions(){R.grouped("questions","question",{sort:(a,b)=>(b[1].at||0)-(a[1].at||0),card:v=>({meta:[v.owner?"Owner: "+v.owner:"No owner yet"],fields:[["context","Context"],["answer","Decision"]]})});},
@@ -1486,7 +1619,9 @@ route();setSync();
     $("fb-signin").hidden=c.reason!=="signedout";$("fb-signout").hidden=c.reason==="signedout"||c.reason==="sdkfail";$("fb-access").hidden=!c.admin;
     if(window.__fbLinkError)toast("Sign-in didn't finish. Try again.");
     if(c.reason==="notonteam"){toast("You're signed in as "+c.email+", but that email isn't on the team list yet. Ask James to add it.");}
-    if(c.reason==="ok"&&c.admin){(async()=>{try{const r=await fetch("seeds.json",{cache:"no-store"});if(!r.ok)return;const data=await r.json();const lines=[];await window.FB.seed(data,m=>lines.push(m));const added=lines.filter(x=>/ added/.test(x));if(added.length)toast("Loaded starter content: "+added.join(", ")+".");}catch(_){}})();}
+    if(c.reason==="ok"&&c.admin){(async()=>{try{const r=await fetch("seeds.json",{cache:"no-store"});if(!r.ok)return;const data=await r.json();const lines=[];await window.FB.seed(data,m=>lines.push(m));const added=lines.filter(x=>/ added/.test(x));
+      const ver=(data.__meta&&data.__meta.version)||0;let upd=[];if(ver>lsGet("17sg.seedv",0)){upd=await window.FB.migrate(data);lsSet("17sg.seedv",ver);}
+      const msg=[added.length?"Loaded starter content: "+added.join(", ")+".":"",upd.length?"Updated untouched starter entries: "+upd.join("; ")+". Anything a teammate edited was left alone.":""].filter(Boolean).join(" ");if(msg)toast(msg);}catch(_){}})();}
     if(c.reason!=="ok"){fail();$("whoami").textContent=c.reason==="notonteam"?c.email+" (not on team list)":c.reason==="sdkfail"?"Sign-in unavailable":"Not signed in";return;}}
   if(!window.claude||!window.claude.use){fail();return;}
   try{S.user=await window.claude.use("user");}catch(_){S.user=null;}
