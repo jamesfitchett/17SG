@@ -196,7 +196,7 @@ table.m td b{font-weight:500}
 .c .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
 .c q{font-size:15px;font-style:italic;color:var(--ink)}
 .kind{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
-.kind.keep{color:var(--rr)}.kind.rethink{color:var(--warn)}
+.kind.note{color:var(--muted)}.kind.keep{color:var(--rr)}.kind.rethink{color:var(--warn)}
 .empty{padding:28px;border:1px dashed var(--line);color:var(--muted);font-size:15px}
 .groupname{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:28px 0 10px}
 
@@ -405,7 +405,7 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
     <div class="navgroup"><span class="g">Pitch</span><a href="#pitch">Hub</a><a href="#ideas">Ideas</a></div>
     <div class="navgroup"><span class="g">Plan</span><a href="#timeline">Timeline</a><a href="#team">Team</a><a href="#deliverables">Deliverables</a></div>
     <div class="navgroup"><span class="g">Research</span><a href="#personas">Personas</a><a href="#stakeholders">Stakeholders</a><a href="#hmw">How might we</a><a href="#foursets">Four Sets</a></div>
-    <div class="navgroup"><span class="g">Discuss</span><a href="#questions">Questions</a><a href="#board">Pins</a></div>
+    <div class="navgroup"><span class="g">Discuss</span><a href="#questions">Questions</a><a href="#board">Comments</a></div>
   </div></nav>
 </header>
 <main class="view" id="v-pitch">
@@ -414,7 +414,7 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
   <div class="gridbg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="t">
-      <div class="label">17SG / IncUB8 / UH 4504 / Working draft, Nov 2026</div>
+      <div class="label">17SG / Inc.ub8 / UH 4504 / Working draft, Nov 2026</div>
       <h1>Real places.<br>Real crises.<br>Your community.</h1>
       <p class="lede">A PC game where you look after a real community, talk to the people who live there, and respond when the world actually changes.</p>
       <div class="status-row">
@@ -433,7 +433,7 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
     <div class="h"><div class="label">Start here</div><h2 id="howto-h">How to use this site</h2></div>
     <ol>
       <li><b>01</b><span>Read the Pitch top to bottom. About 10 minutes.</span></li>
-      <li><b>02</b><span>Press <strong>Pin</strong> on anything. Mark it Must keep or Rethink, and say why.</span></li>
+      <li><b>02</b><span>Press <strong>Comment</strong> on anything. Leave a thought, or mark it Must keep or Rethink.</span></li>
       <li><b>03</b><span>Add to the <strong>Plan</strong>, <strong>Research</strong> and <strong>Discuss</strong> tabs. Everything saves automatically and shows who added it.</span></li>
       <li><b>04</b><span>Watch the status in the top right: <strong>Saving</strong>, <strong>All changes saved</strong>, or <strong>Offline</strong>. Every edit keeps a version you can restore.</span></li>
     </ol>
@@ -727,13 +727,19 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
 
 <!-- ================= TEAM ================= -->
 <main class="view" id="v-team">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / roles set Nov 2, reassess after winter break</div><h1>Team</h1><p>Who owns what. Design meets Mondays 8 to 9 PM, business Wednesdays 8 to 9 PM, all-hands Thursdays.</p></div><div class="r"><button class="btn solid" data-add="roles">Add a person</button></div></div></section>
-  <section class="pbody"><div class="wrap"><p class="status" data-stline="roles"></p><div data-list="roles"></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / roles set Nov 2, reassessed after winter break</div><h1>Team</h1><p>Who owns what. Prof. Kevin Jones and Dr. Mike Kretser advise the whole team, business and design. Design meets Mondays 8 to 9 PM, business Wednesdays 8 to 9 PM, all-hands Thursdays.</p></div><div class="r"><button class="btn solid" data-add="roles">Add a person</button></div></div></section>
+  <section class="pbody"><div class="wrap">
+    <div class="spec three" style="border-top:1px solid var(--ink)">
+      <div class="cell"><span class="label">Where we're headed</span><h4>Two teams, one game</h4><p>Design builds the prototype and trailer. Business builds the plan that turns it into a venture. James connects the two.</p></div>
+      <div class="cell"><span class="label">After this phase</span><h4>Roles shift after winter break</h4><p>Eleazar moves to the business team, bringing deep design context and staying close to the design team.</p></div>
+      <div class="cell"><span class="label">Advisors</span><h4>Prof. Jones and Dr. Kretser</h4><p>They advise both teams and the overall direction, not one subteam each.</p></div>
+    </div>
+    <p class="status" data-stline="roles"></p><div data-list="roles"></div></div></section>
 </main>
 
 <!-- ================= DELIVERABLES ================= -->
 <main class="view" id="v-deliverables">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / end of semester</div><h1>Deliverables</h1><p>The three things we ship this semester, what done looks like, and who owns them.</p></div><div class="r"><button class="btn solid" data-add="deliverables">Add a deliverable</button></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / end of semester</div><h1>Deliverables</h1><p>Four core deliverables this semester. The business plan comes first: it's what turns a game idea into a venture that judges, partners and funders can back.</p></div><div class="r"><button class="btn solid" data-add="deliverables">Add a deliverable</button></div></div></section>
   <section class="pbody"><div class="wrap"><p class="status" data-stline="deliverables"></p><div data-list="deliverables"></div></div></section>
 </main>
 
@@ -769,30 +775,31 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
 
 <!-- ================= BOARD ================= -->
 <main class="view" id="v-board">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Discuss / every pin, live</div><h1>Pin board</h1><p>Every pin from every teammate, across the whole site. Add +1 to agree.</p></div><div class="r"><button class="btn solid" id="newpin">Add a general pin</button></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Discuss / every comment, live</div><h1>Comments</h1><p>Every comment from every teammate, across the whole site, newest first. Add +1 to agree.</p></div><div class="r"><button class="btn solid" id="newpin">Add a general comment</button></div></div></section>
   <section class="pbody"><div class="wrap">
     <div class="bar"><div class="filters" role="group" aria-label="Filter pins">
-      <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="keep">Must keep</button><button aria-pressed="false" data-f="rethink">Rethink</button><button aria-pressed="false" data-f="top">Most +1s</button>
+      <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="note">Comments</button><button aria-pressed="false" data-f="keep">Must keep</button><button aria-pressed="false" data-f="rethink">Rethink</button><button aria-pressed="false" data-f="top">Most +1s</button>
     </div><span class="status" data-stline="people"></span></div>
     <div class="cards" id="pinlist"></div>
   </div></section>
 </main>
 
-<footer><div class="wrap"><span>17SG / IncUB8 / UH 4504 / Virginia Tech</span><span>Team values: Responsibility / Artistry / Discipline / Process</span></div></footer>
+<footer><div class="wrap"><span>17SG / Inc.ub8 / UH 4504 / Virginia Tech</span><span>Team values: Responsibility / Artistry / Discipline / Process</span></div></footer>
 
 <!-- pin dialog -->
 <div class="scrim" id="pinscrim" role="dialog" aria-modal="true" aria-labelledby="pin-h">
   <form class="dlg" id="pinform" novalidate>
-    <div class="label" id="pin-target">Pinning</div>
-    <h3 id="pin-h">Pin this</h3>
-    <div class="seg" role="radiogroup" aria-label="Pin type">
-      <label for="k-keep"><input type="radio" name="kind" id="k-keep" value="keep" checked> Must keep</label>
+    <div class="label" id="pin-target">Commenting on</div>
+    <h3 id="pin-h">Leave a comment</h3>
+    <div class="seg" role="radiogroup" aria-label="Comment type">
+      <label for="k-note"><input type="radio" name="kind" id="k-note" value="note" checked> Comment</label>
+      <label for="k-keep"><input type="radio" name="kind" id="k-keep" value="keep"> Must keep</label>
       <label for="k-rethink"><input type="radio" name="kind" id="k-rethink" value="rethink"> Rethink</label>
     </div>
-    <div class="field"><label class="label" for="pin-note">Why</label><textarea id="pin-note" maxlength="600" placeholder="This is my number one because..."></textarea></div>
+    <div class="field"><label class="label" for="pin-note">Your comment</label><textarea id="pin-note" maxlength="600" placeholder="What do you think? If it's a must-keep, say why."></textarea></div>
     <p class="draftnote" id="pin-draft"></p>
     <p class="err" id="pin-err"></p>
-    <div class="btns"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn solid" id="pin-save">Save pin</button></div>
+    <div class="btns"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn solid" id="pin-save">Post comment</button></div>
   </form>
 </div>
 
@@ -834,11 +841,9 @@ header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;h
   <form class="dlg" id="signform" novalidate>
     <div class="label">17SG team workspace</div>
     <h3 id="sign-h">Sign in</h3>
-    <p class="muted" style="font-size:15px">We'll email you a one-tap sign-in link. No password. Only emails on the team list can get in.</p>
-    <div class="field"><label class="label" for="sign-name">Your name</label><input id="sign-name" type="text" autocomplete="name" maxlength="80"></div>
-    <div class="field"><label class="label" for="sign-email">Email</label><input id="sign-email" type="email" autocomplete="email" maxlength="160"></div>
+    <p class="muted" style="font-size:15px">Use your Google account. Only emails on the team list can get in. If you're not on it yet, ask James.</p>
     <p class="err" id="sign-err"></p>
-    <div class="btns"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn solid" id="sign-send">Email me a link</button></div>
+    <div class="btns"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn solid" id="sign-send">Continue with Google</button></div>
   </form>
 </div>
 <div class="scrim" id="accessscrim" role="dialog" aria-modal="true" aria-labelledby="acc-h">
@@ -915,27 +920,22 @@ function userApi(u,onTeam){return{
 
 const ctx=(async()=>{
   try{await sdk;}catch(e){return {reason:"sdkfail"};}
-  if(auth.isSignInWithEmailLink(location.href)){
-    let email=lsg(EKEY);
-    if(!email)email=window.prompt("Confirm your email to finish signing in")||"";
-    try{await auth.signInWithEmailLink(email.trim(),location.href);}catch(e){window.__fbLinkError=(e&&e.code)||"error";}
-    try{history.replaceState(null,"",location.pathname+location.hash);}catch(_){}
-  }
+  try{await auth.getRedirectResult();}catch(e){window.__fbLinkError=(e&&e.code)||"error";}
   const u=await new Promise(res=>{const un=auth.onAuthStateChanged(x=>{un();res(x);});});
   if(!u)return {reason:"signedout"};
   const email=(u.email||"").toLowerCase();
   let onTeam=ADMINS.includes(email);
   if(!onTeam){try{const s=await fs.doc("config/access").get();onTeam=!!(s.exists&&(s.data().emails||[]).map(x=>String(x).toLowerCase().trim()).includes(email));}catch(_){onTeam=false;}}
   if(!onTeam)return {reason:"notonteam",email,user:userApi(u,false)};
-  const nm=lsg(NKEY);
-  try{const ref=fs.doc("users/"+u.uid);const s=await ref.get();if(!s.exists||nm){await ref.set({name:(nm||(s.exists&&s.data().name)||email.split("@")[0]),email},{merge:true});}lsd(NKEY);}catch(_){}
+  try{const ref=fs.doc("users/"+u.uid);const s=await ref.get();const nm=u.displayName||(s.exists&&s.data().name)||email.split("@")[0];if(!s.exists||s.data().name!==nm){await ref.set({name:nm,email},{merge:true});}}catch(_){}
   return {reason:"ok",email,user:userApi(u,true),db:dbApi,admin:ADMINS.includes(email)};
 })();
 window.claude={use:n=>ctx.then(c=>n==="db"?(c.db||null):n==="user"?(c.user||null):null)};
 window.FB={
   ctx,
-  async sendLink(email,name){await sdk;email=email.trim().toLowerCase();lss(EKEY,email);if(name)lss(NKEY,name.trim());
-    await auth.sendSignInLinkToEmail(email,{url:location.origin+location.pathname,handleCodeInApp:true});},
+  async signInGoogle(){await sdk;const p=new firebase.auth.GoogleAuthProvider();p.setCustomParameters({prompt:"select_account"});
+    try{await auth.signInWithPopup(p);}catch(e){const c=e&&e.code;if(c==="auth/popup-blocked"||c==="auth/operation-not-supported-in-this-environment"){await auth.signInWithRedirect(p);return;}if(c==="auth/popup-closed-by-user"||c==="auth/cancelled-popup-request")return "cancelled";throw e;}
+    location.reload();},
   async signOut(){await sdk;await auth.signOut();location.reload();},
   async getAccess(){await sdk;const s=await fs.doc("config/access").get();return s.exists?(s.data().emails||[]):[];},
   async setAccess(list){await sdk;await fs.doc("config/access").set({emails:list,updatedAt:Date.now()});},
@@ -976,24 +976,24 @@ places:()=>W(`<circle cx="160" cy="92" r="64" class="lnb"></circle><ellipse cx="
 rename:()=>W(`<rect x="40" y="34" width="240" height="112" class="lnb"></rect><line x1="40" y1="64" x2="280" y2="64" class="ln"></line>${T(52,54,"REAL")}${T(170,54,"IN GAME")}${T(52,82,"[Real city]","txb")}<path d="M140 79 L160 79" class="ska a-flow"></path>${T(170,82,"[New name]","txb")}${T(52,106,"Climate")}${T(170,106,"Same","txb")}${T(52,128,"Politics")}${T(170,128,"Same, renamed","txb")}`),
 avatar:()=>W(`<circle cx="120" cy="66" r="18" class="lnb" stroke-width="1.6" style="stroke:var(--ink)"></circle><path d="M86 136 a34 34 0 0 1 68 0 z" class="lnb" stroke-width="1.6" style="stroke:var(--ink)"></path>${[0,1,2,3].map(i=>`<rect x="${198+(i%2)*36}" y="${50+Math.floor(i/2)*40}" width="24" height="24" fill="${C[[0,5,9,13][i]]}" class="a-lit" style="animation-delay:${i*1.2}s;animation-duration:4.8s"></rect>`).join("")}${T(222,146,"CUSTOMIZE","tx","middle")}`),
 residents:()=>W(`${person(90,100,"var(--muted)")}${person(160,96,"var(--ink)")}${person(230,100,"var(--muted)")}${T(90,140,"Tomas, farmer","tx","middle")}${T(160,136,"Amara, nurse","txb","middle")}${T(230,140,"Lin, teacher","tx","middle")}<g class="a-say"><rect x="112" y="28" width="156" height="40" class="lnb"></rect>${T(122,45,"Welcome. The clinic needs","txb")}${T(122,59,"power before winter.","tx")}</g>`),
-build:()=>W(`<line x1="40" y1="140" x2="280" y2="140" class="sk"></line>${[[60,50],[96,80],[132,64],[168,96],[204,40]].map((b,i)=>`<rect x="${b[0]}" y="${140-b[1]}" width="28" height="${b[1]}" class="a-grow" style="fill:${i==2?"var(--acc)":i%2?"var(--muted)":"var(--ink)"};animation-delay:${i*0.25}s"></rect>`).join("")}<g class="a-say" style="animation-delay:1s"><rect x="196" y="28" width="104" height="40" class="lnb"></rect>${T(204,44,"Power plant","txb")}${T(204,58,"POWER UP, AIR DOWN")}</g>`),
+build:()=>{const g=146;const house=(x,w,h,c)=>`<rect x="${x}" y="${g-h}" width="${w}" height="${h}" class="a-grow" style="fill:${c}"></rect><path d="M${x-2} ${g-h} L${x+w/2} ${g-h-12} L${x+w+2} ${g-h} Z" class="a-grow" style="fill:${c}"></path>`;return W(`<line x1="24" y1="${g}" x2="296" y2="${g}" class="sk"></line>${house(36,22,26,"var(--muted)")}${house(64,22,32,"var(--muted)")}${T(61,g+14,"Housing","tx","middle")}<rect x="100" y="${g-38}" width="40" height="38" class="fb" style="stroke:var(--ink)"></rect><path d="M117 ${g-28} h6 v6 h6 v6 h-6 v6 h-6 v-6 h-6 v-6 h6 z" fill="#E5243B"></path>${T(120,g+14,"Clinic","tx","middle")}<rect x="160" y="${g-30}" width="44" height="30" class="fi"></rect><rect x="188" y="${g-60}" width="10" height="30" class="fi"></rect>${[0,1,2].map(i=>`<circle cx="193" cy="${g-66}" r="${5+i*2}" class="fm a-drop" style="opacity:.35;animation-delay:${i*0.7}s;animation-direction:reverse"></circle>`).join("")}${T(182,g+14,"Power plant","tx","middle")}<rect x="226" y="${g-52}" width="20" height="16" class="fa"></rect><line x1="230" y1="${g-36}" x2="230" y2="${g}" class="sk"></line><line x1="242" y1="${g-36}" x2="242" y2="${g}" class="sk"></line>${T(236,g+14,"Water","tx","middle")}<g class="a-say" style="animation-delay:1s"><rect x="210" y="18" width="98" height="36" class="lnb" style="stroke:var(--ink)"></rect>${T(218,33,"+ Power for clinic","txb")}${T(218,46,"- Air quality")}</g>`);},
 meters:()=>W(`${C.slice(0,16).map((c,i)=>`<rect x="${34+i*16}" y="40" width="10" height="90" fill="${c}" class="a-wob" style="animation-delay:${(i%5)*0.35}s;animation-duration:${2.4+(i%4)*0.5}s"></rect>`).join("")}<line x1="30" y1="132" x2="290" y2="132" class="sk"></line>${T(160,154,"16 GOAL METERS","tx","middle")}`),
-walk:()=>W(`<path d="M30 140 C 90 140, 90 70, 160 80 S 240 140, 290 70" class="ln" stroke-width="1.5" stroke-dasharray="3 6"></path>${person(220,98,"var(--muted)")}<g><circle r="6" class="fi"><animateMotion dur="6s" repeatCount="indefinite" path="M30 140 C 90 140, 90 70, 160 80 S 240 140, 290 70"></animateMotion></circle></g><g class="a-say" style="animation-delay:2.5s"><rect x="160" y="36" width="116" height="34" class="lnb"></rect>${T(168,57,"You came back.","txb")}</g>${T(30,30,"TRUST 3 / 5")}`),
+walk:()=>W(`<path d="M30 140 C 90 140, 90 70, 160 80 S 240 140, 290 70" class="ln" stroke-width="1.5" stroke-dasharray="3 6"></path>${person(220,98,"var(--muted)")}<g><circle r="6" class="fi"><animateMotion dur="6s" repeatCount="indefinite" path="M30 140 C 90 140, 90 70, 160 80 S 240 140, 290 70"></animateMotion></circle></g><g class="a-say" style="animation-delay:2.5s"><rect x="160" y="36" width="116" height="34" class="lnb"></rect>${T(168,57,"You came back.","txb")}</g>${T(240,30,"TRUST 3 / 5")}`),
 alert:()=>W(`<rect x="40" y="22" width="76" height="136" rx="12" class="lnb" style="stroke:var(--ink)" stroke-width="1.2"></rect><g class="a-slide"><rect x="120" y="58" width="172" height="66" class="lnb" style="stroke:var(--ink)"></rect><circle cx="134" cy="74" r="3.5" fill="#E5243B" class="a-blink"></circle>${T(144,77,"LIVE UPDATE")}${T(132,96,"Flooding near [region].","txb")}${T(132,112,"Your community is in its path.")}</g>`),
 council:()=>W(`<rect x="20" y="78" width="72" height="26" class="fi"></rect>${T(56,95,"Flood warning","txw","middle")}${[[40,"Evacuate"],[91,"Sandbag"],[142,"Wait"]].map((b,i)=>`<path d="M92 91 C 120 91, 120 ${b[0]+13}, 150 ${b[0]+13}" class="sk a-draw" stroke-width="1.2" style="animation-delay:${i*0.3}s"></path><rect x="150" y="${b[0]}" width="70" height="26" class="lnb" style="stroke:var(--ink)"></rect>${T(185,b[0]+17,b[1],"txb","middle")}`).join("")}<g class="a-say" style="animation-delay:1.5s"><rect x="232" y="34" width="78" height="44" class="lnb"></rect>${T(240,50,"Lin:","txb")}${T(240,64,"SCHOOL FIRST")}</g>`),
 aid:()=>W(`<circle cx="70" cy="92" r="32" class="fi"></circle>${T(70,96,"You","txw","middle")}<circle cx="70" cy="92" r="32" class="sk a-ping" style="animation-duration:2.8s"></circle><circle cx="250" cy="64" r="22" class="lnb" style="stroke:var(--ink)"></circle>${T(250,68,"Friend","txb","middle")}<circle cx="250" cy="126" r="18" class="lnb" style="stroke:var(--ink)"></circle>${T(250,130,"Ally","txb","middle")}${[0,0.7,1.4,2.1].map((d,i)=>`<rect x="226" y="${i%2?122:60}" width="9" height="9" class="${i%2?"fm":"fa"} a-travel" style="--dx:-130px;animation-delay:${d}s"></rect>`).join("")}${T(160,168,"FLARE ANSWERED","tx","middle")}`),
 respond:()=>W(`<circle cx="70" cy="90" r="34" class="ln" stroke-width="5"></circle><circle cx="70" cy="90" r="34" class="sk a-ring" stroke-width="5" transform="rotate(-90 70 90)"></circle>${T(70,94,"5:42","txb","middle")}${[["Water",56,60],["Shelter",90,30],["Power",124,80]].map((s,i)=>`${T(130,s[1]-6,s[0],"txb")}<line x1="130" y1="${s[1]}" x2="290" y2="${s[1]}" class="ln" stroke-width="3"></line><rect x="${144+s[2]/2}" y="${s[1]-6}" width="12" height="12" class="fi a-knob" style="--kx:${s[2]}px;animation-delay:${i*0.4}s"></rect>`).join("")}`),
 compare:()=>W(`${T(40,56,"Your response","txb")}<rect x="40" y="64" width="240" height="10" class="fp"></rect><rect x="40" y="64" width="176" height="10" class="fi" style="transform-box:fill-box;transform-origin:left;animation:growx 1.6s ease both"></rect>${T(40,106,"What actually happened","txb")}<rect x="40" y="114" width="240" height="10" class="fp"></rect><rect x="40" y="114" width="132" height="10" class="fm" style="transform-box:fill-box;transform-origin:left;animation:growx 1.6s .3s ease both"></rect>${T(40,150,"EXAMPLE: FASTER, AT HIGHER COST")}`),
-hall:()=>W(`<path d="M70 60 L160 28 L250 60 Z" class="lnb" style="stroke:var(--ink)"></path><line x1="70" y1="60" x2="250" y2="60" class="sk"></line>${[86,118,150,182,214,234].slice(0,5).map(x=>`<line x1="${x+8}" y1="66" x2="${x+8}" y2="128" class="sk" stroke-width="1.2"></line>`).join("")}<line x1="60" y1="134" x2="260" y2="134" class="sk"></line><g class="a-say"><rect x="104" y="80" width="112" height="34" class="fb" style="stroke:var(--acc)"></rect>${T(160,94,"Best flood response","txb","middle")}${T(160,107,"REVIEWED BY NGO PARTNER","tx","middle")}</g>${T(160,160,"HALL OF BEST DECISIONS","tx","middle")}`),
+hall:()=>{const cols=[96,124,152,180,208,236].map((x,i)=>`<rect x="${x}" y="70" width="8" height="58" class="fb" style="stroke:var(--ink)" stroke-width="1"></rect>`).join("");const plaques=[[108,84],[136,84],[164,84],[192,84],[220,84],[108,104],[136,104],[164,104],[192,104],[220,104]].map((p,i)=>`<rect x="${p[0]}" y="${p[1]}" width="14" height="10" fill="${C[(i*3)%17]}" class="a-lit" style="animation-delay:${i*0.55}s;animation-duration:5.5s"></rect>`).join("");const ring=Array.from({length:17},(_,i)=>{const a=i/17*Math.PI*2-Math.PI/2;return `<circle cx="${(160+9*Math.cos(a)).toFixed(1)}" cy="${(45+9*Math.sin(a)).toFixed(1)}" r="1.8" fill="${C[i]}"></circle>`;}).join("");return W(`<path d="M84 60 L160 26 L236 60 Z" class="fb" style="stroke:var(--ink)" stroke-width="1.2"></path>${ring}<rect x="84" y="60" width="152" height="10" class="fi"></rect>${T(160,68,"HALL OF BEST DECISIONS","txw","middle")}${plaques}${cols}<rect x="78" y="128" width="164" height="6" class="fb" style="stroke:var(--ink)"></rect><rect x="70" y="134" width="180" height="6" class="fb" style="stroke:var(--ink)"></rect><rect x="62" y="140" width="196" height="6" class="fb" style="stroke:var(--ink)"></rect>${[0,1.2,2.4].map(d=>`<g class="a-travel" style="--dx:60px;animation-delay:${d}s;animation-duration:4s"><circle cx="14" cy="148" r="4" class="fi"></circle><rect x="11" y="153" width="6" height="11" class="fi"></rect></g>`).join("")}<g class="a-say" style="animation-delay:1.5s"><line x1="236" y1="89" x2="250" y2="89" class="ska"></line><rect x="250" y="70" width="64" height="48" class="fb" style="stroke:var(--acc)"></rect>${T(256,84,"Best flood","txb")}${T(256,96,"response")}${T(256,110,"NGO REVIEWED")}</g>`);},
 streak:()=>W(`${[0,1,2,3,4,5,6].map(i=>`<rect x="${38+i*36}" y="64" width="28" height="40" class="fp"></rect><rect x="${38+i*36}" y="64" width="28" height="40" class="fi a-lit" style="animation-delay:${i*0.5}s;animation-duration:5s"></rect>${T(52+i*36,120,"MTWTFSS"[i],"tx","middle")}`).join("")}${T(160,150,"DAY STREAK","tx","middle")}`),
 negotiate:()=>W(`<ellipse cx="160" cy="100" rx="80" ry="34" class="fp"></ellipse>${[[90,70,"Residents"],[230,70,"Ally"],[100,140,"You"],[220,140,"Council"]].map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="11" class="${i==2?"fi":"lnb"}" style="stroke:var(--ink)"></circle>${T(p[0],p[1]+(p[1]<100?-17:25),p[2],"tx","middle")}`).join("")}<g class="a-blink"><rect x="122" y="86" width="76" height="28" class="lnb" style="stroke:var(--ink)"></rect>${T(160,104,"Vote 3 to 1","txb","middle")}</g>`),
 rating:()=>W(`<circle cx="105" cy="84" r="36" class="lnb" style="stroke:var(--ink)"></circle>${T(105,82,"Win","txb","middle")}${T(105,96,"CLEARED","tx","middle")}<circle cx="215" cy="84" r="36" class="fi"></circle><circle cx="215" cy="84" r="36" class="sk a-ping" style="animation-duration:3s"></circle>${T(215,82,"Perfect","txw","middle")}${T(215,96,"No hits","txw","middle")}`),
 tiles:()=>{let s="";for(let i=0;i<16;i++){const x=40+(i%8)*31,y=48+Math.floor(i/8)*42;s+=`<rect x="${x}" y="${y}" width="26" height="34" fill="${C[i]}" class="a-lit" style="animation-delay:${i*0.4}s"></rect>${T(x+13,y+21,String(i+1),"txw","middle")}`;}return W(s+T(160,158,"ONE LEVEL PER GOAL","tx","middle"))},
-arena:()=>W(`<circle cx="160" cy="90" r="62" class="lnb" style="stroke:var(--ink)"></circle><rect x="142" y="72" width="36" height="36" class="fi"></rect>${T(160,94,"Loot","txw","middle")}${[0,1,2,3,4,5].map(i=>`<circle r="5" fill="${C[i*3]}"><animateMotion dur="${5+i}s" begin="-${i}s" repeatCount="indefinite" path="M160 28 A62 62 0 1 1 159.9 28"></animateMotion></circle>`).join("")}${T(160,170,"ALLIANCE ARENA","tx","middle")}`),
+arena:()=>W(`<ellipse cx="160" cy="96" rx="120" ry="58" class="lnb" style="stroke:var(--ink)"></ellipse><ellipse cx="160" cy="96" rx="92" ry="40" class="ln"></ellipse><rect x="146" y="82" width="28" height="28" class="fi"></rect>${T(160,100,"Res.","txw","middle")}${[0,1,2].map(i=>`<circle r="6" fill="${C[0]}"><animateMotion dur="${5+i}s" begin="-${i*1.6}s" repeatCount="indefinite" path="M68 96 A92 40 0 1 1 252 96 A92 40 0 1 1 68 96"></animateMotion></circle>`).join("")}${[0,1,2].map(i=>`<circle r="6" fill="${C[13]}"><animateMotion dur="${5.5+i}s" begin="-${i*1.9+0.8}s" repeatCount="indefinite" path="M252 96 A92 40 0 1 1 68 96 A92 40 0 1 1 252 96"></animateMotion></circle>`).join("")}<circle cx="24" cy="168" r="5" fill="${C[0]}"></circle>${T(34,172,"Alliance A","txb")}<circle cx="236" cy="168" r="5" fill="${C[13]}"></circle>${T(246,172,"Alliance B","txb")}${T(160,24,"PARTY GAMES FOR RESOURCES","tx","middle")}`),
 skill:()=>{const n=[[160,40],[110,90],[210,90],[80,140],[140,140],[200,140],[240,140]];const e=[[0,1],[0,2],[1,3],[1,4],[2,5],[2,6]];return W(e.map(p=>`<line x1="${n[p[0]][0]}" y1="${n[p[0]][1]}" x2="${n[p[1]][0]}" y2="${n[p[1]][1]}" class="sk" stroke-width="1"></line>`).join("")+n.map((p,i)=>`<rect x="${p[0]-10}" y="${p[1]-10}" width="20" height="20" class="lnb" style="stroke:var(--ink)"></rect><rect x="${p[0]-10}" y="${p[1]-10}" width="20" height="20" class="fi a-lit" style="animation-delay:${i*0.6}s;animation-duration:4.2s"></rect>`).join(""))},
-grow:()=>W(`<line x1="30" y1="140" x2="290" y2="140" class="sk"></line>${[30,52,40,70,58,86,64,98].map((h,i)=>`<rect x="${40+i*30}" y="${140-h}" width="22" height="${h}" class="${i%3?"fm":"fi"} a-grow" style="animation-delay:${i*0.15}s;opacity:${i%3?0.5:1}"></rect>`).join("")}`),
+grow:()=>{const g=146;const bs=[[30,24],[54,36],[78,28],[102,46],[126,34],[150,58],[174,40],[198,66],[222,48],[246,72]];return W(`<line x1="20" y1="${g}" x2="300" y2="${g}" class="sk"></line>${bs.map((b,i)=>`<rect x="${b[0]}" y="${g-b[1]}" width="18" height="${b[1]}" class="${i%3==2?"fa":"fi"} a-grow" style="opacity:${i%3==1?0.55:1};animation-delay:${i*0.2}s"></rect>`).join("")}<rect x="44" y="20" width="100" height="8" class="fp"></rect><rect x="44" y="20" width="100" height="8" class="fa" style="transform-box:fill-box;transform-origin:left;animation:growx 3s ease-out infinite"></rect>${T(44,42,"RESIDENT TRUST")}${T(300,28,"New: water plant unlocked","txb","end")}`);},
 brief:()=>W(`<g class="a-drop"><rect x="60" y="24" width="200" height="108" class="lnb" style="stroke:var(--ink)"></rect>${T(74,42,"PROJECT BRIEF")}${T(74,62,"Clean water, informal settlement","txb")}${T(74,76,"ONE SEASON / LOCAL MATERIALS")}<rect x="74" y="94" width="86" height="26" class="fi"></rect>${T(117,111,"Stake 3x","txw","middle")}<rect x="168" y="94" width="78" height="26" class="lnb" style="stroke:var(--ink)"></rect>${T(207,111,"Walk away","txb","middle")}</g>`),
-tracks:()=>W(`<rect x="30" y="40" width="120" height="96" class="lnb" style="stroke:var(--ink)"></rect>${T(42,58,"TRACK A")}${T(42,78,"Science","txb")}${T(42,94,"Partner puzzles","tx")}<rect x="170" y="40" width="120" height="96" class="fi"></rect>${T(182,58,"TRACK B","txw")}${T(182,78,"Policy","txw")}${T(182,94,"Wicked problems","txw")}<circle cx="160" cy="88" r="6" class="fa a-ping"></circle>`),
+tracks:()=>W(`<rect x="30" y="40" width="120" height="96" class="lnb" style="stroke:var(--ink)"></rect>${T(42,58,"TRACK A")}${T(42,78,"Science","txb")}${T(42,94,"Partner puzzles","tx")}<rect x="170" y="40" width="120" height="96" class="fi"></rect>${T(182,58,"TRACK B","txw")}${T(182,78,"Policy","txw")}${T(182,94,"Wicked problems","txw")}${T(160,92,"or","txb","middle")}`),
 nodes:()=>W(`${["M70 92 L150 56","M70 92 L150 128","M150 56 L240 92","M150 128 L240 92"].map((p,i)=>`<path d="${p}" class="sk a-draw" stroke-width="1.2" style="animation-delay:${i*0.3}s"></path>`).join("")}<rect x="38" y="80" width="64" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(70,96,"Source","txb","middle")}<rect x="118" y="44" width="64" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(150,60,"Filter","txb","middle")}<rect x="118" y="116" width="64" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(150,132,"Storage","txb","middle")}<rect x="208" y="80" width="70" height="24" class="fi"></rect>${T(243,96,"Network","txw","middle")}`),
 consequence:()=>W(`<rect x="20" y="40" width="76" height="24" class="fi"></rect>${T(58,56,"Build roads","txw","middle")}<path d="M96 52 L124 52" class="sk a-draw"></path><rect x="124" y="40" width="70" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(159,56,"Jobs up","txb","middle")}<path d="M58 64 L58 110 L84 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:.6s"></path><rect x="84" y="98" width="70" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(119,114,"Loan-funded","txb","middle")}<path d="M154 110 L178 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:1s"></path><rect x="178" y="98" width="50" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(203,114,"Debt","txb","middle")}<path d="M228 110 L246 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:1.4s"></path><rect x="246" y="98" width="62" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(277,114,"Mining rights","txb","middle")}${T(160,156,"PLAN ABOVE / WHAT GOES WRONG BELOW","tx","middle")}`),
 data:()=>{let s="";[[70,4],[120,7],[170,2]].forEach((c,k)=>{for(let i=0;i<c[1];i++)s+=`<rect x="${c[0]-6}" y="${126-i*14}" width="12" height="11" class="${k==2?"fm":"fi"} a-drop" style="animation-delay:${(i*0.15+k*0.1).toFixed(2)}s"></rect>`;});return W(`<line x1="44" y1="140" x2="196" y2="140" class="sk"></line>${s}${T(70,156,"IDEA A","tx","middle")}${T(120,156,"IDEA B","tx","middle")}${T(170,156,"IDEA C","tx","middle")}<path d="M204 90 L236 90" class="ska a-flow"></path><rect x="238" y="70" width="70" height="40" class="lnb" style="stroke:var(--acc)"></rect>${T(273,88,"Insight","txb","middle")}${T(273,101,"FOR PARTNERS","tx","middle")}`)},
@@ -1058,8 +1058,8 @@ const artObs=("IntersectionObserver" in window)?new IntersectionObserver(es=>{es
 function frame(art,no){return `<div class="frame" data-art="${art}"><span class="no">${no}</span></div>`;}
 function hydrateFrames(root){root.querySelectorAll(".frame[data-art]").forEach(f=>{if(artObs)artObs.observe(f);else if(!f.dataset.drawn){f.insertAdjacentHTML("beforeend",ART[f.dataset.art]());f.dataset.drawn="1";f.classList.add("vis");}});}
 
-const pinIcon=`<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v7M3 5l3 3 3-3M2 11h8" fill="none" stroke="currentColor" stroke-width="1.3"></path></svg>`;
-function dressPins(root){(root||document).querySelectorAll(".pin:not([data-dressed])").forEach(b=>{b.dataset.dressed="1";b.type="button";b.innerHTML=pinIcon+"Pin";b.setAttribute("aria-label","Pin: "+b.dataset.l);});}
+const pinIcon=`<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 2h9v6h-5l-2.5 2v-2h-1.5z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"></path></svg>`;
+function dressPins(root){(root||document).querySelectorAll(".pin:not([data-dressed])").forEach(b=>{b.dataset.dressed="1";b.type="button";b.innerHTML=pinIcon+"Comment";b.setAttribute("aria-label","Comment on: "+b.dataset.l);});}
 function pinBtn(t,l){const b=el("button","pin");b.dataset.t=t;b.dataset.l=l;return b;}
 
 const INIT={
@@ -1209,9 +1209,9 @@ async function resolveNames(){
 function nameOf(id){if(!id)return "Unknown";if(id==="seed")return "Starter entry";return (S.names[id]||"Teammate")+(id===S.me?" (you)":"");}
 const FBM=!!window.FB;
 function gateMsg(){
-  if(FBM){if(S.fbReason==="signedout")return "Sign in with your team email to add or edit.";if(S.fbReason==="notonteam")return "Your email isn't on the team list yet. Ask James to add it.";if(S.fbReason==="sdkfail")return "Couldn't load the sign-in service. Check your connection and refresh.";}
+  if(FBM){if(S.fbReason==="signedout")return "Sign in with Google to see and edit the team boards.";if(S.fbReason==="notonteam")return "Your email isn't on the team list yet. Ask James to add it.";if(S.fbReason==="sdkfail")return "Couldn't load the sign-in service. Check your connection and refresh.";}
   if(!S.connected)return FBM?"Connecting...":"Shared editing isn't connected here. Open this page on claude.ai and sign in.";
-  if(!S.me)return FBM?"Sign in with your team email to add or edit.":"Sign in on claude.ai to add or edit.";
+  if(!S.me)return FBM?"Sign in with Google to add or edit.":"Sign in on claude.ai to add or edit.";
   if(S.readonly)return FBM?"Your email isn't on the team list yet. Ask James to add it.":"You have view-only access. Ask James for Contributor access.";return "";}
 
 /* ================= dialogs ================= */
@@ -1226,19 +1226,19 @@ function myPeople(){const d=viewOf("people")[S.me];return{pins:(d&&Array.isArray
 function writePeople(mut,label){const d=myPeople();if(mut(d)===false)return;d.at=Date.now();enqueue({op:"set",path:"people/"+S.me,data:{pins:d.pins,plus:d.plus,at:d.at},coalesce:true,label:label||"Pins"});}
 function openPin(t,l){
   PT={t,l,id:uid()};$("pin-target").textContent=l;const dk="17sg.draft.pin."+t;const dr=lsGet(dk,null);
-  $("pin-note").value=dr&&dr.note||"";(dr&&dr.kind==="rethink"?$("k-rethink"):$("k-keep")).checked=true;
+  $("pin-note").value=dr&&dr.note||"";(dr&&dr.kind==="rethink"?$("k-rethink"):dr&&dr.kind==="keep"?$("k-keep"):$("k-note")).checked=true;
   $("pin-draft").textContent=dr?"Restored your unsent draft.":"";$("pin-err").textContent=gateMsg();$("pin-save").disabled=false;
   openScrim("pinscrim");$("pin-note").focus();
 }
 function pinDraft(){if(!PT)return;lsSet("17sg.draft.pin."+PT.t,{note:$("pin-note").value,kind:document.querySelector("input[name=kind]:checked").value});$("pin-draft").textContent="Draft kept on this device.";}
 $("pin-note").addEventListener("input",pinDraft);document.querySelectorAll("input[name=kind]").forEach(r=>r.addEventListener("change",pinDraft));
 document.addEventListener("click",e=>{const b=e.target.closest(".pin");if(b&&b.dataset.t)openPin(b.dataset.t,b.dataset.l);});
-$("newpin").addEventListener("click",()=>openPin("general","General pin"));
+$("newpin").addEventListener("click",()=>openPin("general","General comment"));
 $("pinform").addEventListener("submit",e=>{
   e.preventDefault();if(!PT)return;const m=gateMsg();if(m){$("pin-err").textContent=m;return;}
-  const txt=$("pin-note").value.trim();if(!txt){$("pin-err").textContent="Add a sentence on why.";return;}
+  const txt=$("pin-note").value.trim();if(!txt){$("pin-err").textContent="Write a comment first.";return;}
   $("pin-save").disabled=true;const pin={id:PT.id,t:PT.t,l:PT.l,kind:document.querySelector("input[name=kind]:checked").value,note:txt.slice(0,600),at:Date.now()};
-  writePeople(d=>{if(d.pins.some(x=>x.id===pin.id))return false;d.pins.push(pin);},"Pin: "+PT.l);
+  writePeople(d=>{if(d.pins.some(x=>x.id===pin.id))return false;d.pins.push(pin);},"Comment: "+PT.l);
   lsDel("17sg.draft.pin."+PT.t);PT=null;closeScrims();
 });
 let pinFilter="all";
@@ -1248,12 +1248,12 @@ function renderPins(){
   const pins=allPins();const counts={};pins.forEach(p=>{counts[p.t]=(counts[p.t]||0)+1;});
   document.querySelectorAll(".pin").forEach(b=>{b.dataset.n=String(counts[b.dataset.t]||0);});
   if(!done.board)return;
-  let shown=pins.slice();if(pinFilter==="keep"||pinFilter==="rethink")shown=shown.filter(p=>p.kind===pinFilter);
+  let shown=pins.slice();if(pinFilter==="keep"||pinFilter==="rethink")shown=shown.filter(p=>p.kind===pinFilter);if(pinFilter==="note")shown=shown.filter(p=>p.kind!=="keep"&&p.kind!=="rethink");
   if(pinFilter==="top")shown.sort((a,b)=>b.plus-a.plus||b.at-a.at);else shown.sort((a,b)=>b.at-a.at);
   const list=$("pinlist");list.textContent="";
-  if(!shown.length){const e=el("div","empty",pins.length?"No pins match this filter.":"No pins yet. Press Pin on anything in the site to start.");e.style.gridColumn="1 / -1";list.appendChild(e);return;}
+  if(!shown.length){const e=el("div","empty",pins.length?"Nothing matches this filter.":"No comments yet. Press Comment on anything in the site to start.");e.style.gridColumn="1 / -1";list.appendChild(e);return;}
   const mine=myPeople();
-  shown.forEach(p=>{const c=el("div","c"+(p.pending&&p.uid===S.me?" pending":""));const meta=el("div","meta");meta.appendChild(el("span","kind "+(p.kind==="rethink"?"rethink":"keep"),p.kind==="rethink"?"Rethink":"Must keep"));meta.appendChild(el("span","label",nameOf(p.uid)));c.appendChild(meta);c.appendChild(el("span","label",esc(p.l||p.t)));c.appendChild(el("p","note",esc(p.note)));c.appendChild(el("span","stamp",when(p.at)));
+  shown.forEach(p=>{const c=el("div","c"+(p.pending&&p.uid===S.me?" pending":""));const meta=el("div","meta");meta.appendChild(el("span","kind "+(p.kind==="rethink"?"rethink":p.kind==="keep"?"keep":"note"),p.kind==="rethink"?"Rethink":p.kind==="keep"?"Must keep":"Comment"));meta.appendChild(el("span","label",nameOf(p.uid)));c.appendChild(meta);c.appendChild(el("span","label",esc(p.l||p.t)));c.appendChild(el("p","note",esc(p.note)));c.appendChild(el("span","stamp",when(p.at)));
     const acts=el("div","acts");const on=mine.plus.includes(p.key);const plus=el("button","btn small","+1"+(p.plus?" ("+p.plus+")":""));plus.type="button";plus.setAttribute("aria-pressed",String(on));if(on)plus.style.borderColor="var(--ink)";plus.disabled=!!gateMsg()||p.uid===S.me;
     plus.addEventListener("click",()=>writePeople(d=>{const i=d.plus.indexOf(p.key);if(i>=0)d.plus.splice(i,1);else d.plus.push(p.key);},"+1"));acts.appendChild(plus);
     if(p.uid===S.me&&!gateMsg()){const del=el("button","btn small","Delete");del.type="button";del.addEventListener("click",()=>{if(del.dataset.armed){writePeople(d=>{d.pins=d.pins.filter(x=>x.id!==p.id);},"Delete pin");}else{del.dataset.armed="1";del.textContent="Confirm delete";}});acts.appendChild(del);}
@@ -1264,8 +1264,8 @@ function renderPins(){
 const SCHEMA={
 personas:{title:"Persona",t:"name",group:"type",groups:["Player","Buyer or gatekeeper","Partner"],fields:[["name","Name and one-line label","text"],["type","Type","select",["Player","Buyer or gatekeeper","Partner"]],["segment","Age and segment","text"],["who","Who they are","area"],["wants","What they want","area"],["frustrations","What turns them off","area"],["hook","Mode that hooks them","select",["Hub","Rapid Response","Mini games","The Lab","Not a player"]],["quote","In their words","text"]]},
 stakeholders:{title:"Stakeholder",t:"name",group:"group",groups:["Team and school","Players and families","Education","Impact partners","Communities we depict","Industry and platforms","Funding","Policy and regulation"],fields:[["name","Name","text"],["group","Group","select",["Team and school","Players and families","Education","Impact partners","Communities we depict","Industry and platforms","Funding","Policy and regulation"]],["interest","What they care about","area"],["need","What we need from them","area"],["influence","Influence","select",["High","Medium","Low"]],["owner","Team owner","text"]]},
-roles:{title:"Team member",t:"name",group:"team",groups:["Project management","Design team","Business team"],fields:[["name","Name","text"],["role","Role","text"],["team","Team","select",["Project management","Design team","Business team"]],["owns","Owns","area"],["deliverables","Key deliverables and dates","area"],["advisor","Advisor","text"]]},
-deliverables:{title:"Deliverable",t:"name",fields:[["name","Deliverable","text"],["order","Order (1, 2, 3...)","text"],["what","What it is","area"],["doneLooks","Done looks like","area"],["owners","Owners","text"],["due","Due","date"],["status","Status","select",["Not started","In progress","Done","At risk"]]]},
+roles:{title:"Team member",t:"name",group:"team",groups:["Project management","Design team","Business team"],fields:[["name","Name","text"],["role","Role","text"],["team","Team","select",["Project management","Design team","Business team"]],["owns","Owns","area"],["deliverables","Key deliverables and dates","area"],["outlook","Where this role is headed","area"],["advisor","Advisor (if specific)","text"]]},
+deliverables:{title:"Deliverable",t:"name",fields:[["name","Deliverable","text"],["order","Order (1, 2, 3...)","text"],["what","What it is","area"],["why","Why it matters","area"],["doneLooks","Done looks like","area"],["owners","Owners","text"],["due","Due","date"],["status","Status","select",["Not started","In progress","Done","At risk"]]]},
 tasks:{title:"Task",t:"name",fields:[["name","Task","text"],["owner","Owner","text"],["team","Team","select",["All hands","Design team","Business team","Project management"]],["start","Start","date"],["end","End","date"],["kind","Type","select",["Task","Milestone"]],["status","Status","select",["Planned","In progress","Done","At risk"]]]},
 hmw:{title:"How might we",t:"statement",fields:[["statement","How might we...","text"],["goal","Company goal it serves","select",["1 / Make people feel it","2 / Turn play into action","3 / Scale to fund it","Cross-cutting"]],["source","Source","text"],["notes","Notes","area"]]},
 foursets:{title:"Four Sets entry",t:"text",group:"set",groups:["Desirability","Feasibility","Viability","Sustainability"],fields:[["set","Set","select",["Desirability","Feasibility","Viability","Sustainability"]],["kind","Type","select",["Hypothesis","Evidence","Risk","Test to run"]],["text","Entry","area"],["owner","Owner","text"]]},
@@ -1376,7 +1376,7 @@ function card(col,id,v,o){
 function listItems(col){const all=Object.entries(viewOf(col));const live=all.filter(([,v])=>!v.deleted);const del=all.filter(([,v])=>v.deleted);return {live,del};}
 function statusLine(col,n,label){
   const s=document.querySelector(`[data-stline="${col}"]`);if(!s)return;
-  if(!S.connected){s.textContent=S.tried?(FBM?gateMsg()||"Sign in with your team email to see the team boards.":"Shared content needs claude.ai. Open this page there and sign in."):"Connecting...";return;}
+  if(!S.connected){s.textContent=S.tried?(FBM?gateMsg()||"Sign in with Google to see the team boards.":"Shared content needs claude.ai. Open this page there and sign in."):"Connecting...";return;}
   const e=S.subErr[col];if(e==="slow"){s.textContent="Can't reach the shared store yet. It'll update when it connects.";return;}
   if(e){s.textContent=e==="revoked"?"No longer available in this view.":"Couldn't load. Refresh to try again.";return;}
   if(S.subs[col]!=="live"){s.textContent="Loading...";return;}
@@ -1398,10 +1398,10 @@ grouped(col,label,opts){
 }
 };
 const RENDER={
-people(){renderPins();statusLine("people",allPins().length,"pin");},
+people(){renderPins();statusLine("people",allPins().length,"comment");},
 personas(){R.grouped("personas","persona",{card:v=>({meta:[v.segment,v.hook],quote:"quote",fields:[["who","Who they are"],["wants","What they want"],["frustrations","What turns them off"]]})});},
 stakeholders(){R.grouped("stakeholders","stakeholder",{card:v=>({meta:["Influence: "+(v.influence||"?"),v.owner?"Owner: "+v.owner:""],fields:[["interest","What they care about"],["need","What we need from them"]]})});},
-roles(){R.grouped("roles",["person","people"],{card:v=>({meta:[v.role,v.advisor?"Advisor: "+v.advisor:""],fields:[["owns","Owns"],["deliverables","Key deliverables"]]})});},
+roles(){R.grouped("roles",["person","people"],{card:v=>({meta:[v.role,v.advisor?"Advisor: "+v.advisor:""],fields:[["owns","Owns"],["deliverables","Key deliverables"],["outlook","Where it's headed"]]})});},
 questions(){R.grouped("questions","question",{sort:(a,b)=>(b[1].at||0)-(a[1].at||0),card:v=>({meta:[v.owner?"Owner: "+v.owner:"No owner yet"],fields:[["context","Context"],["answer","Decision"]]})});},
 ideas(){R.grouped("ideas","idea",{sort:(a,b)=>(b[1].at||0)-(a[1].at||0),card:v=>({meta:[v.pitchedBy?"Pitched by "+v.pitchedBy:""],fields:[["summary","Summary"],["fit","Plugs into"]]})});},
 hmw(){
@@ -1418,7 +1418,7 @@ deliverables(){
   if(!live.length&&S.subs[col]==="live")emptyBox(host,"Nothing here yet. Add the first one.");
   const box=el("div","dlv");live.sort((a,b)=>(parseFloat(a[1].order)||99)-(parseFloat(b[1].order)||99)).forEach(([id,v],i)=>{
     const r=el("div","dlvrow"+(v.__pending?" pending":""));r.appendChild(el("span","big",String(v.order||i+1).padStart(2,"0")));
-    const a=el("div");a.appendChild(el("h3",null,esc(v.name)));a.appendChild(el("p",null,esc(v.what)));r.appendChild(a);
+    const a=el("div");a.appendChild(el("h3",null,esc(v.name)));a.appendChild(el("p",null,esc(v.what)));if(v.why){const w=el("div","f");w.style.marginTop="14px";w.appendChild(el("span",null,"Why it matters"));w.appendChild(document.createTextNode(esc(v.why)));a.appendChild(w);}r.appendChild(a);
     const b=el("div","f");b.appendChild(el("span",null,"Done looks like"));b.appendChild(document.createTextNode(esc(v.doneLooks)));r.appendChild(b);
     const c=el("div");c.style.display="flex";c.style.flexDirection="column";c.style.gap="10px";const st=el("span","pillst",esc(v.status||"Not started"));st.dataset.st=v.status||"";c.appendChild(st);
     c.appendChild(el("span","label","Due "+(v.due?new Date(v.due+"T12:00:00").toLocaleDateString(undefined,{month:"short",day:"numeric"}):"TBD")));c.appendChild(el("span","label","Owners: "+esc(v.owners||"TBD")));c.appendChild(el("span","stamp",stamp(v)));c.appendChild(actions(col,id,v));r.appendChild(c);box.appendChild(r);});
@@ -1464,14 +1464,11 @@ function renderCol(col){
 
 /* ================= Firebase sign-in + admin ================= */
 if(FBM){
-  $("fb-signin").addEventListener("click",()=>{$("sign-err").textContent="";$("sign-send").disabled=false;openScrim("signscrim");$("sign-name").focus();});
+  $("fb-signin").addEventListener("click",()=>{$("sign-err").textContent="";$("sign-send").disabled=false;openScrim("signscrim");$("sign-send").focus();});
   $("fb-signout").addEventListener("click",()=>window.FB.signOut());
-  $("signform").addEventListener("submit",async e=>{e.preventDefault();const em=$("sign-email").value.trim(),nm=$("sign-name").value.trim();
-    if(!nm){$("sign-err").textContent="Add your name so teammates know who wrote what.";return;}
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){$("sign-err").textContent="Enter a valid email.";return;}
-    const b=$("sign-send");if(b.disabled)return;b.disabled=true;$("sign-err").textContent="Sending...";
-    try{await window.FB.sendLink(em,nm);$("sign-err").textContent="";$("sign-h").textContent="Check your email";$("signform").querySelector("p.muted").textContent="We sent a sign-in link to "+em+". Open it on this device. It can take a minute; check spam too.";}
-    catch(err){b.disabled=false;$("sign-err").textContent="Couldn't send the link. Check the email and try again.";}});
+  $("signform").addEventListener("submit",async e=>{e.preventDefault();const b=$("sign-send");if(b.disabled)return;b.disabled=true;$("sign-err").textContent="Opening Google...";
+    try{const r=await window.FB.signInGoogle();if(r==="cancelled"){$("sign-err").textContent="Sign-in was cancelled.";b.disabled=false;}}
+    catch(err){b.disabled=false;$("sign-err").textContent=(err&&err.code==="auth/unauthorized-domain")?"This site isn't approved for Google sign-in yet. Ask James to check Firebase authorized domains.":(err&&err.code==="auth/operation-not-allowed")?"Google sign-in isn't turned on yet. Ask James to enable it in Firebase.":"Couldn't sign in. Try again.";}});
   $("fb-access").addEventListener("click",async()=>{$("acc-status").textContent="Loading...";openScrim("accessscrim");try{$("acc-list").value=(await window.FB.getAccess()).join("\n");$("acc-status").textContent="";}catch(_){$("acc-status").textContent="Couldn't load the list.";}});
   $("accessform").addEventListener("submit",async e=>{e.preventDefault();const list=[...new Set($("acc-list").value.split(/[\s,;]+/).map(x=>x.trim().toLowerCase()).filter(x=>/@/.test(x)))];const b=$("acc-save");b.disabled=true;$("acc-status").textContent="Saving...";
     try{await window.FB.setAccess(list);$("acc-status").textContent="Saved. "+list.length+" email"+(list.length===1?"":"s")+" on the team list.";}catch(_){$("acc-status").textContent="Didn't save. Check your connection and try again.";}b.disabled=false;});
@@ -1487,8 +1484,9 @@ route();setSync();
   const fail=()=>{S.tried=true;setSync();$("whoami").textContent="Not connected";VIEWS.forEach(v=>{if(done[v])VIEW_COLS[v].forEach(renderCol);});};
   if(FBM){let c={};try{c=await window.FB.ctx;}catch(_){c={reason:"sdkfail"};}S.fbReason=c.reason;S.admin=!!c.admin;
     $("fb-signin").hidden=c.reason!=="signedout";$("fb-signout").hidden=c.reason==="signedout"||c.reason==="sdkfail";$("fb-access").hidden=!c.admin;
-    if(window.__fbLinkError)toast("That sign-in link didn't work. It may have expired or been used already. Send a new one.");
+    if(window.__fbLinkError)toast("Sign-in didn't finish. Try again.");
     if(c.reason==="notonteam"){toast("You're signed in as "+c.email+", but that email isn't on the team list yet. Ask James to add it.");}
+    if(c.reason==="ok"&&c.admin){(async()=>{try{const r=await fetch("seeds.json",{cache:"no-store"});if(!r.ok)return;const data=await r.json();const lines=[];await window.FB.seed(data,m=>lines.push(m));const added=lines.filter(x=>/ added/.test(x));if(added.length)toast("Loaded starter content: "+added.join(", ")+".");}catch(_){}})();}
     if(c.reason!=="ok"){fail();$("whoami").textContent=c.reason==="notonteam"?c.email+" (not on team list)":c.reason==="sdkfail"?"Sign-in unavailable":"Not signed in";return;}}
   if(!window.claude||!window.claude.use){fail();return;}
   try{S.user=await window.claude.use("user");}catch(_){S.user=null;}
