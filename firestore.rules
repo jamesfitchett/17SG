@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null && request.auth.token.email_verified == true; }
+    function email() { return request.auth.token.email.lower(); }
+    function isAdmin() { return signedIn() && email() in ['jamesmfitchett@gmail.com']; }
+    function onTeam() {
+      return isAdmin() || (signedIn()
+        && exists(/databases/$(database)/documents/config/access)
+        && email() in get(/databases/$(database)/documents/config/access).data.emails);
+    }
+    function board(c) { return c in ['personas','stakeholders','roles','deliverables','tasks','hmw','foursets','questions','ideas']; }
+
+    // Team list: only James can change it.
+    match /config/access { allow read: if onTeam(); allow write: if isAdmin(); }
+    // Each person's name card and their own pins: only they can write theirs.
+    match /users/{uid} { allow read: if onTeam(); allow write: if onTeam() && request.auth.uid == uid; }
+    match /people/{uid} { allow read: if onTeam(); allow write: if onTeam() && request.auth.uid == uid; }
+    // Shared boards: the team can add and edit. Only James can hard-delete (the site soft-deletes).
+    match /{col}/{id} {
+      allow read, create, update: if board(col) && onTeam();
+      allow delete: if board(col) && isAdmin();
+    }
+    // Version history: anyone on the team can add a version; nobody can change or erase one.
+    match /{col}/{id}/history/{h} {
+      allow read, create: if board(col) && onTeam();
+      allow update, delete: if false;
+    }
+  }
+}

@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>17SG Hub Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: an architectural drawing set. White sheet, black hairlines, a 12-column grid, mono annotation labels, big light numerals. Color only from the SDG wheel, used as small marks. */
+:root{
+  --bg:#FFFFFF;
+  --paper:#F4F4F2;
+  --ink:#111111;
+  --muted:#5F5F5F;
+  --line:#E3E3E0;
+  --rule:#111111;
+  --acc:#19486A;
+  --hub:#FD9D24;--rr:#3F7E44;--mini:#C5192D;--lab:#FD6925;--warn:#E5243B;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0F1113;--paper:#181A1D;--ink:#F2F2F0;--muted:#A3A3A0;--line:#2B2E32;--rule:#F2F2F0;--acc:#8DB8DA;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1113;--paper:#181A1D;--ink:#F2F2F0;--muted:#A3A3A0;--line:#2B2E32;--rule:#F2F2F0;--acc:#8DB8DA;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--display);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-weight:500;letter-spacing:-0.02em;text-wrap:balance}
+p{margin:0}
+a{color:var(--acc)}
+button,input,select,textarea{font-family:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+.sq{display:inline-block;width:8px;height:8px;flex:none}
+
+/* header */
+header.top{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--rule)}
+header.top .wrap{display:flex;align-items:stretch;justify-content:space-between;gap:24px;height:60px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-weight:600;font-size:18px;letter-spacing:-0.01em;flex:none}
+.brand svg{width:28px;height:28px}
+.tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.tabs a{display:flex;align-items:center;padding:0 16px;font-size:14px;color:var(--muted);text-decoration:none;border-left:1px solid var(--line);white-space:nowrap}
+.tabs a:last-child{border-right:1px solid var(--line)}
+.tabs a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+.tabs a:hover{color:var(--ink)}
+
+/* views */
+.view{display:none}
+.view.on{display:block}
+
+/* hero */
+.hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.hero .gridbg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;opacity:.55;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;padding-top:88px;padding-bottom:72px;align-items:end}
+.hero .t{grid-column:1 / span 8}
+.hero h1{font-size:clamp(44px,6.4vw,92px);line-height:.98;letter-spacing:-0.045em;font-weight:500;margin-top:20px}
+.hero .lede{font-size:20px;line-height:1.45;color:var(--muted);max-width:44ch;margin-top:28px}
+.hero .mark{grid-column:9 / span 4;justify-self:end;width:100%;max-width:320px;aspect-ratio:1;position:relative}
+.hero .mark svg{width:100%;height:100%}
+.hero .mark .ring{transform-origin:50% 50%;animation:spin 120s linear infinite}
+.hero .mark b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:600;letter-spacing:-0.04em}
+.status-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:32px}
+.status-row span{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+/* how to */
+.howto{border-bottom:1px solid var(--line);background:var(--paper)}
+.howto .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;padding-top:36px;padding-bottom:36px}
+.howto .h{grid-column:1 / span 3}
+.howto .h h2{font-size:22px;margin-top:8px}
+.howto ol{grid-column:4 / span 9;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.howto li{padding:0 20px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.howto li b{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--acc)}
+.howto li span{font-size:15px;line-height:1.45}
+
+/* section */
+.sec{border-top:1px solid var(--rule)}
+.sec .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;padding-top:72px;padding-bottom:88px}
+.sec .side{grid-column:1 / span 3;display:flex;flex-direction:column;gap:12px;align-self:start;position:sticky;top:84px}
+.sec .side .n{font-size:64px;line-height:1;font-weight:300;letter-spacing:-0.04em}
+.sec .main{grid-column:4 / span 9;display:flex;flex-direction:column;gap:40px;min-width:0}
+.sec h2{font-size:clamp(32px,3.6vw,48px);line-height:1.04;letter-spacing:-0.035em}
+.sec .intro{font-size:19px;color:var(--muted);max-width:56ch;margin-top:16px}
+.state{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--ink)}
+.state.locked{background:var(--ink);color:var(--bg)}
+.block{display:flex;flex-direction:column;gap:18px}
+.block > .hd{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.block > .hd h3{font-size:20px}
+
+/* subnav */
+.subnav{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:8px}
+.subnav button{all:unset;cursor:pointer;font-size:14px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--line);display:flex;gap:10px}
+.subnav button:hover,.subnav button:focus-visible{color:var(--ink)}
+.subnav button b{font-family:var(--mono);font-weight:400;font-size:11px;min-width:20px;padding-top:3px}
+
+/* goals */
+.goals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
+.goal{padding:20px 20px 0 0;display:flex;flex-direction:column;gap:10px}
+.goal + .goal{padding-left:20px;border-left:1px solid var(--line)}
+.goal .k{font-size:48px;font-weight:300;line-height:1;letter-spacing:-0.04em}
+.goal b{font-size:20px;font-weight:500}
+.goal p{font-size:15px;color:var(--muted)}
+.mission{font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.03em;font-weight:400;max-width:24ch}
+.flag{border:1px solid var(--line);padding:18px 20px;display:grid;grid-template-columns:120px 1fr;gap:16px}
+.flag p{font-size:15px}
+
+/* loop */
+.loop{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);position:relative}
+.loop > div{padding:20px 20px 0 0;display:flex;flex-direction:column;gap:8px}
+.loop > div + div{padding-left:20px;border-left:1px solid var(--line)}
+.loop b{font-size:20px;font-weight:500}
+.loop p{font-size:15px;color:var(--muted)}
+.loop .row{display:flex;align-items:center;gap:8px}
+
+/* storyboard */
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}
+.board.four{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.panel{display:flex;flex-direction:column;gap:10px;min-width:0}
+.frame{position:relative;background:var(--paper);aspect-ratio:16/9;border-radius:2px;overflow:hidden}
+.frame svg{position:absolute;inset:0;width:100%;height:100%}
+.frame .no{position:absolute;left:10px;top:8px;font-family:var(--mono);font-size:10px;color:var(--muted);z-index:2}
+.panel .row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.panel h4{font-size:16px;font-weight:500}
+.panel p{font-size:14px;color:var(--muted);line-height:1.45}
+.credit{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+/* spec grid */
+.spec{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.spec.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.spec.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cell{padding:18px 18px 20px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px;min-width:0}
+.cell h4{font-size:16px;font-weight:500;display:flex;align-items:center;gap:8px}
+.cell p{font-size:14px;color:var(--muted);line-height:1.45}
+.cell .foot{margin-top:auto;padding-top:6px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.cell a{font-family:var(--mono);font-size:11px}
+
+/* voice */
+.voice{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px}
+.voice blockquote{margin:0;display:flex;flex-direction:column;gap:16px;font-size:19px;line-height:1.5;font-weight:400}
+.voice blockquote p:first-child::before{content:"";display:block;width:32px;height:1px;background:var(--ink);margin-bottom:18px}
+.chat{background:var(--paper);padding:22px;display:flex;flex-direction:column;gap:10px;border-radius:2px}
+.msg{max-width:86%;padding:10px 13px;font-size:14px;line-height:1.45;animation:say 14s cubic-bezier(.2,.7,.2,1) infinite both}
+.msg.them{background:var(--bg);border:1px solid var(--line)}
+.msg.me{background:var(--ink);color:var(--bg);align-self:flex-end}
+.typing{display:flex;gap:4px;padding:6px 2px}
+.typing i{width:5px;height:5px;border-radius:50%;background:var(--muted);animation:dot 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+
+/* list */
+.rows{border-top:1px solid var(--line)}
+.rows > div{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.rows b{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--muted);padding-top:3px}
+
+/* pipe */
+.pipe{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--ink)}
+.pipe > div{padding:16px 16px 0 0;display:flex;flex-direction:column;gap:6px}
+.pipe > div + div{padding-left:16px;border-left:1px solid var(--line)}
+.pipe b{font-size:15px;font-weight:500}
+.pipe p{font-size:13px;color:var(--muted);line-height:1.45}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table.m{width:100%;border-collapse:collapse;font-size:14px;min-width:720px}
+table.m th,table.m td{text-align:left;padding:14px 14px 14px 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.m thead th{border-bottom:1px solid var(--ink)}
+table.m th{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+table.m td b{font-weight:500}
+.lvl{display:flex;gap:3px;margin:6px 0 6px}
+.lvl i{width:14px;height:4px;background:var(--line)}
+.lvl i.on{background:var(--ink)}
+
+/* pins */
+.pin{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:5px 9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;min-height:28px;flex:none;border-radius:0}
+.pin:hover{border-color:var(--ink)}
+.pin svg{width:11px;height:11px}
+.pin[data-n]:not([data-n="0"])::after{content:attr(data-n);background:var(--ink);color:var(--bg);padding:0 5px;line-height:15px}
+.btn{font-size:14px;font-weight:500;padding:10px 16px;border:1px solid var(--ink);background:var(--bg);color:var(--ink);cursor:pointer;min-height:42px;border-radius:0}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.small{font-size:12px;padding:6px 10px;min-height:32px;border-color:var(--line)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.filters{display:flex;flex-wrap:wrap;gap:0}
+.filters button{font-size:13px;padding:9px 14px;border:1px solid var(--line);margin-left:-1px;background:var(--bg);color:var(--muted);cursor:pointer;min-height:40px}
+.filters button[aria-pressed="true"]{color:var(--bg);background:var(--ink);border-color:var(--ink);position:relative}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.status{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.c{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.c .meta{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.c h4{font-size:18px;font-weight:500}
+.c .f{font-size:14px}
+.c .f span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.c .note{font-size:15px;white-space:pre-wrap;word-break:break-word}
+.c .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.c q{font-size:15px;font-style:italic;color:var(--ink)}
+.kind{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.kind.keep{color:var(--rr)}.kind.rethink{color:var(--warn)}
+.empty{padding:28px;border:1px dashed var(--line);color:var(--muted);font-size:15px}
+.groupname{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:28px 0 10px}
+
+/* page head for tabs */
+.phead{border-bottom:1px solid var(--rule)}
+.phead .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;padding-top:64px;padding-bottom:40px;align-items:end}
+.phead .l{grid-column:1 / span 8}
+.phead h1{font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-0.045em;font-weight:500;margin-top:14px}
+.phead p{font-size:18px;color:var(--muted);margin-top:18px;max-width:52ch}
+.phead .r{grid-column:9 / span 4;justify-self:end}
+.pbody .wrap{padding-top:32px;padding-bottom:88px;display:flex;flex-direction:column;gap:20px}
+
+/* ideas */
+.idea{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;padding:36px 0;border-bottom:1px solid var(--line)}
+.idea .l{grid-column:1 / span 4;display:flex;flex-direction:column;gap:12px}
+.idea .r{grid-column:5 / span 8}
+.idea h3{font-size:24px}
+.idea p{font-size:15px;color:var(--muted)}
+.idea .fit{border-top:1px solid var(--line);padding-top:10px;font-size:15px}
+
+/* dialog */
+.scrim{position:fixed;inset:0;background:rgba(10,12,14,.45);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.scrim.open{display:flex}
+.dlg{background:var(--bg);color:var(--ink);max-width:560px;width:100%;max-height:calc(100% - 32px);overflow:auto;padding:26px;display:flex;flex-direction:column;gap:14px;border:1px solid var(--ink)}
+.dlg h3{font-size:22px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);padding:10px 12px;font-size:15px;background:var(--bg);color:var(--ink);border-radius:0}
+.field textarea{min-height:72px;resize:vertical}
+.seg{display:flex}
+.seg label{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border:1px solid var(--line);margin-left:-1px;cursor:pointer;font-size:14px;min-height:44px}
+.seg input{accent-color:var(--ink)}
+.dlg .btns{display:flex;justify-content:flex-end;gap:8px}
+.err{font-size:14px;color:var(--warn);min-height:1em}
+
+footer{border-top:1px solid var(--rule);padding:32px 0 56px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* svg */
+.ln{stroke:var(--line);fill:none}.lnb{stroke:var(--line);fill:var(--bg)}
+.sk{stroke:var(--ink);fill:none}.ska{stroke:var(--acc);fill:none}
+.fa{fill:var(--acc)}.fi{fill:var(--ink)}.fm{fill:var(--muted)}.fb{fill:var(--bg)}.fp{fill:var(--line)}
+.tx{font-family:var(--mono);font-size:9px;fill:var(--muted)}
+.txb{font-family:var(--display);font-size:10px;fill:var(--ink);font-weight:500}
+.txw{font-family:var(--display);font-size:10px;fill:var(--bg);font-weight:500}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ping{0%{transform:scale(1);opacity:.55}100%{transform:scale(3);opacity:0}}
+@keyframes flow{to{stroke-dashoffset:-48}}
+@keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes growy{0%{transform:scaleY(0)}30%,85%{transform:scaleY(1)}100%{transform:scaleY(1)}}
+@keyframes wob{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+@keyframes say{0%,4%{opacity:0;transform:translateY(6px)}10%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes slide{0%,8%{transform:translateX(60px);opacity:0}20%,85%{transform:none;opacity:1}100%{opacity:0}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes dot{0%,80%,100%{opacity:.2}40%{opacity:1}}
+@keyframes draw{0%{stroke-dashoffset:300}45%,90%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes travel{0%{transform:translateX(0);opacity:0}15%,80%{opacity:1}100%{transform:translateX(var(--dx,150px));opacity:0}}
+@keyframes lit{0%,100%{opacity:.18}8%,26%{opacity:1}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes drop{0%{transform:translateY(-24px);opacity:0}20%,85%{transform:none;opacity:1}100%{opacity:0}}
+@keyframes ringdown{from{stroke-dashoffset:0}to{stroke-dashoffset:214}}
+@keyframes knob{0%,100%{transform:translateX(0)}50%{transform:translateX(var(--kx,40px))}}
+.a-ping{transform-box:fill-box;transform-origin:center;animation:ping 2.4s ease-out infinite}
+.a-flow{stroke-dasharray:4 8;animation:flow 1.8s linear infinite}
+.a-grow{transform-box:fill-box;transform-origin:bottom;animation:growy 6s cubic-bezier(.2,.7,.2,1) infinite both}
+.a-wob{transform-box:fill-box;transform-origin:bottom;animation:wob 3s ease-in-out infinite}
+.a-say{animation:say 7s cubic-bezier(.2,.7,.2,1) infinite both}
+.a-slide{animation:slide 7s cubic-bezier(.2,.7,.2,1) infinite both}
+.a-blink{animation:blink 1.2s ease-in-out infinite}
+.a-draw{stroke-dasharray:300;animation:draw 6s ease-in-out infinite both}
+.a-travel{animation:travel 2.8s ease-in infinite both}
+.a-lit{animation:lit 6.4s ease-in-out infinite both}
+.a-bob{animation:bob 2.4s ease-in-out infinite}
+.a-drop{animation:drop 6s cubic-bezier(.2,.7,.2,1) infinite both}
+.a-ring{stroke-dasharray:214;animation:ringdown 8s linear infinite}
+.a-knob{transform-box:fill-box;animation:knob 4s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important}}
+
+@media (max-width:980px){
+  .hero .t,.hero .mark,.sec .side,.sec .main,.howto .h,.howto ol,.phead .l,.phead .r,.idea .l,.idea .r{grid-column:1 / -1}
+  .hero .mark{justify-self:start;max-width:200px}
+  .sec .side{position:static;flex-direction:row;align-items:baseline;flex-wrap:wrap}
+  .subnav{display:none}
+  .howto ol{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px}
+  .board{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .board.four,.spec,.pipe{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pipe > div:nth-child(odd){padding-left:0;border-left:0}
+  .voice{grid-template-columns:minmax(0,1fr)}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .phead .r{justify-self:start}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .howto ol,.board,.board.four,.spec,.spec.three,.spec.two,.pipe,.goals,.loop,.cards{grid-template-columns:minmax(0,1fr)}
+  .goal + .goal,.loop > div + div,.pipe > div + div{padding-left:0;border-left:0;border-top:1px solid var(--line);padding-top:16px;margin-top:16px}
+  .howto li{padding:0 0 0 14px}
+  .flag{grid-template-columns:1fr}
+  .sec .wrap{padding-top:48px;padding-bottom:56px}
+}
+
+/* ---- v3 additions ---- */
+header.top{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--rule)}
+header.top .row1{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+header.top .row2{border-top:1px solid var(--line)}
+header.top .row2 .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;height:44px;align-items:stretch}
+.navgroup{display:flex;align-items:stretch;border-left:1px solid var(--line)}
+.navgroup:last-child{border-right:1px solid var(--line)}
+.navgroup .g{display:flex;align-items:center;padding:0 8px 0 12px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.navgroup a{display:flex;align-items:center;padding:0 10px;font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.navgroup a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+.navgroup a:hover{color:var(--ink)}
+.who{display:flex;align-items:center;gap:14px;min-width:0}
+.whoami{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.sync{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:6px 10px;min-height:32px;cursor:default;white-space:nowrap}
+.sync i{width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
+.sync[data-s="saved"] i,.sync[data-s="live"] i{background:var(--rr)}
+.sync[data-s="saving"] i{background:var(--acc);animation:blink 1s infinite}
+.sync[data-s="offline"] i,.sync[data-s="retrying"] i{background:var(--hub)}
+.sync[data-s="failed"]{border-color:var(--warn);color:var(--warn);cursor:pointer}
+.sync[data-s="failed"] i{background:var(--warn)}
+.sync[data-s="readonly"] i{background:var(--line)}
+.frame:not(.vis) *{animation-play-state:paused!important}
+.sec{content-visibility:auto;contain-intrinsic-size:1px 1400px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px}
+.linkbtn{all:unset;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.linkbtn:hover,.linkbtn:focus-visible{color:var(--ink)}
+.c.pending{border-style:dashed}
+.stamp{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.5}
+.c.deleted{opacity:.55}
+.toast{position:fixed;right:16px;bottom:16px;z-index:60;max-width:380px;background:var(--ink);color:var(--bg);padding:14px 16px;font-size:14px;line-height:1.45;display:none}
+.toast.on{display:block}
+.hist{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.hist > div{border-bottom:1px solid var(--line);padding:12px 0;display:flex;flex-direction:column;gap:6px}
+.hist .h{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.hist pre{margin:0;font-family:var(--mono);font-size:11px;white-space:pre-wrap;word-break:break-word;color:var(--muted);max-height:120px;overflow:auto}
+.draftnote{font-family:var(--mono);font-size:11px;color:var(--muted)}
+/* gantt */
+.gantt{border-top:1px solid var(--ink);overflow-x:auto}
+.gantt .inner{min-width:880px}
+.grow-row{display:grid;grid-template-columns:260px 1fr;border-bottom:1px solid var(--line);min-height:44px}
+.grow-row .nm{padding:10px 12px 10px 0;display:flex;flex-direction:column;gap:2px;justify-content:center;min-width:0}
+.grow-row .nm b{font-weight:500;font-size:14px;line-height:1.3}
+.grow-row .nm span{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.track{position:relative;border-left:1px solid var(--line)}
+.track .wk{position:absolute;top:0;bottom:0;border-left:1px solid var(--line);opacity:.6}
+.gbar{position:absolute;top:50%;height:14px;transform:translateY(-50%);background:var(--bg);border:1px solid var(--ink);cursor:pointer;padding:0}
+.gbar[data-st="Done"]{background:var(--ink)}
+.gbar[data-st="In progress"]{background:var(--acc);border-color:var(--acc)}
+.gbar[data-st="At risk"]{border-color:var(--warn);border-width:2px}
+.gms{position:absolute;top:50%;width:14px;height:14px;transform:translate(-50%,-50%) rotate(45deg);background:var(--ink);border:0;cursor:pointer;padding:0}
+.today{position:absolute;top:0;bottom:0;width:0;border-left:1px solid var(--warn);z-index:2;pointer-events:none}
+.ghead{display:grid;grid-template-columns:260px 1fr;border-bottom:1px solid var(--ink)}
+.ghead .track{height:30px}
+.ghead .track span{position:absolute;top:8px;font-family:var(--mono);font-size:10px;color:var(--muted);transform:translateX(4px)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:18px;height:10px;border:1px solid var(--ink)}
+/* quadrants */
+.quad{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--line)}
+.quad > div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.quad h3{font-size:26px;font-weight:400;letter-spacing:-0.03em}
+.quad .q{font-size:15px;color:var(--muted)}
+.qitem{border-top:1px solid var(--line);padding-top:10px;display:flex;flex-direction:column;gap:6px}
+.qitem p{font-size:15px}
+/* hmw */
+.hmw{border-top:1px solid var(--ink)}
+.hmwrow{display:grid;grid-template-columns:60px minmax(0,1fr) 220px;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start}
+.hmwrow .n{font-size:28px;font-weight:300;letter-spacing:-0.03em;color:var(--muted)}
+.hmwrow h4{font-size:22px;font-weight:400;letter-spacing:-0.02em;line-height:1.25}
+.hmwrow h4 em{font-style:normal;color:var(--muted)}
+.hmwrow .side2{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+/* deliverables */
+.dlv{border-top:1px solid var(--ink)}
+.dlvrow{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,1fr) 200px;gap:24px;padding:28px 0;border-bottom:1px solid var(--line);align-items:start}
+.dlvrow .big{font-size:72px;font-weight:300;line-height:.9;letter-spacing:-0.05em}
+.dlvrow h3{font-size:28px;font-weight:500;letter-spacing:-0.03em;margin-bottom:10px}
+.dlvrow p{font-size:15px}
+.dlvrow .f span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.pillst{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;padding:4px 8px;border:1px solid var(--line)}
+.pillst[data-st="Done"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.pillst[data-st="In progress"]{border-color:var(--acc);color:var(--acc)}
+.pillst[data-st="At risk"]{border-color:var(--warn);color:var(--warn)}
+@media (max-width:980px){
+  .hmwrow{grid-template-columns:44px minmax(0,1fr)}
+  .hmwrow .side2{grid-column:2}
+  .dlvrow{grid-template-columns:80px minmax(0,1fr)}
+  .dlvrow > :nth-child(n+3){grid-column:2}
+  .whoami{display:none}
+}
+@media (max-width:620px){
+  .quad{grid-template-columns:minmax(0,1fr)}
+  .dlvrow .big{font-size:48px}
+  .toast{left:16px;right:16px;max-width:none}
+}
+.sec .side{top:116px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap row1">
+    <a class="brand" href="#pitch"><svg viewBox="0 0 40 40" aria-hidden="true"><g id="brandring"></g></svg>17SG</a>
+    <div class="who"><span class="whoami" id="whoami">Connecting...</span><button type="button" class="btn small" id="fb-access" hidden>Team access</button><button type="button" class="btn small" id="fb-signout" hidden>Sign out</button><button type="button" class="btn small solid" id="fb-signin" hidden>Sign in</button><button type="button" class="sync" id="sync" data-s="readonly"><i></i>Connecting</button></div>
+  </div>
+  <nav class="row2" aria-label="Pages"><div class="wrap">
+    <div class="navgroup"><span class="g">Pitch</span><a href="#pitch">Hub</a><a href="#ideas">Ideas</a></div>
+    <div class="navgroup"><span class="g">Plan</span><a href="#timeline">Timeline</a><a href="#team">Team</a><a href="#deliverables">Deliverables</a></div>
+    <div class="navgroup"><span class="g">Research</span><a href="#personas">Personas</a><a href="#stakeholders">Stakeholders</a><a href="#hmw">How might we</a><a href="#foursets">Four Sets</a></div>
+    <div class="navgroup"><span class="g">Discuss</span><a href="#questions">Questions</a><a href="#board">Pins</a></div>
+  </div></nav>
+</header>
+<main class="view" id="v-pitch">
+
+<section class="hero">
+  <div class="gridbg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="t">
+      <div class="label">17SG / IncUB8 / UH 4504 / Working draft, Nov 2026</div>
+      <h1>Real places.<br>Real crises.<br>Your community.</h1>
+      <p class="lede">A PC game where you look after a real community, talk to the people who live there, and respond when the world actually changes.</p>
+      <div class="status-row">
+        <span><i class="sq" style="background:var(--ink)"></i>Hub: agreed</span>
+        <span><i class="sq" style="background:var(--rr)"></i>Rapid Response: hypothesis</span>
+        <span><i class="sq" style="background:var(--mini)"></i>Mini games: hypothesis</span>
+        <span><i class="sq" style="background:var(--lab)"></i>The Lab: hypothesis</span>
+      </div>
+    </div>
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 200 200"><g class="ring" id="heroring"></g></svg><b>17SG</b></div>
+  </div>
+</section>
+
+<section class="howto" aria-labelledby="howto-h">
+  <div class="wrap">
+    <div class="h"><div class="label">Start here</div><h2 id="howto-h">How to use this site</h2></div>
+    <ol>
+      <li><b>01</b><span>Read the Pitch top to bottom. About 10 minutes.</span></li>
+      <li><b>02</b><span>Press <strong>Pin</strong> on anything. Mark it Must keep or Rethink, and say why.</span></li>
+      <li><b>03</b><span>Add to the <strong>Plan</strong>, <strong>Research</strong> and <strong>Discuss</strong> tabs. Everything saves automatically and shows who added it.</span></li>
+      <li><b>04</b><span>Watch the status in the top right: <strong>Saving</strong>, <strong>All changes saved</strong>, or <strong>Offline</strong>. Every edit keeps a version you can restore.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 01 mission -->
+<section class="sec" id="s-mission">
+  <div class="wrap">
+    <aside class="side"><span class="n">01</span><span class="label">Mission and goals</span>
+      <div class="subnav" aria-label="Jump to section">
+        <button data-go="s-mission"><b>01</b>Mission and goals</button>
+        <button data-go="s-game"><b>02</b>The game</button>
+        <button data-go="s-hub"><b>03</b>Hub</button>
+        <button data-go="s-rapid"><b>04</b>Rapid Response</button>
+        <button data-go="s-mini"><b>05</b>Mini games</button>
+        <button data-go="s-lab"><b>06</b>The Lab</button>
+        <button data-go="s-map"><b>07</b>Goals map</button>
+        
+      </div>
+    </aside>
+    <div class="main">
+      <div>
+        <div class="label">Problem statement</div>
+        <p class="mission" style="margin-top:14px">Spread awareness of the 17 Sustainable Development Goals, and give people a real way to help solve them.</p>
+      </div>
+      <div class="block">
+        <div class="hd"><h3>Company goals</h3><button class="pin" data-t="goals" data-l="Company goals">Pin</button></div>
+        <div class="goals">
+          <div class="goal"><span class="k">1</span><b>Make people feel it</b><p>Turn distant crises into people and places players care about.</p></div>
+          <div class="goal"><span class="k">2</span><b>Turn play into action</b><p>Player ideas, aid and partnerships that feed real work on the goals. SDG 17, partnership, is how we do it.</p></div>
+          <div class="goal"><span class="k">3</span><b>Scale to fund it</b><p>A big, loyal, paying player base keeps the mission alive.</p></div>
+        </div>
+      </div>
+      <div class="flag">
+        <div class="label" style="color:var(--warn)">For team discussion</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <p><strong>Unflinching.</strong> We want to shake things up and put political and humanitarian crises in front of players that other games avoid: protests in a France-like country, aid not reaching a Gaza-like strip. Places are renamed but recognizable, and the framing stays on people and aid.</p>
+          <p class="muted">The risks: store policies, school partners, VT and Hult judges, sponsors, and the safety of the communities we depict. The team needs to agree on the line.</p>
+          <div><button class="pin" data-t="unflinching" data-l="Principle: Unflinching">Pin</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 game -->
+<section class="sec" id="s-game">
+  <div class="wrap">
+    <aside class="side"><span class="n">02</span><span class="label">The game</span></aside>
+    <div class="main">
+      <div><h2>One home. Three ways to feed it.</h2><p class="intro">The Hub is the save file that holds everything. The other three modes bring players in, bring them back every day, and turn the most engaged ones into problem solvers.</p></div>
+      <div class="loop">
+        <div><div class="row"><i class="sq" style="background:var(--mini)"></i><span class="label">Find it</span></div><b>Mini games</b><p>An easy front door.</p></div>
+        <div><div class="row"><i class="sq" style="background:var(--rr)"></i><span class="label">Make it a habit</span></div><b>Rapid Response</b><p>A crisis every day.</p></div>
+        <div><div class="row"><i class="sq" style="background:var(--ink)"></i><span class="label">Call it home</span></div><b>Hub</b><p>Your community and friends.</p></div>
+        <div><div class="row"><i class="sq" style="background:var(--lab)"></i><span class="label">Contribute</span></div><b>The Lab</b><p>Real problems, high stakes.</p></div>
+      </div>
+      <div><button class="pin" data-t="loop" data-l="The game loop">Pin</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 hub -->
+<section class="sec" id="s-hub">
+  <div class="wrap">
+    <aside class="side"><span class="n">03</span><span class="label">Hub</span><span class="state locked">Agreed</span></aside>
+    <div class="main">
+      <div><h2>A real place you look after.</h2><p class="intro">Pick a real community, renamed but true to its climate, economy and politics. Build it, walk its streets, get to know its people, and protect it when the real world hits.</p></div>
+
+      <div class="block">
+        <div class="hd"><h3>Storyboard</h3><span class="label">12 frames / first boot to first crisis</span></div>
+        <div class="board" data-board="hub"></div>
+      </div>
+
+      <div class="block">
+        <div class="hd"><h3>What you do in the Hub</h3></div>
+        <div class="spec">
+          <div class="cell"><h4>Real-world map</h4><p>Real regions in the US, Asia and beyond. Places renamed; climate and politics match.</p><div class="foot"><button class="pin" data-t="hub-map" data-l="Hub: Real-world map">Pin</button></div></div>
+          <div class="cell"><h4>Your avatar</h4><p>Walk your streets and visit friends' communities. Zoom out to build.</p><div class="foot"><button class="pin" data-t="hub-avatar" data-l="Hub: Your avatar">Pin</button></div></div>
+          <div class="cell"><h4>Build with trade-offs</h4><p>Housing, power, water, clinics. Every build helps one thing and costs another.</p><div class="foot"><span class="credit">City-builder pitch</span><button class="pin" data-t="hub-build" data-l="Hub: Build with trade-offs">Pin</button></div></div>
+          <div class="cell"><h4>16 goal meters</h4><p>Each SDG is a live health meter for your community.</p><div class="foot"><button class="pin" data-t="hub-meters" data-l="Hub: 16 goal meters">Pin</button></div></div>
+          <div class="cell"><h4>AI residents</h4><p>People who talk back, remember you, and show up in a crisis.</p><div class="foot"><button class="pin" data-t="hub-ai" data-l="Hub: AI residents">Pin</button></div></div>
+          <div class="cell"><h4>Live crisis feed</h4><p>Real events become playable. Then compare your call with what really happened.</p><div class="foot"><button class="pin" data-t="hub-feed" data-l="Hub: Live crisis feed">Pin</button></div></div>
+          <div class="cell"><h4>Co-op aid</h4><p>Send a flare. Friends send food, water, money, volunteers.</p><div class="foot"><button class="pin" data-t="hub-aid" data-l="Hub: Co-op aid">Pin</button></div></div>
+          <div class="cell"><h4>Hall of Best Decisions</h4><p>A landmark on the map. NGO partners recognize the best real responses.</p><div class="foot"><button class="pin" data-t="hub-hall" data-l="Hub: Hall of Best Decisions">Pin</button></div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="hd"><h3>AI residents</h3><span class="label">In my words / James</span></div>
+        <div class="voice">
+          <blockquote>
+            <p>I'm genuinely excited about this one. Very few games have live, conversational characters baked in yet, and chatbots are now convincing enough to pass for human in Turing-test studies. We're early, and that's the opportunity.</p>
+            <p>Here's the value prop. As an American, I can't fully feel what's happening on the Gaza Strip. But if a character in a game I'm sucked into tells me how they feel, what they've lost and what they need, I'm a lot more likely to feel it. Then I'm working to help them, and maybe rallying my friends to help too.</p>
+            <p>It also makes a single-player world feel multiplayer. Your avatar walks around talking to dozens of people who remember you, and they show up for you when things go wrong.</p>
+          </blockquote>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div class="chat" aria-label="Example conversation with an AI resident">
+              <div class="label">Example / Amara, clinic nurse</div>
+              <div class="msg them">The river's up again. If it floods, the clinic loses power first.</div>
+              <div class="msg me" style="animation-delay:.6s">Can we move the generator upstairs tonight?</div>
+              <div class="msg them" style="animation-delay:1.2s">Tomas has a truck. He trusts you after the well fix. Want me to ask him?</div>
+              <div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
+            <div class="rows">
+              <div><b>01</b><span>A persona card per resident, written by the team. The AI stays inside it.</span></div>
+              <div><b>02</b><span>Memory and trust. Promises kept or broken change how they treat you.</span></div>
+              <div><b>03</b><span>Off screen, they keep living. Choices ripple over time.</span></div>
+              <div><b>04</b><span>Guardrails: a small, low-energy model, clearly fictional characters, no unhealthy attachment, screened crisis talk.</span></div>
+            </div>
+          </div>
+        </div>
+        <div><button class="pin" data-t="hub-ai-voice" data-l="Hub: AI residents, value prop">Pin</button></div>
+      </div>
+
+      <div class="block">
+        <div class="hd"><h3>Real places, renamed</h3><button class="pin" data-t="hub-real" data-l="Hub: Real places, renamed">Pin</button></div>
+        <div class="spec three">
+          <div class="cell"><span class="label">What stays real</span><p>Location, climate, economy, the political situation, the crises it faces.</p></div>
+          <div class="cell"><span class="label">What changes</span><p>Names of places, leaders and groups. A recognizable mirror, not a copy.</p></div>
+          <div class="cell"><span class="label">Why</span><p>Players feel the real stakes. We can speak about hard issues with less risk.</p></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="hd"><h3>Live crisis pipeline</h3><button class="pin" data-t="hub-pipe" data-l="Hub: Live crisis pipeline">Pin</button></div>
+        <div class="pipe">
+          <div><span class="label">01</span><b>Real event</b><p>A flood, a protest, aid blocked.</p></div>
+          <div><span class="label">02</span><b>AI gathers</b><p>Region, scale, which goals.</p></div>
+          <div><span class="label">03</span><b>Template</b><p>A preloaded scenario, scaled to fit.</p></div>
+          <div><span class="label">04</span><b>Team screens</b><p>Accuracy, bias, sensitivity.</p></div>
+          <div><span class="label">05</span><b>Live</b><p>Matching communities get the alert.</p></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="hd"><h3>Multiplayer</h3><button class="pin" data-t="hub-mp" data-l="Hub: Multiplayer">Pin</button></div>
+        <div class="spec two">
+          <div class="cell"><div class="frame" id="mpart" style="aspect-ratio:16/10"></div></div>
+          <div class="cell" style="padding-left:20px">
+            <div class="rows">
+              <div><b>01</b><span><strong>Co-op aid, the core.</strong> Friends' communities share your map. Send a flare and they send help or join your response.</span></div>
+              <div><b>02</b><span><strong>Reputation.</strong> Helping others earns standing and rewards, like real foreign aid.</span></div>
+              <div><b>03</b><span><strong>Alliances, a hypothesis.</strong> Groups of about 12 pool resources for bigger crises.</span></div>
+              <div><b>04</b><span><strong>Shared events, a hypothesis.</strong> Big crises that need many players to coordinate.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="hd"><h3>Why players come back</h3><button class="pin" data-t="hub-hooks" data-l="Hub: Why players come back">Pin</button></div>
+        <div class="spec three">
+          <div class="cell"><h4>Protect what you built</h4><p>The pull of Clash of Clans: people log in to protect their base.</p></div>
+          <div class="cell"><h4>The news is a notification</h4><p>Something real just happened to your region. Check in.</p></div>
+          <div class="cell"><h4>A friend needs you</h4><p>An aid flare is hard to ignore.</p></div>
+          <div class="cell"><h4>People who remember you</h4><p>Residents notice when you're gone, and when you come back.</p></div>
+          <div class="cell"><h4>Ratings and streaks</h4><p>Win, perfect win, leaderboards, daily streaks.</p></div>
+          <div class="cell"><h4>Recognition</h4><p>A real shot at the Hall of Best Decisions.</p></div>
+        </div>
+        <p class="muted" style="font-size:14px">The tension: habit loops built on real suffering have to stay respectful.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 rapid -->
+<section class="sec" id="s-rapid">
+  <div class="wrap">
+    <aside class="side"><span class="n">04</span><span class="label">Rapid Response</span><span class="state"><i class="sq" style="background:var(--rr)"></i>Hypothesis</span></aside>
+    <div class="main">
+      <div><h2>A crisis a day, in 5 to 8 minutes.</h2><p class="intro">The daily hook. It drives daily active users (DAU, unique players per day).</p></div>
+      <div class="board" data-board="rapid"></div>
+      <div class="spec">
+        <div class="cell"><h4>Daily drop</h4><p>One mission, one phone alert.</p><div class="foot"><button class="pin" data-t="rr-drop" data-l="Rapid Response: Daily drop">Pin</button></div></div>
+        <div class="cell"><h4>Decision tree</h4><p>Choices branch into side effects.</p><div class="foot"><span class="credit">Eleazar</span><button class="pin" data-t="rr-tree" data-l="Rapid Response: Decision tree">Pin</button></div></div>
+        <div class="cell"><h4>Policy vote</h4><p>Negotiate with residents and allies.</p><div class="foot"><span class="credit">Model UN pitch</span><button class="pin" data-t="rr-policy" data-l="Rapid Response: Policy vote">Pin</button></div></div>
+        <div class="cell"><h4>Streaks</h4><p>Rewards home, ratings, bonuses.</p><div class="foot"><button class="pin" data-t="rr-streak" data-l="Rapid Response: Streaks">Pin</button></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 mini -->
+<section class="sec" id="s-mini">
+  <div class="wrap">
+    <aside class="side"><span class="n">05</span><span class="label">Mini games</span><span class="state"><i class="sq" style="background:var(--mini)"></i>Hypothesis</span></aside>
+    <div class="main">
+      <div><h2>The front door, and the catch-all.</h2><p class="intro">Levelled games for when your community is fine. Most of the team's ideas can live here.</p></div>
+      <div class="board" data-board="mini"></div>
+      <div class="spec">
+        <div class="cell"><h4>A level per goal</h4><p>Level 1 is SDG 1, and so on.</p><div class="foot"><button class="pin" data-t="mg-levels" data-l="Mini games: A level per goal">Pin</button></div></div>
+        <div class="cell"><h4>Skill tree</h4><p>Your avatar levels up, plot armor and all.</p><div class="foot"><span class="credit">Avatar pitch</span><button class="pin" data-t="mg-skill" data-l="Mini games: Skill tree">Pin</button></div></div>
+        <div class="cell"><h4>Resource arena</h4><p>Alliances compete in party games.</p><div class="foot"><span class="credit">Island pitch</span><button class="pin" data-t="mg-arena" data-l="Mini games: Resource arena">Pin</button></div></div>
+        <div class="cell"><h4>Perfect wins</h4><p>Clear it without a hit.</p><div class="foot"><button class="pin" data-t="mg-perfect" data-l="Mini games: Perfect wins">Pin</button></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 lab -->
+<section class="sec" id="s-lab">
+  <div class="wrap">
+    <aside class="side"><span class="n">06</span><span class="label">The Lab</span><span class="state"><i class="sq" style="background:var(--lab)"></i>Hypothesis</span></aside>
+    <div class="main">
+      <div><h2>High stakes. Real problems. Real data.</h2><p class="intro">A sandbox for wicked problems: problems with no single right answer, where fixing one part shifts the others. Stake your resources on a brief. Solve it and win big. The best work goes to real partners.</p></div>
+      <div class="board" data-board="lab"></div>
+
+      <div class="block">
+        <div class="hd"><h3>Two tracks</h3><button class="pin" data-t="lab-tracks" data-l="Lab: Two tracks">Pin</button></div>
+        <div class="spec two">
+          <div class="cell"><span class="label">Track A / Science</span><h4>Partner puzzles</h4><p>A research partner hands us a task where human eyes beat computers: spotting patterns, mapping, sorting. We wrap it in play, and many players solve each piece so answers can be cross-checked.</p></div>
+          <div class="cell" style="padding-left:20px"><span class="label">Track B / Policy</span><h4>Wicked-problem sandbox</h4><p>Players design solutions under real limits, with one side building the plan and another playing what goes wrong. We group the strongest approaches and hand them to NGO partners. Less precedent here. This is where we'd be breaking ground.</p></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="hd"><h3>It has worked before</h3><button class="pin" data-t="lab-precedent" data-l="Lab: Precedents">Pin</button></div>
+        <div class="spec three">
+          <div class="cell"><span class="label">2011 / Foldit</span><h4>Players solved a viral enzyme</h4><p>Protein-folding players produced models good enough to solve a retroviral protease structure, opening routes to new antiretroviral drugs.</p><a href="https://www.nature.com/articles/nrmicro2687">Nature Reviews Microbiology</a></div>
+          <div class="cell"><span class="label">2012 / Cell Slider</span><h4>200,000 people read cancer slides</h4><p>Cancer Research UK's players classified nearly 2 million images, cutting analysis from 18 months to 3.</p><a href="https://www.emjreviews.com/oncology/news/cancer-research-uk-launches-spaceship-smartphone-game-to-seek-cancer-cures/">European Medical Journal</a></div>
+          <div class="cell"><span class="label">2014 / Genes in Space</span><h4>Flying through cancer data</h4><p>A spaceship game where each route players flew helped scientists find faulty genes in breast cancer data.</p><a href="https://news.cancerresearchuk.org/2014/02/04/cancer-research-uk-launches-spaceship-smartphone-game-to-seek-cancer-cures/">Cancer Research UK</a></div>
+          <div class="cell"><span class="label">2016 / Sea Hero Quest</span><h4>4.3 million players, dementia</h4><p>Navigation data built the first benchmark of human spatial navigation, a lead toward earlier dementia diagnosis.</p><a href="https://www.telekom.com/en/corporate-responsibility/corporate-responsibility/sea-hero-quest-game-forgood-587134">Deutsche Telekom</a></div>
+          <div class="cell"><span class="label">2024 / Borderlands Science</span><h4>Inside a hit commercial game</h4><p>4.5 million Borderlands 3 players mapped evolutionary links between gut microbes, published in Nature Biotechnology.</p><a href="https://sciencedaily.com/releases/2024/04/240415163707.htm">ScienceDaily</a></div>
+          <div class="cell"><span class="label">What they share</span><h4>The pattern we copy</h4><p>A partner owns the question. Humans beat the computer at the task. Play stays fun. Many players check each answer. Players get credit.</p></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="hd"><h3>The wager</h3><button class="pin" data-t="lab-wager" data-l="Lab: The wager">Pin</button></div>
+        <div class="rows">
+          <div><b>01</b><span>Accept a brief and stake resources from your Hub.</span></div>
+          <div><b>02</b><span>Build within set tools, budget and time.</span></div>
+          <div><b>03</b><span>Survive the consequences round.</span></div>
+          <div><b>04</b><span>Pass and earn a multiple of your stake, top-player status, and a shot at the Hall. Fail and lose the stake.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 map -->
+<section class="sec" id="s-map">
+  <div class="wrap">
+    <aside class="side"><span class="n">07</span><span class="label">Goals map</span></aside>
+    <div class="main">
+      <div><h2>Every mode, against every goal.</h2><p class="intro">How each mode serves the three company goals, and how we'd know it's working. The weights are a first-pass estimate for discussion.</p></div>
+      <div class="tablewrap"><table class="m" id="matrix"><thead><tr><th>Mode</th><th>1 / Make people feel it</th><th>2 / Turn play into action</th><th>3 / Scale to fund it</th></tr></thead><tbody></tbody></table></div>
+      <div class="block">
+        <div class="hd"><h3>How we'd measure it</h3><button class="pin" data-t="measures" data-l="Goals map: Measures">Pin</button></div>
+        <div class="goals">
+          <div class="goal"><span class="label">Goal 1</span><p>SDG knowledge before and after play. Resident conversations per player. Crises completed.</p></div>
+          <div class="goal"><span class="label">Goal 2</span><p>Aid sent between players. Lab solutions submitted and reviewed by partners. Hall entries.</p></div>
+          <div class="goal"><span class="label">Goal 3</span><p>Daily active users. Day-30 retention. Share of paying players. Revenue.</p></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="hd"><h3>Revenue, considerations only</h3><button class="pin" data-t="rev" data-l="Revenue considerations">Pin</button></div>
+        <p class="muted" style="font-size:15px">Not the thesis. The business team's research comes first.</p>
+        <div class="spec three">
+          <div class="cell"><h4>Free solo, paid global</h4><p>The buy-in also age-gates global play.</p></div>
+          <div class="cell"><h4>Cosmetics</h4><p>For your community and avatar. No pay-to-win.</p></div>
+          <div class="cell"><h4>School editions</h4><p>Sponsored classroom events.</p></div>
+          <div class="cell"><h4>Profit share</h4><p>A cut goes to real SDG work.</p></div>
+          <div class="cell"><h4>Crowdfunding</h4><p>Godus, a key reference, was Kickstarter-funded.</p></div>
+          <div class="cell"><h4>Research partners</h4><p>Only if the Lab produces data someone wants.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= TEAM IDEAS ================= -->
+<main class="view" id="v-ideas">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Nov 5 all-hands / plus anything new</div><h1>Team ideas</h1><p>Every concrete pitch so far, with a storyboard, the critique it got, and where it plugs into the Hub. Add new ones below.</p></div><div class="r"><button class="btn solid" data-add="ideas">Add an idea</button></div></div></section>
+  <section class="pbody"><div class="wrap"><div id="ideas"></div><div class="groupname">Added by the team</div><p class="status" data-stline="ideas"></p><div data-list="ideas"></div></div></section>
+</main>
+
+<!-- ================= TIMELINE ================= -->
+<main class="view" id="v-timeline">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / Oct 22 to Dec 16</div><h1>Timeline</h1><p>Every task and milestone through the end of the semester. Dates after Nov 5 are a first-pass plan: owners, adjust yours. Click a bar to edit it.</p></div><div class="r"><button class="btn solid" data-add="tasks">Add a task</button></div></div></section>
+  <section class="pbody"><div class="wrap">
+    <div class="legend"><span><i></i>Planned</span><span><i style="background:var(--acc);border-color:var(--acc)"></i>In progress</span><span><i style="background:var(--ink)"></i>Done</span><span><i style="border:2px solid var(--warn)"></i>At risk</span><span><i style="width:10px;height:10px;transform:rotate(45deg);background:var(--ink);border:0"></i>Milestone</span><span><i style="width:0;height:14px;border:0;border-left:1px solid var(--warn)"></i>Today</span></div>
+    <p class="status" data-stline="tasks"></p>
+    <div data-list="tasks"></div>
+  </div></section>
+</main>
+
+<!-- ================= TEAM ================= -->
+<main class="view" id="v-team">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / roles set Nov 2, reassess after winter break</div><h1>Team</h1><p>Who owns what. Design meets Mondays 8 to 9 PM, business Wednesdays 8 to 9 PM, all-hands Thursdays.</p></div><div class="r"><button class="btn solid" data-add="roles">Add a person</button></div></div></section>
+  <section class="pbody"><div class="wrap"><p class="status" data-stline="roles"></p><div data-list="roles"></div></div></section>
+</main>
+
+<!-- ================= DELIVERABLES ================= -->
+<main class="view" id="v-deliverables">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Plan / end of semester</div><h1>Deliverables</h1><p>The three things we ship this semester, what done looks like, and who owns them.</p></div><div class="r"><button class="btn solid" data-add="deliverables">Add a deliverable</button></div></div></section>
+  <section class="pbody"><div class="wrap"><p class="status" data-stline="deliverables"></p><div data-list="deliverables"></div></div></section>
+</main>
+
+<!-- ================= PERSONAS ================= -->
+<main class="view" id="v-personas">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Research / shared draft</div><h1>Personas</h1><p>Who we're designing for: players, buyers and partners. Add one, edit any, pin the ones that matter most.</p></div><div class="r"><button class="btn solid" data-add="personas">Add a persona</button></div></div></section>
+  <section class="pbody"><div class="wrap"><p class="status" data-stline="personas"></p><div data-list="personas"></div></div></section>
+</main>
+
+<!-- ================= STAKEHOLDERS ================= -->
+<main class="view" id="v-stakeholders">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Research / shared draft</div><h1>Stakeholders</h1><p>Everyone who can shape, block, fund, use or be affected by 17SG. Add who's missing.</p></div><div class="r"><button class="btn solid" data-add="stakeholders">Add a stakeholder</button></div></div></section>
+  <section class="pbody"><div class="wrap"><p class="status" data-stline="stakeholders"></p><div data-list="stakeholders"></div></div></section>
+</main>
+
+<!-- ================= HMW ================= -->
+<main class="view" id="v-hmw">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Research / from the Oct 28 whiteboard</div><h1>How might we</h1><p>The core questions behind the game. The first eight are from our whiteboard. Add, sharpen or retire them.</p></div><div class="r"><button class="btn solid" data-add="hmw">Add a statement</button></div></div></section>
+  <section class="pbody"><div class="wrap"><p class="status" data-stline="hmw"></p><div data-list="hmw"></div></div></section>
+</main>
+
+<!-- ================= FOUR SETS ================= -->
+<main class="view" id="v-foursets">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Research / Discovery Thinking</div><h1>Four Sets</h1><p>Our hypothesis for each set, the evidence so far, and the risks we still need to test.</p></div><div class="r"><button class="btn solid" data-add="foursets">Add an entry</button></div></div></section>
+  <section class="pbody"><div class="wrap"><p class="status" data-stline="foursets"></p><div data-list="foursets"></div></div></section>
+</main>
+
+<!-- ================= QUESTIONS ================= -->
+<main class="view" id="v-questions">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Discuss / shared</div><h1>Open questions</h1><p>What we still have to decide. Add a question, take ownership, and record the answer when it's settled.</p></div><div class="r"><button class="btn solid" data-add="questions">Add a question</button></div></div></section>
+  <section class="pbody"><div class="wrap"><p class="status" data-stline="questions"></p><div data-list="questions"></div></div></section>
+</main>
+
+<!-- ================= BOARD ================= -->
+<main class="view" id="v-board">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Discuss / every pin, live</div><h1>Pin board</h1><p>Every pin from every teammate, across the whole site. Add +1 to agree.</p></div><div class="r"><button class="btn solid" id="newpin">Add a general pin</button></div></div></section>
+  <section class="pbody"><div class="wrap">
+    <div class="bar"><div class="filters" role="group" aria-label="Filter pins">
+      <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="keep">Must keep</button><button aria-pressed="false" data-f="rethink">Rethink</button><button aria-pressed="false" data-f="top">Most +1s</button>
+    </div><span class="status" data-stline="people"></span></div>
+    <div class="cards" id="pinlist"></div>
+  </div></section>
+</main>
+
+<footer><div class="wrap"><span>17SG / IncUB8 / UH 4504 / Virginia Tech</span><span>Team values: Responsibility / Artistry / Discipline / Process</span></div></footer>
+
+<!-- pin dialog -->
+<div class="scrim" id="pinscrim" role="dialog" aria-modal="true" aria-labelledby="pin-h">
+  <form class="dlg" id="pinform" novalidate>
+    <div class="label" id="pin-target">Pinning</div>
+    <h3 id="pin-h">Pin this</h3>
+    <div class="seg" role="radiogroup" aria-label="Pin type">
+      <label for="k-keep"><input type="radio" name="kind" id="k-keep" value="keep" checked> Must keep</label>
+      <label for="k-rethink"><input type="radio" name="kind" id="k-rethink" value="rethink"> Rethink</label>
+    </div>
+    <div class="field"><label class="label" for="pin-note">Why</label><textarea id="pin-note" maxlength="600" placeholder="This is my number one because..."></textarea></div>
+    <p class="draftnote" id="pin-draft"></p>
+    <p class="err" id="pin-err"></p>
+    <div class="btns"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn solid" id="pin-save">Save pin</button></div>
+  </form>
+</div>
+
+<!-- entry dialog -->
+<div class="scrim" id="entryscrim" role="dialog" aria-modal="true" aria-labelledby="entry-h">
+  <form class="dlg" id="entryform" novalidate>
+    <div class="label" id="entry-kind">Entry</div>
+    <h3 id="entry-h">Add</h3>
+    <div id="entry-fields" style="display:flex;flex-direction:column;gap:12px"></div>
+    <p class="draftnote" id="entry-draft"></p>
+    <p class="err" id="entry-err"></p>
+    <div class="btns"><button type="button" class="btn" data-close id="entry-cancel">Close</button><button type="submit" class="btn solid" id="entry-save">Save</button></div>
+  </form>
+</div>
+
+<!-- history dialog -->
+<div class="scrim" id="histscrim" role="dialog" aria-modal="true" aria-labelledby="hist-h">
+  <div class="dlg">
+    <div class="label" id="hist-target">History</div>
+    <h3 id="hist-h">Version history</h3>
+    <p class="status" id="hist-status"></p>
+    <div class="hist" id="hist-list"></div>
+    <div class="btns"><button type="button" class="btn" data-close>Close</button></div>
+  </div>
+</div>
+
+<!-- failed saves dialog -->
+<div class="scrim" id="failscrim" role="dialog" aria-modal="true" aria-labelledby="fail-h">
+  <div class="dlg">
+    <div class="label">Sync</div>
+    <h3 id="fail-h">Changes that didn't save</h3>
+    <p class="muted" style="font-size:14px">These are kept on this device. Retry them, or discard them.</p>
+    <div class="hist" id="fail-list"></div>
+    <div class="btns"><button type="button" class="btn" id="fail-discard">Discard all</button><button type="button" class="btn solid" id="fail-retry">Retry all</button></div>
+  </div>
+</div>
+
+<div class="scrim" id="signscrim" role="dialog" aria-modal="true" aria-labelledby="sign-h">
+  <form class="dlg" id="signform" novalidate>
+    <div class="label">17SG team workspace</div>
+    <h3 id="sign-h">Sign in</h3>
+    <p class="muted" style="font-size:15px">We'll email you a one-tap sign-in link. No password. Only emails on the team list can get in.</p>
+    <div class="field"><label class="label" for="sign-name">Your name</label><input id="sign-name" type="text" autocomplete="name" maxlength="80"></div>
+    <div class="field"><label class="label" for="sign-email">Email</label><input id="sign-email" type="email" autocomplete="email" maxlength="160"></div>
+    <p class="err" id="sign-err"></p>
+    <div class="btns"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn solid" id="sign-send">Email me a link</button></div>
+  </form>
+</div>
+<div class="scrim" id="accessscrim" role="dialog" aria-modal="true" aria-labelledby="acc-h">
+  <form class="dlg" id="accessform" novalidate>
+    <div class="label">Admin</div>
+    <h3 id="acc-h">Team access</h3>
+    <p class="muted" style="font-size:15px">One email per line. Only these people can sign in, read the boards and edit.</p>
+    <div class="field"><label class="label" for="acc-list">Team emails</label><textarea id="acc-list" style="min-height:180px"></textarea></div>
+    <p class="draftnote" id="acc-status"></p>
+    <div class="btns"><button type="button" class="btn" id="acc-seed">Load starter content</button><button type="button" class="btn" data-close>Close</button><button type="submit" class="btn solid" id="acc-save">Save list</button></div>
+  </form>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>window.FIREBASE_CONFIG={"apiKey": "AIzaSyDob5cQXWKoZkOcHKP6VXltYn2T1noB2Mk", "authDomain": "inc-ub8.firebaseapp.com", "projectId": "inc-ub8", "storageBucket": "inc-ub8.firebasestorage.app", "messagingSenderId": "412432133093", "appId": "1:412432133093:web:8006d4d4e7e196acd49d0c"};window.TEAM_ADMINS=["jamesmfitchett@gmail.com"];</script>
+<script>
+/* Firebase mode: active only when window.FIREBASE_CONFIG is set (the GitHub Pages build).
+   It provides the same window.claude.use("db"/"user") surface the app already uses. */
+(function(){
+"use strict";
+const cfg=window.FIREBASE_CONFIG;if(!cfg)return;
+const ADMINS=(window.TEAM_ADMINS||[]).map(e=>String(e).toLowerCase());
+const V="12.6.0",BASE="https://cdn.jsdelivr.net/npm/firebase@"+V+"/";
+const EKEY="17sg.signin.email",NKEY="17sg.signin.name";
+function load(src){return new Promise((res,rej)=>{const s=document.createElement("script");s.src=src;s.onload=res;s.onerror=()=>rej(new Error("load "+src));document.head.appendChild(s);});}
+function lsg(k){try{return localStorage.getItem(k);}catch(_){return null;}}
+function lss(k,v){try{localStorage.setItem(k,v);}catch(_){}}
+function lsd(k){try{localStorage.removeItem(k);}catch(_){}}
+const MAP={"permission-denied":"invalid_argument","not-found":"invalid_argument","invalid-argument":"invalid_argument","failed-precondition":"invalid_argument","unauthenticated":"invalid_argument","resource-exhausted":"resource_exhausted","unavailable":"unavailable","deadline-exceeded":"unavailable","aborted":"unavailable","cancelled":"unavailable","internal":"unavailable","unknown":"unavailable"};
+const err=e=>({code:MAP[e&&e.code]||"unavailable",message:(e&&e.message)||String(e)});
+const wrapSnap=(d)=>({id:d.id,exists:!!d.exists,data:()=>d.data(),metadata:{fromCache:!!(d.metadata&&d.metadata.fromCache),hasPendingWrites:!!(d.metadata&&d.metadata.hasPendingWrites)}});
+
+let fs=null,auth=null;
+const sdk=(async()=>{
+  await load(BASE+"firebase-app-compat.js");
+  await Promise.all([load(BASE+"firebase-auth-compat.js"),load(BASE+"firebase-firestore-compat.js")]);
+  firebase.initializeApp(cfg);auth=firebase.auth();fs=firebase.firestore();
+  try{await auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);}catch(_){}
+})();
+
+function q(ref,ord,lim){return{
+  path:ref.path,orderBy(f,d){return q(ref,[f,d||"asc"],lim);},limit(n){return q(ref,ord,n);},
+  doc(id){return docRef(id?ref.doc(id):ref.doc());},
+  async get(){try{let r=ref;if(ord)r=r.orderBy(ord[0],ord[1]);if(lim)r=r.limit(lim);const s=await r.get();return{docs:s.docs.map(wrapSnap),size:s.size,empty:s.empty,metadata:{fromCache:s.metadata.fromCache,hasPendingWrites:s.metadata.hasPendingWrites}};}catch(e){throw err(e);}},
+  onSnapshot(next,onErr){let r=ref;if(ord)r=r.orderBy(ord[0],ord[1]);if(lim)r=r.limit(lim);
+    return r.onSnapshot({includeMetadataChanges:true},s=>next({docs:s.docs.map(wrapSnap),size:s.size,empty:s.empty,docChanges:()=>[],metadata:{fromCache:s.metadata.fromCache,hasPendingWrites:s.metadata.hasPendingWrites}}),e=>onErr&&onErr(err(e)));}
+};}
+function docRef(ref){return{
+  path:ref.path,id:ref.id,
+  async set(d){try{await ref.set(d);}catch(e){throw err(e);}},
+  async update(d){try{await ref.update(d);}catch(e){throw err(e);}},
+  async delete(){try{await ref.delete();}catch(e){throw err(e);}},
+  async get(){try{return wrapSnap(await ref.get());}catch(e){throw err(e);}},
+  collection(c){return q(ref.collection(c));},
+  /* atomic compare-and-update: checks expected values and keeps a history copy if someone else changed them */
+  async updateIfMatch(expect,data,histId,pickFn){
+    try{return await fs.runTransaction(async tx=>{
+      const s=await tx.get(ref);if(!s.exists)throw {code:"not-found"};
+      const cur=s.data()||{};const n=v=>v==null?"":String(v);
+      const clash=expect?Object.keys(expect).filter(k=>n(cur[k])!==expect[k]&&n(cur[k])!==n(data[k])):[];
+      if(clash.length)tx.set(ref.collection("history").doc(histId),{fields:pickFn(cur),at:Date.now(),by:data.editedBy||"",prevEditor:cur.editedBy||"",note:"Kept before a conflicting edit"});
+      tx.update(ref,data);return {clash,editor:cur.editedBy||""};
+    });}catch(e){throw err(e);}
+  }
+};}
+const dbApi={doc:p=>docRef(fs.doc(p)),collection:p=>q(fs.collection(p))};
+
+const nameCache={};
+function userApi(u,onTeam){return{
+  id:async()=>u.uid,isOwner:()=>ADMINS.includes((u.email||"").toLowerCase()),canEdit:()=>ADMINS.includes((u.email||"").toLowerCase()),
+  can:async()=>onTeam,me:async()=>({id:u.uid,name:nameCache[u.uid]||u.email}),
+  async profiles(ids){const out={};await Promise.all(ids.map(async id=>{if(nameCache[id]==null){try{const s=await fs.doc("users/"+id).get();nameCache[id]=s.exists?(s.data().name||s.data().email||""):"";}catch(_){nameCache[id]="";}}out[id]={name:nameCache[id]};}));return out;}
+};}
+
+const ctx=(async()=>{
+  try{await sdk;}catch(e){return {reason:"sdkfail"};}
+  if(auth.isSignInWithEmailLink(location.href)){
+    let email=lsg(EKEY);
+    if(!email)email=window.prompt("Confirm your email to finish signing in")||"";
+    try{await auth.signInWithEmailLink(email.trim(),location.href);}catch(e){window.__fbLinkError=(e&&e.code)||"error";}
+    try{history.replaceState(null,"",location.pathname+location.hash);}catch(_){}
+  }
+  const u=await new Promise(res=>{const un=auth.onAuthStateChanged(x=>{un();res(x);});});
+  if(!u)return {reason:"signedout"};
+  const email=(u.email||"").toLowerCase();
+  let onTeam=ADMINS.includes(email);
+  if(!onTeam){try{const s=await fs.doc("config/access").get();onTeam=!!(s.exists&&(s.data().emails||[]).map(x=>String(x).toLowerCase().trim()).includes(email));}catch(_){onTeam=false;}}
+  if(!onTeam)return {reason:"notonteam",email,user:userApi(u,false)};
+  const nm=lsg(NKEY);
+  try{const ref=fs.doc("users/"+u.uid);const s=await ref.get();if(!s.exists||nm){await ref.set({name:(nm||(s.exists&&s.data().name)||email.split("@")[0]),email},{merge:true});}lsd(NKEY);}catch(_){}
+  return {reason:"ok",email,user:userApi(u,true),db:dbApi,admin:ADMINS.includes(email)};
+})();
+window.claude={use:n=>ctx.then(c=>n==="db"?(c.db||null):n==="user"?(c.user||null):null)};
+window.FB={
+  ctx,
+  async sendLink(email,name){await sdk;email=email.trim().toLowerCase();lss(EKEY,email);if(name)lss(NKEY,name.trim());
+    await auth.sendSignInLinkToEmail(email,{url:location.origin+location.pathname,handleCodeInApp:true});},
+  async signOut(){await sdk;await auth.signOut();location.reload();},
+  async getAccess(){await sdk;const s=await fs.doc("config/access").get();return s.exists?(s.data().emails||[]):[];},
+  async setAccess(list){await sdk;await fs.doc("config/access").set({emails:list,updatedAt:Date.now()});},
+  async seed(data,onProgress){await sdk;let n=0;for(const [col,docs] of Object.entries(data)){const ex=await fs.collection(col).limit(1).get();if(!ex.empty){onProgress&&onProgress(col+": already has content, skipped");continue;}
+    const ents=Object.entries(docs);for(let i=0;i<ents.length;i+=400){const b=fs.batch();ents.slice(i,i+400).forEach(([id,d])=>b.set(fs.doc(col+"/"+id),d));await b.commit();n+=Math.min(400,ents.length-i);}onProgress&&onProgress(col+": "+ents.length+" added");}return n;}
+};
+})();
+
+</script>
+<script>
+(function(){
+
+"use strict";
+const C=["#E5243B","#DDA63A","#4C9F38","#C5192D","#FF3A21","#26BDE2","#FCC30B","#A21942","#FD6925","#DD1367","#FD9D24","#BF8B2E","#3F7E44","#0A97D9","#56C02B","#00689D","#19486A"];
+function ring(el,cx,cy,r1,r2,gap){if(!el)return;let s="";for(let i=0;i<17;i++){const a0=(i/17)*Math.PI*2-Math.PI/2+gap,a1=((i+1)/17)*Math.PI*2-Math.PI/2-gap;const p=(r,a)=>[cx+r*Math.cos(a),cy+r*Math.sin(a)];const[x0,y0]=p(r2,a0),[x1,y1]=p(r2,a1),[x2,y2]=p(r1,a1),[x3,y3]=p(r1,a0);s+=`<path d="M${x0.toFixed(2)} ${y0.toFixed(2)} A${r2} ${r2} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)} L${x2.toFixed(2)} ${y2.toFixed(2)} A${r1} ${r1} 0 0 0 ${x3.toFixed(2)} ${y3.toFixed(2)} Z" fill="${C[i]}"></path>`;}el.innerHTML=s;}
+ring(document.getElementById("heroring"),100,100,88,96,0.01);
+ring(document.getElementById("brandring"),20,20,15,19,0.02);
+
+/* ================= helpers ================= */
+const $=id=>document.getElementById(id);
+const esc=v=>String(v==null?"":v);
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+const norm=v=>v==null?"":String(v);
+function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function lsGet(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v);}catch(_){return d;}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}
+function lsDel(k){try{localStorage.removeItem(k);}catch(_){}}
+let toastT=null;
+function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),6500);}
+function when(ts){if(!ts)return "";const d=new Date(ts);return d.toLocaleDateString(undefined,{month:"short",day:"numeric"})+" "+d.toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"});}
+
+/* ================= static pitch content ================= */
+const W=b=>`<svg viewBox="0 0 320 180" aria-hidden="true">${b}</svg>`;
+const T=(x,y,t,c="tx",a="start")=>`<text x="${x}" y="${y}" class="${c}" text-anchor="${a}">${t}</text>`;
+const person=(x,y,c)=>`<circle cx="${x}" cy="${y}" r="7" class="fb" style="stroke:${c}" stroke-width="1.4"></circle><path d="M${x-11} ${y+22} a11 11 0 0 1 22 0 z" class="fb" style="stroke:${c}" stroke-width="1.4"></path>`;
+const ART={
+places:()=>W(`<circle cx="160" cy="92" r="64" class="lnb"></circle><ellipse cx="160" cy="92" rx="64" ry="20" class="ln"></ellipse><ellipse cx="160" cy="92" rx="40" ry="64" class="ln"><animate attributeName="rx" values="64;0;64" dur="9s" repeatCount="indefinite"></animate></ellipse>${[[124,74,"US Gulf Coast"],[196,96,"South Asian delta"],[160,62,"Mediterranean city"]].map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="4" class="fi"></circle><circle cx="${p[0]}" cy="${p[1]}" r="4" class="sk a-ping" style="animation-delay:${i*0.8}s"></circle>`).join("")}${T(236,128,"US Gulf Coast")}${T(236,142,"South Asian delta")}${T(236,156,"Mediterranean city")}`),
+rename:()=>W(`<rect x="40" y="34" width="240" height="112" class="lnb"></rect><line x1="40" y1="64" x2="280" y2="64" class="ln"></line>${T(52,54,"REAL")}${T(170,54,"IN GAME")}${T(52,82,"[Real city]","txb")}<path d="M140 79 L160 79" class="ska a-flow"></path>${T(170,82,"[New name]","txb")}${T(52,106,"Climate")}${T(170,106,"Same","txb")}${T(52,128,"Politics")}${T(170,128,"Same, renamed","txb")}`),
+avatar:()=>W(`<circle cx="120" cy="66" r="18" class="lnb" stroke-width="1.6" style="stroke:var(--ink)"></circle><path d="M86 136 a34 34 0 0 1 68 0 z" class="lnb" stroke-width="1.6" style="stroke:var(--ink)"></path>${[0,1,2,3].map(i=>`<rect x="${198+(i%2)*36}" y="${50+Math.floor(i/2)*40}" width="24" height="24" fill="${C[[0,5,9,13][i]]}" class="a-lit" style="animation-delay:${i*1.2}s;animation-duration:4.8s"></rect>`).join("")}${T(222,146,"CUSTOMIZE","tx","middle")}`),
+residents:()=>W(`${person(90,100,"var(--muted)")}${person(160,96,"var(--ink)")}${person(230,100,"var(--muted)")}${T(90,140,"Tomas, farmer","tx","middle")}${T(160,136,"Amara, nurse","txb","middle")}${T(230,140,"Lin, teacher","tx","middle")}<g class="a-say"><rect x="112" y="28" width="156" height="40" class="lnb"></rect>${T(122,45,"Welcome. The clinic needs","txb")}${T(122,59,"power before winter.","tx")}</g>`),
+build:()=>W(`<line x1="40" y1="140" x2="280" y2="140" class="sk"></line>${[[60,50],[96,80],[132,64],[168,96],[204,40]].map((b,i)=>`<rect x="${b[0]}" y="${140-b[1]}" width="28" height="${b[1]}" class="a-grow" style="fill:${i==2?"var(--acc)":i%2?"var(--muted)":"var(--ink)"};animation-delay:${i*0.25}s"></rect>`).join("")}<g class="a-say" style="animation-delay:1s"><rect x="196" y="28" width="104" height="40" class="lnb"></rect>${T(204,44,"Power plant","txb")}${T(204,58,"POWER UP, AIR DOWN")}</g>`),
+meters:()=>W(`${C.slice(0,16).map((c,i)=>`<rect x="${34+i*16}" y="40" width="10" height="90" fill="${c}" class="a-wob" style="animation-delay:${(i%5)*0.35}s;animation-duration:${2.4+(i%4)*0.5}s"></rect>`).join("")}<line x1="30" y1="132" x2="290" y2="132" class="sk"></line>${T(160,154,"16 GOAL METERS","tx","middle")}`),
+walk:()=>W(`<path d="M30 140 C 90 140, 90 70, 160 80 S 240 140, 290 70" class="ln" stroke-width="1.5" stroke-dasharray="3 6"></path>${person(220,98,"var(--muted)")}<g><circle r="6" class="fi"><animateMotion dur="6s" repeatCount="indefinite" path="M30 140 C 90 140, 90 70, 160 80 S 240 140, 290 70"></animateMotion></circle></g><g class="a-say" style="animation-delay:2.5s"><rect x="160" y="36" width="116" height="34" class="lnb"></rect>${T(168,57,"You came back.","txb")}</g>${T(30,30,"TRUST 3 / 5")}`),
+alert:()=>W(`<rect x="40" y="22" width="76" height="136" rx="12" class="lnb" style="stroke:var(--ink)" stroke-width="1.2"></rect><g class="a-slide"><rect x="120" y="58" width="172" height="66" class="lnb" style="stroke:var(--ink)"></rect><circle cx="134" cy="74" r="3.5" fill="#E5243B" class="a-blink"></circle>${T(144,77,"LIVE UPDATE")}${T(132,96,"Flooding near [region].","txb")}${T(132,112,"Your community is in its path.")}</g>`),
+council:()=>W(`<rect x="20" y="78" width="72" height="26" class="fi"></rect>${T(56,95,"Flood warning","txw","middle")}${[[40,"Evacuate"],[91,"Sandbag"],[142,"Wait"]].map((b,i)=>`<path d="M92 91 C 120 91, 120 ${b[0]+13}, 150 ${b[0]+13}" class="sk a-draw" stroke-width="1.2" style="animation-delay:${i*0.3}s"></path><rect x="150" y="${b[0]}" width="70" height="26" class="lnb" style="stroke:var(--ink)"></rect>${T(185,b[0]+17,b[1],"txb","middle")}`).join("")}<g class="a-say" style="animation-delay:1.5s"><rect x="232" y="34" width="78" height="44" class="lnb"></rect>${T(240,50,"Lin:","txb")}${T(240,64,"SCHOOL FIRST")}</g>`),
+aid:()=>W(`<circle cx="70" cy="92" r="32" class="fi"></circle>${T(70,96,"You","txw","middle")}<circle cx="70" cy="92" r="32" class="sk a-ping" style="animation-duration:2.8s"></circle><circle cx="250" cy="64" r="22" class="lnb" style="stroke:var(--ink)"></circle>${T(250,68,"Friend","txb","middle")}<circle cx="250" cy="126" r="18" class="lnb" style="stroke:var(--ink)"></circle>${T(250,130,"Ally","txb","middle")}${[0,0.7,1.4,2.1].map((d,i)=>`<rect x="226" y="${i%2?122:60}" width="9" height="9" class="${i%2?"fm":"fa"} a-travel" style="--dx:-130px;animation-delay:${d}s"></rect>`).join("")}${T(160,168,"FLARE ANSWERED","tx","middle")}`),
+respond:()=>W(`<circle cx="70" cy="90" r="34" class="ln" stroke-width="5"></circle><circle cx="70" cy="90" r="34" class="sk a-ring" stroke-width="5" transform="rotate(-90 70 90)"></circle>${T(70,94,"5:42","txb","middle")}${[["Water",56,60],["Shelter",90,30],["Power",124,80]].map((s,i)=>`${T(130,s[1]-6,s[0],"txb")}<line x1="130" y1="${s[1]}" x2="290" y2="${s[1]}" class="ln" stroke-width="3"></line><rect x="${144+s[2]/2}" y="${s[1]-6}" width="12" height="12" class="fi a-knob" style="--kx:${s[2]}px;animation-delay:${i*0.4}s"></rect>`).join("")}`),
+compare:()=>W(`${T(40,56,"Your response","txb")}<rect x="40" y="64" width="240" height="10" class="fp"></rect><rect x="40" y="64" width="176" height="10" class="fi" style="transform-box:fill-box;transform-origin:left;animation:growx 1.6s ease both"></rect>${T(40,106,"What actually happened","txb")}<rect x="40" y="114" width="240" height="10" class="fp"></rect><rect x="40" y="114" width="132" height="10" class="fm" style="transform-box:fill-box;transform-origin:left;animation:growx 1.6s .3s ease both"></rect>${T(40,150,"EXAMPLE: FASTER, AT HIGHER COST")}`),
+hall:()=>W(`<path d="M70 60 L160 28 L250 60 Z" class="lnb" style="stroke:var(--ink)"></path><line x1="70" y1="60" x2="250" y2="60" class="sk"></line>${[86,118,150,182,214,234].slice(0,5).map(x=>`<line x1="${x+8}" y1="66" x2="${x+8}" y2="128" class="sk" stroke-width="1.2"></line>`).join("")}<line x1="60" y1="134" x2="260" y2="134" class="sk"></line><g class="a-say"><rect x="104" y="80" width="112" height="34" class="fb" style="stroke:var(--acc)"></rect>${T(160,94,"Best flood response","txb","middle")}${T(160,107,"REVIEWED BY NGO PARTNER","tx","middle")}</g>${T(160,160,"HALL OF BEST DECISIONS","tx","middle")}`),
+streak:()=>W(`${[0,1,2,3,4,5,6].map(i=>`<rect x="${38+i*36}" y="64" width="28" height="40" class="fp"></rect><rect x="${38+i*36}" y="64" width="28" height="40" class="fi a-lit" style="animation-delay:${i*0.5}s;animation-duration:5s"></rect>${T(52+i*36,120,"MTWTFSS"[i],"tx","middle")}`).join("")}${T(160,150,"DAY STREAK","tx","middle")}`),
+negotiate:()=>W(`<ellipse cx="160" cy="100" rx="80" ry="34" class="fp"></ellipse>${[[90,70,"Residents"],[230,70,"Ally"],[100,140,"You"],[220,140,"Council"]].map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="11" class="${i==2?"fi":"lnb"}" style="stroke:var(--ink)"></circle>${T(p[0],p[1]+(p[1]<100?-17:25),p[2],"tx","middle")}`).join("")}<g class="a-blink"><rect x="122" y="86" width="76" height="28" class="lnb" style="stroke:var(--ink)"></rect>${T(160,104,"Vote 3 to 1","txb","middle")}</g>`),
+rating:()=>W(`<circle cx="105" cy="84" r="36" class="lnb" style="stroke:var(--ink)"></circle>${T(105,82,"Win","txb","middle")}${T(105,96,"CLEARED","tx","middle")}<circle cx="215" cy="84" r="36" class="fi"></circle><circle cx="215" cy="84" r="36" class="sk a-ping" style="animation-duration:3s"></circle>${T(215,82,"Perfect","txw","middle")}${T(215,96,"No hits","txw","middle")}`),
+tiles:()=>{let s="";for(let i=0;i<16;i++){const x=40+(i%8)*31,y=48+Math.floor(i/8)*42;s+=`<rect x="${x}" y="${y}" width="26" height="34" fill="${C[i]}" class="a-lit" style="animation-delay:${i*0.4}s"></rect>${T(x+13,y+21,String(i+1),"txw","middle")}`;}return W(s+T(160,158,"ONE LEVEL PER GOAL","tx","middle"))},
+arena:()=>W(`<circle cx="160" cy="90" r="62" class="lnb" style="stroke:var(--ink)"></circle><rect x="142" y="72" width="36" height="36" class="fi"></rect>${T(160,94,"Loot","txw","middle")}${[0,1,2,3,4,5].map(i=>`<circle r="5" fill="${C[i*3]}"><animateMotion dur="${5+i}s" begin="-${i}s" repeatCount="indefinite" path="M160 28 A62 62 0 1 1 159.9 28"></animateMotion></circle>`).join("")}${T(160,170,"ALLIANCE ARENA","tx","middle")}`),
+skill:()=>{const n=[[160,40],[110,90],[210,90],[80,140],[140,140],[200,140],[240,140]];const e=[[0,1],[0,2],[1,3],[1,4],[2,5],[2,6]];return W(e.map(p=>`<line x1="${n[p[0]][0]}" y1="${n[p[0]][1]}" x2="${n[p[1]][0]}" y2="${n[p[1]][1]}" class="sk" stroke-width="1"></line>`).join("")+n.map((p,i)=>`<rect x="${p[0]-10}" y="${p[1]-10}" width="20" height="20" class="lnb" style="stroke:var(--ink)"></rect><rect x="${p[0]-10}" y="${p[1]-10}" width="20" height="20" class="fi a-lit" style="animation-delay:${i*0.6}s;animation-duration:4.2s"></rect>`).join(""))},
+grow:()=>W(`<line x1="30" y1="140" x2="290" y2="140" class="sk"></line>${[30,52,40,70,58,86,64,98].map((h,i)=>`<rect x="${40+i*30}" y="${140-h}" width="22" height="${h}" class="${i%3?"fm":"fi"} a-grow" style="animation-delay:${i*0.15}s;opacity:${i%3?0.5:1}"></rect>`).join("")}`),
+brief:()=>W(`<g class="a-drop"><rect x="60" y="24" width="200" height="108" class="lnb" style="stroke:var(--ink)"></rect>${T(74,42,"PROJECT BRIEF")}${T(74,62,"Clean water, informal settlement","txb")}${T(74,76,"ONE SEASON / LOCAL MATERIALS")}<rect x="74" y="94" width="86" height="26" class="fi"></rect>${T(117,111,"Stake 3x","txw","middle")}<rect x="168" y="94" width="78" height="26" class="lnb" style="stroke:var(--ink)"></rect>${T(207,111,"Walk away","txb","middle")}</g>`),
+tracks:()=>W(`<rect x="30" y="40" width="120" height="96" class="lnb" style="stroke:var(--ink)"></rect>${T(42,58,"TRACK A")}${T(42,78,"Science","txb")}${T(42,94,"Partner puzzles","tx")}<rect x="170" y="40" width="120" height="96" class="fi"></rect>${T(182,58,"TRACK B","txw")}${T(182,78,"Policy","txw")}${T(182,94,"Wicked problems","txw")}<circle cx="160" cy="88" r="6" class="fa a-ping"></circle>`),
+nodes:()=>W(`${["M70 92 L150 56","M70 92 L150 128","M150 56 L240 92","M150 128 L240 92"].map((p,i)=>`<path d="${p}" class="sk a-draw" stroke-width="1.2" style="animation-delay:${i*0.3}s"></path>`).join("")}<rect x="38" y="80" width="64" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(70,96,"Source","txb","middle")}<rect x="118" y="44" width="64" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(150,60,"Filter","txb","middle")}<rect x="118" y="116" width="64" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(150,132,"Storage","txb","middle")}<rect x="208" y="80" width="70" height="24" class="fi"></rect>${T(243,96,"Network","txw","middle")}`),
+consequence:()=>W(`<rect x="20" y="40" width="76" height="24" class="fi"></rect>${T(58,56,"Build roads","txw","middle")}<path d="M96 52 L124 52" class="sk a-draw"></path><rect x="124" y="40" width="70" height="24" class="lnb" style="stroke:var(--ink)"></rect>${T(159,56,"Jobs up","txb","middle")}<path d="M58 64 L58 110 L84 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:.6s"></path><rect x="84" y="98" width="70" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(119,114,"Loan-funded","txb","middle")}<path d="M154 110 L178 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:1s"></path><rect x="178" y="98" width="50" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(203,114,"Debt","txb","middle")}<path d="M228 110 L246 110" class="a-draw" style="stroke:#E5243B;fill:none;animation-delay:1.4s"></path><rect x="246" y="98" width="62" height="24" class="lnb" style="stroke:#E5243B"></rect>${T(277,114,"Mining rights","txb","middle")}${T(160,156,"PLAN ABOVE / WHAT GOES WRONG BELOW","tx","middle")}`),
+data:()=>{let s="";[[70,4],[120,7],[170,2]].forEach((c,k)=>{for(let i=0;i<c[1];i++)s+=`<rect x="${c[0]-6}" y="${126-i*14}" width="12" height="11" class="${k==2?"fm":"fi"} a-drop" style="animation-delay:${(i*0.15+k*0.1).toFixed(2)}s"></rect>`;});return W(`<line x1="44" y1="140" x2="196" y2="140" class="sk"></line>${s}${T(70,156,"IDEA A","tx","middle")}${T(120,156,"IDEA B","tx","middle")}${T(170,156,"IDEA C","tx","middle")}<path d="M204 90 L236 90" class="ska a-flow"></path><rect x="238" y="70" width="70" height="40" class="lnb" style="stroke:var(--acc)"></rect>${T(273,88,"Insight","txb","middle")}${T(273,101,"FOR PARTNERS","tx","middle")}`)},
+classroom:()=>{let s="";for(let i=0;i<8;i++){const x=46+(i%4)*36,y=56+Math.floor(i/4)*44;s+=`<rect x="${x}" y="${y}" width="26" height="18" class="${i<4?"fi":"fm"}" style="opacity:${i<4?1:.5}"></rect>`;}return W(s+T(100,42,"PLAN TEAM","tx","middle")+T(100,150,"CONSEQUENCE TEAM","tx","middle")+`<path d="M200 70 C 240 70, 240 110, 200 110" class="sk a-flow"></path>`+T(250,94,"Swap","txb"))},
+};
+
+const BOARDS={
+hub:[
+["places","Choose a real place","Start in a real region: the US Gulf Coast, a South Asian delta, a Mediterranean city."],
+["rename","Real climate, new name","Renamed, but its climate, economy and politics match reality."],
+["avatar","Make your avatar","This is you, walking the streets."],
+["residents","Meet your residents","AI residents introduce themselves. Each has a job, a family, a worry."],
+["build","Build with trade-offs","Every build helps one thing and costs another."],
+["meters","Watch the 16 goals","Your choices move each goal meter."],
+["walk","Walk and talk","Make promises. Residents remember whether you kept them."],
+["alert","A real crisis lands","Something really happened. It's heading your way."],
+["council","Hear your people out","Residents argue for different options. Choices branch."],
+["aid","Send a flare","Friends and allies send help. Trusted residents step up."],
+["compare","Your call vs reality","Your outcome next to the real one, rated win or perfect win."],
+["hall","Make the Hall","Standout responses go to the Hall of Best Decisions, reviewed by NGO partners."]
+],
+rapid:[
+["streak","The daily drop","An alert. Your streak is on the line."],
+["alert","Read the brief","One sharp crisis in one community."],
+["council","Branch the choices","Fast decisions with side effects.","Eleazar's decision tree"],
+["negotiate","Win the vote","A quick policy negotiation.","Model UN pitch"],
+["rating","Get rated","Win or perfect win."],
+["aid","Carry it home","Rewards grow your Hub."]
+],
+mini:[
+["tiles","Pick a level","One game per goal."],
+["avatar","Gear up","Your avatar and upgrades carry over.","Avatar pitch"],
+["arena","Enter the arena","Your alliance against theirs.","Island pitch"],
+["rating","Win or perfect win","No hits, bigger reward."],
+["skill","Unlock the tree","New abilities in every mode."],
+["grow","Feed the Hub","Winnings become buildings."]
+],
+lab:[
+["brief","Take the brief","Stake your resources, or walk away."],
+["tracks","Pick a track","Science puzzles or policy sandbox."],
+["nodes","Build within limits","Fixed tools, budget, timeline."],
+["consequence","Face the consequences","Another player or the AI plays what goes wrong.","Eleazar's back-and-forth"],
+["data","Your idea becomes data","Grouped, checked, sent to partners."],
+["hall","Cash in","A big payout and a shot at the Hall."]
+]};
+const MODE={hub:"Hub",rapid:"Rapid Response",mini:"Mini games",lab:"Lab"};
+const IDEAS=[
+{id:"idea-avatar",title:"Avatar + social sim scenarios",by:"Teammate pitch",sum:"Make an avatar. Each goal plays out as a scenario with people to talk to. Plot armor powers. Rated, compared with real life, replayable as new events arrive.",art:["avatar","residents","rating","skill"],caps:["Create your avatar","Meet the people","Win or perfect win","Unlock upgrades"],crit:"Critique: needs more specificity and a stronger tie to the goals.",fit:"Avatar and residents in the Hub. Ratings everywhere. Skill tree in Mini games."},
+{id:"idea-islands",title:"Island factions + resource arena",by:"Teammate pitch",sum:"Each island is a faction of about 12. Real climate events hit your island. Send teammates to an arena to win resources. Help other islands, like foreign aid.",art:["places","alert","arena","aid"],caps:["Your faction","A climate event","The arena","Help others"],crit:"Critique: hard to build a starting player base.",fit:"Alliances in Hub multiplayer. The arena in Mini games."},
+{id:"idea-freepaid",title:"Free solo, paid global, school mode",by:"Teammate pitch",sum:"Free local crises solved with upgrades. Paid global events with a buy-in that also age-gates. Raids that need strangers to coordinate. A sponsored school edition. A share of profits to global issues.",art:["alert","respond","negotiate","classroom"],caps:["Local alert","Upgrade to solve","Global raid","School edition"],crit:"Critique: the purpose of multiplayer is unclear.",fit:"Revenue considerations and shared events."},
+{id:"idea-tree",title:"Decision tree of unintended consequences",by:"Eleazar",sum:"One group builds the plan, the other builds what goes wrong. They play each other's version and update. Example: roads, a foreign loan, debt, mining rights.",art:["consequence","classroom","council","data"],caps:["Build the plan","Swap teams","Branch","Update"],crit:"Critique: complex for younger players. The back-and-forth mechanic is the keeper.",fit:"Rapid Response choices and the Lab's consequences round."},
+{id:"idea-mun",title:"Model UN crisis sim",by:"Teammate pitch",sum:"Negotiate policy, react to surprise events, face moral dilemmas. Starts from real current events.",art:["negotiate","alert","council","streak"],caps:["Take a seat","A crisis breaks","Every option costs","Daily triage"],crit:"Critique: may not hook people. Fix: daily triage that builds on past play.",fit:"The policy vote in Rapid Response."},
+{id:"idea-city",title:"City builder with SDG trade-offs",by:"Teammate pitch",sum:"Every build affects the goals. A power plant hurts the ecosystem, and it shows over time.",art:["build","meters","grow","aid"],caps:["Place a build","Goals react","Effects build up","Share at crisis sites"],crit:"Critique: non-physical problems are hard to build.",fit:"The Hub's building layer and goal meters."}
+];
+const M=[["Hub",[4,"Real places and residents make it personal."],[3,"Aid, comparisons, Hall nominations."],[5,"Retention and co-op invites."]],
+["Rapid Response",[4,"One real trade-off a day."],[2,"Shows which choices players lean to."],[5,"Drives daily active users."]],
+["Mini games",[4,"An easy way into every goal."],[1,"Creative, not built to capture ideas."],[4,"Acquisition and depth for top spenders."]],
+["The Lab",[3,"Deep, for fewer players."],[5,"Science and policy data for partners."],[3,"Power users. Partnerships unproven."]]];
+
+/* lazy art: frames get drawn when they come near the viewport; animations pause off screen */
+const artObs=("IntersectionObserver" in window)?new IntersectionObserver(es=>{es.forEach(e=>{const f=e.target;if(e.isIntersecting){if(!f.dataset.drawn){const k=f.dataset.art;f.insertAdjacentHTML("beforeend",ART[k]?ART[k]():"");f.dataset.drawn="1";}f.classList.add("vis");}else f.classList.remove("vis");});},{rootMargin:"300px 0px"}):null;
+function frame(art,no){return `<div class="frame" data-art="${art}"><span class="no">${no}</span></div>`;}
+function hydrateFrames(root){root.querySelectorAll(".frame[data-art]").forEach(f=>{if(artObs)artObs.observe(f);else if(!f.dataset.drawn){f.insertAdjacentHTML("beforeend",ART[f.dataset.art]());f.dataset.drawn="1";f.classList.add("vis");}});}
+
+const pinIcon=`<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v7M3 5l3 3 3-3M2 11h8" fill="none" stroke="currentColor" stroke-width="1.3"></path></svg>`;
+function dressPins(root){(root||document).querySelectorAll(".pin:not([data-dressed])").forEach(b=>{b.dataset.dressed="1";b.type="button";b.innerHTML=pinIcon+"Pin";b.setAttribute("aria-label","Pin: "+b.dataset.l);});}
+function pinBtn(t,l){const b=el("button","pin");b.dataset.t=t;b.dataset.l=l;return b;}
+
+const INIT={
+pitch(){
+  const v=$("v-pitch");
+  v.querySelectorAll("[data-board]").forEach(e=>{const k=e.dataset.board;e.innerHTML=BOARDS[k].map((p,i)=>`<div class="panel">${frame(p[0],String(i+1).padStart(2,"0"))}<div class="row"><h4>${p[1]}</h4><button class="pin" data-t="${k}-p${i+1}" data-l="${MODE[k]} frame ${i+1}: ${p[1]}">Pin</button></div><p>${p[2]}</p>${p[3]?`<span class="credit">${p[3]}</span>`:""}</div>`).join("");});
+  const mp=$("mpart");if(mp){mp.dataset.art="mp";hydrateFrames(mp.parentNode);}
+  const lv=n=>`<div class="lvl">${[1,2,3,4,5].map(i=>`<i class="${i<=n?"on":""}"></i>`).join("")}</div>`;
+  const tb=document.querySelector("#matrix tbody");if(tb)tb.innerHTML=M.map(r=>`<tr><td><b>${r[0]}</b></td>${r.slice(1).map(c=>`<td>${lv(c[0])}<span class="muted">${c[1]}</span></td>`).join("")}</tr>`).join("");
+  hydrateFrames(v);dressPins(v);
+  v.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{const t=$(b.dataset.go);if(t)t.scrollIntoView({behavior:"smooth",block:"start"});}));
+},
+ideas(){
+  const host=$("ideas");
+  host.innerHTML=IDEAS.map(d=>`<article class="idea"><div class="l"><span class="label">${d.by}</span><h3>${d.title}</h3><p>${d.sum}</p><p>${d.crit}</p><div class="fit"><span class="label">Plugs into</span><br>${d.fit}</div><div><button class="pin" data-t="${d.id}" data-l="Team idea: ${d.title}">Pin</button></div></div><div class="r"><div class="board four">${d.art.map((a,i)=>`<div class="panel">${frame(a,String(i+1).padStart(2,"0"))}<h4 style="font-size:14px">${d.caps[i]}</h4></div>`).join("")}</div></div></article>`).join("");
+  hydrateFrames(host);dressPins(host);
+}
+};
+ART.mp=()=>`<svg viewBox="0 0 320 200" aria-hidden="true"><circle cx="160" cy="100" r="78" class="ln" stroke-dasharray="3 5"></circle><circle cx="160" cy="100" r="28" class="fi"></circle><text x="160" y="104" class="txw" text-anchor="middle">You</text>${[[80,48,"Friend"],[246,60,"Friend"],[70,150,"Ally"],[250,150,"Ally"],[160,18,"Ally"]].map((p,i)=>`<path d="M${p[0]} ${p[1]} L160 100" class="ska a-flow" style="animation-delay:${i*0.3}s"></path><circle cx="${p[0]}" cy="${p[1]}" r="17" class="lnb" style="stroke:var(--ink)"></circle><text x="${p[0]}" y="${p[1]+4}" class="txb" text-anchor="middle">${p[2]}</text>`).join("")}</svg>`;
+
+/* ================= routing ================= */
+const VIEWS=["pitch","ideas","timeline","team","deliverables","personas","stakeholders","hmw","foursets","questions","board"];
+const VIEW_COLS={pitch:["people"],ideas:["people","ideas"],timeline:["people","tasks"],team:["people","roles"],deliverables:["people","deliverables"],personas:["people","personas"],stakeholders:["people","stakeholders"],hmw:["people","hmw"],foursets:["people","foursets"],questions:["people","questions"],board:["people"]};
+const done={};let curView="pitch";
+function route(){
+  const h=(location.hash||"#pitch").slice(1);const v=VIEWS.includes(h)?h:"pitch";curView=v;
+  VIEWS.forEach(x=>{const n=$("v-"+x);if(n)n.classList.toggle("on",x===v);});
+  document.querySelectorAll("header .navgroup a").forEach(a=>{if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
+  if(!done[v]){done[v]=true;if(INIT[v])INIT[v]();}
+  VIEW_COLS[v].forEach(subscribe);
+  VIEW_COLS[v].forEach(renderCol);
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+
+/* ================= data layer ================= */
+const S={db:null,user:null,me:null,ready:false,readonly:false,connected:false,server:{},subs:{},subErr:{},names:{},queue:[],pumping:false,retryT:null,retrying:false,everSaved:false,showDeleted:{}};
+const QKEY="17sg.queue.v3";
+const colOf=p=>p.split("/").slice(0,-1).join("/");
+const idOf=p=>p.split("/").pop();
+function myQ(){return S.queue.filter(x=>x.owner===S.me);}
+function saveQ(){lsSet(QKEY,S.queue);}
+function viewOf(col){
+  const base={};const src=S.server[col]||{};Object.keys(src).forEach(k=>{base[k]=src[k];});
+  myQ().forEach(it=>{if(colOf(it.path)!==col)return;const id=idOf(it.path);
+    if(it.op==="set")base[id]=Object.assign({},it.data,{__pending:true,__failed:it.state==="failed"});
+    else if(it.op==="update")base[id]=Object.assign({},base[id]||{},it.data,{__pending:true,__failed:it.state==="failed"});
+    else if(it.op==="delete")delete base[id];});
+  return base;
+}
+function enqueue(item){
+  if(!S.me){toast(gateMsg()||"Not signed in.");return false;}
+  item.qid=uid();item.owner=S.me;item.state="pending";item.tries=0;item.at=Date.now();
+  if(item.coalesce)S.queue=S.queue.filter(x=>!(x.owner===S.me&&x.path===item.path&&x.op==="set"&&x.state==="pending"));
+  S.queue.push(item);saveQ();setSync();renderCol(colOf(item.path));pump();return true;
+}
+function withTimeout(p,ms){return new Promise((res,rej)=>{const t=setTimeout(()=>rej({code:"unavailable",message:"timeout"}),ms);p.then(v=>{clearTimeout(t);res(v);},e=>{clearTimeout(t);rej(e);});});}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function execUpdate(it){
+  const ref=S.db.doc(it.path);
+  if(ref.updateIfMatch){const col=colOf(it.path);const r=await ref.updateIfMatch(it.expect||null,it.data,it.qid+"c",c=>pick(col,c));
+    if(r&&r.clash&&r.clash.length&&SCHEMA[col]){const labs=r.clash.map(k=>(SCHEMA[col].fields.find(f=>f[0]===k)||[k,k])[1]).join(", ");toast(nameOf(r.editor).replace(" (you)","")+" changed "+labs+" at the same moment. Your version is live; theirs is saved in History.");}
+    return;}
+  if(it.expect&&ref.acquire){
+    let got=false;
+    for(let i=0;i<8&&!got;i++){
+      try{const r=await ref.acquire({holder:S.me+":"+it.qid,ttlMs:1000});got=!!(r&&r.acquired);}
+      catch(err){if(err&&FATAL.includes(err.code)){got=true;break;}throw err;}
+      if(!got)await sleep(250+Math.random()*400);
+    }
+    if(!got)throw {code:"unavailable",message:"busy"};
+  }
+  if(it.expect){
+    const snap=await ref.get();if(!snap.exists)throw {code:"invalid_argument"};
+    const cur=snap.data()||{};const col=colOf(it.path);
+    const clash=Object.keys(it.expect).filter(k=>norm(cur[k])!==it.expect[k]&&norm(cur[k])!==norm(it.data[k]));
+    if(clash.length&&SCHEMA[col]){
+      await ref.collection("history").doc(it.qid+"c").set({fields:pick(col,cur),at:Date.now(),by:S.me,prevEditor:cur.editedBy||"",note:"Kept before a conflicting edit"});
+      const labs=clash.map(k=>(SCHEMA[col].fields.find(f=>f[0]===k)||[k,k])[1]).join(", ");
+      toast(nameOf(cur.editedBy).replace(" (you)","")+" changed "+labs+" at the same moment. Your version is live; theirs is saved in History.");
+    }
+  }
+  return ref.update(it.data);
+}
+function exec(it){const ref=S.db.doc(it.path);if(it.op==="set")return ref.set(it.data);if(it.op==="update")return execUpdate(it);if(it.op==="delete")return ref.delete();return Promise.resolve();}
+const FATAL=["invalid_argument","quota_exceeded","transform_error","not_granted","capability_disabled","capability_removed","revoked"];
+async function pump(){
+  if(S.pumping||!S.db||!S.me)return;S.pumping=true;
+  try{
+    for(;;){
+      const it=S.queue.find(x=>x.owner===S.me&&x.state==="pending");if(!it)break;
+      if(navigator.onLine===false)break;
+      setSync("saving");
+      try{await withTimeout(exec(it),15000);S.queue=S.queue.filter(x=>x!==it);saveQ();S.everSaved=true;}
+      catch(err){
+        const code=err&&err.code;
+        if(FATAL.includes(code)){it.state="failed";it.err=code;saveQ();
+          if(code==="invalid_argument"&&it.op!=="update"){S.readonly=true;}
+          toast(code==="invalid_argument"?(it.op==="update"?"A change couldn't be applied because that entry no longer exists.":"This change was refused. You may have view-only access. Ask James for Contributor access."):code==="quota_exceeded"?"The shared store is full. Ask James to clear old entries.":"Saving isn't available in this view.");}
+        else{it.tries=(it.tries||0)+1;saveQ();scheduleRetry(it.tries);break;}
+      }
+      renderCol(colOf(it.path));
+    }
+  }finally{S.pumping=false;setSync();}
+}
+function scheduleRetry(n){clearTimeout(S.retryT);S.retrying=true;setSync();const ms=Math.min(30000,1000*Math.pow(2,Math.min(n,5)))+Math.random()*500;S.retryT=setTimeout(()=>{S.retrying=false;pump();},ms);}
+window.addEventListener("online",()=>{S.retrying=false;clearTimeout(S.retryT);setSync();pump();});
+window.addEventListener("offline",()=>setSync());
+function setSync(){
+  const b=$("sync");if(!b)return;const q=myQ();const failed=q.filter(x=>x.state==="failed").length;const pending=q.filter(x=>x.state==="pending").length;
+  let s,t;
+  if(!S.connected){s="readonly";t=S.tried?(FBM&&S.fbReason==="signedout"?"Signed out":FBM&&S.fbReason==="notonteam"?"Not on team list":"Read only"):"Connecting";}
+  else if(!S.me){s="readonly";t="Sign in to edit";}
+  else if(failed){s="failed";t=failed+" not saved / Review";}
+  else if(pending&&navigator.onLine===false){s="offline";t="Offline / "+pending+" waiting";}
+  else if(pending&&S.retrying){s="retrying";t="Retrying / "+pending+" waiting";}
+  else if(pending){s="saving";t="Saving...";}
+  else if(S.readonly){s="readonly";t="View only";}
+  else{s=S.everSaved?"saved":"live";t=S.everSaved?"All changes saved":"Live";}
+  b.dataset.s=s;b.textContent="";b.appendChild(el("i"));b.appendChild(document.createTextNode(t));
+  b.setAttribute("aria-label","Sync status: "+t);
+}
+$("sync").addEventListener("click",()=>{const f=myQ().filter(x=>x.state==="failed");if(!f.length)return;const L=$("fail-list");L.textContent="";f.forEach(it=>{const d=el("div");d.appendChild(el("span","label",(it.label||it.path)+" / "+(it.err||"error")));L.appendChild(d);});openScrim("failscrim");});
+$("fail-retry").addEventListener("click",()=>{myQ().forEach(x=>{if(x.state==="failed"){x.state="pending";x.tries=0;}});S.readonly=false;saveQ();closeScrims();setSync();pump();});
+$("fail-discard").addEventListener("click",()=>{S.queue=S.queue.filter(x=>!(x.owner===S.me&&x.state==="failed"));saveQ();closeScrims();setSync();VIEWS.forEach(v=>VIEW_COLS[v].forEach(renderCol));});
+
+function subscribe(col){
+  if(!S.db||S.subs[col])return;S.subs[col]="loading";
+  const t=setTimeout(()=>{if(S.subs[col]==="loading"){S.subErr[col]="slow";renderCol(col);}},10000);
+  S.db.collection(col).onSnapshot(snap=>{
+    if(!snap.metadata||!snap.metadata.fromCache){clearTimeout(t);S.subErr[col]=null;}
+    S.subs[col]="live";const o={};snap.docs.forEach(d=>{if(d.exists){const v=d.data();if(v&&typeof v==="object")o[d.id]=v;}});
+    S.server[col]=o;renderCol(col);resolveNames();if(ED&&ED.col===col)syncDialogFromServer();
+  },err=>{clearTimeout(t);S.subs[col]="error";S.subErr[col]=err&&err.code||"error";renderCol(col);});
+}
+async function resolveNames(){
+  if(!S.user||!S.user.profiles)return;const ids=new Set();
+  Object.keys(S.server.people||{}).forEach(i=>ids.add(i));
+  Object.keys(S.server).forEach(c=>{Object.values(S.server[c]||{}).forEach(v=>{if(v){["by","editedBy","deletedBy"].forEach(k=>{if(v[k]&&v[k]!=="seed")ids.add(v[k]);});}});});
+  if(S.me)ids.add(S.me);
+  const need=[...ids].filter(i=>!(i in S.names));if(!need.length)return;
+  need.forEach(i=>{S.names[i]=S.names[i]||"";});
+  try{const ps=await S.user.profiles(need);need.forEach(id=>{const p=ps&&ps[id];S.names[id]=(p&&p.name)||"Teammate";});
+    if(S.me)$("whoami").textContent="Signed in as "+(S.names[S.me]||"you");
+    VIEWS.forEach(v=>{if(done[v])VIEW_COLS[v].forEach(renderCol);});}catch(_){}
+}
+function nameOf(id){if(!id)return "Unknown";if(id==="seed")return "Starter entry";return (S.names[id]||"Teammate")+(id===S.me?" (you)":"");}
+const FBM=!!window.FB;
+function gateMsg(){
+  if(FBM){if(S.fbReason==="signedout")return "Sign in with your team email to add or edit.";if(S.fbReason==="notonteam")return "Your email isn't on the team list yet. Ask James to add it.";if(S.fbReason==="sdkfail")return "Couldn't load the sign-in service. Check your connection and refresh.";}
+  if(!S.connected)return FBM?"Connecting...":"Shared editing isn't connected here. Open this page on claude.ai and sign in.";
+  if(!S.me)return FBM?"Sign in with your team email to add or edit.":"Sign in on claude.ai to add or edit.";
+  if(S.readonly)return FBM?"Your email isn't on the team list yet. Ask James to add it.":"You have view-only access. Ask James for Contributor access.";return "";}
+
+/* ================= dialogs ================= */
+function openScrim(id){$(id).classList.add("open");}
+function closeScrims(){document.querySelectorAll(".scrim").forEach(s=>s.classList.remove("open"));if(ED){flushEdit();ED=null;}PT=null;}
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeScrims));
+document.querySelectorAll(".scrim").forEach(s=>{s.addEventListener("mousedown",e=>{if(e.target===s)closeScrims();});s.addEventListener("keydown",e=>{if(e.key==="Escape")closeScrims();});});
+
+/* ================= pins ================= */
+let PT=null;
+function myPeople(){const d=viewOf("people")[S.me];return{pins:(d&&Array.isArray(d.pins))?d.pins.map(x=>Object.assign({},x)):[],plus:(d&&Array.isArray(d.plus))?d.plus.slice():[]};}
+function writePeople(mut,label){const d=myPeople();if(mut(d)===false)return;d.at=Date.now();enqueue({op:"set",path:"people/"+S.me,data:{pins:d.pins,plus:d.plus,at:d.at},coalesce:true,label:label||"Pins"});}
+function openPin(t,l){
+  PT={t,l,id:uid()};$("pin-target").textContent=l;const dk="17sg.draft.pin."+t;const dr=lsGet(dk,null);
+  $("pin-note").value=dr&&dr.note||"";(dr&&dr.kind==="rethink"?$("k-rethink"):$("k-keep")).checked=true;
+  $("pin-draft").textContent=dr?"Restored your unsent draft.":"";$("pin-err").textContent=gateMsg();$("pin-save").disabled=false;
+  openScrim("pinscrim");$("pin-note").focus();
+}
+function pinDraft(){if(!PT)return;lsSet("17sg.draft.pin."+PT.t,{note:$("pin-note").value,kind:document.querySelector("input[name=kind]:checked").value});$("pin-draft").textContent="Draft kept on this device.";}
+$("pin-note").addEventListener("input",pinDraft);document.querySelectorAll("input[name=kind]").forEach(r=>r.addEventListener("change",pinDraft));
+document.addEventListener("click",e=>{const b=e.target.closest(".pin");if(b&&b.dataset.t)openPin(b.dataset.t,b.dataset.l);});
+$("newpin").addEventListener("click",()=>openPin("general","General pin"));
+$("pinform").addEventListener("submit",e=>{
+  e.preventDefault();if(!PT)return;const m=gateMsg();if(m){$("pin-err").textContent=m;return;}
+  const txt=$("pin-note").value.trim();if(!txt){$("pin-err").textContent="Add a sentence on why.";return;}
+  $("pin-save").disabled=true;const pin={id:PT.id,t:PT.t,l:PT.l,kind:document.querySelector("input[name=kind]:checked").value,note:txt.slice(0,600),at:Date.now()};
+  writePeople(d=>{if(d.pins.some(x=>x.id===pin.id))return false;d.pins.push(pin);},"Pin: "+PT.l);
+  lsDel("17sg.draft.pin."+PT.t);PT=null;closeScrims();
+});
+let pinFilter="all";
+document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{pinFilter=b.dataset.f;document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));renderPins();}));
+function allPins(){const P=viewOf("people");const out=[],pc={};Object.values(P).forEach(d=>(Array.isArray(d.plus)?d.plus:[]).forEach(k=>{pc[k]=(pc[k]||0)+1;}));Object.entries(P).forEach(([u,d])=>(Array.isArray(d.pins)?d.pins:[]).forEach(p=>{if(p&&typeof p==="object"){const key=u+":"+p.id;out.push(Object.assign({},p,{uid:u,key,plus:pc[key]||0,pending:!!d.__pending}));}}));return out;}
+function renderPins(){
+  const pins=allPins();const counts={};pins.forEach(p=>{counts[p.t]=(counts[p.t]||0)+1;});
+  document.querySelectorAll(".pin").forEach(b=>{b.dataset.n=String(counts[b.dataset.t]||0);});
+  if(!done.board)return;
+  let shown=pins.slice();if(pinFilter==="keep"||pinFilter==="rethink")shown=shown.filter(p=>p.kind===pinFilter);
+  if(pinFilter==="top")shown.sort((a,b)=>b.plus-a.plus||b.at-a.at);else shown.sort((a,b)=>b.at-a.at);
+  const list=$("pinlist");list.textContent="";
+  if(!shown.length){const e=el("div","empty",pins.length?"No pins match this filter.":"No pins yet. Press Pin on anything in the site to start.");e.style.gridColumn="1 / -1";list.appendChild(e);return;}
+  const mine=myPeople();
+  shown.forEach(p=>{const c=el("div","c"+(p.pending&&p.uid===S.me?" pending":""));const meta=el("div","meta");meta.appendChild(el("span","kind "+(p.kind==="rethink"?"rethink":"keep"),p.kind==="rethink"?"Rethink":"Must keep"));meta.appendChild(el("span","label",nameOf(p.uid)));c.appendChild(meta);c.appendChild(el("span","label",esc(p.l||p.t)));c.appendChild(el("p","note",esc(p.note)));c.appendChild(el("span","stamp",when(p.at)));
+    const acts=el("div","acts");const on=mine.plus.includes(p.key);const plus=el("button","btn small","+1"+(p.plus?" ("+p.plus+")":""));plus.type="button";plus.setAttribute("aria-pressed",String(on));if(on)plus.style.borderColor="var(--ink)";plus.disabled=!!gateMsg()||p.uid===S.me;
+    plus.addEventListener("click",()=>writePeople(d=>{const i=d.plus.indexOf(p.key);if(i>=0)d.plus.splice(i,1);else d.plus.push(p.key);},"+1"));acts.appendChild(plus);
+    if(p.uid===S.me&&!gateMsg()){const del=el("button","btn small","Delete");del.type="button";del.addEventListener("click",()=>{if(del.dataset.armed){writePeople(d=>{d.pins=d.pins.filter(x=>x.id!==p.id);},"Delete pin");}else{del.dataset.armed="1";del.textContent="Confirm delete";}});acts.appendChild(del);}
+    c.appendChild(acts);list.appendChild(c);});
+}
+
+/* ================= shared boards ================= */
+const SCHEMA={
+personas:{title:"Persona",t:"name",group:"type",groups:["Player","Buyer or gatekeeper","Partner"],fields:[["name","Name and one-line label","text"],["type","Type","select",["Player","Buyer or gatekeeper","Partner"]],["segment","Age and segment","text"],["who","Who they are","area"],["wants","What they want","area"],["frustrations","What turns them off","area"],["hook","Mode that hooks them","select",["Hub","Rapid Response","Mini games","The Lab","Not a player"]],["quote","In their words","text"]]},
+stakeholders:{title:"Stakeholder",t:"name",group:"group",groups:["Team and school","Players and families","Education","Impact partners","Communities we depict","Industry and platforms","Funding","Policy and regulation"],fields:[["name","Name","text"],["group","Group","select",["Team and school","Players and families","Education","Impact partners","Communities we depict","Industry and platforms","Funding","Policy and regulation"]],["interest","What they care about","area"],["need","What we need from them","area"],["influence","Influence","select",["High","Medium","Low"]],["owner","Team owner","text"]]},
+roles:{title:"Team member",t:"name",group:"team",groups:["Project management","Design team","Business team"],fields:[["name","Name","text"],["role","Role","text"],["team","Team","select",["Project management","Design team","Business team"]],["owns","Owns","area"],["deliverables","Key deliverables and dates","area"],["advisor","Advisor","text"]]},
+deliverables:{title:"Deliverable",t:"name",fields:[["name","Deliverable","text"],["order","Order (1, 2, 3...)","text"],["what","What it is","area"],["doneLooks","Done looks like","area"],["owners","Owners","text"],["due","Due","date"],["status","Status","select",["Not started","In progress","Done","At risk"]]]},
+tasks:{title:"Task",t:"name",fields:[["name","Task","text"],["owner","Owner","text"],["team","Team","select",["All hands","Design team","Business team","Project management"]],["start","Start","date"],["end","End","date"],["kind","Type","select",["Task","Milestone"]],["status","Status","select",["Planned","In progress","Done","At risk"]]]},
+hmw:{title:"How might we",t:"statement",fields:[["statement","How might we...","text"],["goal","Company goal it serves","select",["1 / Make people feel it","2 / Turn play into action","3 / Scale to fund it","Cross-cutting"]],["source","Source","text"],["notes","Notes","area"]]},
+foursets:{title:"Four Sets entry",t:"text",group:"set",groups:["Desirability","Feasibility","Viability","Sustainability"],fields:[["set","Set","select",["Desirability","Feasibility","Viability","Sustainability"]],["kind","Type","select",["Hypothesis","Evidence","Risk","Test to run"]],["text","Entry","area"],["owner","Owner","text"]]},
+questions:{title:"Question",t:"question",group:"status",groups:["Open","Decided"],fields:[["question","Question","text"],["context","Context","area"],["owner","Owner","text"],["status","Status","select",["Open","Decided"]],["answer","Answer or decision","area"]]},
+ideas:{title:"Idea",t:"title",fields:[["title","Idea","text"],["pitchedBy","Pitched by","text"],["summary","Summary","area"],["fit","Where it plugs into the Hub","area"]]}
+};
+const FIELDKEYS=c=>SCHEMA[c].fields.map(f=>f[0]);
+const pick=(c,v)=>{const o={};FIELDKEYS(c).forEach(k=>{o[k]=norm(v&&v[k]);});return o;};
+
+/* edit dialog with autosave + field-level merge */
+let ED=null;
+function openEntry(col,id,preset){
+  const sc=SCHEMA[col];const cur=id?(viewOf(col)[id]||{}):{};
+  const dk="17sg.draft."+col+"."+(id||"new");const dr=lsGet(dk,null);
+  ED={col,id:id||uid(),isNew:!id,base:pick(col,cur),histDone:false,timer:null,dk,dirty:{}};
+  $("entry-kind").textContent=sc.title;$("entry-h").textContent=id?"Edit":"Add "+(/^[aeiou]/i.test(sc.title)?"an ":"a ")+sc.title.toLowerCase();
+  const box=$("entry-fields");box.textContent="";
+  sc.fields.forEach(([k,lab,type,opts])=>{const f=el("div","field");const l=el("label","label",lab);l.htmlFor="f-"+k;f.appendChild(l);let inp;
+    if(type==="area"){inp=document.createElement("textarea");inp.maxLength=1200;}
+    else if(type==="select"){inp=document.createElement("select");opts.forEach(o=>{const op=document.createElement("option");op.value=o;op.textContent=o;inp.appendChild(op);});}
+    else{inp=document.createElement("input");inp.type=type==="date"?"date":"text";inp.maxLength=200;}
+    inp.id="f-"+k;inp.name=k;
+    let val=ED.base[k];if(!id&&preset&&preset[k])val=preset[k];if(dr&&dr[k]!=null&&dr[k]!==ED.base[k]){val=dr[k];ED.dirty[k]=true;}
+    if(type==="select"&&!val)val=opts[0];inp.value=val;
+    inp.addEventListener("input",()=>{if(!ED)return;ED.dirty[k]=true;onEdit();});inp.addEventListener("change",()=>{if(!ED)return;ED.dirty[k]=true;onEdit();});
+    f.appendChild(inp);box.appendChild(f);});
+  $("entry-draft").textContent=dr?"Restored your unsaved changes.":(id?"Changes save automatically as you type.":"Your draft is kept on this device until you save.");
+  $("entry-err").textContent=gateMsg();$("entry-save").disabled=false;$("entry-save").textContent=id?"Done":"Save";
+  openScrim("entryscrim");const first=box.querySelector("input,textarea,select");if(first)first.focus();
+}
+function readFields(){const o={};FIELDKEYS(ED.col).forEach(k=>{const n=$("f-"+k);o[k]=n?n.value.trim():"";});return o;}
+function onEdit(){if(!ED)return;lsSet(ED.dk,readFields());if(ED.isNew){$("entry-draft").textContent="Draft kept on this device.";return;}$("entry-draft").textContent="Editing...";clearTimeout(ED.timer);ED.timer=setTimeout(()=>commitEdit(false),1200);}
+function syncDialogFromServer(){
+  if(!ED||ED.isNew)return;const cur=viewOf(ED.col)[ED.id];if(!cur)return;
+  FIELDKEYS(ED.col).forEach(k=>{if(ED.dirty[k])return;const n=$("f-"+k);if(!n||document.activeElement===n)return;const sv=norm(cur[k]);if(sv!==ED.base[k]){n.value=sv;ED.base[k]=sv;}});
+}
+function flushEdit(){if(ED&&!ED.isNew&&ED.timer){clearTimeout(ED.timer);commitEdit(false);}}
+function commitEdit(final){
+  if(!ED)return true;const m=gateMsg();if(m){$("entry-err").textContent=m;return false;}
+  const sc=SCHEMA[ED.col];const vals=readFields();
+  if(!vals[sc.t]){$("entry-err").textContent="Add the "+sc.fields.find(f=>f[0]===sc.t)[1].toLowerCase()+" first.";return false;}
+  const now=Date.now();
+  if(ED.isNew){
+    const data=Object.assign({},vals,{by:S.me,at:now,editedBy:S.me,editedAt:now});
+    if(!enqueue({op:"set",path:ED.col+"/"+ED.id,data,label:sc.title+": "+vals[sc.t]}))return false;
+    lsDel(ED.dk);ED.isNew=false;ED.base=vals;ED.dirty={};ED.dk="17sg.draft."+ED.col+"."+ED.id;$("entry-h").textContent="Edit";$("entry-save").textContent="Done";$("entry-draft").textContent="Saved. Further changes save automatically.";
+    return true;
+  }
+  const changed=Object.keys(vals).filter(k=>vals[k]!==ED.base[k]);
+  ED.timer=null;
+  if(!changed.length){$("entry-draft").textContent="All changes saved.";lsDel(ED.dk);return true;}
+  const cur=viewOf(ED.col)[ED.id]||{};const curF=pick(ED.col,cur);
+  const conflicts=changed.filter(k=>curF[k]!==ED.base[k]&&curF[k]!==vals[k]);
+  const othersLatest=cur.editedBy&&cur.editedBy!==S.me;
+  if(!ED.histDone||conflicts.length||othersLatest){
+    enqueue({op:"set",path:ED.col+"/"+ED.id+"/history/"+uid(),data:{fields:curF,at:now,by:S.me,prevEditor:cur.editedBy||cur.by||"",note:conflicts.length?"Kept before a conflicting edit":othersLatest?"Before overwriting "+nameOf(cur.editedBy).replace(" (you)","")+"'s edit":"Before edit"},label:"History"});ED.histDone=true;
+  }
+  const upd={};changed.forEach(k=>{upd[k]=vals[k];});upd.editedBy=S.me;upd.editedAt=now;
+  const expect={};changed.forEach(k=>{expect[k]=curF[k];});
+  enqueue({op:"update",path:ED.col+"/"+ED.id,data:upd,expect,label:sc.title+": "+vals[sc.t]});
+  changed.forEach(k=>{ED.base[k]=vals[k];delete ED.dirty[k];});lsDel(ED.dk);
+  $("entry-draft").textContent="Saved.";
+  if(conflicts.length){const who=nameOf(cur.editedBy);const labs=conflicts.map(k=>sc.fields.find(f=>f[0]===k)[1]).join(", ");toast(who.replace(" (you)","")+" also changed "+labs+" while you were editing. Your version is live; theirs is saved in History.");}
+  return true;
+}
+document.querySelectorAll("[data-add]").forEach(b=>b.addEventListener("click",()=>openEntry(b.dataset.add,null)));
+$("entryform").addEventListener("submit",e=>{e.preventDefault();if(!ED)return;const btn=$("entry-save");if(btn.disabled)return;btn.disabled=true;clearTimeout(ED.timer);const ok=commitEdit(true);btn.disabled=false;if(ok){ED=null;closeScrims();}});
+
+/* soft delete + restore */
+function softDelete(col,id){const cur=viewOf(col)[id]||{};const now=Date.now();enqueue({op:"set",path:col+"/"+id+"/history/"+uid(),data:{fields:pick(col,cur),at:now,by:S.me,prevEditor:cur.editedBy||cur.by||"",note:"Before delete"},label:"History"});enqueue({op:"update",path:col+"/"+id,data:{deleted:true,deletedBy:S.me,deletedAt:now},label:"Delete"});toast("Deleted. Use Show deleted to bring it back.");}
+function undelete(col,id){enqueue({op:"update",path:col+"/"+id,data:{deleted:false,editedBy:S.me,editedAt:Date.now()},label:"Restore"});}
+
+/* history */
+async function openHistory(col,id){
+  const cur=viewOf(col)[id]||{};const sc=SCHEMA[col];$("hist-target").textContent=sc.title+": "+esc(cur[sc.t]);const L=$("hist-list");L.textContent="";$("hist-status").textContent="Loading...";openScrim("histscrim");
+  if(!S.db){$("hist-status").textContent=FBM?"Sign in to see history.":"History needs the shared store. Open this page on claude.ai.";return;}
+  try{
+    const snap=await withTimeout(S.db.collection(col+"/"+id+"/history").orderBy("at","desc").limit(25).get(),12000);
+    const rows=snap.docs.filter(d=>d.exists).map(d=>({id:d.id,v:d.data()}));
+    myQ().forEach(it=>{if(it.path.startsWith(col+"/"+id+"/history/")&&!rows.some(r=>r.id===idOf(it.path)))rows.unshift({id:idOf(it.path),v:it.data});});
+    $("hist-status").textContent=rows.length?rows.length+" earlier version"+(rows.length===1?"":"s")+". Restoring keeps the current one in history too.":"No earlier versions yet. Versions are kept each time someone edits.";
+    rows.forEach(r=>{const d=el("div");const h=el("div","h");h.appendChild(el("span","label",when(r.v.at)+" / "+esc(r.v.note||"Version")+" / saved by "+nameOf(r.v.by)));
+      const b=el("button","btn small","Restore");b.type="button";b.disabled=!!gateMsg();
+      b.addEventListener("click",()=>{const now=Date.now();const c2=viewOf(col)[id]||{};enqueue({op:"set",path:col+"/"+id+"/history/"+uid(),data:{fields:pick(col,c2),at:now,by:S.me,prevEditor:c2.editedBy||"",note:"Before restore"},label:"History"});const upd=Object.assign({},pick(col,r.v.fields||{}),{editedBy:S.me,editedAt:now,deleted:false});enqueue({op:"update",path:col+"/"+id,data:upd,label:"Restore version"});closeScrims();toast("Restored that version.");});
+      h.appendChild(b);d.appendChild(h);const pre=el("pre");pre.textContent=sc.fields.map(f=>f[1]+": "+esc((r.v.fields||{})[f[0]])).join("\n");d.appendChild(pre);L.appendChild(d);});
+  }catch(err){$("hist-status").textContent="Couldn't load history. Check your connection and try again.";}
+}
+
+/* card + renderers */
+function stamp(v){const parts=[];if(v.by)parts.push(v.by==="seed"?"Starter entry":"Added by "+nameOf(v.by));if(v.editedBy&&v.editedAt&&(v.editedBy!==v.by||v.editedAt!==v.at))parts.push("edited by "+nameOf(v.editedBy)+", "+when(v.editedAt));if(v.__failed)parts.push("NOT SAVED");else if(v.__pending)parts.push("saving");return parts.join(" / ");}
+function actions(col,id,v){
+  const a=el("div","acts");const ro=!!gateMsg();
+  if(v.deleted){const r=el("button","btn small","Restore");r.type="button";r.disabled=ro;r.addEventListener("click",()=>undelete(col,id));a.appendChild(r);return a;}
+  const ed=el("button","btn small","Edit");ed.type="button";ed.addEventListener("click",()=>openEntry(col,id));a.appendChild(ed);
+  const hi=el("button","btn small","History");hi.type="button";hi.addEventListener("click",()=>openHistory(col,id));a.appendChild(hi);
+  a.appendChild(pinBtn(col+":"+id,SCHEMA[col].title+": "+esc(v[SCHEMA[col].t]).slice(0,80)));
+  if(!ro){const del=el("button","btn small","Delete");del.type="button";del.addEventListener("click",()=>{if(del.dataset.armed)softDelete(col,id);else{del.dataset.armed="1";del.textContent="Confirm delete";}});a.appendChild(del);}
+  return a;
+}
+function card(col,id,v,o){
+  const c=el("div","c"+(v.__pending?" pending":"")+(v.deleted?" deleted":""));
+  if(o.meta){const m=el("div","meta");o.meta.forEach(x=>{if(x)m.appendChild(el("span","label",x));});c.appendChild(m);}
+  c.appendChild(el("h4",null,esc(v[o.title||SCHEMA[col].t])));
+  if(o.quote&&v[o.quote])c.appendChild(el("q",null,esc(v[o.quote])));
+  (o.fields||[]).forEach(([k,lab])=>{if(!v[k])return;const f=el("div","f");f.appendChild(el("span",null,lab));f.appendChild(document.createTextNode(esc(v[k])));c.appendChild(f);});
+  c.appendChild(el("span","stamp",stamp(v)));c.appendChild(actions(col,id,v));return c;
+}
+function listItems(col){const all=Object.entries(viewOf(col));const live=all.filter(([,v])=>!v.deleted);const del=all.filter(([,v])=>v.deleted);return {live,del};}
+function statusLine(col,n,label){
+  const s=document.querySelector(`[data-stline="${col}"]`);if(!s)return;
+  if(!S.connected){s.textContent=S.tried?(FBM?gateMsg()||"Sign in with your team email to see the team boards.":"Shared content needs claude.ai. Open this page there and sign in."):"Connecting...";return;}
+  const e=S.subErr[col];if(e==="slow"){s.textContent="Can't reach the shared store yet. It'll update when it connects.";return;}
+  if(e){s.textContent=e==="revoked"?"No longer available in this view.":"Couldn't load. Refresh to try again.";return;}
+  if(S.subs[col]!=="live"){s.textContent="Loading...";return;}
+  const word=Array.isArray(label)?(n===1?label[0]:label[1]):(label+(n===1?"":"s"));s.textContent=`${n} ${word}. Live.`+(gateMsg()&&S.connected?" "+gateMsg():"");
+}
+function deletedToggle(col,host,del){
+  if(!del.length)return;const t=el("button","linkbtn",S.showDeleted[col]?"Hide deleted ("+del.length+")":"Show deleted ("+del.length+")");t.type="button";t.addEventListener("click",()=>{S.showDeleted[col]=!S.showDeleted[col];renderCol(col);});const w=el("div");w.style.padding="18px 0 0";w.appendChild(t);host.appendChild(w);
+  if(S.showDeleted[col]){const g=el("div","cards");g.style.marginTop="12px";del.forEach(([id,v])=>g.appendChild(card(col,id,v,{meta:["Deleted by "+nameOf(v.deletedBy)]})));host.appendChild(g);}
+}
+function emptyBox(host,msg){host.appendChild(el("div","empty",msg));}
+const R={
+grouped(col,label,opts){
+  const host=document.querySelector(`[data-list="${col}"]`);if(!host)return;host.textContent="";const sc=SCHEMA[col];const {live,del}=listItems(col);statusLine(col,live.length,label);
+  if(!live.length&&S.subs[col]==="live")emptyBox(host,"Nothing here yet. Add the first one.");
+  const groups={};live.forEach(([id,v])=>{const g=sc.groups&&sc.groups.includes(v[sc.group])?v[sc.group]:(sc.groups?"Other":"All");(groups[g]=groups[g]||[]).push([id,v]);});
+  [...(sc.groups||["All"]),"Other"].forEach(g=>{if(!groups[g])return;if(sc.groups)host.appendChild(el("div","groupname",g+" / "+groups[g].length));const grid=el("div","cards");
+    groups[g].sort(opts.sort||((a,b)=>esc(a[1][sc.t]).localeCompare(esc(b[1][sc.t])))).forEach(([id,v])=>grid.appendChild(card(col,id,v,opts.card(v))));host.appendChild(grid);});
+  deletedToggle(col,host,del);dressPins(host);
+}
+};
+const RENDER={
+people(){renderPins();statusLine("people",allPins().length,"pin");},
+personas(){R.grouped("personas","persona",{card:v=>({meta:[v.segment,v.hook],quote:"quote",fields:[["who","Who they are"],["wants","What they want"],["frustrations","What turns them off"]]})});},
+stakeholders(){R.grouped("stakeholders","stakeholder",{card:v=>({meta:["Influence: "+(v.influence||"?"),v.owner?"Owner: "+v.owner:""],fields:[["interest","What they care about"],["need","What we need from them"]]})});},
+roles(){R.grouped("roles",["person","people"],{card:v=>({meta:[v.role,v.advisor?"Advisor: "+v.advisor:""],fields:[["owns","Owns"],["deliverables","Key deliverables"]]})});},
+questions(){R.grouped("questions","question",{sort:(a,b)=>(b[1].at||0)-(a[1].at||0),card:v=>({meta:[v.owner?"Owner: "+v.owner:"No owner yet"],fields:[["context","Context"],["answer","Decision"]]})});},
+ideas(){R.grouped("ideas","idea",{sort:(a,b)=>(b[1].at||0)-(a[1].at||0),card:v=>({meta:[v.pitchedBy?"Pitched by "+v.pitchedBy:""],fields:[["summary","Summary"],["fit","Plugs into"]]})});},
+hmw(){
+  const col="hmw",host=document.querySelector('[data-list="hmw"]');if(!host)return;host.textContent="";const {live,del}=listItems(col);statusLine(col,live.length,"statement");
+  if(!live.length&&S.subs[col]==="live")emptyBox(host,"Nothing here yet. Add the first one.");
+  const box=el("div","hmw");live.sort((a,b)=>esc(a[1].order||"z").localeCompare(esc(b[1].order||"z"))||(a[1].at||0)-(b[1].at||0)).forEach(([id,v],i)=>{
+    const r=el("div","hmwrow"+(v.__pending?" pending":""));r.appendChild(el("span","n",String(i+1).padStart(2,"0")));
+    const mid=el("div");const h=el("h4");const em=el("em",null,"How might we ");h.appendChild(em);h.appendChild(document.createTextNode(esc(v.statement).replace(/^how might we\s*/i,"")));mid.appendChild(h);if(v.notes){const p=el("p","muted",esc(v.notes));p.style.fontSize="15px";p.style.marginTop="8px";mid.appendChild(p);}mid.appendChild(el("span","stamp",stamp(v)));r.appendChild(mid);
+    const s2=el("div","side2");s2.appendChild(el("span","label","Goal "+esc(v.goal)));if(v.source)s2.appendChild(el("span","label",esc(v.source)));s2.appendChild(actions(col,id,v));r.appendChild(s2);box.appendChild(r);});
+  host.appendChild(box);deletedToggle(col,host,del);dressPins(host);
+},
+deliverables(){
+  const col="deliverables",host=document.querySelector('[data-list="deliverables"]');if(!host)return;host.textContent="";const {live,del}=listItems(col);statusLine(col,live.length,"deliverable");
+  if(!live.length&&S.subs[col]==="live")emptyBox(host,"Nothing here yet. Add the first one.");
+  const box=el("div","dlv");live.sort((a,b)=>(parseFloat(a[1].order)||99)-(parseFloat(b[1].order)||99)).forEach(([id,v],i)=>{
+    const r=el("div","dlvrow"+(v.__pending?" pending":""));r.appendChild(el("span","big",String(v.order||i+1).padStart(2,"0")));
+    const a=el("div");a.appendChild(el("h3",null,esc(v.name)));a.appendChild(el("p",null,esc(v.what)));r.appendChild(a);
+    const b=el("div","f");b.appendChild(el("span",null,"Done looks like"));b.appendChild(document.createTextNode(esc(v.doneLooks)));r.appendChild(b);
+    const c=el("div");c.style.display="flex";c.style.flexDirection="column";c.style.gap="10px";const st=el("span","pillst",esc(v.status||"Not started"));st.dataset.st=v.status||"";c.appendChild(st);
+    c.appendChild(el("span","label","Due "+(v.due?new Date(v.due+"T12:00:00").toLocaleDateString(undefined,{month:"short",day:"numeric"}):"TBD")));c.appendChild(el("span","label","Owners: "+esc(v.owners||"TBD")));c.appendChild(el("span","stamp",stamp(v)));c.appendChild(actions(col,id,v));r.appendChild(c);box.appendChild(r);});
+  host.appendChild(box);deletedToggle(col,host,del);dressPins(host);
+},
+foursets(){
+  const col="foursets",host=document.querySelector('[data-list="foursets"]');if(!host)return;host.textContent="";const {live,del}=listItems(col);statusLine(col,live.length,["entry","entries"]);
+  const Q={Desirability:"Do people want it?",Feasibility:"Can we build it?",Viability:"Can it sustain itself as a business?",Sustainability:"Does it do lasting good without causing harm?"};
+  const order={"Hypothesis":0,"Evidence":1,"Risk":2,"Test to run":3};
+  const box=el("div","quad");Object.keys(Q).forEach(set=>{const q=el("div");q.appendChild(el("span","label",set));q.appendChild(el("h3",null,Q[set]));
+    const items=live.filter(([,v])=>v.set===set).sort((a,b)=>(order[a[1].kind]??9)-(order[b[1].kind]??9)||(a[1].at||0)-(b[1].at||0));
+    if(!items.length)q.appendChild(el("p","q","No entries yet."));
+    items.forEach(([id,v])=>{const it=el("div","qitem"+(v.__pending?" pending":""));it.appendChild(el("span","label",esc(v.kind)+(v.owner?" / "+esc(v.owner):"")));it.appendChild(el("p",null,esc(v.text)));it.appendChild(el("span","stamp",stamp(v)));it.appendChild(actions(col,id,v));q.appendChild(it);});
+    const add=el("button","btn small","Add to "+set);add.type="button";add.style.alignSelf="flex-start";add.addEventListener("click",()=>openEntry(col,null,{set}));q.appendChild(add);box.appendChild(q);});
+  host.appendChild(box);deletedToggle(col,host,del);dressPins(host);
+},
+tasks(){
+  const col="tasks",host=document.querySelector('[data-list="tasks"]');if(!host)return;host.textContent="";const {live,del}=listItems(col);statusLine(col,live.length,"task");
+  if(!live.length&&S.subs[col]==="live"){emptyBox(host,"Nothing here yet. Add the first task.");deletedToggle(col,host,del);return;}
+  const d0=new Date("2026-10-19T00:00:00").getTime(),d1=new Date("2026-12-21T00:00:00").getTime(),span=d1-d0;const pct=t=>Math.max(0,Math.min(100,(t-d0)/span*100));
+  const day=s=>{const t=new Date((s||"")+"T12:00:00").getTime();return isNaN(t)?null:t;};
+  const g=el("div","gantt");const inner=el("div","inner");g.appendChild(inner);
+  const head=el("div","ghead");head.appendChild(el("div","label","Task / owner"));const ht=el("div","track");for(let t=d0;t<d1;t+=7*864e5){const w=el("div","wk");w.style.left=pct(t)+"%";ht.appendChild(w);const s=el("span",null,new Date(t).toLocaleDateString(undefined,{month:"short",day:"numeric"}));s.style.left=pct(t)+"%";ht.appendChild(s);}head.appendChild(ht);inner.appendChild(head);
+  const now=Date.now();
+  live.sort((a,b)=>(day(a[1].start)||0)-(day(b[1].start)||0)||(day(a[1].end)||0)-(day(b[1].end)||0)).forEach(([id,v])=>{
+    const row=el("div","grow-row"+(v.__pending?" pending":""));const nm=el("div","nm");nm.appendChild(el("b",null,esc(v.name)));nm.appendChild(el("span",null,esc(v.owner||"Unassigned")+" / "+esc(v.team||"")+(v.__failed?" / NOT SAVED":v.__pending?" / saving":"")));row.appendChild(nm);
+    const tr=el("div","track");for(let t=d0;t<d1;t+=7*864e5){const w=el("div","wk");w.style.left=pct(t)+"%";tr.appendChild(w);}
+    if(now>=d0&&now<=d1){const td=el("div","today");td.style.left=pct(now)+"%";tr.appendChild(td);}
+    const s=day(v.start),e=day(v.end)||s;
+    if(s!=null){if(v.kind==="Milestone"){const m=el("button","gms");m.type="button";m.style.left=pct(s)+"%";m.title=esc(v.name);m.setAttribute("aria-label","Edit milestone: "+esc(v.name));m.addEventListener("click",()=>openEntry(col,id));tr.appendChild(m);}
+      else{const b=el("button","gbar");b.type="button";b.dataset.st=v.status||"Planned";b.style.left=pct(s)+"%";b.style.width=Math.max(0.8,pct(e+864e5)-pct(s))+"%";b.title=esc(v.name)+" / "+esc(v.status||"Planned");b.setAttribute("aria-label","Edit task: "+esc(v.name));b.addEventListener("click",()=>openEntry(col,id));tr.appendChild(b);}}
+    row.appendChild(tr);inner.appendChild(row);});
+  host.appendChild(g);
+  const det=el("div","cards");det.style.marginTop="28px";live.sort((a,b)=>(day(a[1].start)||0)-(day(b[1].start)||0)).forEach(([id,v])=>det.appendChild(card(col,id,v,{meta:[(v.start||"?")+(v.kind==="Milestone"?"":" to "+(v.end||"?")),v.status],fields:[["owner","Owner"],["team","Team"]]})));
+  const dt=el("div","groupname","All tasks / "+live.length);host.appendChild(dt);host.appendChild(det);deletedToggle(col,host,del);dressPins(host);
+}
+};
+function renderCol(col){
+  if(col==="people"){RENDER.people();return;}
+  const v=Object.keys(VIEW_COLS).find(k=>k!=="pitch"&&k!=="board"&&VIEW_COLS[k].includes(col)&&VIEW_COLS[k][1]===col);
+  if(v&&!done[v])return;if(RENDER[col])RENDER[col]();
+}
+
+/* ================= Firebase sign-in + admin ================= */
+if(FBM){
+  $("fb-signin").addEventListener("click",()=>{$("sign-err").textContent="";$("sign-send").disabled=false;openScrim("signscrim");$("sign-name").focus();});
+  $("fb-signout").addEventListener("click",()=>window.FB.signOut());
+  $("signform").addEventListener("submit",async e=>{e.preventDefault();const em=$("sign-email").value.trim(),nm=$("sign-name").value.trim();
+    if(!nm){$("sign-err").textContent="Add your name so teammates know who wrote what.";return;}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){$("sign-err").textContent="Enter a valid email.";return;}
+    const b=$("sign-send");if(b.disabled)return;b.disabled=true;$("sign-err").textContent="Sending...";
+    try{await window.FB.sendLink(em,nm);$("sign-err").textContent="";$("sign-h").textContent="Check your email";$("signform").querySelector("p.muted").textContent="We sent a sign-in link to "+em+". Open it on this device. It can take a minute; check spam too.";}
+    catch(err){b.disabled=false;$("sign-err").textContent="Couldn't send the link. Check the email and try again.";}});
+  $("fb-access").addEventListener("click",async()=>{$("acc-status").textContent="Loading...";openScrim("accessscrim");try{$("acc-list").value=(await window.FB.getAccess()).join("\n");$("acc-status").textContent="";}catch(_){$("acc-status").textContent="Couldn't load the list.";}});
+  $("accessform").addEventListener("submit",async e=>{e.preventDefault();const list=[...new Set($("acc-list").value.split(/[\s,;]+/).map(x=>x.trim().toLowerCase()).filter(x=>/@/.test(x)))];const b=$("acc-save");b.disabled=true;$("acc-status").textContent="Saving...";
+    try{await window.FB.setAccess(list);$("acc-status").textContent="Saved. "+list.length+" email"+(list.length===1?"":"s")+" on the team list.";}catch(_){$("acc-status").textContent="Didn't save. Check your connection and try again.";}b.disabled=false;});
+  $("acc-seed").addEventListener("click",async()=>{const b=$("acc-seed");if(b.disabled)return;b.disabled=true;$("acc-status").textContent="Loading starter content...";
+    try{const r=await fetch("seeds.json",{cache:"no-store"});const data=await r.json();const lines=[];await window.FB.seed(data,m=>{lines.push(m);$("acc-status").textContent=lines.join(" / ");});}
+    catch(_){$("acc-status").textContent="Couldn't load starter content.";}b.disabled=false;});
+}
+
+/* ================= boot ================= */
+S.queue=(function(){const q=lsGet(QKEY,[]);return Array.isArray(q)?q.filter(x=>x&&x.path&&x.op&&x.owner):[];})();
+route();setSync();
+(async()=>{
+  const fail=()=>{S.tried=true;setSync();$("whoami").textContent="Not connected";VIEWS.forEach(v=>{if(done[v])VIEW_COLS[v].forEach(renderCol);});};
+  if(FBM){let c={};try{c=await window.FB.ctx;}catch(_){c={reason:"sdkfail"};}S.fbReason=c.reason;S.admin=!!c.admin;
+    $("fb-signin").hidden=c.reason!=="signedout";$("fb-signout").hidden=c.reason==="signedout"||c.reason==="sdkfail";$("fb-access").hidden=!c.admin;
+    if(window.__fbLinkError)toast("That sign-in link didn't work. It may have expired or been used already. Send a new one.");
+    if(c.reason==="notonteam"){toast("You're signed in as "+c.email+", but that email isn't on the team list yet. Ask James to add it.");}
+    if(c.reason!=="ok"){fail();$("whoami").textContent=c.reason==="notonteam"?c.email+" (not on team list)":c.reason==="sdkfail"?"Sign-in unavailable":"Not signed in";return;}}
+  if(!window.claude||!window.claude.use){fail();return;}
+  try{S.user=await window.claude.use("user");}catch(_){S.user=null;}
+  try{S.db=await window.claude.use("db");}catch(_){S.db=null;}
+  S.tried=true;
+  if(!S.db){fail();$("whoami").textContent="Not signed in";return;}
+  S.connected=true;
+  try{S.me=S.user?await S.user.id():null;}catch(_){S.me=null;}
+  if(S.user&&S.user.can){try{const w=await S.user.can("data.write");if(w===false)S.readonly=true;}catch(_){}}
+  $("whoami").textContent=S.me?"Signed in":"Not signed in";
+  setSync();
+  VIEW_COLS[curView].forEach(subscribe);VIEW_COLS[curView].forEach(renderCol);
+  resolveNames();pump();
+})();
+
+})();
+</script>
+</body>
+</html>
