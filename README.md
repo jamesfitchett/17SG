@@ -2,10 +2,15 @@
 
 The shared workspace for 17SG, a PC game about the UN Sustainable Development Goals (IncUB8 / UH 4504, Virginia Tech).
 
-- **Pitch:** the Hub concept, storyboards, and every team idea.
+- **Foundation:** problem statement, mission, goals, this semester's deliverables.
+- **The game:** what's decided, then the Hub, Mini games and Rapid Response, each with proposed decisions and mapped ideas to vote on.
+- **Playbook:** how game studios work, sized to our sprint to Dec 3.
+- **Votes:** every proposed decision, the tally, and the decision log.
 - **Plan:** timeline (Gantt), team roles, deliverables.
 - **Research:** personas, stakeholders, How Might We, Four Sets.
-- **Discuss:** open questions and the pin board.
+- **Discuss:** open questions and every comment.
+
+Votes are stored with each person's comments (`people/{uid}`), so no database rule changes are needed.
 
 ## Signing in
 

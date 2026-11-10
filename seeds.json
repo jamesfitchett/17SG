@@ -1,6 +1,6 @@
 {
  "__meta": {
-  "version": 2,
+  "version": 3,
   "retire": {
    "tasks": [
     "t03",
@@ -257,11 +257,11 @@
    "editedAt": 1793935300000
   },
   "t12": {
-   "name": "Engine choice and AI resident spike",
-   "owner": "Gray",
+   "name": "Pick what we build in, define the smallest Hub",
+   "owner": "James, Gray",
    "team": "Design team",
    "start": "2026-11-06",
-   "end": "2026-11-13",
+   "end": "2026-11-12",
    "kind": "Task",
    "status": "Planned",
    "by": "seed",
@@ -283,11 +283,11 @@
    "editedAt": 1793935300000
   },
   "t14": {
-   "name": "Prototype build",
-   "owner": "Gray and design team",
+   "name": "Grey-box Hub: the loop in ugly boxes",
+   "owner": "Gray, James",
    "team": "Design team",
-   "start": "2026-11-09",
-   "end": "2026-11-30",
+   "start": "2026-11-13",
+   "end": "2026-11-19",
    "kind": "Task",
    "status": "Planned",
    "by": "seed",
@@ -296,11 +296,11 @@
    "editedAt": 1793935300000
   },
   "t15": {
-   "name": "Trailer script and storyboard",
+   "name": "Trailer outline, storyboard and music sketch",
    "owner": "Mark",
    "team": "Design team",
    "start": "2026-11-09",
-   "end": "2026-11-16",
+   "end": "2026-11-19",
    "kind": "Task",
    "status": "Planned",
    "by": "seed",
@@ -338,7 +338,7 @@
    "name": "Trailer production",
    "owner": "Mark, Julia, Ashrita",
    "team": "Design team",
-   "start": "2026-11-16",
+   "start": "2026-11-20",
    "end": "2026-12-01",
    "kind": "Task",
    "status": "Planned",
@@ -348,10 +348,10 @@
    "editedAt": 1793935300000
   },
   "t19": {
-   "name": "Playtests (Thanksgiving week is Nov 26)",
+   "name": "Playtest the first playable",
    "owner": "Mark",
    "team": "Design team",
-   "start": "2026-11-23",
+   "start": "2026-11-27",
    "end": "2026-12-01",
    "kind": "Task",
    "status": "Planned",
@@ -400,7 +400,7 @@
    "editedAt": 1793935300000
   },
   "t23": {
-   "name": "Playable prototype due",
+   "name": "Feature freeze, playable prototype due",
    "owner": "Gray",
    "team": "Design team",
    "start": "2026-11-30",
@@ -424,6 +424,110 @@
    "at": 1793935300000,
    "editedBy": "seed",
    "editedAt": 1793935300000
+  },
+  "t25": {
+   "name": "Vote and comment on the site",
+   "owner": "Everyone",
+   "team": "All hands",
+   "start": "2026-11-09",
+   "end": "2026-11-11",
+   "kind": "Task",
+   "status": "In progress",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "t26": {
+   "name": "Level ladder: first draft",
+   "owner": "Eleazar",
+   "team": "Design team",
+   "start": "2026-11-09",
+   "end": "2026-11-12",
+   "kind": "Task",
+   "status": "In progress",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "t27": {
+   "name": "Visual reference and 2D or 3D recommendation",
+   "owner": "Julia, Ashrita",
+   "team": "Design team",
+   "start": "2026-11-09",
+   "end": "2026-11-12",
+   "kind": "Task",
+   "status": "In progress",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "t28": {
+   "name": "Gate: concept locked",
+   "owner": "Team",
+   "team": "All hands",
+   "start": "2026-11-12",
+   "end": "2026-11-12",
+   "kind": "Milestone",
+   "status": "Planned",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "t29": {
+   "name": "One finished screen in the real style",
+   "owner": "Julia, Ashrita",
+   "team": "Design team",
+   "start": "2026-11-13",
+   "end": "2026-11-19",
+   "kind": "Task",
+   "status": "Planned",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "t30": {
+   "name": "Paper prototypes: level 1 and one Rapid Response crisis",
+   "owner": "Eleazar",
+   "team": "Design team",
+   "start": "2026-11-13",
+   "end": "2026-11-19",
+   "kind": "Task",
+   "status": "Planned",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "t31": {
+   "name": "Gate: three outsiders play the grey box",
+   "owner": "Mark",
+   "team": "Design team",
+   "start": "2026-11-19",
+   "end": "2026-11-19",
+   "kind": "Milestone",
+   "status": "Planned",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "t32": {
+   "name": "First playable: the real style on the Hub",
+   "owner": "Gray and design team",
+   "team": "Design team",
+   "start": "2026-11-20",
+   "end": "2026-11-29",
+   "kind": "Task",
+   "status": "Planned",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
   }
  },
  "hmw": {
@@ -813,7 +917,7 @@
   },
   "q09": {
    "question": "What genre do we say we are to outsiders like the dean?",
-   "context": "Needed for the Dec 3 presentation to the advisors and the dean.",
+   "context": "Needed for the Dec 3 presentation. Nov 9 lean: community builder. In the vote under Hub.",
    "owner": "James",
    "status": "Open",
    "answer": "",
@@ -843,6 +947,61 @@
    "at": 1793935300000,
    "editedBy": "seed",
    "editedAt": 1793935300000
+  },
+  "q12": {
+   "question": "2D or 3D for the first build?",
+   "context": "Nov 9 lean is 2D. Julia and Ashrita bring a recommendation Thu Nov 12.",
+   "owner": "Julia, Ashrita",
+   "status": "Open",
+   "answer": "",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "q13": {
+   "question": "Real world, renamed, or a satirical version of it?",
+   "context": "Undecided on Nov 5 and Nov 9. In the vote under Hub.",
+   "owner": "",
+   "status": "Open",
+   "answer": "",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "q14": {
+   "question": "Which 2 to 3 SDGs go in the first playable and trailer?",
+   "context": "Proposed: SDG 2, 6 and 11. In the vote under Mini games.",
+   "owner": "Eleazar",
+   "status": "Open",
+   "answer": "",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "q15": {
+   "question": "What do we build the first playable in?",
+   "context": "Proposed: 2D in the browser. James and Gray meet before Thu Nov 12.",
+   "owner": "James, Gray",
+   "status": "Open",
+   "answer": "",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
+  },
+  "q16": {
+   "question": "Does the community builder live in the Hub, or is it the mini game?",
+   "context": "The Nov 9 conversation read both ways. Proposed: the builder is the Hub, mini games are short levels beside it.",
+   "owner": "",
+   "status": "Open",
+   "answer": "",
+   "by": "seed",
+   "at": 1794277000000,
+   "editedBy": "seed",
+   "editedAt": 1794277000000
   }
  },
  "personas": {
