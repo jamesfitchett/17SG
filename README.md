@@ -26,7 +26,7 @@ The shared workspace for 17SG, a PC game about the UN Sustainable Development Go
 
 ## @mentions
 
-Type `@` in a comment or thumbs-down reason to tag a teammate. They get an email through `mail/Code.gs`, a Google Apps Script running under James's account. Paste its web app URL into `window.MAIL_URL` in `index.html`. Without it, tagging opens the writer's email app instead.
+Type `@` in a comment or thumbs-down reason to tag a teammate. They get an email through `mail/Code.gs`, a Google Apps Script running under James's account. Its web app URL is set as `window.MAIL_URL` at the top of `index.html`. Without it, tagging opens the writer's email app instead.
 
 ## Signing in
 
