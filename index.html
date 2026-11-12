@@ -575,6 +575,37 @@ table.m.eng td:first-child{white-space:nowrap}
 a.chip:hover{border-color:var(--ink)}
 .chip .sq{width:6px;height:6px}
 .field .hint{font-size:13px;color:var(--muted)}
+/* v5: mentions + history */
+.mention{position:relative}
+.mention .sug{position:absolute;left:0;right:0;top:100%;z-index:5;background:var(--bg);border:1px solid var(--ink);display:none;max-height:220px;overflow:auto}
+.mention .sug.on{display:block}
+.mention .sug button{display:flex;justify-content:space-between;gap:12px;width:100%;text-align:left;padding:9px 12px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--ink);font-size:14px;cursor:pointer}
+.mention .sug button:last-child{border-bottom:0}
+.mention .sug button[aria-selected="true"],.mention .sug button:hover{background:var(--paper)}
+.mention .sug small{color:var(--muted);font-family:var(--mono);font-size:11px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;min-height:0}
+.tags .tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:4px 6px 4px 9px;border:1px solid var(--ink);display:inline-flex;align-items:center;gap:6px}
+.tags .tag button{border:0;background:none;color:var(--muted);cursor:pointer;font-size:14px;line-height:1;padding:0 2px}
+.c .ment{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--muted)}
+.hlog{display:flex;flex-direction:column;border-top:1px solid var(--ink)}
+.hlog .row{display:grid;grid-template-columns:150px 120px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.hlog .row .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+.hlog .row .k.del{color:#C5192D}
+.hlog .row p{margin:4px 0 0;color:var(--ink)}
+.hlog .row .t{color:var(--muted);font-size:13px}
+@media (max-width:640px){.hlog .row{grid-template-columns:1fr;gap:4px}}
+.safe{border:1px solid var(--line);padding:16px 18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+.safe p{margin:0;font-size:14px;color:var(--muted);max-width:70ch}
+/* v6: admin editing */
+.adm{display:none;gap:6px;flex-wrap:wrap;margin-top:10px}
+body.is-admin .adm{display:flex}
+.adm button{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer}
+.adm button:hover{border-color:var(--ink)}
+.adm button.danger{color:#C5192D}
+.adminonly{display:none!important}
+body.is-admin .adminonly{display:inline-flex!important}
+.dec.removed{opacity:.55}
+.lockedmsg{font-size:13px;color:var(--muted)}
 @media (max-width:980px){
   .changed .h,.changed ul{grid-column:1 / -1}
   .what{grid-template-columns:minmax(0,1fr);gap:24px}
@@ -719,7 +750,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
   <nav class="row2" aria-label="Pages"><div class="wrap">
     <div class="navgroup"><span class="g">Start</span><div class="lk"><a href="#foundation">Foundation</a></div></div>
     <div class="navgroup"><span class="g">Game</span><div class="lk"><a href="#game">The game</a><a href="#ideas">Ideas</a><a href="#playbook">Playbook</a></div></div>
-    <div class="navgroup"><span class="g">Decide</span><div class="lk"><a href="#votes">Votes</a><a href="#questions">Questions</a><a href="#board">Comments</a></div></div>
+    <div class="navgroup"><span class="g">Decide</span><div class="lk"><a href="#votes">Votes</a><a href="#questions">Questions</a><a href="#board">Comments</a><a href="#history">History</a></div></div>
     <div class="navgroup"><span class="g">Plan</span><div class="lk"><a href="#timeline">Timeline</a><a href="#team">Team</a><a href="#deliverables">Deliverables</a></div></div>
     <div class="navgroup"><span class="g">Research</span><div class="lk"><a href="#personas">Personas</a><a href="#stakeholders">Stakeholders</a><a href="#hmw">How might we</a><a href="#foursets">Four Sets</a></div></div>
     <div class="navgroup"><span class="g">Company</span><div class="lk"><a href="#values">Values</a><a href="#intel">Intelligences</a></div></div>
@@ -1452,7 +1483,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <!-- ================= VOTES ================= -->
 <main class="view" id="v-votes">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Decide / the only place to vote</div><h1>Votes</h1><p><strong style="color:var(--ink);font-weight:500">Vote on everything before Thursday.</strong> Thumbs up or thumbs down, and a thumbs down needs one line on why. Five of eight carries it. Thursday we only talk about what's contested.</p><div id="vprog" style="margin-top:22px;max-width:420px"></div></div><div class="r"><a class="btn" href="#game">See the game</a></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Decide / the only place to vote</div><h1>Votes</h1><p><strong style="color:var(--ink);font-weight:500">Vote on everything before Thursday.</strong> Thumbs up or thumbs down, and a thumbs down needs one line on why. Five of eight carries it. Thursday we only talk about what's contested.</p><div id="vprog" style="margin-top:22px;max-width:420px"></div></div><div class="r"><a class="btn" href="#game">See the game</a><button type="button" class="btn solid adminonly" id="dec-add">Add a decision</button></div></div></section>
   <section class="pbody"><div class="wrap">
     <div class="vsum" id="vsum"></div>
     <div class="bar"><div class="filters" role="group" aria-label="Filter votes" id="vfilters">
@@ -1526,12 +1557,24 @@ header.top .row2 .wrap{scrollbar-width:thin}
   <section class="pbody"><div class="wrap"><p class="status" data-stline="questions"></p><div data-list="questions"></div></div></section>
 </main>
 
+<!-- ================= HISTORY ================= -->
+<main class="view" id="v-history">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Decide / permanent record</div><h1>History</h1><p>Every comment, vote, change of vote, deleted comment and mention, in order. Nothing here can be edited or erased, by anyone. If something disappears from a board, its trail is here.</p></div></div></section>
+  <section class="pbody"><div class="wrap">
+    <div class="safe" id="safebox"><p>Comments and votes are never erased. Deleting a comment hides it from the boards but keeps it on record, and changing a vote stacks the new vote on top of the old one. A full copy of the database is also saved automatically every day.</p><div class="btns" id="safebtns" hidden><button type="button" class="btn small" id="bk-now">Back up now</button><button type="button" class="btn small solid" id="bk-dl">Download full backup</button></div></div>
+    <div class="bar"><div class="filters" role="group" aria-label="Filter history" id="hfilters">
+      <button aria-pressed="true" data-h="all">All</button><button aria-pressed="false" data-h="comment">Comments</button><button aria-pressed="false" data-h="vote">Votes</button><button aria-pressed="false" data-h="del">Deleted</button><button aria-pressed="false" data-h="mention">Mentions</button>
+    </div><span class="status" data-stline="log"></span></div>
+    <div class="hlog" id="hlog"></div>
+  </div></section>
+</main>
+
 <!-- ================= BOARD ================= -->
 <main class="view" id="v-board">
   <section class="phead"><div class="wrap"><div class="l"><div class="label">Discuss / every comment, live</div><h1>Comments</h1><p>Every comment and every thumbs-down reason, across the whole site, newest first. Add +1 to agree.</p></div><div class="r"><button class="btn solid" id="newpin">Add a general comment</button></div></div></section>
   <section class="pbody"><div class="wrap">
     <div class="bar"><div class="filters" role="group" aria-label="Filter pins">
-      <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="note">Comments</button><button aria-pressed="false" data-f="keep">Must keep</button><button aria-pressed="false" data-f="rethink">Rethink</button><button aria-pressed="false" data-f="down">Thumbs down</button><button aria-pressed="false" data-f="top">Most +1s</button>
+      <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="note">Comments</button><button aria-pressed="false" data-f="keep">Must keep</button><button aria-pressed="false" data-f="rethink">Rethink</button><button aria-pressed="false" data-f="down">Thumbs down</button><button aria-pressed="false" data-f="top">Most +1s</button><button aria-pressed="false" data-f="hidden" class="adminonly">Hidden</button>
     </div><span class="status" data-stline="people"></span></div>
     <div class="cards" id="pinlist"></div>
   </div></section>
@@ -1562,7 +1605,8 @@ header.top .row2 .wrap{scrollbar-width:thin}
       <label for="k-keep"><input type="radio" name="kind" id="k-keep" value="keep"> Must keep</label>
       <label for="k-rethink"><input type="radio" name="kind" id="k-rethink" value="rethink"> Rethink</label>
     </div>
-    <div class="field"><label class="label" for="pin-note">Your comment</label><textarea id="pin-note" maxlength="600" placeholder="What do you think? If it's a must-keep, say why."></textarea></div>
+    <div class="field mention" data-for="pin"><label class="label" for="pin-note">Your comment</label><textarea id="pin-note" maxlength="600" placeholder="What do you think? Type @ to tag a teammate."></textarea><div class="sug" role="listbox" aria-label="Teammates"></div></div>
+    <div class="field mention" data-for="pin"><label class="label" for="pin-who">Email a teammate about this</label><input id="pin-who" autocomplete="off" placeholder="Type a name, or @ in your comment"><div class="sug" role="listbox" aria-label="Teammates"></div><div class="tags" id="pin-tags"></div><span class="hint" id="pin-mailnote">Tagged people get an email with your comment and a link back here.</span></div>
     <p class="draftnote" id="pin-draft"></p>
     <p class="err" id="pin-err"></p>
     <div class="btns"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn solid" id="pin-save">Post comment</button></div>
@@ -1590,6 +1634,24 @@ header.top .row2 .wrap{scrollbar-width:thin}
     <div class="hist" id="hist-list"></div>
     <div class="btns"><button type="button" class="btn" data-close>Close</button></div>
   </div>
+</div>
+
+<!-- decision edit dialog (admin) -->
+<div class="scrim" id="decscrim" role="dialog" aria-modal="true" aria-labelledby="dec-h">
+  <form class="dlg" id="decform" novalidate>
+    <div class="label">Admin / proposed decision</div>
+    <h3 id="dec-h">Edit decision</h3>
+    <div class="field"><label class="label" for="dec-t">Decision</label><input id="dec-t" maxlength="200"></div>
+    <div class="field"><label class="label" for="dec-b">Detail</label><textarea id="dec-b" maxlength="1200"></textarea></div>
+    <div class="field"><label class="label" for="dec-src">Source</label><input id="dec-src" maxlength="120" placeholder="e.g. Nov 12 / James"></div>
+    <div class="field"><label class="label" for="dec-a">Section</label><select id="dec-a"></select></div>
+    <div class="field" id="dec-gwrap"><label class="label" for="dec-g">Hub topic</label><select id="dec-g"></select></div>
+    <div class="field"><label class="label" for="dec-k">Type</label><select id="dec-k"><option value="decision">Proposed decision</option><option value="idea">Team idea</option></select></div>
+    <div class="field"><label class="label" for="dec-st">Status</label><select id="dec-st"><option value="">Open for votes</option><option value="decided">Decided (moves to the decision log)</option></select></div>
+    <p class="draftnote">Votes and comments already on this decision stay saved whatever you change. Every version is kept.</p>
+    <p class="err" id="dec-err"></p>
+    <div class="btns"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn solid" id="dec-save">Save</button></div>
+  </form>
 </div>
 
 <!-- failed saves dialog -->
@@ -1626,7 +1688,8 @@ header.top .row2 .wrap{scrollbar-width:thin}
   <form class="dlg" id="voteform" novalidate>
     <div class="label" id="vote-target">Thumbs down</div>
     <h3 id="vote-h">What would you change?</h3>
-    <div class="field"><label class="label" for="vote-why">Your reason</label><textarea id="vote-why" maxlength="400" placeholder="One line is enough. What's wrong with it, or what would you do instead?"></textarea><span class="hint">Your name and reason show next to the decision, so we can talk it through on Thursday.</span></div>
+    <div class="field mention" data-for="vote"><label class="label" for="vote-why">Your reason</label><textarea id="vote-why" maxlength="400" placeholder="One line is enough. What's wrong with it, or what would you do instead? Type @ to tag a teammate."></textarea><div class="sug" role="listbox" aria-label="Teammates"></div><span class="hint">Your name and reason show next to the decision, so we can talk it through on Thursday.</span></div>
+    <div class="tags" id="vote-tags"></div>
     <p class="err" id="vote-err"></p>
     <div class="btns"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn solid">Post thumbs down</button></div>
   </form>
@@ -1686,6 +1749,32 @@ function docRef(ref){return{
 };}
 const dbApi={doc:p=>docRef(fs.doc(p)),collection:p=>q(fs.collection(p))};
 
+/* v5 safety: a person's comments and votes are only ever merged, never replaced.
+   The server copy is read inside a transaction; new pins are added, hidden pins are
+   flagged, and nothing is removed. Every change also lands in the append-only log. */
+function mergePeople(cur,diff,now){
+  const pins=Array.isArray(cur.pins)?cur.pins.slice():[];const ids=new Set(pins.map(p=>p&&p.id));
+  (diff.add||[]).forEach(p=>{if(p&&p.id&&!ids.has(p.id)){pins.push(p);ids.add(p.id);}});
+  const hide=new Set(diff.hide||[]);
+  const out=pins.map(p=>p&&hide.has(p.id)&&!p.deleted?Object.assign({},p,{deleted:true,deletedAt:now}):p);
+  let plus=Array.isArray(cur.plus)?cur.plus.slice():[];
+  (diff.plusAdd||[]).forEach(k=>{if(!plus.includes(k))plus.push(k);});
+  const pr=new Set(diff.plusRemove||[]);plus=plus.filter(k=>!pr.has(k));
+  return {pins:out,plus,at:now};
+}
+window.__mergePeople=mergePeople;
+async function patchPeople(path,diff){
+  const ref=fs.doc(path);const uidp=path.split("/").pop();
+  try{return await fs.runTransaction(async tx=>{
+    const s=await tx.get(ref);const cur=s.exists?(s.data()||{}):{};const now=Date.now();
+    const next=mergePeople(cur,diff,now);
+    if(Array.isArray(cur.pins)&&next.pins.length<cur.pins.length)throw {code:"invalid_argument",message:"refusing to shrink"};
+    tx.set(ref,next);
+    (diff.logs||[]).forEach(e=>tx.set(fs.collection("log").doc(),Object.assign({},e,{by:uidp,at:e.at||now})));
+    return true;
+  });}catch(e){throw err(e);}
+}
+
 const nameCache={};
 function userApi(u,onTeam){return{
   id:async()=>u.uid,isOwner:()=>ADMINS.includes((u.email||"").toLowerCase()),canEdit:()=>ADMINS.includes((u.email||"").toLowerCase()),
@@ -1708,6 +1797,35 @@ const ctx=(async()=>{
 window.claude={use:n=>ctx.then(c=>n==="db"?(c.db||null):n==="user"?(c.user||null):null)};
 window.FB={
   ctx,
+  patchPeople,
+  async idToken(){await sdk;const u=auth.currentUser;return u?u.getIdToken():null;},
+  async addLog(e){await sdk;const u=auth.currentUser;if(!u)return;await fs.collection("log").add(Object.assign({at:Date.now()},e,{by:u.uid}));},
+  async team(){await sdk;const out={};
+    try{const s=await fs.collection("users").get();s.docs.forEach(d=>{const v=d.data()||{};const em=String(v.email||"").toLowerCase();if(em)out[em]={name:v.name||em.split("@")[0],email:em,uid:d.id};});}catch(_){}
+    try{const a=await fs.doc("config/access").get();((a.exists&&a.data().emails)||[]).forEach(x=>{const em=String(x).toLowerCase().trim();if(em&&!out[em])out[em]={name:em.split("@")[0],email:em};});}catch(_){}
+    ADMINS.forEach(em=>{if(!out[em])out[em]={name:em.split("@")[0],email:em};});
+    return Object.values(out);},
+  /* full copy of everything the team has written */
+  async exportAll(){await sdk;const cols=new Set(["people","users","log"]);
+    try{const r=await fetch("seeds.json",{cache:"no-store"});const d=await r.json();Object.keys(d).forEach(k=>{if(!k.startsWith("__"))cols.add(k);});}catch(_){}
+    ["ideas","tasks","roles","deliverables","personas","stakeholders","hmw","foursets","questions","values","intelligences","decisions","moderation"].forEach(c=>cols.add(c));
+    const out={exportedAt:new Date().toISOString(),project:cfg.projectId,collections:{}};
+    for(const c of cols){try{const s=await fs.collection(c).get();const o={};for(const d of s.docs){o[d.id]=d.data();
+        if(!["people","users","log","config"].includes(c)){try{const h=await fs.collection(c+"/"+d.id+"/history").get();if(!h.empty){o[d.id].__history={};h.docs.forEach(x=>{o[d.id].__history[x.id]=x.data();});}}catch(_){}}}
+      out.collections[c]=o;}catch(e){out.collections[c]={__error:String(e&&e.code||e)};}}
+    try{const a=await fs.doc("config/access").get();out.collections.config={access:a.exists?a.data():null};}catch(e){out.collections.config={__error:String(e&&e.code||e)};}
+    return out;},
+  async backupNow(){const data=await this.exportAll();const json=JSON.stringify(data);const stamp=new Date().toISOString().replace(/[:.]/g,"-");
+    const CH=300000;const parts=Math.ceil(json.length/CH)||1;
+    for(let i=0;i<parts;i++){await fs.doc("backups/"+stamp+"_"+String(i).padStart(2,"0")).set({stamp,part:i,parts,at:Date.now(),json:json.slice(i*CH,(i+1)*CH)});}
+    try{localStorage.setItem("17sg.lastBackup",String(Date.now()));}catch(_){}
+    return {stamp,parts,bytes:json.length,data};},
+  /* one-time: give every comment and vote that existed before the log its own log entry */
+  async baseline(){await sdk;const have=new Set();const s=await fs.collection("log").where("type","==","baseline").get();s.docs.forEach(d=>have.add(d.id));
+    const p=await fs.collection("people").get();let n=0;let b=fs.batch(),k=0;
+    for(const d of p.docs){const v=d.data()||{};for(const pin of (Array.isArray(v.pins)?v.pins:[])){if(!pin||!pin.id)continue;const id="base_"+d.id+"_"+pin.id;if(have.has(id))continue;
+      b.set(fs.doc("log/"+id),{type:"baseline",by:d.id,at:pin.at||Date.now(),pin});n++;k++;if(k>=400){await b.commit();b=fs.batch();k=0;}}}
+    if(k)await b.commit();return n;},
   async signInGoogle(){await sdk;const p=new firebase.auth.GoogleAuthProvider();p.setCustomParameters({prompt:"select_account"});
     try{await auth.signInWithPopup(p);}catch(e){const c=e&&e.code;if(c==="auth/popup-blocked"||c==="auth/operation-not-supported-in-this-environment"){await auth.signInWithRedirect(p);return;}if(c==="auth/popup-closed-by-user"||c==="auth/cancelled-popup-request")return "cancelled";throw e;}
     location.reload();},
@@ -2051,6 +2169,40 @@ const DEC=[
 {id:"x-school",a:"later",k:"idea",t:"School edition",b:"Sponsored classroom events with their own rewards.",src:"Island management pitch, Nov 5"}
 ];
 const DECMAP={};DEC.forEach(d=>{DECMAP[d.id]=d;});
+/* v6: James can edit, remove, restore, decide or add decisions live. Overrides live in decisions/{id};
+   the built-in list is the base. Removing never touches anyone's votes. */
+const DEC_BASE=DEC.map(d=>Object.assign({},d));const DEC_HIDDEN=[];
+const DEC_FIELDS=["t","b","src","a","g","k","st"];
+function applyDecisions(){const O=viewOf("decisions");DEC.length=0;DEC_HIDDEN.length=0;
+  const seen=new Set();
+  DEC_BASE.forEach(b=>{seen.add(b.id);const o=O[b.id];const d=Object.assign({},b);if(o)DEC_FIELDS.forEach(k=>{if(o[k]!=null)d[k]=o[k];});if(o&&o.hidden)DEC_HIDDEN.push(d);else DEC.push(d);});
+  Object.entries(O).forEach(([id,o])=>{if(seen.has(id)||!o||!o.t)return;const d={id,a:o.a||"hub",k:o.k||"decision",t:o.t,b:o.b||"",src:o.src||"",st:o.st||""};if(o.g)d.g=o.g;if(o.hidden)DEC_HIDDEN.push(d);else DEC.push(d);});
+  Object.keys(DECMAP).forEach(k=>delete DECMAP[k]);DEC.forEach(d=>{DECMAP[d.id]=d;});DEC_HIDDEN.forEach(d=>{DECMAP[d.id]=DECMAP[d.id]||d;});}
+let DE=null;
+function decAdminBtns(d,removed){return `<div class="adm" data-dadm="${d.id}">${removed?`<button type="button" data-dact="restore">Restore</button>`:`<button type="button" data-dact="edit">Edit</button>${d.st==="decided"?`<button type="button" data-dact="reopen">Reopen</button>`:`<button type="button" data-dact="decide">Mark decided</button>`}<button type="button" class="danger" data-dact="remove">Remove</button>`}</div>`;}
+function saveDecision(id,patch,note){const cur=viewOf("decisions")[id]||{};const base=DEC_BASE.find(b=>b.id===id)||{};const now=Date.now();
+  const before={};DEC_FIELDS.forEach(k=>{const v=cur[k]!=null?cur[k]:base[k];if(v!=null)before[k]=v;});before.hidden=!!cur.hidden;
+  enqueue({op:"set",path:"decisions/"+id+"/history/"+uid(),data:{fields:before,at:now,by:S.me,note:note||"Before edit"},label:"History"});
+  const data=Object.assign({},cur,patch,{editedBy:S.me,editedAt:now});delete data.__pending;delete data.__failed;if(!data.by){data.by=S.me;data.at=now;}
+  enqueue({op:"set",path:"decisions/"+id,data,label:"Decision: "+(patch.t||cur.t||base.t||id)});
+  window.FB&&window.FB.addLog&&window.FB.addLog(JSON.parse(JSON.stringify({type:"decision-"+(note||"edit").toLowerCase().replace(/[^a-z]+/g,"-"),name:(S.names[S.me]||"").replace(/ \(you\)$/,""),decision:id,before,after:patch}))).catch(()=>{});}
+function openDec(id){if(!S.admin)return;const d=id?(DECMAP[id]||{}):{};DE={id:id||("x"+uid())};
+  $("dec-h").textContent=id?"Edit decision":"Add a decision";
+  $("dec-a").innerHTML=Object.keys(AREA).map(k=>`<option value="${k}">${AREA[k]}</option>`).join("");
+  $("dec-g").innerHTML=`<option value="">None</option>`+SUB.hub.map(s=>`<option value="${s[0]}">${s[1]}</option>`).join("");
+  $("dec-t").value=d.t||"";$("dec-b").value=d.b||"";$("dec-src").value=d.src||"";$("dec-a").value=d.a||"hub";$("dec-g").value=d.g||"";$("dec-k").value=d.k||"decision";$("dec-st").value=d.st||"";
+  $("dec-gwrap").hidden=$("dec-a").value!=="hub";$("dec-err").textContent="";openScrim("decscrim");$("dec-t").focus();}
+$("dec-a").addEventListener("change",()=>{$("dec-gwrap").hidden=$("dec-a").value!=="hub";});
+$("dec-add").addEventListener("click",()=>openDec(null));
+$("decform").addEventListener("submit",e=>{e.preventDefault();if(!DE)return;const t=$("dec-t").value.trim();if(!t){$("dec-err").textContent="Write the decision first.";return;}
+  const a=$("dec-a").value;const patch={t,b:$("dec-b").value.trim(),src:$("dec-src").value.trim(),a,g:a==="hub"?$("dec-g").value:"",k:$("dec-k").value,st:$("dec-st").value};
+  saveDecision(DE.id,patch,DECMAP[DE.id]?"Before edit":"Added");DE=null;closeScrims();toast("Saved. Everyone sees it now.");});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-dact]");if(!b||!S.admin)return;const id=b.closest("[data-dadm]").dataset.dadm;const act=b.dataset.dact;
+  if(act==="edit")return openDec(id);
+  if(act==="decide")return saveDecision(id,{st:"decided"},"Before marking decided");
+  if(act==="reopen")return saveDecision(id,{st:""},"Before reopening");
+  if(act==="restore"){saveDecision(id,{hidden:false},"Before restore");toast("Restored, with all its votes.");return;}
+  if(act==="remove"){if(!b.dataset.armed){b.dataset.armed="1";b.textContent="Confirm remove";return;}saveDecision(id,{hidden:true},"Before remove");toast("Removed from the vote. Its votes and comments are still saved. Restore it any time under Removed.");}});
 const QS={
 hub:[["Is the Hub enough on its own?","Gray: selling the Hub alone is like selling the iPhone home screen. Colin: one mini game might be the better first product. What makes the Hub the reason you open the game?"],["How do goals you can't build show up?","Housing is a building. Education and equality aren't."],["What does the Steward look like, and can you customize them?",""],["What would make you open the Hub on a day with no crisis?",""]],
 mini:[["What do you actually do in level 1?","Eleazar's first draft is due Thursday. Add ideas here before then."],["What does level 2, shelter, play like?",""],["What exactly goes home to the Hub when you win?","A resource, a building, a skill, a resident?"]],
@@ -2085,9 +2237,9 @@ const TH_UP=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9V5a3 3 0 
 const TH_DN=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg>`;
 function decCard(d,stat){const idea=d.k==="idea";
   if(stat)return `<div class="dec static${idea?" idea":""}"><div class="dh"><span class="dtag">${d.a==="later"?"Parked":idea?"Idea":"Proposed"}</span><span class="src">${d.src||""}</span></div><h4>${d.t}</h4>${d.b?`<p>${d.b}</p>`:""}<div class="vt"><button class="pin" data-t="d-${d.id}" data-l="${AREA[d.a]}: ${d.t}">Pin</button></div></div>`;
-  return `<div class="dec${idea?" idea":""}" data-d="${d.id}"><div class="dh"><span class="dtag" data-tag></span><span class="src">${d.src||""}</span></div><h4>${d.t}</h4>${d.b?`<p>${d.b}</p>`:""}<div class="meter" aria-hidden="true"><i class="u"></i><i class="d"></i></div><div class="vt"><button type="button" class="vb up" data-v="up" aria-pressed="false" aria-label="Thumbs up: ${d.t}">${TH_UP}<b>0</b></button><button type="button" class="vb down" data-v="down" aria-pressed="false" aria-label="Thumbs down: ${d.t}">${TH_DN}<b>0</b></button><button class="pin" data-t="d-${d.id}" data-l="${AREA[d.a]}: ${d.t}">Pin</button><span class="who2"></span></div><div class="dis"></div></div>`;}
+  return `<div class="dec${idea?" idea":""}" data-d="${d.id}"><div class="dh"><span class="dtag" data-tag></span><span class="src">${d.src||""}</span></div><h4>${d.t}</h4>${d.b?`<p>${d.b}</p>`:""}<div class="meter" aria-hidden="true"><i class="u"></i><i class="d"></i></div><div class="vt"><button type="button" class="vb up" data-v="up" aria-pressed="false" aria-label="Thumbs up: ${d.t}">${TH_UP}<b>0</b></button><button type="button" class="vb down" data-v="down" aria-pressed="false" aria-label="Thumbs down: ${d.t}">${TH_DN}<b>0</b></button><button class="pin" data-t="d-${d.id}" data-l="${AREA[d.a]}: ${d.t}">Pin</button><span class="who2"></span></div><div class="dis"></div>${decAdminBtns(d)}</div>`;}
 function hypList(items){return `<ul>${items.map(x=>`<li${x.as?' class="as"':""}>${x.t}</li>`).join("")}</ul>`;}
-function lockRows(items){return items.map((d,i)=>`<div><span class="n">${String(i+1).padStart(2,"0")}</span><div><h4>${d.t}</h4>${d.b?`<p>${d.b}</p>`:""}</div><div class="r"><span class="dtag" data-s="decided">${d.src}</span><button class="pin" data-t="d-${d.id}" data-l="Decided: ${d.t}">Pin</button></div></div>`).join("");}
+function lockRows(items){return items.map((d,i)=>`<div><span class="n">${String(i+1).padStart(2,"0")}</span><div><h4>${d.t}</h4>${d.b?`<p>${d.b}</p>`:""}</div><div class="r"><span class="dtag" data-s="decided">${d.src}</span><button class="pin" data-t="d-${d.id}" data-l="Decided: ${d.t}">Pin</button></div>${decAdminBtns(d)}</div>`).join("");}
 function fillDecs(root){
   root.querySelectorAll("[data-decs]").forEach(h=>{const a=h.dataset.decs,k=h.dataset.kind,g=h.dataset.group;h.innerHTML=DEC.filter(d=>d.a===a&&d.st!=="decided"&&(!k||d.k===k)&&(!g||d.g===g)).map(x=>decCard(x,true)).join("");});
   root.querySelectorAll("[data-hyp]").forEach(h=>{const a=h.dataset.hyp;const items=DEC.filter(d=>d.a===a&&d.k==="decision"&&d.st!=="decided");
@@ -2115,7 +2267,9 @@ function paintVotes(){
   });
   renderVoteSummary(T);
 }
-function castVote(d,kind,note){writePeople(p=>{p.pins=p.pins.filter(x=>x.t!=="vote:"+d.id);if(kind)p.pins.push({id:uid(),t:"vote:"+d.id,l:AREA[d.a]+": "+d.t,kind,note:String(note||"").slice(0,400),at:Date.now()});},"Vote: "+d.t);}
+function castVote(d,kind,note,mentions){const pin={id:uid(),t:"vote:"+d.id,l:AREA[d.a]+": "+d.t,kind:kind||"clear",note:String(note||"").slice(0,400),at:Date.now()};if(mentions&&mentions.length)pin.mentions=mentions;
+  if(!FBM){writePeople(p=>{p.pins=p.pins.filter(x=>x.t!=="vote:"+d.id);if(kind)p.pins.push(pin);},"Vote: "+d.t);return;}
+  writePeople(p=>{p.pins.push(pin);},"Vote: "+d.t);}
 let VT=null;
 document.addEventListener("click",e=>{
   const j=e.target.closest("[data-jump]");if(j&&j.dataset.jump){const id=j.dataset.jump;setTimeout(()=>{const t=$(id);if(t)t.scrollIntoView({block:"start"});},60);}
@@ -2124,9 +2278,9 @@ document.addEventListener("click",e=>{
   const t=tally()[d.id];const mine=t&&t.mine;const v=b.dataset.v;
   if(mine&&((v==="down")===(mine.kind==="down"))){castVote(d,null);return;}
   if(v==="up"){castVote(d,"up","");return;}
-  VT=d;$("vote-target").textContent=AREA[d.a]+": "+d.t;$("vote-why").value="";$("vote-err").textContent="";openScrim("votescrim");$("vote-why").focus();
+  VT=d;$("vote-target").textContent=AREA[d.a]+": "+d.t;$("vote-why").value="";MEN.vote.reset();$("vote-err").textContent="";openScrim("votescrim");$("vote-why").focus();
 });
-$("voteform").addEventListener("submit",e=>{e.preventDefault();if(!VT)return;const txt=$("vote-why").value.trim();if(txt.length<3){$("vote-err").textContent="Say why in a line, so we know what to fix.";return;}castVote(VT,"down",txt);VT=null;closeScrims();});
+$("voteform").addEventListener("submit",e=>{e.preventDefault();if(!VT)return;const txt=$("vote-why").value.trim();if(txt.length<3){$("vote-err").textContent="Say why in a line, so we know what to fix.";return;}const ms=MEN.vote.list();const target=AREA[VT.a]+": "+VT.t;castVote(VT,"down",txt,ms);if(ms.length)notify(ms,{text:txt,where:target,kind:"Thumbs down",hash:"votes"});VT=null;closeScrims();});
 let voteFilter="all";
 function renderVoteSummary(T){
   const sum=$("vsum");if(!sum||!done.votes)return;
@@ -2149,6 +2303,7 @@ function renderVoteList(){
     if(idea.length)html+=`<div class="vsub"><span>${a==="later"?"Bring back in spring?":"Team ideas: worth building?"}</span><span>${idea.length}</span></div>`+grid(idea);});}
   if(voteFilter==="all"||voteFilter==="decided"){html+=`<div class="vgroup"><h2>Decision log</h2><span class="label">Locked by the team</span></div><div class="locklist">${lockRows(DEC.filter(d=>d.st==="decided"))}</div>`;}
   if(!html)html=`<div class="empty">${voteFilter==="mine"?"You've voted on everything. Thank you.":"Nothing matches this filter yet."}</div>`;
+  if(S.admin&&DEC_HIDDEN.length&&voteFilter==="all")html+=`<div class="vgroup"><h2>Removed</h2><span class="label">Only you see this. Votes on these are still saved.</span></div><div class="decs three">${DEC_HIDDEN.map(d=>`<div class="dec removed"><div class="dh"><span class="dtag">${AREA[d.a]||""}</span><span class="src">${d.src||""}</span></div><h4>${d.t}</h4>${d.b?`<p>${d.b}</p>`:""}${decAdminBtns(d,true)}</div>`).join("")}</div>`;
   host.innerHTML=html;dressPins(host);paintVotes();renderPins();
 }
 document.querySelectorAll("#vfilters button").forEach(b=>b.addEventListener("click",()=>{voteFilter=b.dataset.vf;document.querySelectorAll("#vfilters button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));renderVoteList();}));
@@ -2181,8 +2336,8 @@ INIT.votes=function(){renderVoteList();};
   dressPins(n9);paintVotes();renderPins();};})();
 
 /* ================= routing ================= */
-const VIEWS=["foundation","game","playbook","votes","ideas","timeline","team","deliverables","personas","stakeholders","hmw","foursets","questions","board","values","intel"];
-const VIEW_COLS={foundation:["people"],game:["people"],playbook:["people"],votes:["people"],ideas:["people","ideas"],timeline:["people","tasks"],team:["people","roles"],deliverables:["people","deliverables"],personas:["people","personas"],stakeholders:["people","stakeholders"],hmw:["people","hmw"],foursets:["people","foursets"],questions:["people","questions"],board:["people"],values:["people","values"],intel:["people","intelligences"]};
+const VIEWS=["foundation","game","playbook","votes","history","ideas","timeline","team","deliverables","personas","stakeholders","hmw","foursets","questions","board","values","intel"];
+const VIEW_COLS={foundation:["people","decisions"],game:["people","decisions"],playbook:["people","decisions"],votes:["people","decisions"],history:["people","log"],ideas:["people","ideas"],timeline:["people","tasks"],team:["people","roles"],deliverables:["people","deliverables"],personas:["people","personas"],stakeholders:["people","stakeholders"],hmw:["people","hmw"],foursets:["people","foursets"],questions:["people","questions"],board:["people"],values:["people","values"],intel:["people","intelligences"]};
 const done={};let curView="foundation";const ALIAS={pitch:"game",hub:"game",home:"foundation"};
 function route(){
   let h=(location.hash||"#foundation").slice(1);h=ALIAS[h]||h;const v=VIEWS.includes(h)?h:"foundation";curView=v;
@@ -2207,7 +2362,8 @@ function viewOf(col){
   myQ().forEach(it=>{if(colOf(it.path)!==col)return;const id=idOf(it.path);
     if(it.op==="set")base[id]=Object.assign({},it.data,{__pending:true,__failed:it.state==="failed"});
     else if(it.op==="update")base[id]=Object.assign({},base[id]||{},it.data,{__pending:true,__failed:it.state==="failed"});
-    else if(it.op==="delete")delete base[id];});
+    else if(it.op==="delete")delete base[id];
+    else if(it.op==="people"&&window.__mergePeople)base[id]=Object.assign(window.__mergePeople(base[id]||{},it.data,it.at),{__pending:true,__failed:it.state==="failed"});});
   return base;
 }
 function enqueue(item){
@@ -2244,7 +2400,7 @@ async function execUpdate(it){
   }
   return ref.update(it.data);
 }
-function exec(it){const ref=S.db.doc(it.path);if(it.op==="set")return ref.set(it.data);if(it.op==="update")return execUpdate(it);if(it.op==="delete")return ref.delete();return Promise.resolve();}
+function exec(it){if(it.op==="people")return window.FB.patchPeople(it.path,it.data);const ref=S.db.doc(it.path);if(it.op==="set")return ref.set(it.data);if(it.op==="update")return execUpdate(it);if(it.op==="delete")return ref.delete();return Promise.resolve();}
 const FATAL=["invalid_argument","quota_exceeded","transform_error","not_granted","capability_disabled","capability_removed","revoked"];
 async function pump(){
   if(S.pumping||!S.db||!S.me)return;S.pumping=true;
@@ -2287,6 +2443,7 @@ $("fail-retry").addEventListener("click",()=>{myQ().forEach(x=>{if(x.state==="fa
 $("fail-discard").addEventListener("click",()=>{S.queue=S.queue.filter(x=>!(x.owner===S.me&&x.state==="failed"));saveQ();closeScrims();setSync();VIEWS.forEach(v=>VIEW_COLS[v].forEach(renderCol));});
 
 function subscribe(col){
+  if(col==="people"&&S.db&&!S.subs.moderation)subscribe("moderation");
   if(!S.db||S.subs[col])return;S.subs[col]="loading";
   const t=setTimeout(()=>{if(S.subs[col]==="loading"){S.subErr[col]="slow";renderCol(col);}},10000);
   S.db.collection(col).onSnapshot(snap=>{
@@ -2323,11 +2480,24 @@ document.querySelectorAll(".scrim").forEach(s=>{s.addEventListener("mousedown",e
 /* ================= pins ================= */
 let PT=null;
 function myPeople(){const d=viewOf("people")[S.me];return{pins:(d&&Array.isArray(d.pins))?d.pins.map(x=>Object.assign({},x)):[],plus:(d&&Array.isArray(d.plus))?d.plus.slice():[]};}
-function writePeople(mut,label){const d=myPeople();if(mut(d)===false)return;d.at=Date.now();enqueue({op:"set",path:"people/"+S.me,data:{pins:d.pins,plus:d.plus,at:d.at},coalesce:true,label:label||"Pins"});}
+function writePeople(mut,label,extraLogs){const before=myPeople();const d=myPeople();if(mut(d)===false)return;
+  const bIds=new Map(before.pins.map(p=>[p.id,p]));
+  const add=d.pins.filter(p=>!bIds.has(p.id));
+  const hide=d.pins.filter(p=>p.deleted&&bIds.has(p.id)&&!bIds.get(p.id).deleted).map(p=>p.id);
+  const plusAdd=d.plus.filter(k=>!before.plus.includes(k)),plusRemove=before.plus.filter(k=>!d.plus.includes(k));
+  if(!add.length&&!hide.length&&!plusAdd.length&&!plusRemove.length)return;
+  const nm=(S.names[S.me]||"").replace(/ \(you\)$/,"");const logs=[];
+  add.forEach(p=>logs.push({type:isVote(p)?(p.kind==="clear"?"vote-cleared":"vote"):"comment",name:nm,pin:p,at:p.at||Date.now()}));
+  hide.forEach(id=>logs.push({type:"comment-deleted",name:nm,pin:bIds.get(id),at:Date.now()}));
+  plusAdd.forEach(k=>logs.push({type:"plus",name:nm,key:k,at:Date.now()}));
+  plusRemove.forEach(k=>logs.push({type:"plus-removed",name:nm,key:k,at:Date.now()}));
+  (extraLogs||[]).forEach(e=>logs.push(Object.assign({name:nm,at:Date.now()},e)));
+  if(FBM)return enqueue({op:"people",path:"people/"+S.me,data:{add,hide,plusAdd,plusRemove,logs},label:label||"Pins"});
+  d.at=Date.now();enqueue({op:"set",path:"people/"+S.me,data:{pins:d.pins,plus:d.plus,at:d.at},coalesce:true,label:label||"Pins"});}
 function openPin(t,l){
   PT={t,l,id:uid()};$("pin-target").textContent=l;const dk="17sg.draft.pin."+t;const dr=lsGet(dk,null);
   $("pin-note").value=dr&&dr.note||"";(dr&&dr.kind==="rethink"?$("k-rethink"):dr&&dr.kind==="keep"?$("k-keep"):$("k-note")).checked=true;
-  $("pin-draft").textContent=dr?"Restored your unsent draft.":"";$("pin-err").textContent=gateMsg();$("pin-save").disabled=false;
+  $("pin-draft").textContent=dr?"Restored your unsent draft.":"";$("pin-err").textContent=gateMsg();$("pin-save").disabled=false;MEN.pin.reset();
   openScrim("pinscrim");$("pin-note").focus();
 }
 function pinDraft(){if(!PT)return;lsSet("17sg.draft.pin."+PT.t,{note:$("pin-note").value,kind:document.querySelector("input[name=kind]:checked").value});$("pin-draft").textContent="Draft kept on this device.";}
@@ -2338,13 +2508,107 @@ $("pinform").addEventListener("submit",e=>{
   e.preventDefault();if(!PT)return;const m=gateMsg();if(m){$("pin-err").textContent=m;return;}
   const txt=$("pin-note").value.trim();if(!txt){$("pin-err").textContent="Write a comment first.";return;}
   $("pin-save").disabled=true;const pin={id:PT.id,t:PT.t,l:PT.l,kind:document.querySelector("input[name=kind]:checked").value,note:txt.slice(0,600),at:Date.now()};
+  const ms=MEN.pin.list();if(ms.length)pin.mentions=ms;
   writePeople(d=>{if(d.pins.some(x=>x.id===pin.id))return false;d.pins.push(pin);},"Comment: "+PT.l);
+  if(ms.length)notify(ms,{text:pin.note,where:PT.l,kind:pin.kind==="keep"?"Must keep":pin.kind==="rethink"?"Rethink":"Comment",hash:curView});
   lsDel("17sg.draft.pin."+PT.t);PT=null;closeScrims();
 });
+/* ================= mentions + email pings ================= */
+const MAIL_URL=window.MAIL_URL||"";
+let TEAM=null;
+async function loadTeam(){if(TEAM)return TEAM;if(!FBM||!window.FB.team)return [];try{TEAM=(await window.FB.team()).sort((a,b)=>a.name.localeCompare(b.name));}catch(_){TEAM=[];}return TEAM;}
+function firstName(n){return String(n||"").split(/\s+/)[0];}
+function makeMention(key,textId,tagsId,whoId){
+  const sel=new Map();const ta=$(textId);const who=whoId?$(whoId):null;const tags=$(tagsId);
+  const boxes=[...document.querySelectorAll('.mention[data-for="'+key+'"]')];
+  const sugOf=input=>input.parentNode.querySelector(".sug");
+  function paint(){tags.textContent="";sel.forEach(m=>{const t=el("span","tag",m.name);const x=el("button",null,"\u00d7");x.type="button";x.setAttribute("aria-label","Remove "+m.name);x.addEventListener("click",()=>{sel.delete(m.email);paint();});t.appendChild(x);tags.appendChild(t);});}
+  function pick(m,input,tok){sel.set(m.email,{name:m.name,email:m.email});paint();
+    if(input===ta&&tok){const v=ta.value,end=ta.selectionStart;const start=end-tok.length-1;const ins="@"+firstName(m.name)+" ";ta.value=v.slice(0,start)+ins+v.slice(end);const c=start+ins.length;ta.setSelectionRange(c,c);ta.dispatchEvent(new Event("input"));}
+    if(input===who)who.value="";hide();input.focus();}
+  function hide(){boxes.forEach(b=>{const s=b.querySelector(".sug");if(s){s.classList.remove("on");s.textContent="";}});}
+  async function show(input,tok){const team=await loadTeam();const q=tok.toLowerCase();
+    const hits=team.filter(m=>m.uid!==S.me&&(m.name.toLowerCase().split(/\s+/).some(w=>w.startsWith(q))||m.email.startsWith(q)||!q)).slice(0,8);
+    const box=sugOf(input);box.textContent="";if(!hits.length){box.classList.remove("on");return;}
+    hits.forEach((m,i)=>{const b=el("button");b.type="button";b.setAttribute("role","option");b.setAttribute("aria-selected",String(i===0));b.appendChild(el("span",null,m.name));b.appendChild(el("small",null,m.email));
+      b.addEventListener("mousedown",e=>{e.preventDefault();pick(m,input,tok);});box.appendChild(b);});box.classList.add("on");box._hits=hits;box._tok=tok;box._i=0;}
+  function tokenAt(){const v=ta.value.slice(0,ta.selectionStart);const m=v.match(/(^|\s)@([\w.\-]*)$/);return m?m[2]:null;}
+  ta.addEventListener("input",()=>{const t=tokenAt();if(t==null){sugOf(ta).classList.remove("on");return;}show(ta,t);});
+  if(who)who.addEventListener("input",()=>{const t=who.value.replace(/^@/,"").trim();if(!t){hide();return;}show(who,t);});
+  [ta,who].filter(Boolean).forEach(input=>input.addEventListener("keydown",e=>{const box=sugOf(input);if(!box.classList.contains("on"))return;const btns=[...box.querySelectorAll("button")];
+    if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();box._i=(box._i+(e.key==="ArrowDown"?1:-1)+btns.length)%btns.length;btns.forEach((b,i)=>b.setAttribute("aria-selected",String(i===box._i)));}
+    else if(e.key==="Enter"||e.key==="Tab"){e.preventDefault();pick(box._hits[box._i],input,input===ta?box._tok:"");}
+    else if(e.key==="Escape"){e.stopPropagation();hide();}}));
+  [ta,who].filter(Boolean).forEach(input=>input.addEventListener("blur",()=>setTimeout(()=>{if(document.activeElement!==input){const b=sugOf(input);b.classList.remove("on");b.textContent="";}},150)));
+  if(who)who.addEventListener("keydown",e=>{if(e.key==="Enter")e.preventDefault();});
+  return{reset(){sel.clear();paint();if(who)who.value="";hide();loadTeam();},
+    list(){/* also catch "@Colin" typed without picking from the list */
+      (TEAM||[]).forEach(m=>{if(m.uid===S.me)return;const f=firstName(m.name);if(f&&new RegExp("(^|\\s)@"+f.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\b","i").test(ta.value))sel.set(m.email,{name:m.name,email:m.email});});
+      return [...sel.values()];}};
+}
+const MEN={pin:makeMention("pin","pin-note","pin-tags","pin-who"),vote:makeMention("vote","vote-why","vote-tags",null)};
+if(!MAIL_URL&&$("pin-mailnote"))$("pin-mailnote").textContent="Tagged people get an email with your comment and a link back here. (Your email app will open with it ready to send.)";
+function linkFor(hash){return location.origin+location.pathname+"#"+(hash||"board");}
+function notify(ms,info){
+  const me=(S.names[S.me]||"A teammate").replace(/ \(you\)$/,"");const link=linkFor(info.hash);
+  const subject=me+" tagged you in 17SG: "+String(info.where||"").slice(0,80);
+  const body=me+" tagged you on \""+info.where+"\" ("+info.kind+"):\n\n"+info.text+"\n\nOpen it: "+link;
+  if(!MAIL_URL){location.href="mailto:"+ms.map(m=>m.email).join(",")+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+    window.FB.addLog({type:"mention",name:me,to:ms,where:info.where,text:info.text,status:"email app opened"}).catch(()=>{});return;}
+  (async()=>{let status="sent";try{const tok=await window.FB.idToken();
+      const r=await fetch(MAIL_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({idToken:tok,to:ms.map(m=>m.email),fromName:me,where:info.where,kind:info.kind,text:info.text,link})});
+      const j=await r.json().catch(()=>({}));if(!j.ok)throw new Error(j.error||"failed");toast("Emailed "+ms.map(m=>firstName(m.name)).join(", ")+".");}
+    catch(e){status="failed: "+(e&&e.message||"error");toast("Your comment is saved, but the email to "+ms.map(m=>firstName(m.name)).join(", ")+" didn't send. Tag them again or message them.");}
+    window.FB.addLog({type:"mention",name:me,to:ms,where:info.where,text:info.text,status}).catch(()=>{});})();
+}
+
+/* ================= history (append-only log) ================= */
+let hFilter="all";
+document.querySelectorAll("#hfilters button").forEach(b=>b.addEventListener("click",()=>{hFilter=b.dataset.h;document.querySelectorAll("#hfilters button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));renderHistory();}));
+const HKIND={comment:"Comment",vote:"Vote","vote-cleared":"Vote cleared","comment-deleted":"Comment deleted",plus:"+1","plus-removed":"+1 removed",mention:"Mention",baseline:"On record"};
+function renderHistory(){
+  const host=$("hlog");if(!host||!done.history)return;const L=Object.entries(S.server.log||{}).map(([id,v])=>Object.assign({id},v));
+  statusLine("log",L.length,"record");
+  let rows=L.slice().sort((a,b)=>(b.at||0)-(a.at||0));
+  const typeOf=e=>e.type==="baseline"?(e.pin&&isVote(e.pin)?"vote":"comment"):e.type;
+  if(hFilter==="comment")rows=rows.filter(e=>typeOf(e)==="comment");
+  if(hFilter==="vote")rows=rows.filter(e=>/^vote/.test(typeOf(e)));
+  if(hFilter==="del")rows=rows.filter(e=>e.type==="comment-deleted"||e.type==="vote-cleared"||(e.pin&&e.pin.deleted));
+  if(hFilter==="mention")rows=rows.filter(e=>e.type==="mention"||(e.pin&&Array.isArray(e.pin.mentions)&&e.pin.mentions.length));
+  host.textContent="";
+  if(!rows.length){host.appendChild(el("div","empty",L.length?"Nothing matches this filter.":(S.subs.log==="live"?"No history yet. It fills in as people comment and vote.":"Loading history...")));return;}
+  rows.slice(0,600).forEach(e=>{const r=el("div","row");const who=e.name||nameOf(e.by);
+    const k=el("span","k"+(e.type==="comment-deleted"||e.type==="vote-cleared"?" del":""),HKIND[e.type]||e.type);
+    const c1=el("div");c1.appendChild(k);c1.appendChild(el("div","t",when(e.at)));r.appendChild(c1);
+    r.appendChild(el("div",null,who.replace(/ \(you\)$/,"")));
+    const c3=el("div");const p=e.pin||{};
+    if(e.type==="mention"){c3.appendChild(el("span","label","To "+(e.to||[]).map(m=>m.name).join(", ")+" / "+esc(e.where)));c3.appendChild(el("p",null,esc(e.text)));c3.appendChild(el("span","t","Email: "+esc(e.status)));}
+    else if(e.type==="plus"||e.type==="plus-removed"){const t=rawPins().find(x=>x.key===e.key);c3.appendChild(el("p",null,t?"On "+nameOf(t.uid).replace(/ \(you\)$/,"")+"'s comment: "+esc(t.note).slice(0,140):"On a comment"));}
+    else{c3.appendChild(el("span","label",esc(p.l||p.t)));
+      const v=isVote(p)?(p.kind==="down"?"Thumbs down":p.kind==="clear"?"Took back their vote":"Thumbs up"):(p.kind==="keep"?"Must keep":p.kind==="rethink"?"Rethink":"");
+      const txt=[v,esc(p.note)].filter(Boolean).join(": ");if(txt)c3.appendChild(el("p",null,txt));
+      if(Array.isArray(p.mentions)&&p.mentions.length)c3.appendChild(el("span","t","Tagged: "+p.mentions.map(m=>m.name).join(", ")));
+      if(e.type==="baseline"&&p.deleted)c3.appendChild(el("span","t","Hidden from the boards"));}
+    r.appendChild(c3);host.appendChild(r);});
+}
+INIT.history=function(){renderHistory();if(S.admin)$("safebtns").hidden=false;};
+async function downloadBackup(){const b=$("bk-dl");b.disabled=true;b.textContent="Preparing...";
+  try{const data=await window.FB.exportAll();const blob=new Blob([JSON.stringify(data,null,1)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="17sg-backup-"+new Date().toISOString().slice(0,16).replace(/[:T]/g,"-")+".json";document.body.appendChild(a);a.click();a.remove();toast("Backup downloaded.");}
+  catch(_){toast("Couldn't build the backup. Check your connection and try again.");}b.disabled=false;b.textContent="Download full backup";}
+if($("bk-dl")){$("bk-dl").addEventListener("click",downloadBackup);
+  $("bk-now").addEventListener("click",async()=>{const b=$("bk-now");b.disabled=true;try{const r=await window.FB.backupNow();toast("Backed up to the database ("+Math.round(r.bytes/1024)+" KB).");}catch(_){toast("Backup didn't save. Try again.");}b.disabled=false;});}
+
+function moderate(p,state){enqueue({op:"set",path:"moderation/"+p.uid+"_"+p.id,data:{state,uid:p.uid,pin:p.id,by:S.me,at:Date.now()},label:state==="hidden"?"Hide comment":"Show comment"});
+  window.FB&&window.FB.addLog&&window.FB.addLog(JSON.parse(JSON.stringify({type:state==="hidden"?"comment-hidden":"comment-shown",name:(S.names[S.me]||"").replace(/ \(you\)$/,""),pin:{id:p.id,t:p.t,l:p.l,kind:p.kind,note:p.note,at:p.at},owner:p.uid}))).catch(()=>{});
+  toast(state==="hidden"?"Hidden. It's still in History, and you can bring it back from Comments > Hidden.":"Back on the boards.");}
 let pinFilter="all";
 document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{pinFilter=b.dataset.f;document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));renderPins();}));
-function allPins(){const P=viewOf("people");const out=[],pc={};Object.values(P).forEach(d=>(Array.isArray(d.plus)?d.plus:[]).forEach(k=>{pc[k]=(pc[k]||0)+1;}));Object.entries(P).forEach(([u,d])=>(Array.isArray(d.pins)?d.pins:[]).forEach(p=>{if(p&&typeof p==="object"){const key=u+":"+p.id;out.push(Object.assign({},p,{uid:u,key,plus:pc[key]||0,pending:!!d.__pending}));}}));return out;}
+function rawPins(){const P=viewOf("people");const out=[],pc={};Object.values(P).forEach(d=>(Array.isArray(d.plus)?d.plus:[]).forEach(k=>{pc[k]=(pc[k]||0)+1;}));Object.entries(P).forEach(([u,d])=>(Array.isArray(d.pins)?d.pins:[]).forEach(p=>{if(p&&typeof p==="object"){const key=u+":"+p.id;out.push(Object.assign({},p,{uid:u,key,plus:pc[key]||0,pending:!!d.__pending}));}}));return out;}
+function modState(p){const m=(S.server.moderation||{})[p.uid+"_"+p.id];return m?m.state:"";}
+function allPins(){const raw=rawPins();const latest={};raw.forEach(p=>{if(!isVote(p))return;const k=p.uid+"|"+p.t;if(!latest[k]||(p.at||0)>=(latest[k].at||0))latest[k]=p;});
+  return raw.filter(p=>{const ms=modState(p);if(ms==="hidden")return false;if(p.deleted&&ms!=="shown")return false;if(isVote(p))return latest[p.uid+"|"+p.t]===p&&p.kind!=="clear";return true;});}
 function renderPins(){
+  if(pinFilter==="hidden"&&done.board){return renderHiddenPins();}
   const pins=allPins().filter(p=>!isVote(p)||p.kind==="down");const counts={};pins.forEach(p=>{counts[p.t]=(counts[p.t]||0)+1;});
   document.querySelectorAll(".pin").forEach(b=>{b.dataset.n=String(counts[b.dataset.t]||0);});
   if(!done.board)return;
@@ -2353,12 +2617,20 @@ function renderPins(){
   const list=$("pinlist");list.textContent="";
   if(!shown.length){const e=el("div","empty",pins.length?"Nothing matches this filter.":"No comments yet. Press Comment on anything in the site to start.");e.style.gridColumn="1 / -1";list.appendChild(e);return;}
   const mine=myPeople();
-  shown.forEach(p=>{const c=el("div","c"+(p.pending&&p.uid===S.me?" pending":""));const meta=el("div","meta");meta.appendChild(el("span","kind "+(p.kind==="rethink"||p.kind==="down"?"rethink":p.kind==="keep"?"keep":"note"),p.kind==="down"?"Thumbs down":p.kind==="rethink"?"Rethink":p.kind==="keep"?"Must keep":"Comment"));meta.appendChild(el("span","label",nameOf(p.uid)));c.appendChild(meta);c.appendChild(el("span","label",esc(p.l||p.t)));c.appendChild(el("p","note",esc(p.note)));c.appendChild(el("span","stamp",when(p.at)));
+  shown.forEach(p=>{const c=el("div","c"+(p.pending&&p.uid===S.me?" pending":""));const meta=el("div","meta");meta.appendChild(el("span","kind "+(p.kind==="rethink"||p.kind==="down"?"rethink":p.kind==="keep"?"keep":"note"),p.kind==="down"?"Thumbs down":p.kind==="rethink"?"Rethink":p.kind==="keep"?"Must keep":"Comment"));meta.appendChild(el("span","label",nameOf(p.uid)));c.appendChild(meta);c.appendChild(el("span","label",esc(p.l||p.t)));c.appendChild(el("p","note",esc(p.note)));if(Array.isArray(p.mentions)&&p.mentions.length)c.appendChild(el("span","ment","Tagged: "+p.mentions.map(m=>m.name).join(", ")));c.appendChild(el("span","stamp",when(p.at)));
     const acts=el("div","acts");const on=mine.plus.includes(p.key);const plus=el("button","btn small","+1"+(p.plus?" ("+p.plus+")":""));plus.type="button";plus.setAttribute("aria-pressed",String(on));if(on)plus.style.borderColor="var(--ink)";plus.disabled=!!gateMsg()||p.uid===S.me;
     plus.addEventListener("click",()=>writePeople(d=>{const i=d.plus.indexOf(p.key);if(i>=0)d.plus.splice(i,1);else d.plus.push(p.key);},"+1"));acts.appendChild(plus);
-    if(p.uid===S.me&&!gateMsg()){const del=el("button","btn small","Delete");del.type="button";del.addEventListener("click",()=>{if(del.dataset.armed){writePeople(d=>{d.pins=d.pins.filter(x=>x.id!==p.id);},"Delete pin");}else{del.dataset.armed="1";del.textContent="Confirm delete";}});acts.appendChild(del);}
+    if(S.admin&&p.uid!==S.me&&!isVote(p)){const hb=el("button","btn small","Hide");hb.type="button";hb.title="Hides it from the boards. It stays in History, and you can bring it back.";hb.addEventListener("click",()=>{if(!hb.dataset.armed){hb.dataset.armed="1";hb.textContent="Confirm hide";return;}moderate(p,"hidden");});acts.appendChild(hb);}
+    if(p.uid===S.me&&!gateMsg()){const del=el("button","btn small","Delete");del.type="button";del.addEventListener("click",()=>{if(del.dataset.armed){writePeople(d=>{if(!FBM){d.pins=d.pins.filter(x=>x.id!==p.id);return;}const x=d.pins.find(y=>y.id===p.id);if(!x)return false;x.deleted=true;x.deletedAt=Date.now();},"Delete comment");}else{del.dataset.armed="1";del.textContent="Confirm delete";}});acts.appendChild(del);}
     c.appendChild(acts);list.appendChild(c);});
 }
+
+function renderHiddenPins(){const list=$("pinlist");list.textContent="";
+  const hid=rawPins().filter(p=>!isVote(p)&&(modState(p)==="hidden"||(p.deleted&&modState(p)!=="shown")));
+  if(!hid.length){const e=el("div","empty","Nothing hidden.");e.style.gridColumn="1 / -1";list.appendChild(e);return;}
+  hid.sort((a,b)=>(b.at||0)-(a.at||0)).forEach(p=>{const c=el("div","c");const meta=el("div","meta");meta.appendChild(el("span","kind rethink",modState(p)==="hidden"?"Hidden by James":"Deleted by "+nameOf(p.uid).replace(/ \(you\)$/,"")));meta.appendChild(el("span","label",nameOf(p.uid)));c.appendChild(meta);
+    c.appendChild(el("span","label",esc(p.l||p.t)));c.appendChild(el("p","note",esc(p.note)));c.appendChild(el("span","stamp",when(p.at)));
+    const acts=el("div","acts");const b=el("button","btn small","Bring back");b.type="button";b.addEventListener("click",()=>moderate(p,"shown"));acts.appendChild(b);c.appendChild(acts);list.appendChild(c);});}
 
 /* ================= shared boards ================= */
 const PEOPLE=[["James Fitchett","Project manager"],["Gray Siegler","Co-design lead, technical"],["Julia Schnittger","Co-design lead, creative"],["Eleazar Reiner","Scenarios and levels"],["Ashrita Sagar","Art and world"],["Mark Sangkharat","Trailer and playtest"],["Colin Larkin","Co-business lead, pricing"],["Henry Carey","Co-business lead, market"],["Prof. Kevin Jones","Advisor"],["Dr. Mike Kretser","Advisor"]];
@@ -2419,6 +2691,9 @@ function openEntry(col,id,preset){
     f.appendChild(inp);box.appendChild(f);});
   $("entry-draft").textContent=dr?"Restored your unsaved changes.":(id?"Changes save automatically as you type.":"Your draft is kept on this device until you save.");
   $("entry-err").textContent=gateMsg();$("entry-save").disabled=false;$("entry-save").textContent=id?"Done":"Save";
+  ED.locked=!!id&&!canEditItem(cur);$("entry-save").hidden=ED.locked;
+  if(ED.locked){box.querySelectorAll("input,textarea,select").forEach(n=>{n.disabled=true;});$("entry-h").textContent=sc.title;$("entry-draft").textContent="Only James, or whoever added this, can edit it. Leave a comment on it instead.";$("entry-draft").className="draftnote lockedmsg";}
+  else $("entry-draft").className="draftnote";
   openScrim("entryscrim");const first=box.querySelector("input,textarea,select");if(first)first.focus();
 }
 function readFields(){const o={};FIELDKEYS(ED.col).forEach(k=>{const n=$("f-"+k);o[k]=n?n.value.trim():"";});return o;}
@@ -2429,7 +2704,7 @@ function syncDialogFromServer(){
 }
 function flushEdit(){if(ED&&!ED.isNew&&ED.timer){clearTimeout(ED.timer);commitEdit(false);}}
 function commitEdit(final){
-  if(!ED)return true;const m=gateMsg();if(m){$("entry-err").textContent=m;return false;}
+  if(!ED)return true;if(ED.locked)return true;const m=gateMsg();if(m){$("entry-err").textContent=m;return false;}
   const sc=SCHEMA[ED.col];const vals=readFields();
   if(!vals[sc.t]){$("entry-err").textContent="Add the "+sc.fields.find(f=>f[0]===sc.t)[1].toLowerCase()+" first.";return false;}
   const now=Date.now();
@@ -2459,6 +2734,8 @@ function commitEdit(final){
 document.querySelectorAll("[data-add]").forEach(b=>b.addEventListener("click",()=>openEntry(b.dataset.add,null)));
 $("entryform").addEventListener("submit",e=>{e.preventDefault();if(!ED)return;const btn=$("entry-save");if(btn.disabled)return;btn.disabled=true;clearTimeout(ED.timer);const ok=commitEdit(true);btn.disabled=false;if(ok){ED=null;closeScrims();}});
 
+/* who can change what: James everything, teammates only what they added */
+function canEditItem(v){if(gateMsg())return false;if(S.admin)return true;return !!(v&&v.by&&v.by===S.me);}
 /* soft delete + restore */
 function softDelete(col,id){const cur=viewOf(col)[id]||{};const now=Date.now();enqueue({op:"set",path:col+"/"+id+"/history/"+uid(),data:{fields:pick(col,cur),at:now,by:S.me,prevEditor:cur.editedBy||cur.by||"",note:"Before delete"},label:"History"});enqueue({op:"update",path:col+"/"+id,data:{deleted:true,deletedBy:S.me,deletedAt:now},label:"Delete"});toast("Deleted. Use Show deleted to bring it back.");}
 function undelete(col,id){enqueue({op:"update",path:col+"/"+id,data:{deleted:false,editedBy:S.me,editedAt:Date.now()},label:"Restore"});}
@@ -2473,7 +2750,7 @@ async function openHistory(col,id){
     myQ().forEach(it=>{if(it.path.startsWith(col+"/"+id+"/history/")&&!rows.some(r=>r.id===idOf(it.path)))rows.unshift({id:idOf(it.path),v:it.data});});
     $("hist-status").textContent=rows.length?rows.length+" earlier version"+(rows.length===1?"":"s")+". Restoring keeps the current one in history too.":"No earlier versions yet. Versions are kept each time someone edits.";
     rows.forEach(r=>{const d=el("div");const h=el("div","h");h.appendChild(el("span","label",when(r.v.at)+" / "+esc(r.v.note||"Version")+" / saved by "+nameOf(r.v.by)));
-      const b=el("button","btn small","Restore");b.type="button";b.disabled=!!gateMsg();
+      const b=el("button","btn small","Restore");b.type="button";b.disabled=!canEditItem(viewOf(col)[id]||{});if(b.disabled)b.title="Only James, or whoever added this, can restore it.";
       b.addEventListener("click",()=>{const now=Date.now();const c2=viewOf(col)[id]||{};enqueue({op:"set",path:col+"/"+id+"/history/"+uid(),data:{fields:pick(col,c2),at:now,by:S.me,prevEditor:c2.editedBy||"",note:"Before restore"},label:"History"});const upd=Object.assign({},pick(col,r.v.fields||{}),{editedBy:S.me,editedAt:now,deleted:false});enqueue({op:"update",path:col+"/"+id,data:upd,label:"Restore version"});closeScrims();toast("Restored that version.");});
       h.appendChild(b);d.appendChild(h);const pre=el("pre");pre.textContent=sc.fields.map(f=>f[1]+": "+esc((r.v.fields||{})[f[0]])).join("\n");d.appendChild(pre);L.appendChild(d);});
   }catch(err){$("hist-status").textContent="Couldn't load history. Check your connection and try again.";}
@@ -2483,11 +2760,12 @@ async function openHistory(col,id){
 function stamp(v){const parts=[];if(v.by)parts.push(v.by==="seed"?"Starter entry":"Added by "+nameOf(v.by));if(v.editedBy&&v.editedAt&&(v.editedBy!==v.by||v.editedAt!==v.at))parts.push("edited by "+nameOf(v.editedBy)+", "+when(v.editedAt));if(v.__failed)parts.push("NOT SAVED");else if(v.__pending)parts.push("saving");return parts.join(" / ");}
 function actions(col,id,v){
   const a=el("div","acts");const ro=!!gateMsg();
-  if(v.deleted){const r=el("button","btn small","Restore");r.type="button";r.disabled=ro;r.addEventListener("click",()=>undelete(col,id));a.appendChild(r);return a;}
-  const ed=el("button","btn small","Edit");ed.type="button";ed.addEventListener("click",()=>openEntry(col,id));a.appendChild(ed);
+  const mine=canEditItem(v);
+  if(v.deleted){if(mine){const r=el("button","btn small","Restore");r.type="button";r.addEventListener("click",()=>undelete(col,id));a.appendChild(r);}return a;}
+  if(mine){const ed=el("button","btn small","Edit");ed.type="button";ed.addEventListener("click",()=>openEntry(col,id));a.appendChild(ed);}
   const hi=el("button","btn small","History");hi.type="button";hi.addEventListener("click",()=>openHistory(col,id));a.appendChild(hi);
   a.appendChild(pinBtn(col+":"+id,SCHEMA[col].title+": "+esc(v[SCHEMA[col].t]).slice(0,80)));
-  if(!ro){const del=el("button","btn small","Delete");del.type="button";del.addEventListener("click",()=>{if(del.dataset.armed)softDelete(col,id);else{del.dataset.armed="1";del.textContent="Confirm delete";}});a.appendChild(del);}
+  if(!ro&&mine){const del=el("button","btn small","Delete");del.type="button";del.addEventListener("click",()=>{if(del.dataset.armed)softDelete(col,id);else{del.dataset.armed="1";del.textContent="Confirm delete";}});a.appendChild(del);}
   return a;
 }
 function card(col,id,v,o){
@@ -2561,7 +2839,11 @@ intelligences(){
     const add=el("button","btn small","Add to "+name.replace(/^(Prof\.|Dr\.)\s*/,"").split(" ")[0]);add.type="button";add.style.alignSelf="flex-start";add.addEventListener("click",()=>openEntry(col,null,{person:name}));p.appendChild(add);grid.appendChild(p);});
   host.appendChild(grid);deletedToggle(col,host,del);dressPins(host);
 },
-people(){renderPins();if(done.votes)renderVoteList();else paintVotes();statusLine("people",allPins().filter(p=>!isVote(p)||p.kind==="down").length,"comment");},
+log(){renderHistory();},
+decisions(){const sig=JSON.stringify(viewOf("decisions"));if(sig===S.decSig)return;S.decSig=sig;applyDecisions();
+  ["foundation","game","playbook"].forEach(v=>{if(done[v]){const r=$("v-"+v);if(r)fillDecs(r);}});
+  if(done.votes)renderVoteList();else paintVotes();renderPins();},
+people(){renderPins();if(done.history)renderHistory();if(done.votes)renderVoteList();else paintVotes();statusLine("people",allPins().filter(p=>!isVote(p)||p.kind==="down").length,"comment");},
 personas(){R.grouped("personas","persona",{card:v=>({avatar:character(v),meta:[v.segment,v.hook],quote:"quote",fields:[["who","Who they are"],["wants","What they want"],["frustrations","What turns them off"]]})});},
 stakeholders(){R.grouped("stakeholders","stakeholder",{card:v=>({meta:["Influence: "+(v.influence||"?"),v.owner?"Owner: "+v.owner:""],fields:[["interest","What they care about"],["need","What we need from them"]]})});},
 roles(){R.grouped("roles",["person","people"],{card:v=>({meta:[v.role,v.advisor?"Advisor: "+v.advisor:""],fields:[["owns","Owns"],["deliverables","Key deliverables"],["outlook","Where it's headed"]]})});},
@@ -2621,6 +2903,8 @@ tasks(){
 };
 function renderCol(col){
   if(col==="people"){RENDER.people();return;}
+  if(col==="decisions"){RENDER.decisions();return;}
+  if(col==="moderation"){RENDER.people();return;}
   const v=Object.keys(VIEW_COLS).find(k=>VIEW_COLS[k].includes(col)&&VIEW_COLS[k][1]===col);
   if(v&&!done[v])return;if(RENDER[col])RENDER[col]();
 }
@@ -2641,7 +2925,9 @@ if(FBM){
 }
 
 /* ================= boot ================= */
-S.queue=(function(){const q=lsGet(QKEY,[]);return Array.isArray(q)?q.filter(x=>x&&x.path&&x.op&&x.owner):[];})();
+S.queue=(function(){const q=lsGet(QKEY,[]);const a=Array.isArray(q)?q.filter(x=>x&&x.path&&x.op&&x.owner):[];
+  a.forEach(x=>{if(x.op==="set"&&/^people\//.test(x.path)){const d=x.data||{};x.op="people";x.coalesce=false;x.data={add:Array.isArray(d.pins)?d.pins:[],plusAdd:Array.isArray(d.plus)?d.plus:[],logs:[]};}});
+  if(!FBM)return a.filter(x=>x.op!=="people");return a;})();
 route();setSync();
 (async()=>{
   const fail=()=>{S.tried=true;setSync();$("whoami").textContent="Not connected";VIEWS.forEach(v=>{if(done[v])VIEW_COLS[v].forEach(renderCol);});};
@@ -2649,6 +2935,9 @@ route();setSync();
     $("fb-signin").hidden=c.reason!=="signedout";$("fb-signout").hidden=c.reason==="signedout"||c.reason==="sdkfail";$("fb-access").hidden=!c.admin;
     if(window.__fbLinkError)toast("Sign-in didn't finish. Try again.");
     if(c.reason==="notonteam"){toast("You're signed in as "+c.email+", but that email isn't on the team list yet. Ask James to add it.");}
+    if(c.reason==="ok"&&c.admin){document.body.classList.add("is-admin");if($("safebtns"))$("safebtns").hidden=false;}
+    if(c.reason==="ok"&&c.admin){setTimeout(async()=>{try{const n=await window.FB.baseline();if(n)console.log("17SG: logged "+n+" existing comments and votes");}catch(e){console.warn("baseline",e);}
+      try{if(Date.now()-Number(localStorage.getItem("17sg.lastBackup")||0)>20*3600e3){const r=await window.FB.backupNow();console.log("17SG: daily backup saved",r.stamp);}}catch(e){console.warn("backup",e);}},4000);}
     if(c.reason==="ok"&&c.admin){(async()=>{try{const r=await fetch("seeds.json",{cache:"no-store"});if(!r.ok)return;const data=await r.json();const lines=[];await window.FB.seed(data,m=>lines.push(m));const added=lines.filter(x=>/ added/.test(x));
       const ver=(data.__meta&&data.__meta.version)||0;let upd=[];if(ver>lsGet("17sg.seedv",0)){upd=await window.FB.migrate(data);lsSet("17sg.seedv",ver);}
       const msg=[added.length?"Loaded starter content: "+added.join(", ")+".":"",upd.length?"Updated untouched starter entries: "+upd.join("; ")+". Anything a teammate edited was left alone.":""].filter(Boolean).join(" ");if(msg)toast(msg);}catch(_){}})();}

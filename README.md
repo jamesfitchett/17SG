@@ -9,8 +9,24 @@ The shared workspace for 17SG, a PC game about the UN Sustainable Development Go
 - **Plan:** timeline (Gantt), team roles, deliverables.
 - **Research:** personas, stakeholders, How Might We, Four Sets.
 - **Discuss:** open questions and every comment.
+- **History:** a permanent, append-only record of every comment, vote, vote change, delete and @mention.
 
-Votes are stored with each person's comments (`people/{uid}`), so no database rule changes are needed.
+## Nothing gets lost
+
+- Each person's comments and votes live in `people/{uid}`. The rules only let that list grow: nothing can be removed and the record can't be deleted.
+- Deleting a comment hides it. Changing a vote adds a new vote on top. The site always merges, never overwrites.
+- Every action is also written to `log`, which nobody can edit or delete.
+- James's browser saves a full copy to `backups` once a day, and **History > Download full backup** saves one to disk.
+
+## Who can edit
+
+- Anyone on the team can add entries and comment.
+- James can edit, delete and restore everything, including the proposed decisions on the Votes tab (stored in `decisions`) and hiding comments (`moderation`).
+- Teammates can edit only what they added.
+
+## @mentions
+
+Type `@` in a comment or thumbs-down reason to tag a teammate. They get an email through `mail/Code.gs`, a Google Apps Script running under James's account. Paste its web app URL into `window.MAIL_URL` in `index.html`. Without it, tagging opens the writer's email app instead.
 
 ## Signing in
 
