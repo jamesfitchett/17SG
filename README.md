@@ -3,8 +3,9 @@
 The shared workspace for 17SG, a PC game about the UN Sustainable Development Goals (IncUB8 / UH 4504, Virginia Tech).
 
 - **Foundation:** problem statement, mission, goals, this semester's deliverables.
-- **The game:** what's decided, then the Hub, Mini games and Rapid Response, each with proposed decisions and mapped ideas to vote on.
-- **Playbook:** how game studios work, sized to our sprint to Dec 3.
+- **The game:** the Hub as of the Nov 16 design meeting: the look, how it plays, the world, buildings, sound, and reference games. Teammates can add references with a picture link (`refs`). Earlier write-ups are kept in an archive at the bottom so every comment stays attached.
+- **Playbook:** the two things we're shipping (the beautiful corner and the gray loop), who owns what, and the studio stages.
+- **Names:** studio and game name candidates with meanings, how to say each, and catches. Anyone can add a name (`names`) and it joins the vote.
 - **Votes:** every proposed decision, the tally, and the decision log.
 - **Plan:** timeline (Gantt), team roles, deliverables.
 - **Research:** personas, stakeholders, How Might We, Four Sets.

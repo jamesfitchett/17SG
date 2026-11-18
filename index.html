@@ -795,6 +795,96 @@ header.top .row2 .wrap{scrollbar-width:thin}
   .lockstrip > div + div{padding-left:0;border-left:0}
   .cmp{grid-template-columns:1fr}
 }
+
+/* v8 (Nov 18) */
+.navgroup a.hot::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--warn);margin-left:4px;vertical-align:2px}
+.callouts.five{grid-template-columns:repeat(5,minmax(0,1fr))}
+.lockstrip.four{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:14px}.lockstrip.four > div:nth-child(4n+1){padding-left:0;border-left:0}
+.navgroup a{padding:0 5px;font-size:13px}.navgroup .g{padding:7px 6px 0}.shipcard .what{display:block;max-width:none}
+.screen.bay{background:linear-gradient(180deg,#3F9FC8 0%,#3790B8 100%)}.screen.bay .cap{color:#D6EEF8}.screen.bay .hud .rs{color:#D6EEF8}
+.screen.sm{border-radius:10px}.screen.sm .cap{background:rgba(13,24,32,.72);color:#EAF2F5;padding:3px 7px;border-radius:3px;top:10px;left:10px}
+.worldrow .sub{margin-bottom:2px}
+.zoompair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.zoompair p{font-size:14px;color:var(--muted);margin-top:10px}.zoompair p b{color:var(--ink);font-weight:500}
+.refgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
+.ref{padding:18px 18px 20px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:7px}
+.ref + .ref{padding-left:18px;border-left:1px solid var(--line)}
+.ref:nth-child(3n+1){padding-left:0;border-left:0}
+.ref .vi{width:84px;height:50px;color:var(--ink)}.ref .vi svg{width:100%;height:100%}.ref .vi .sk{stroke-width:1.3}
+.ref h4{font-size:17px;font-weight:500;line-height:1.25}
+.ref p{font-size:13.5px;color:var(--muted);line-height:1.45}
+.ref .rl{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.ref .rl a{font-family:var(--mono);font-size:11px}
+.ref.ask{background:var(--paper);padding-left:18px}
+.refcards .refimg{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:4px;background:var(--paper);margin-bottom:8px}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--ink)}
+.flow > div{padding:14px 14px 0 0;display:flex;flex-direction:column;gap:5px}
+.flow > div + div{padding-left:14px;border-left:1px solid var(--line)}
+.flow b{font-size:15.5px;font-weight:500}.flow p{font-size:13px;color:var(--muted);line-height:1.4}
+.flow .open .label,.flow .open b{color:var(--warn)}
+.worldrow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--ink)}
+.worldrow > div{padding:14px 12px 16px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:4px;min-height:150px}
+.worldrow > div:first-child{border-left:0;padding-left:0}
+.worldrow b{font-size:17px;font-weight:500}.worldrow .sub{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.worldrow p{font-size:12.5px;color:var(--muted);line-height:1.4;margin-top:4px}
+.worldrow .set{background:var(--paper);padding-left:12px!important;box-shadow:inset 0 3px 0 var(--warn)}
+.worldrow .set .label{color:var(--warn)}
+.worldrow .vote{box-shadow:inset 0 3px 0 var(--ink)}
+.worldrow .open b{color:var(--muted);font-weight:400}
+.tierscreen{padding-top:20px}
+.pipe.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tracks{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--ink)}
+.tracks > div{padding:14px 14px 0 0;display:flex;flex-direction:column;gap:4px}
+.tracks > div + div{padding-left:14px;border-left:1px solid var(--line)}
+.tracks b{font-size:16px;font-weight:500}.tracks p{font-size:13px;color:var(--muted)}
+.srail button.done{border-bottom-color:var(--rr)}.srail button.done .label{color:var(--rr)}
+.ship{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.shipcard .stg{all:unset;cursor:pointer;font-family:var(--mono);font-size:11px;text-decoration:underline;text-underline-offset:3px;color:var(--acc)}
+.shipcard{border:1px solid var(--ink);padding:24px;display:flex;flex-direction:column;gap:14px}
+.shipcard h3{font-size:30px;font-weight:400;letter-spacing:-0.03em;line-height:1.05}
+.shipcard .what{font-size:15.5px;color:var(--muted);line-height:1.5}
+.shipcard dl{display:grid;gap:6px;border-top:1px solid var(--line);padding-top:12px}
+.shipcard dl > div{display:grid;grid-template-columns:86px 1fr;gap:10px;font-size:14.5px}
+.shipcard dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.shipcard dd{margin:0}
+.shipcard .shsteps{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.shipcard .shsteps li{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;align-items:baseline;transition:opacity .15s}
+.shipcard .shsteps .d{font-family:var(--mono);font-size:10.5px;color:var(--warn)}
+.shipcard .shsteps .o{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:right}
+.shipcard .shsteps li.off,.owners > div.off{opacity:.3}
+.shipcard .shsteps li.mine{background:var(--paper);box-shadow:-8px 0 0 var(--paper),8px 0 0 var(--paper)}
+.shipcard .sf{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.owners{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
+.owners > div{padding:14px 16px 16px 0;border-bottom:1px solid var(--line);transition:opacity .15s}
+.owners > div:not(:nth-child(3n+1)){padding-left:16px;border-left:1px solid var(--line)}
+.owners > div.mine{background:var(--paper);box-shadow:inset 0 3px 0 var(--acc)}
+.owners b{font-size:17px;font-weight:500}
+.owners ul{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}
+.owners li{display:flex;flex-direction:column;font-size:14px;line-height:1.4}
+.owners li em{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.asm{font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;border:1px dashed var(--muted);color:var(--muted);padding:1px 5px;white-space:nowrap}
+#p-ship .pfilter{margin-bottom:-6px}
+.nmbanner{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto;column-gap:18px;align-items:center;border:1px solid var(--ink);padding:16px 20px;margin:20px 0 8px;color:var(--ink);text-decoration:none}
+.nmbanner .label{grid-row:1 / span 2;color:var(--warn)}.nmbanner b{font-size:18px;font-weight:500}.nmbanner span:not(.label){font-size:14px;color:var(--muted);grid-column:2}.nmbanner i{grid-row:1 / span 2;grid-column:3;font-style:normal;font-size:22px}
+.nmbanner:hover{background:var(--paper)}
+.nmtips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);margin-bottom:12px}
+.nmtips > div{padding:14px 16px 0 0}.nmtips > div + div{padding-left:16px;border-left:1px solid var(--line)}
+.nmtips p{font-size:14.5px;margin-top:6px}
+.nmhead{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:end;border-bottom:1px solid var(--ink);padding:48px 0 14px;margin-bottom:0}
+.nmhead h2{font-size:clamp(30px,3.4vw,44px);letter-spacing:-0.035em;line-height:1;margin-top:6px}
+.leads{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:flex-end}
+.leads span{display:inline-flex;gap:7px;align-items:baseline;font-size:15px}
+.leads span b{font-family:var(--mono);font-weight:400;font-size:11px;color:var(--muted)}
+.leads span em{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--rr)}
+.leads .none{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.fleads{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
+.fleads > div{padding:14px 16px 0 0}.fleads > div + div{padding-left:16px;border-left:1px solid var(--line)}
+.fleads .leads{justify-content:flex-start;margin-top:8px}
+.decs.names .say{display:block;font-family:var(--mono);font-size:11px;color:var(--acc);margin-top:-2px}
+.decs .nflag{font-size:13px;color:var(--muted);border-left:2px solid var(--line);padding-left:10px}
+.decs .nflag b{display:block;font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:980px){.callouts.five,.flow,.tracks{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}.flow > div:nth-child(odd),.tracks > div:nth-child(odd){padding-left:0;border-left:0}.refgrid,.owners{grid-template-columns:1fr 1fr}.ref:nth-child(n){padding-left:18px;border-left:1px solid var(--line)}.ref:nth-child(2n+1){padding-left:0;border-left:0}.owners > div:nth-child(n){padding-left:16px;border-left:1px solid var(--line)}.owners > div:nth-child(2n+1){padding-left:0;border-left:0}.worldrow{grid-template-columns:repeat(4,minmax(0,1fr))}.worldrow > div:nth-child(5){border-left:0;padding-left:0}.ship,.zoompair{grid-template-columns:1fr}.nmhead{grid-template-columns:1fr;gap:10px}.leads{justify-content:flex-start}}
+@media (max-width:600px){.sprint{overflow:hidden}.refgrid,.owners,.nmtips,.fleads{grid-template-columns:1fr}.ref:nth-child(n),.owners > div:nth-child(n),.nmtips > div + div,.fleads > div + div{padding-left:0;border-left:0}.worldrow{grid-template-columns:1fr 1fr}.worldrow > div:nth-child(odd){border-left:0;padding-left:0}.shipcard .shsteps li{grid-template-columns:80px 1fr}.shipcard .shsteps .o{grid-column:2;text-align:left}.callouts.five,.flow,.tracks{grid-template-columns:1fr}.flow > div,.tracks > div{padding-left:0!important;border-left:0!important}}
 </style>
 </head>
 <body>
@@ -806,9 +896,9 @@ header.top .row2 .wrap{scrollbar-width:thin}
   <nav class="row2" aria-label="Pages"><div class="wrap">
     <div class="navgroup"><span class="g">Start</span><div class="lk"><a href="#foundation">Foundation</a></div></div>
     <div class="navgroup"><span class="g">Game</span><div class="lk"><a href="#game">The game</a><a href="#ideas">Ideas</a><a href="#playbook">Playbook</a></div></div>
-    <div class="navgroup"><span class="g">Decide</span><div class="lk"><a href="#votes">Votes</a><a href="#questions">Questions</a><a href="#board">Comments</a><a href="#history">History</a></div></div>
+    <div class="navgroup"><span class="g">Decide</span><div class="lk"><a href="#names" class="hot">Names</a><a href="#votes">Votes</a><a href="#questions">Questions</a><a href="#board">Comments</a><a href="#history">History</a></div></div>
     <div class="navgroup"><span class="g">Plan</span><div class="lk"><a href="#timeline">Timeline</a><a href="#team">Team</a><a href="#deliverables">Deliverables</a></div></div>
-    <div class="navgroup"><span class="g">Research</span><div class="lk"><a href="#personas">Personas</a><a href="#stakeholders">Stakeholders</a><a href="#hmw">How might we</a><a href="#foursets">Four Sets</a></div></div>
+    <div class="navgroup"><span class="g">Research</span><div class="lk"><a href="#personas">Personas</a><a href="#stakeholders">Stakeholders</a><a href="#hmw" title="How might we">HMW</a><a href="#foursets">Four Sets</a></div></div>
     <div class="navgroup"><span class="g">Company</span><div class="lk"><a href="#values">Values</a><a href="#intel">Intelligences</a></div></div>
   </div></nav>
 </header>
@@ -818,14 +908,14 @@ header.top .row2 .wrap{scrollbar-width:thin}
   <div class="gridbg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="t">
-      <div class="label">17SG / Inc.ub8 / UH 4504 / Updated after the Nov 12 all-hands</div>
+      <div class="label">17SG / Inc.ub8 / UH 4504 / Updated after the Nov 16 design meeting</div>
       <h1>Real places.<br>Real crises.<br>Your community.</h1>
       <p class="lede">A PC game where you steward a city modelled on a real one, get to know the people who live there, and respond when the world changes.</p>
       <div class="status-row">
-        <span><i class="sq" style="background:var(--warn)"></i>Stage: Concept</span>
-        <span><i class="sq" style="background:var(--ink)"></i>Hub: the only focus until Dec 3</span>
-        <span><i class="sq" style="background:var(--rr)"></i>Rapid Response, Mini games: after the Hub</span>
-        <span><i class="sq" style="background:var(--line)"></i>The Lab: after the semester</span>
+        <span><i class="sq" style="background:var(--warn)"></i>Now: the gray loop and the beautiful corner</span>
+        <span><i class="sq" style="background:var(--ink)"></i>Due: end of Thanksgiving break</span>
+        <span><i class="sq" style="background:var(--acc)"></i>First city: the Bay</span>
+        <span><i class="sq" style="background:var(--line)"></i>Rapid Response, Mini games, the Lab: later</span>
       </div>
     </div>
     <div class="mark" aria-hidden="true"><svg viewBox="0 0 200 200"><g class="ring" id="heroring"></g></svg><b>17SG</b></div>
@@ -834,16 +924,16 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <section class="changed" aria-labelledby="chg-h">
   <div class="wrap">
-    <div class="h"><div class="label">Nov 12 / all-hands</div><h2 id="chg-h">What changed</h2>
-      <div class="btns"><a class="btn solid" href="#playbook">Open the playbook</a><a class="btn" href="#votes">Vote</a></div></div>
+    <div class="h"><div class="label">Mon Nov 16 / design meeting</div><h2 id="chg-h">What changed</h2>
+      <div class="btns"><a class="btn solid" href="#playbook">Who owns what</a><a class="btn" href="#names">Vote on names</a></div></div>
     <ul>
-      <li><b>01</b><span><strong>Hub only</strong> for the next three weeks. Rapid Response and Mini games wait until it's playable.</span></li>
-      <li><b>02</b><span>You're the <strong>Steward</strong>: in the world, building relationships, still making the city-level calls. One zoom: out to run the city, in to walk it.</span></li>
-      <li><b>03</b><span><strong>The real world, renamed</strong> like GTA. Seven starting regions, one per continent, lower-friction places first. Five resources, now with building materials.</span></li>
-      <li><b>04</b><span>We're in the <strong>concept stage</strong>. The Playbook now shows every stage, what's in it and who owns what. Filter it to your name.</span></li>
-      <li><b>05</b><span><strong>For Monday:</strong> bring three genre picks with reference images. Then the mood board and grey box are due Thu Nov 19.</span></li>
-      <li><b>06</b><span>Votes are now <strong>in priority order</strong>. Group 1 is how you actually solve a crisis, the biggest open question. Vote on it first.</span></li>
-</ul>
+      <li><b>01</b><span><strong>Two things to ship</strong> by the end of Thanksgiving break: the <strong>beautiful corner</strong> (Julia) and the <strong>gray loop</strong> (Gray). Everything else supports them.</span></li>
+      <li><b>02</b><span><strong>Unreal Engine.</strong> A 3D world that reads as 2D, like Paper Mario. Gray showed the camera working live.</span></li>
+      <li><b>03</b><span><strong>First city: San Francisco</strong> and the Bay, renamed. Coastal cities first everywhere. London is the strong second.</span></li>
+      <li><b>04</b><span><strong>The Steward does favors</strong> and builds relationships, like Animal Crossing. Click to move.</span></li>
+      <li><b>05</b><span><strong>Buildings grow in about five tiers.</strong> Julia models in Rhino, Gray brings them into Unreal.</span></li>
+      <li><b>06</b><span><strong>Thursday:</strong> Eleazar and James bring gray-loop ideas. Before then, give Mark's five tracks ten seconds each, and vote on <a href="#names">names</a>.</span></li>
+    </ul>
   </div>
 </section>
 
@@ -897,9 +987,9 @@ header.top .row2 .wrap{scrollbar-width:thin}
     <div class="main">
       <div><h2>Tangible progress by Dec 3.</h2><p class="intro">We are not shipping a game in December. We are showing a plan, something you can play, something you can watch, and one clear story.</p></div>
       <div class="order" style="grid-template-columns:repeat(4,minmax(0,1fr))">
-        <div><span class="label">Thu Nov 19</span><b>Business plan</b><p>Revenue and impact model, market, partners, costs. James, Colin, Henry.</p></div>
-        <div><span class="label">Mon Nov 30</span><b>Playable prototype</b><p>A first playable of the Hub. Gray, Julia, Eleazar, Ashrita.</p></div>
-        <div><span class="label">Tue Dec 1</span><b>Trailer</b><p>60 to 90 seconds that sells the feeling. Mark, Julia, Ashrita.</p></div>
+        <div><span class="label">Thu Nov 19</span><b>Business plan</b><p>Revenue and impact model, market, partners, costs. Colin, Henry, James.</p></div>
+        <div><span class="label">Sun Nov 29</span><b>Gray loop + beautiful corner</b><p>The game playable in plain shapes, and one finished screen of the Bay. Gray, Julia, with the design team.</p></div>
+        <div><span class="label">Tue Dec 1</span><b>Trailer</b><p>60 to 90 seconds that sells the feeling. Mark.</p></div>
         <div><span class="label">Thu Dec 3</span><b>Presentation</b><p>One pitch for the sponsors and the dean. James, with everyone.</p></div>
       </div>
       <p class="muted" style="font-size:14px">How the build is sequenced week by week is on the <a href="#playbook">Playbook</a> tab. Owners and dates are on <a href="#timeline">Timeline</a> and <a href="#deliverables">Deliverables</a>.</p>
@@ -937,6 +1027,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
           <div class="goal"><span class="label">Goal 3</span><p>Daily active users. Day-30 retention. Share of paying players. Revenue.</p></div>
         </div>
       </div>
+      <details class="more"><summary>Revenue, considerations only<span>Business team's research comes first</span></summary><div class="in">
       <div class="block">
         <div class="hd"><h3>Revenue, considerations only</h3><button class="pin" data-t="rev" data-l="Revenue considerations">Pin</button></div>
         <p class="muted" style="font-size:15px">Not the thesis. The business team's research comes first.</p>
@@ -949,6 +1040,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
           <div class="cell"><h4>Research partners</h4><p>Only if the Lab produces data someone wants.</p></div>
         </div>
       </div>
+      </div></details>
 
     </div>
   </div>
@@ -967,11 +1059,11 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <section class="sec" id="f-name">
   <div class="wrap">
-    <aside class="side"><span class="n">07</span><span class="label">Our name</span><span class="state soft">Async</span></aside>
+    <aside class="side"><span class="n">07</span><span class="label">Our name</span><span class="state" style="border-color:var(--warn);color:var(--warn)">Priority</span></aside>
     <div class="main">
-      <div><h2>A studio name, and a game name.</h2><p class="intro">Floated Nov 12: Terracotta Studios, Orbis Studios, Work in Progress Studios, Novus Orbis, Venturi1, Centrum Global. The first three were the favorites. The lean is a word from another language with a deep meaning, spelled so English speakers say it right.</p></div>
-      <div class="decs three" data-decs="name" data-static></div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button class="pin" data-t="name" data-l="Company and game name">Pin</button><a class="chip" href="#votes">Thumbs up your favorites</a></div>
+      <div><h2>Name the studio. Then the game.</h2><p class="intro">Names have their own tab now, with meanings, how to say each one, and room to add your own.</p></div>
+      <div class="fleads" id="f-nameleads"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><a class="btn solid" href="#names">Vote on names</a><button class="pin" data-t="name" data-l="Company and game name">Pin</button></div>
     </div>
   </div>
 </section>
@@ -979,12 +1071,176 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <!-- ================= THE GAME ================= -->
 <main class="view" id="v-game">
-<section class="phead"><div class="wrap"><div class="l"><div class="label">The game / James's working hypothesis, updated with the Nov 12 votes</div><h1>The game</h1><p>What we're making, as concretely as I can put it today. For the next three weeks this is all about the Hub. The pictures are mock-ups of the vision, not screenshots. Comment anywhere. Voting happens on the Votes tab.</p></div><div class="r"><a class="btn solid" href="#votes">Go to Votes</a></div></div></section>
+<section class="phead"><div class="wrap"><div class="l"><div class="label">The game / updated after the Mon Nov 16 design meeting</div><h1>The game</h1><p>What we're building for Dec 3: the Hub, in one city. The pictures show the direction, not final art.</p></div><div class="r"><a class="btn solid" href="#playbook">Who's building what</a></div></div></section>
 
 <section class="stage" id="g-stage">
   <div class="wrap">
+    <div class="screen bay">
+      <span class="cap">Hub / concept mock-up / zoomed out</span>
+      <div class="hud tl"><div class="rn">The Bay</div><div class="rs">First city / San Francisco Bay, renamed / working name</div></div>
+      <div class="hud tr"><div class="res"><span><i style="background:#D3DF86"></i>Food 124</span><span><i style="background:#4DB4DC"></i>Water 86</span><span><i style="background:#FCC30B"></i>Funds 2,400</span><span><i style="background:#F6D7B8"></i>People 9</span><span><i style="background:#B58D62"></i>Materials 310</span></div></div>
+      <div id="bayscene"></div>
+      <div class="hud bl glass"><div class="bubble"><div class="av" style="background:#FD6925">R</div><p><span>Rosa / runs the corner store / asks a favor</span>The tents under the pier doubled this week. Rain's coming. Can you help me find them somewhere dry?</p></div></div>
+      <div class="hud br glass"><div class="k" style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#FCC30B">Building / tier 2 of 5</div><h5 style="font-size:16px;margin-top:6px">Upgrade the row house?</h5><p style="font-size:12.5px;color:#B9CAD3;margin-top:4px">Single family to two flats. Room for four more people.</p><div class="opts"><span class="on">Upgrade<em>Materials 120</em></span><span>Not now<em>Free</em></span></div></div>
+    </div>
+    <div class="callouts five">
+      <div><span class="num">1</span><b>The Bay</b><p>Our first city: San Francisco, renamed. Homelessness, inequality, addiction and mental health are the problems it starts with.</p></div>
+      <div><span class="num">2</span><b>The Steward</b><p>That's you. A flat, paper-style character in a 3D world. Click where you want to go.</p></div>
+      <div><span class="num">3</span><b>Residents and favors</b><p>People ask you for help. Doing favors builds relationships, like Animal Crossing.</p></div>
+      <div><span class="num">4</span><b>Buildings grow</b><p>About five tiers per building type: house, flats, apartments, up to a tower.</p></div>
+      <div><span class="num">5</span><b>One zoom</b><p>Out to run the city from above. In to walk the street with your Steward.</p></div>
+    </div>
+    <div style="margin-top:20px"><button class="pin" data-t="hub-mock-v2" data-l="Hub: the Bay mock-up (Nov 16)">Pin</button></div>
+  </div>
+</section>
+
+<section class="sec" id="g-locked" style="border-top:0">
+  <div class="wrap">
+    <aside class="side"><span class="n">01</span><span class="label">Decided</span><span class="state locked">Locked</span>
+      <div class="subnav" aria-label="Jump to section">
+        <button data-go="g-locked"><b>01</b>Decided</button>
+        <button data-go="g-look"><b>02</b>How it looks</button>
+        <button data-go="g-hub"><b>03</b>How it plays</button>
+        <button data-go="g-world"><b>04</b>The world</button>
+        <button data-go="g-build"><b>05</b>Buildings</button>
+        <button data-go="g-sound"><b>06</b>Sound</button>
+        <button data-go="g-later"><b>07</b>Not now</button>
+      </div>
+    </aside>
+    <div class="main">
+      <div><h2>What's settled.</h2><p class="intro">New on Nov 16, then everything before it. Full reasoning is in the decision log on the <a href="#votes">Votes</a> tab.</p></div>
+      <div class="lockstrip four" data-lockrecent></div>
+      <details class="more"><summary>Decided earlier<span>Oct 26 to Nov 12</span></summary><div class="in"><div class="lockstrip four" data-lockolder></div></div></details>
+      <div><button class="pin" data-t="locked" data-l="Already decided">Pin</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="g-look">
+  <div class="wrap">
+    <aside class="side"><span class="n">02</span><span class="label">How it looks</span><span class="state locked">Set Nov 16</span></aside>
+    <div class="main">
+      <div><h2>A 3D world that reads like a 2D game.</h2><p class="intro">Built in 3D in Unreal, filmed with a flat, isometric camera. Paper Mario is the model: a built world with paper-flat characters. The feel is an urban Stardew Valley: small, cozy, worth exploring.</p></div>
+      <div class="zoompair">
+        <div><div class="screen sm bay"><span class="cap">Zoomed out / run the city</span><div id="bayout"></div></div><p><b>From above.</b> Build, upgrade, see the whole city and what's coming.</p></div>
+        <div><div class="screen sm bay"><span class="cap">Zoomed in / walk it</span><div id="bayin"></div></div><p><b>On the street.</b> Click to move. Talk to residents, take on favors.</p></div>
+      </div>
+      <div class="block">
+        <div class="hd"><h3>What we're comparing ourselves to</h3><button class="pin" data-t="refs-v2" data-l="Reference games (Nov 16)">Pin</button></div>
+        <p class="muted" style="font-size:14px;margin-top:-6px">Each card shows the camera view, what we take from the game, and links to screenshots. Add your own references with a picture link at the bottom.</p>
+        <div class="refgrid" id="refgrid"></div>
+        <div class="hd" style="border:0;padding:0;margin-top:6px"><span class="label">Added by the team</span><button class="btn small" data-add="refs">Add a reference</button></div>
+        <p class="status" data-stline="refs"></p><div data-list="refs"></div>
+      </div>
+      <div class="block">
+        <div class="hd"><h3>Still open on the look</h3><span class="label">Julia, Ashrita</span></div>
+        <div class="rows">
+          <div><b>01</b><span><strong>The aesthetic.</strong> Leaning "organicism meets cityscape": a sustainable city, green woven into streets and roofs. The bottom-center image on Julia's mood board was the strongest reference.</span></div>
+          <div><b>02</b><span><strong>Where 2D art shows up.</strong> 2D and 3D assets both work in a 3D world. Which parts are flat (characters, signs, menus) is the design team's call.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="g-hub">
+  <div class="wrap">
+    <aside class="side"><span class="n">03</span><span class="label">How it plays</span><span class="state soft">Loop open</span></aside>
+    <div class="main">
+      <div><h2>Look after a city and the people in it.</h2><p class="intro">You're the Steward: you see everything, but you live there too. You build, you upgrade, and you earn residents' trust by doing them favors.</p></div>
+      <div class="block">
+        <div class="hd"><h3>One session</h3><span class="label">About 10 minutes</span></div>
+        <div class="flow">
+          <div><span class="label">01</span><b>Check in</b><p>See what changed in your city.</p></div>
+          <div><span class="label">02</span><b>Walk it</b><p>Zoom in, click to move.</p></div>
+          <div><span class="label">03</span><b>Do a favor</b><p>A resident asks. Helping builds the relationship.</p></div>
+          <div><span class="label">04</span><b>Build or upgrade</b><p>Every build helps one goal and strains another.</p></div>
+          <div class="open"><span class="label">05 / open</span><b>A crisis lands</b><p>How you respond is Thursday's question.</p></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="hd"><h3>Open for Thursday: the gray loop</h3><span class="label">Eleazar and James bring hypotheses</span></div>
+        <div class="qlist" data-qs="loop"></div>
+        <p class="muted" style="font-size:14px">The related votes are group 1 on the <a href="#votes">Votes</a> tab.</p>
+      </div>
+      <div class="block">
+        <div class="hd"><h3>Still to design</h3></div>
+        <div class="rows">
+          <div><b>01</b><span><strong>Relationship levels.</strong> How well you know someone, and what that unlocks.</span></div>
+          <div><b>02</b><span><strong>The name "Steward".</strong> A working title. Better ideas welcome.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="g-world">
+  <div class="wrap">
+    <aside class="side"><span class="n">04</span><span class="label">The world</span><span class="state locked">First city set</span></aside>
+    <div class="main">
+      <div><h2>Seven cities. Coastal first.</h2><p class="intro">The real world, renamed. One city per continent, easier places first. Coastal cities win ties: water management and ocean conservation are built in.</p></div>
+      <div class="worldrow" id="worldrow"></div>
+      <div><button class="pin" data-t="world-v2" data-l="World: seven cities (Nov 16)">Pin</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="g-build">
+  <div class="wrap">
+    <aside class="side"><span class="n">05</span><span class="label">Buildings</span><span class="state locked">Set Nov 16</span></aside>
+    <div class="main">
+      <div><h2>Five tiers. One look per city.</h2><p class="intro">Each building type upgrades in about five steps. The same type looks the same across a city, so we model less. Cities can differ from each other to show regional character.</p></div>
+      <div class="screen tierscreen"><span class="cap">Housing / tiers 1 to 5 / sketch</span><div id="tierscene"></div></div>
+      <div class="block">
+        <div class="hd"><h3>From model to game</h3><button class="pin" data-t="pipeline-v2" data-l="Asset pipeline (Nov 16)">Pin</button></div>
+        <div class="pipe four">
+          <div><span class="label">01 / Julia</span><b>Model in Rhino</b><p>Use folders and subfolders. Groups and blocks don't survive the import.</p></div>
+          <div><span class="label">02 / Gray</span><b>Import with Datasmith</b><p>Unreal's importer for Rhino files.</p></div>
+          <div><span class="label">03 / Gray</span><b>Textures and decals</b><p>Added in Unreal, after import.</p></div>
+          <div><span class="label">04</span><b>In the city</b><p>Placed on the gray loop, then the beautiful corner.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="g-sound">
+  <div class="wrap">
+    <aside class="side"><span class="n">06</span><span class="label">Sound</span><span class="state soft">Your feedback</span></aside>
+    <div class="main">
+      <div><h2>Ambient, electronic, calm.</h2><p class="intro">Mark's picks are in the team chat. Give each about ten seconds and tell him what fits. That's enough to set the direction.</p></div>
+      <div class="tracks">
+        <div><span class="label">01 / Mark's favorite</span><b>Awake</b><p>Taito</p></div>
+        <div><span class="label">02</span><b>Mighty Real Grande</b><p>Post-rock</p></div>
+        <div><span class="label">03</span><b>Life is Strange</b><p>Main menu theme</p></div>
+        <div><span class="label">04</span><b>Catalyst</b><p></p></div>
+        <div><span class="label">05</span><b>Immunity</b><p></p></div>
+      </div>
+      <div><button class="pin" data-t="sound-v2" data-l="Sound: Mark's five tracks">Pin</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="g-later">
+  <div class="wrap">
+    <aside class="side"><span class="n">07</span><span class="label">Not now</span><span class="state soft">After the Hub</span></aside>
+    <div class="main">
+      <div><h2>Parked, not dropped.</h2><p class="intro">No time goes here until the Hub is playable.</p></div>
+      <div class="loop" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        <div class="dim"><div class="row"><i class="sq" style="background:var(--rr)"></i><span class="label">After the Hub</span></div><b>Rapid Response</b><p>One crisis a day, 5 to 8 minutes. Rewards go home.</p></div>
+        <div class="dim"><div class="row"><i class="sq" style="background:var(--mini)"></i><span class="label">After the Hub</span></div><b>Mini games</b><p>Separate levels that pay out resources.</p></div>
+        <div class="dim"><div class="row"><i class="sq" style="background:var(--line)"></i><span class="label">Next semester</span></div><b>The Lab</b><p>Real problems, real data.</p></div>
+      </div>
+      <div><button type="button" class="btn" id="g-oldtoggle" aria-expanded="false">Show the earlier write-ups, Nov 5 to 12</button></div>
+    </div>
+  </div>
+</section>
+
+<div id="g-old" hidden>
+<section class="phead" style="border-top:1px solid var(--rule)"><div class="wrap"><div class="l"><div class="label">Archive / kept so every comment stays attached</div><h1 style="font-size:40px">Earlier write-ups, Nov 5 to 12</h1><p>Superseded by the sections above. Read-only reference.</p></div></div></section><section class="stage" id="old-g-stage">
+  <div class="wrap">
     <div class="screen hubhud">
-      <span class="cap">Hub / concept mock-up</span>
+      <span class="cap">Hub / Nov 9 concept mock-up / superseded</span>
       <div class="hud tl"><div class="rn">Tamarind Delta</div><div class="rs">Your city / modelled on a real river city, renamed</div></div>
       <div class="hud tr"><div class="res"><span><i style="background:#D3DF86"></i>Food 124</span><span><i style="background:#4DB4DC"></i>Water 86</span><span><i style="background:#FCC30B"></i>Funds 2,400</span><span><i style="background:#F6D7B8"></i>People 9</span><span><i style="background:#B58D62"></i>Materials 310</span></div></div>
       <div class="hud ml glass"><div class="gauges">
@@ -994,7 +1250,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
         <div>Peace<b style="--v:80%;--c:#0A97D9"></b></div>
         <div>Partnership<b style="--v:35%;--c:#19486A;--c:#8DB8DA"></b></div>
       </div></div>
-      <div id="hubscene"></div>
+      <div id="oldhubscene"></div>
       <div class="hud bl glass"><div class="bubble"><div class="av">A</div><p><span>Amara / clinic nurse</span>The river's up again. If it floods, the clinic loses power first.</p></div></div>
       <div class="hud bc"><div class="buildbar"><span><i style="background:#F0566A"></i>Home</span><span><i style="background:#4DB4DC"></i>Well</span><span class="on"><i style="background:#FCC30B"></i>Levee</span><span><i style="background:#D3DF86"></i>Farm</span><span><i style="background:#27507A"></i>Solar</span></div></div>
       <div class="hud br glass alert"><div class="k"><i></i>Crisis / flood warning</div><h5>The river crests in two days.</h5><p>Five plots and the clinic are in the water's path.</p><div class="opts"><span>Move the clinic generator<em>People 2</em></span><span class="on">Build a levee<em>Funds 600</em></span><span>Ask friends for aid<em>Free</em></span></div></div>
@@ -1011,18 +1267,18 @@ header.top .row2 .wrap{scrollbar-width:thin}
   </div>
 </section>
 
-<section class="sec" id="g-locked" style="border-top:0">
+<section class="sec" id="old-g-locked" style="border-top:0">
   <div class="wrap">
     <aside class="side"><span class="n">01</span><span class="label">Already decided</span><span class="state locked">Locked</span>
       <div class="subnav" aria-label="Jump to section">
-        <button data-go="g-stage"><b>00</b>The picture</button>
-        <button data-go="g-locked"><b>01</b>Already decided</button>
-        <button data-go="g-fit"><b>02</b>How it fits</button>
-        <button data-go="g-hub"><b>03</b>Hub</button>
-        <button data-go="g-rapid"><b>04</b>Rapid Response</button>
-        <button data-go="g-mini"><b>05</b>Mini games</button>
-        <button data-go="g-craft"><b>06</b>Look, sound, trailer</button>
-        <button data-go="g-later"><b>07</b>For later</button>
+        <button data-go="old-g-stage"><b>00</b>The picture</button>
+        <button data-go="old-g-locked"><b>01</b>Already decided</button>
+        <button data-go="old-g-fit"><b>02</b>How it fits</button>
+        <button data-go="old-g-hub"><b>03</b>Hub</button>
+        <button data-go="old-g-rapid"><b>04</b>Rapid Response</button>
+        <button data-go="old-g-mini"><b>05</b>Mini games</button>
+        <button data-go="old-g-craft"><b>06</b>Look, sound, trailer</button>
+        <button data-go="old-g-later"><b>07</b>For later</button>
       </div>
     </aside>
     <div class="main">
@@ -1032,7 +1288,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
   </div>
 </section>
 
-<section class="sec" id="g-fit">
+<section class="sec" id="old-g-fit">
   <div class="wrap">
     <aside class="side"><span class="n">02</span><span class="label">How it fits</span></aside>
     <div class="main">
@@ -1057,7 +1313,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
 </section>
 
 <!-- hub -->
-<section class="sec" id="g-hub">
+<section class="sec" id="old-g-hub">
   <div class="wrap">
     <aside class="side"><span class="n">03</span><span class="label">Hub</span><span class="state locked">Agreed core</span></aside>
     <div class="main">
@@ -1160,7 +1416,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
       <div class="block">
         <div class="hd"><h3>Multiplayer</h3><button class="pin" data-t="hub-mp" data-l="Hub: Multiplayer">Pin</button></div>
         <div class="spec two">
-          <div class="cell"><div class="frame" id="mpart" style="aspect-ratio:16/10"></div></div>
+          <div class="cell"><div class="frame" id="oldmpart" style="aspect-ratio:16/10"></div></div>
           <div class="cell" style="padding-left:20px">
             <div class="rows">
               <div><b>01</b><span><strong>Co-op aid, the core.</strong> Friends' communities share your map. Send a flare and they send help or join your response.</span></div>
@@ -1191,7 +1447,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
 </section>
 
 <!-- rapid -->
-<section class="sec" id="g-rapid">
+<section class="sec" id="old-g-rapid">
   <div class="wrap">
     <aside class="side"><span class="n">04</span><span class="label">Rapid Response</span><span class="state soft">After the Hub</span></aside>
     <div class="main">
@@ -1246,17 +1502,17 @@ header.top .row2 .wrap{scrollbar-width:thin}
 </section>
 
 <!-- mini -->
-<section class="sec" id="g-mini">
+<section class="sec" id="old-g-mini">
   <div class="wrap">
     <aside class="side"><span class="n">05</span><span class="label">Mini games</span><span class="state soft">After the Hub</span></aside>
     <div class="main">
       <div><h2>Levels that climb what people need.</h2><p class="intro"><strong style="color:var(--ink);font-weight:500">Tabled Nov 12 until the Hub is playable.</strong> Mini games sit outside the Hub's world and story, like Call of Duty Zombies, and can pay out resources. Short, replayable levels for when your region is steady. They're ordered by what a community needs first, not by difficulty. Clear one and something useful goes home to your Hub. This is where the team has the most creative room.</p></div>
-      <div class="screen"><span class="cap">The needs ladder / sketch</span><div id="ladderscene" style="padding:26px 10px 8px"></div></div>
+      <div class="screen"><span class="cap">The needs ladder / sketch</span><div id="oldladderscene" style="padding:26px 10px 8px"></div></div>
       <p class="muted" style="font-size:13.5px;margin-top:-24px">Level 1 and the top of the ladder are Eleazar's. The middle is a placeholder.</p>
       <div class="screen">
         <span class="cap">Level 1 / concept mock-up</span>
         <div class="lvgrid">
-          <div><div id="levelscene"></div></div>
+          <div><div id="oldlevelscene"></div></div>
           <div>
             <div class="rr-top"><span>Level 1</span><span>Perfect run possible</span></div>
             <h5>First harvest</h5>
@@ -1285,7 +1541,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
 </section>
 
 <!-- craft -->
-<section class="sec" id="g-craft">
+<section class="sec" id="old-g-craft">
   <div class="wrap">
     <aside class="side"><span class="n">06</span><span class="label">Look, sound, trailer</span><span class="state soft">Leaning</span></aside>
     <div class="main">
@@ -1322,7 +1578,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
 </section>
 
 <!-- later -->
-<section class="sec" id="g-later">
+<section class="sec" id="old-g-later">
   <div class="wrap">
     <aside class="side"><span class="n">07</span><span class="label">For later</span><span class="state soft">Next semester</span></aside>
     <div class="main">
@@ -1365,27 +1621,48 @@ header.top .row2 .wrap{scrollbar-width:thin}
     </div>
   </div>
 </section>
+
+</div>
 </main>
+
 
 <!-- ================= PLAYBOOK ================= -->
 <main class="view" id="v-playbook">
-<section class="phead"><div class="wrap"><div class="l"><div class="label">Playbook / the path we follow / updated Nov 12</div><h1>Playbook</h1><p>How studios take a game from idea to launch, and exactly where 17SG is on that path. We're in the concept stage. Click any stage to see what it means, what's in it, and who owns each piece.</p></div><div class="r"><button class="pin" data-t="playbook" data-l="Playbook">Pin</button></div></div></section>
+<section class="phead"><div class="wrap"><div class="l"><div class="label">Playbook / updated after the Nov 16 design meeting</div><h1>Playbook</h1><p>What we're shipping, who owns each piece, and where it sits on the path studios follow. The concept is set. Now: the gray loop and the beautiful corner.</p></div><div class="r"><button class="pin" data-t="playbook" data-l="Playbook">Pin</button></div></div></section>
 
-<section class="sec" id="p-stages" style="border-top:0">
+<section class="sec" id="p-ship" style="border-top:0">
   <div class="wrap">
-    <aside class="side"><span class="n">01</span><span class="label">The stages</span><span class="state" style="border-color:var(--warn);color:var(--warn)">Now: Concept</span>
+    <aside class="side"><span class="n">01</span><span class="label">What we're shipping</span><span class="state" style="border-color:var(--warn);color:var(--warn)">Due Sun Nov 29</span>
       <div class="subnav" aria-label="Jump to section">
-        <button data-go="p-stages"><b>01</b>The stages</button>
-        <button data-go="p-check"><b>02</b>What to decide</button>
-        <button data-go="p-pillars"><b>03</b>Pillars and loop</button>
-        <button data-go="p-sprint"><b>04</b>Sprint to Dec 3</button>
-        <button data-go="p-build"><b>05</b>What we build in</button>
-        <button data-go="p-rules"><b>06</b>Why this way</button>
-        <button data-go="p-src"><b>07</b>Sources</button>
+        <button data-go="p-ship"><b>01</b>What we're shipping</button>
+        <button data-go="p-stages"><b>02</b>The stages</button>
+        <button data-go="p-check"><b>03</b>What to decide</button>
+        <button data-go="p-pillars"><b>04</b>Pillars and loop</button>
+        <button data-go="p-sprint"><b>05</b>Sprint to Dec 3</button>
+        <button data-go="p-build"><b>06</b>What we build in</button>
+        <button data-go="p-rules"><b>07</b>Why this way</button>
+        <button data-go="p-src"><b>08</b>Sources</button>
       </div>
     </aside>
     <div class="main">
-      <div><h2>Concept, then prototype, then everything else.</h2><p class="intro">Each stage has to be done before the next one is worth starting. The Hub is our vertical: we take it all the way up first, then build the other modes out sideways.</p></div>
+      <div><h2>Two things by the end of Thanksgiving break.</h2><p class="intro">Set at the Nov 16 design meeting. One proves the game is fun. The other proves it looks like ours. Everything else this month feeds these two.</p></div>
+      <div class="ship" id="ship"></div>
+      <div class="block">
+        <div class="hd"><h3>Who owns what, through Nov 29</h3><span class="label">Pick a name to highlight it</span></div>
+        <div class="pfilter" id="pfilter2" role="group" aria-label="Show one person's part"></div>
+        <div class="owners" id="owners"></div>
+        <p class="muted" style="font-size:13.5px">Items marked <span class="asm">best guess</span> weren't assigned in a meeting. If one's wrong, say so in a comment and it gets fixed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="p-stages">
+  <div class="wrap">
+    <aside class="side"><span class="n">02</span><span class="label">The stages</span><span class="state" style="border-color:var(--warn);color:var(--warn)">Now: gray loop, corner</span>
+    </aside>
+    <div class="main">
+      <div><h2>Concept, then prototype, then everything else.</h2><p class="intro">Each stage has to be done before the next is worth starting. Click one to see what's in it and who owns it. The Hub goes all the way up first. Other modes come later.</p></div>
       <div class="pfilter" id="pfilter" role="group" aria-label="Show one person's part"></div>
       <div class="srail" id="srail" role="tablist" aria-label="Stages"></div>
       <div class="spanel" id="spanel" role="tabpanel" aria-live="polite"></div>
@@ -1399,9 +1676,9 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <section class="sec" id="p-check">
   <div class="wrap">
-    <aside class="side"><span class="n">02</span><span class="label">What to decide</span></aside>
+    <aside class="side"><span class="n">03</span><span class="label">What to decide</span></aside>
     <div class="main">
-      <div><h2>Everything a game team has to decide.</h2><p class="intro">Where 17SG stands on each, as of the Nov 12 all-hands, who's holding it, and the stage it has to be settled by. Ordered by what's most urgent.</p></div>
+      <div><h2>Everything a game team has to decide.</h2><p class="intro">Where we stand on each after Nov 16, who's holding it, and when it has to be settled.</p></div>
       <div class="checks" id="checks"></div>
       <div class="stagekey"><span class="cst" data-c="set">Set</span><span class="cst" data-c="vote">In the vote</span><span class="cst" data-c="open">Open</span><span class="cst" data-c="later">After Dec 3</span></div>
     </div>
@@ -1410,7 +1687,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <section class="sec" id="p-pillars">
   <div class="wrap">
-    <aside class="side"><span class="n">03</span><span class="label">Pillars and loop</span><span class="state soft">In the vote</span></aside>
+    <aside class="side"><span class="n">04</span><span class="label">Pillars and loop</span><span class="state soft">In the vote</span></aside>
     <div class="main">
       <div><h2>Four feelings the game has to deliver.</h2><p class="intro">Pillars are how it should feel to play, not how we run the company. Those are our values, on the <a href="#values">Values</a> tab. Once these are voted in, any new feature has to serve at least one of them or it doesn't go in.</p></div>
       <div class="decs" data-decs="pillar" data-kind="decision"></div>
@@ -1420,7 +1697,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
           <div><div class="label" style="margin-bottom:8px">Hub / one crisis</div><div class="loopline"><span>Prepare</span><i>&gt;</i><span>Crisis hits</span><i>&gt;</i><span>Respond</span><i>&gt;</i><span>See what really happened</span><i>&gt;</i><span>Rebuild</span><i>&gt; repeat</i></div></div>
           <div><div class="label" style="margin-bottom:8px">Hub / weeks</div><div class="loopline"><span>Real crises as they happen</span><i>+</i><span>A simulated one every week or two</span><i>&gt;</i><span>City grows</span><i>&gt;</i><span>Bigger crises</span></div></div>
         </div>
-        <p class="muted" style="font-size:14px">The open part is "Respond": what you actually do, and what makes one response smarter than another. That's group 1 on the <a href="#votes">Votes</a> tab.</p>
+        <p class="muted" style="font-size:14px">The open part is "Respond": what you actually do. Eleazar and James bring hypotheses Thursday, Nov 19. Related votes are group 1 on the <a href="#votes">Votes</a> tab.</p>
       </div>
     </div>
   </div>
@@ -1428,22 +1705,22 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <section class="sec" id="p-sprint">
   <div class="wrap">
-    <aside class="side"><span class="n">04</span><span class="label">Sprint to Dec 3</span></aside>
+    <aside class="side"><span class="n">05</span><span class="label">Sprint to Dec 3</span></aside>
     <div class="main">
-      <div><h2>Nov 9 to Dec 3, in four phases.</h2><p class="intro">Each phase ends at a gate: a short check where we decide to move on, cut, or change course.</p></div>
+      <div><h2>Nov 9 to Dec 3, in four phases.</h2><p class="intro">Each phase ends at a gate: a short check where we move on, cut, or change course.</p></div>
       <div class="sprint" id="sprint"></div>
       <div class="phases">
-        <div><span class="label">Phase 0 / Nov 9 to 16</span><h4>Lock the concept</h4>
-          <ul><li><b>Everyone:</b> three genre picks with reference images, for Monday.</li><li><b>Everyone:</b> all votes in by Sun 11:59 PM, group 1 first.</li><li><b>Design team:</b> genre vote, mood board started.</li><li><b>James, Gray:</b> pick the engine.</li></ul>
-          <div class="gt"><span>Gate / Mon Nov 16</span>Genre, pillars and core loop are settled.</div></div>
-        <div><span class="label">Phase 1 / Nov 16 to 19</span><h4>Find the fun</h4>
-          <ul><li><b>Gray, James:</b> grey-box Hub. One city, a few builds, one crisis, one decision, one consequence.</li><li><b>Julia, Ashrita:</b> the beautiful corner.</li><li><b>Eleazar:</b> the first crisis on one page, by Mon Nov 16.</li><li><b>Mark:</b> sound hypotheses, matched to the mood board.</li><li><b>Colin, Henry:</b> business plan.</li></ul>
-          <div class="gt"><span>Gate / Thu Nov 19</span>The team plays the grey box. Does the loop make sense?</div></div>
-        <div><span class="label">Phase 2 / Nov 20 to 29</span><h4>First playable</h4>
-          <ul><li>The real look on the grey box.</li><li>One resident with written lines.</li><li>The crisis, the response and the real-outcome screen.</li><li><b>Mark:</b> trailer rough cut.</li></ul>
-          <div class="gt"><span>Thanksgiving week</span>Work is solo and async. Tasks are sized so nobody is blocked.</div></div>
-        <div><span class="label">Phase 3 / Nov 30 to Dec 3</span><h4>Freeze and present</h4>
-          <ul><li><b>Mon Nov 30:</b> feature freeze.</li><li>Fix only what playtests found.</li><li><b>Tue Dec 1:</b> trailer final.</li><li><b>Wed Dec 2:</b> full rehearsal.</li></ul>
+        <div><span class="label">Phase 0 / Nov 9 to 16 / done</span><h4>Lock the concept</h4>
+          <ul><li>Genre picks, references, engine.</li><li>Unreal, 3D-as-2D, the Bay, the Steward, building tiers: all set Nov 16.</li></ul>
+          <div class="gt"><span>Gate / Mon Nov 16</span>Passed.</div></div>
+        <div><span class="label">Phase 1 / Nov 16 to 19</span><h4>Pick the loop</h4>
+          <ul><li><b>Eleazar, James:</b> gray-loop hypotheses.</li><li><b>Julia:</b> first Rhino models.</li><li><b>James:</b> pin the Bay, post look references.</li><li><b>Everyone:</b> feedback on Mark's tracks, vote on names.</li><li><b>Colin, Henry, James:</b> business plan.</li></ul>
+          <div class="gt"><span>Gate / Thu Nov 19</span>We pick one loop to build.</div></div>
+        <div><span class="label">Phase 2 / Nov 19 to 29</span><h4>Build the two</h4>
+          <ul><li><b>Gray:</b> the gray loop in Unreal.</li><li><b>Julia, with Ashrita:</b> the beautiful corner.</li><li><b>Gray:</b> Julia's models into Unreal.</li><li><b>Mark:</b> trailer rough cut.</li></ul>
+          <div class="gt"><span>Thanksgiving week</span>Solo and async. Tasks are sized so nobody is blocked.</div></div>
+        <div><span class="label">Phase 3 / Nov 30 to Dec 3</span><h4>Combine and present</h4>
+          <ul><li><b>Mon Nov 30:</b> the corner's look on the gray loop. Feature freeze.</li><li><b>Tue Dec 1:</b> trailer final.</li><li><b>Wed Dec 2:</b> full rehearsal.</li></ul>
           <div class="gt"><span>Thu Dec 3</span>Plan, playable, trailer, one story.</div></div>
       </div>
       <div class="block">
@@ -1461,35 +1738,43 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <section class="sec" id="p-build">
   <div class="wrap">
-    <aside class="side"><span class="n">05</span><span class="label">What we build in</span><span class="state soft">James, Gray decide</span></aside>
+    <aside class="side"><span class="n">06</span><span class="label">What we build in</span><span class="state soft">James, Gray decide</span></aside>
     <div class="main">
-      <div><h2>The smallest Hub we can build.</h2><p class="intro">Unity Hub is downloaded and being tried. James and Gray decide this week. Nobody on the team has shipped a game in any of these yet, so this is a judgment call, not a finding.</p></div>
+      <div><h2>Unreal Engine.</h2><p class="intro">Decided Nov 16. Gray knows it in depth, so we start now instead of learning a new tool. A game engine is the software a game is built in.</p></div>
       <div class="block">
-        <div class="hd"><h3>The grey box</h3><button class="pin" data-t="shell" data-l="Playbook: The Hub shell">Pin</button></div>
+        <div class="hd"><h3>The gray loop</h3><button class="pin" data-t="shell" data-l="Playbook: The Hub shell">Pin</button></div>
         <div class="rows">
-          <div><b>01</b><span>One city on one screen, zoomed out.</span></div>
-          <div><b>02</b><span>Three things you can build, each moving two or three gauges.</span></div>
+          <div><b>01</b><span>One city, the Bay, on one screen. Zoom out to manage, zoom in to follow your Steward.</span></div>
+          <div><b>02</b><span>A few things to build, each moving two or three gauges.</span></div>
           <div><b>03</b><span>One crisis that arrives with a warning, and a way to respond.</span></div>
-          <div><b>04</b><span>A result screen: what it cost, and what really happened.</span></div>
-          <div><b>05</b><span>Plain boxes, no art. It only has to prove the loop.</span></div>
+          <div><b>04</b><span>A result: what it cost, and what really happened.</span></div>
+          <div><b>05</b><span>Plain gray shapes, no art. It only has to prove the loop.</span></div>
         </div>
       </div>
       <div class="block">
-        <div class="hd"><h3>Options</h3><span class="label">A game engine is the software a game is built in</span></div>
-        <div class="tablewrap"><table class="m eng"><thead><tr><th>Option</th><th>Good for</th><th>Watch out for</th><th>Fit for Dec 3</th></tr></thead><tbody>
-          <tr><td><b>2D in the browser</b></td><td>Menus, maps, clicking and placing. Plays from a link. AI coding tools are strongest here.</td><td>Not the route to a big 3D game later.</td><td>Fastest</td></tr>
-          <tr><td><b>Unity</b></td><td>Industry standard for 2D and 3D, huge library of help. Free for students.</td><td>Heavier to learn and set up.</td><td>Being tried</td></tr>
-          <tr><td><b>Godot</b></td><td>Free, light, strong at 2D. A real engine we could keep.</td><td>New tool for everyone.</td><td>Possible</td></tr>
-          <tr><td><b>Unreal</b></td><td>High-end 3D.</td><td>The heaviest of the four. Built for realism we've said we don't want.</td><td>Not now</td></tr>
-        </tbody></table></div>
+        <div class="hd"><h3>How Unreal works for us</h3></div>
+        <div class="spec three">
+          <div class="cell"><h4>C++, with help</h4><p>The main language. AI tools can help write it.</p></div>
+          <div class="cell"><h4>Python console</h4><p>Quick commands inside Unreal, alongside C++.</p></div>
+          <div class="cell"><h4>Rhino in, via Datasmith</h4><p>Julia's models come straight in. Use folders, not groups or blocks.</p></div>
+        </div>
+        <p class="muted" style="font-size:14px">Not confirmed yet: a direct link between Unreal and AI coding tools like Claude or Codex. A custom one can be built.</p>
       </div>
+      <details class="more"><summary>Options we weighed<span>Browser 2D, Unity, Godot, Unreal</span></summary><div class="in">
+        <div class="tablewrap"><table class="m eng"><thead><tr><th>Option</th><th>Good for</th><th>Why not, for us</th></tr></thead><tbody>
+          <tr><td><b>2D in the browser</b></td><td>Fast, plays from a link.</td><td>New to everyone, heavy AI reliance, not the route to a 3D game.</td></tr>
+          <tr><td><b>Unity</b></td><td>Industry standard, lots of help online.</td><td>We'd learn it from scratch.</td></tr>
+          <tr><td><b>Godot</b></td><td>Free, light, strong at 2D.</td><td>New tool for everyone.</td></tr>
+          <tr><td><b>Unreal</b></td><td>3D, and Gray already knows it.</td><td>Chosen.</td></tr>
+        </tbody></table></div>
+      </div></details>
     </div>
   </div>
 </section>
 
 <section class="sec" id="p-rules">
   <div class="wrap">
-    <aside class="side"><span class="n">06</span><span class="label">Why this way</span></aside>
+    <aside class="side"><span class="n">07</span><span class="label">Why this way</span></aside>
     <div class="main">
       <div><h2>Find the fun before you build the game.</h2><p class="intro">Every source below says it a different way: prove the core is worth playing while it's still cheap to change. Then build.</p></div>
       <div class="spec three">
@@ -1506,7 +1791,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <section class="sec" id="p-src">
   <div class="wrap">
-    <aside class="side"><span class="n">07</span><span class="label">Sources</span></aside>
+    <aside class="side"><span class="n">08</span><span class="label">Sources</span></aside>
     <div class="main">
       <ul class="srcs">
         <li><a href="https://www.slideshare.net/holtt/cerny-method">Mark Cerny, "Method" (talk slides)</a><span>Pre-production versus production, the first playable.</span></li>
@@ -1524,13 +1809,24 @@ header.top .row2 .wrap{scrollbar-width:thin}
 </section>
 </main>
 
+<!-- ================= NAMES ================= -->
+<main class="view" id="v-names">
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Decide / priority / async</div><h1>Names</h1><p>Two names to pick: the studio and the game. Thumbs up every name you'd be proud to say out loud. A thumbs down needs one line on why. Add your own anywhere.</p></div><div class="r"><a class="btn" href="#nm-game">Jump to game names</a></div></div></section>
+  <section class="pbody"><div class="wrap">
+    <div class="nmtips"><div><span class="label">The test</span><p>Say it in the pitch: "Hi, we're ___." If it feels awkward, it's out.</p></div><div><span class="label">What we want</span><p>A word with a real meaning, ideally from another language, that English speakers can say on first sight.</p></div><div><span class="label">Before we pick</span><p>Check the .com, the Instagram handle and the Steam store name for the top two or three. None are checked yet.</p></div></div>
+    <div id="names-body"></div>
+    <p class="status" data-stline="names" hidden></p>
+  </div></section>
+</main>
+
 <!-- ================= VOTES ================= -->
 <main class="view" id="v-votes">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Decide / the only place to vote</div><h1>Votes</h1><p><strong style="color:var(--ink);font-weight:500">Tonight, Mon Nov 16, we close out Group 1.</strong> If you haven't voted on it yet, do it before the design meeting. Thursday's decisions, including the contested ones, are in the decision log at the bottom with how we got there. Thumbs up or thumbs down, and a thumbs down needs one line on why. Five thumbs up carries it, out of ten voters (the eight of us plus Dr. Kretser and Prof. Jones). Meetings only spend time on what's contested.</p><div id="vprog" style="margin-top:22px;max-width:420px"></div></div><div class="r"><a class="btn" href="#game">See the game</a><button type="button" class="btn solid adminonly" id="dec-add">Add a decision</button></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Decide / the only place to vote</div><h1>Votes</h1><p><strong style="color:var(--ink);font-weight:500">Group 1 settles Thursday, Nov 19:</strong> how you actually respond to a crisis. Vote before the all-hands. Thumbs up or down; a thumbs down needs one line on why. Five thumbs up carries it, out of ten voters (the eight of us plus Dr. Kretser and Prof. Jones). Names have their own tab.</p><div id="vprog" style="margin-top:22px;max-width:420px"></div></div><div class="r"><a class="btn" href="#game">See the game</a><button type="button" class="btn solid adminonly" id="dec-add">Add a decision</button></div></div></section>
   <section class="pbody"><div class="wrap">
     <div class="vsum" id="vsum"></div>
+    <a class="nmbanner" href="#names"><span class="label">New / priority</span><b>Name the studio and the game</b><span>Meanings, how to say each one, and room to add your own. Vote on the Names tab.</span><i>&rarr;</i></a>
     <div class="bar"><div class="filters" role="group" aria-label="Filter votes" id="vfilters">
-      <button aria-pressed="true" data-vf="all">All</button><button aria-pressed="false" data-vf="top">Decide Monday</button><button aria-pressed="false" data-vf="mine">Needs my vote</button><button aria-pressed="false" data-vf="contested">Contested</button><button aria-pressed="false" data-vf="passing">Carrying</button><button aria-pressed="false" data-vf="decided">Decided</button>
+      <button aria-pressed="true" data-vf="all">All</button><button aria-pressed="false" data-vf="top">Decide Thursday</button><button aria-pressed="false" data-vf="mine">Needs my vote</button><button aria-pressed="false" data-vf="contested">Contested</button><button aria-pressed="false" data-vf="passing">Carrying</button><button aria-pressed="false" data-vf="decided">Decided</button>
     </div></div>
     <div id="votelist"></div>
   </div></section>
@@ -1538,8 +1834,8 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <!-- ================= TEAM IDEAS ================= -->
 <main class="view" id="v-ideas">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Nov 5 all-hands / Nov 9 design meeting / anything new</div><h1>Team ideas</h1><p>Every pitch from Nov 5 and every idea floated on Nov 9, each mapped to the mode it plugs into. Comment here, vote on the Votes tab. Add new ones at the bottom.</p></div><div class="r"><button class="btn solid" data-add="ideas">Add an idea</button></div></div></section>
-  <section class="pbody"><div class="wrap"><div class="groupname" style="padding-top:0">Floated on Nov 9, mapped to a mode</div><div id="ideas-n9"></div><div class="groupname">Nov 5 pitches, with where each one plugs in</div><div id="ideas"></div><div class="groupname">Added by the team</div><p class="status" data-stline="ideas"></p><div data-list="ideas"></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Ideas for the Hub / Nov 5 to now</div><h1>Team ideas</h1><p>Ideas that plug into the Hub. Ideas for Rapid Response and Mini games are parked at the bottom until the Hub is playable. Add new ones anytime.</p></div><div class="r"><button class="btn solid" data-add="ideas">Add an idea</button></div></div></section>
+  <section class="pbody"><div class="wrap"><div class="groupname" style="padding-top:0">Floated on Nov 9</div><div id="ideas-n9"></div><div class="groupname">Nov 5 pitches</div><div id="ideas"></div><div class="groupname">Added by the team</div><p class="status" data-stline="ideas"></p><div data-list="ideas"></div><details class="more" style="margin-top:32px"><summary>Parked: Rapid Response and Mini games<span>After the Hub is playable</span></summary><div class="in" id="ideas-parked"></div></details></div></section>
 </main>
 
 <!-- ================= TIMELINE ================= -->
@@ -1853,7 +2149,7 @@ window.FB={
   /* full copy of everything the team has written */
   async exportAll(){await sdk;const cols=new Set(["people","users","log"]);
     try{const r=await fetch("seeds.json",{cache:"no-store"});const d=await r.json();Object.keys(d).forEach(k=>{if(!k.startsWith("__"))cols.add(k);});}catch(_){}
-    ["ideas","tasks","roles","deliverables","personas","stakeholders","hmw","foursets","questions","values","intelligences","decisions","moderation"].forEach(c=>cols.add(c));
+    ["ideas","tasks","roles","deliverables","personas","stakeholders","hmw","foursets","questions","values","intelligences","decisions","moderation","names","refs"].forEach(c=>cols.add(c));
     const out={exportedAt:new Date().toISOString(),project:cfg.projectId,collections:{}};
     for(const c of cols){try{const s=await fs.collection(c).get();const o={};for(const d of s.docs){o[d.id]=d.data();
         if(!["people","users","log","config"].includes(c)){try{const h=await fs.collection(c+"/"+d.id+"/history").get();if(!h.empty){o[d.id].__history={};h.docs.forEach(x=>{o[d.id].__history[x.id]=x.data();});}}catch(_){}}}
@@ -2103,14 +2399,23 @@ function levelScene(){const m=["ssccp","rgcgp","rgcgg","ppcrg","ppccc"];const C=
 const TEAM_N=10,PASS=5; /* 8 teammates + Dr. Kretser and Prof. Jones, who also vote */
 const AREA={found:"Foundation",hub:"Hub",mini:"Mini games",rapid:"Rapid Response",craft:"Look, sound, trailer",pillar:"Pillars",process:"How we build",name:"Company and game name",later:"For later"};
 const AREA_VIEW={found:"foundation",hub:"game",mini:"game",rapid:"game",craft:"game",later:"game",pillar:"playbook",process:"playbook",name:"foundation"};
-const AREA_ORDER=["pillar","hub","craft","process","found","name","rapid","mini","later"];
+const AREA_ORDER=["pillar","hub","craft","process","found","rapid","mini","later"];
 const SUB={hub:[["loop","Core loop and strategy"],["role","You and your role"],["world","World and map"],["econ","Resources and economy"],["crisis","Crises and failure"],["people","Residents and progress"],["scope","Scope for Dec 3"]]};
 /* v7 (Nov 12): priority tiers for the Votes tab. pr on an item wins; otherwise the area default. */
-const PR={1:["Decide Monday","Design meeting, Mon Nov 16. These decide what the grey box tests."],2:["Decide by Thursday","All-hands, Thu Nov 19. Needed before the first playable."],3:["Before Dec 3","Words, names and process. Fine to settle async."],4:["Parked until the Hub is built","Rapid Response, Mini games and later ideas. Vote if you like. No meeting time goes here for three weeks."]};
+const PR={1:["Decide Thursday","All-hands, Thu Nov 19. Eleazar and James bring gray-loop hypotheses. These votes settle what the gray loop tests."],2:["Before Thanksgiving","Needed while we build the gray loop and the beautiful corner."],3:["Before Dec 3","Words, names and process. Fine to settle async."],4:["Parked until the Hub is built","Rapid Response, Mini games and later ideas. Vote if you like. No meeting time goes here for three weeks."]};
 const PR_AREA={pillar:1,hub:2,craft:2,process:2,found:3,name:3,rapid:4,mini:4,later:4};
 const prOf=d=>Number(d.pr)||PR_AREA[d.a]||2;
 const DEC=[
-/* locked */
+/* locked Nov 16 (newest first) */
+{id:"L-two",st:"decided",a:"process",t:"Two things by the end of Thanksgiving break: the beautiful corner and the gray loop.",b:"Julia leads the beautiful corner. Gray leads the gray loop. Everything else this month supports them.",src:"Nov 16"},
+{id:"L-unreal",st:"decided",a:"process",t:"We build in Unreal Engine.",b:"Gray knows it in depth, so we can start now. It's C++, with a Python console for quick commands, and AI tools can help with the C++.",src:"Nov 16",ctx:[["Why not Unity or a browser build","Either would mean learning from scratch and leaning hard on AI."]]},
+{id:"L-3d",st:"decided",a:"craft",t:"A 3D world that reads as 2D, like Paper Mario.",b:"3D is easier to build at our scale than a true 2D world. It takes both 2D and 3D assets, and the camera can go isometric or orthographic. Gray showed it working live.",src:"Nov 16",ctx:[["Replaces","2D for the first build, the Nov 9 lean."]]},
+{id:"L-bay",st:"decided",a:"hub",g:"world",t:"Our first city is San Francisco and the Bay Area, renamed.",b:"Homelessness, inequality, addiction and mental health. Familiar to the team and interesting to map. London is the strong second.",src:"Nov 16"},
+{id:"L-coast",st:"decided",a:"hub",g:"world",t:"Coastal cities first, in every region.",b:"Water management and ocean conservation come built in.",src:"Nov 16"},
+{id:"L-favors",st:"decided",a:"hub",g:"role",t:"The Steward does favors and builds relationships.",b:"Animal Crossing and Tomodachi Life, not Clash of Clans. \"Steward\" is still a working name.",src:"Nov 16"},
+{id:"L-click",st:"decided",a:"hub",g:"role",t:"Click to move. No free roaming.",b:"Zoomed in, you click where you want your Steward to go.",src:"Nov 16"},
+{id:"L-tiers",st:"decided",a:"hub",g:"econ",t:"About five tiers per building type, one look per city.",b:"House to flats to apartments up to a tower. Cities can look different from each other.",src:"Nov 16"},
+/* locked earlier */
 {id:"L-three",st:"decided",a:"hub",t:"Three modes: Hub, Mini games, Rapid Response.",b:"Carried by a thumbs-up vote of everyone on the call.",src:"Nov 9 vote"},
 {id:"L-lab",st:"decided",a:"later",t:"The Lab waits until after the semester.",b:"Still in consideration. We refloat it once the semester is over.",src:"Nov 9, Nov 12"},
 {id:"L-hubfirst",st:"decided",a:"hub",t:"The Hub is the core, and the first thing we build.",b:"It holds the whole point of the game. The other two modes branch from it.",src:"Nov 5 vote, Nov 9"},
@@ -2131,7 +2436,8 @@ const DEC=[
 {id:"f-mission",a:"found",g:"words",k:"decision",t:"Mission",b:"Make the 17 goals personal and playable, so people understand them, care about them and help solve them.",src:"Draft"},
 {id:"f-vision",a:"found",g:"words",k:"decision",t:"Vision",b:"Millions of players who have stood inside a real crisis, made the hard call, and carry that into the real world.",src:"Draft"},
 {id:"f-value",a:"found",g:"words",k:"decision",t:"Value statement",b:"We build games that tell the truth about hard problems, respect the people who live them, and turn players' time into real progress with real partners.",src:"Draft"},
-{id:"f-deliver",a:"found",g:"sem",k:"decision",t:"These four deliverables, on these dates.",b:"Business plan Nov 19. Playable prototype Nov 30. Trailer Dec 1. Presentation Dec 3. Thumbs down if a date or an owner is wrong for you, and say which.",src:"Set Nov 2 and Nov 4"},
+{id:"f-deliver",ret:"Replaced Nov 18 with updated dates after the Nov 16 meeting.",a:"found",g:"sem",k:"decision",t:"These four deliverables, on these dates.",b:"Business plan Nov 19. Playable prototype Nov 30. Trailer Dec 1. Presentation Dec 3. Thumbs down if a date or an owner is wrong for you, and say which.",src:"Set Nov 2 and Nov 4"},
+{id:"f-deliver2",a:"found",g:"sem",k:"decision",t:"These deliverables, on these dates.",b:"Business plan Thu Nov 19. Beautiful corner and gray loop by Sun Nov 29, the end of Thanksgiving break. Trailer Tue Dec 1. Presentation Thu Dec 3. Thumbs down if a date or owner is wrong for you, and say which.",src:"Updated Nov 18"},
 {id:"f-line",a:"found",g:"line",k:"decision",t:"Real crises, renamed places, framing on people and aid.",b:"We don't avoid politics. We rename places, leaders and groups, and a person screens every crisis before it goes in.",src:"Nov 5 / James"},
 /* hub: core loop and strategy (the Nov 12 gap) */
 {id:"hub-genre",a:"hub",g:"loop",k:"decision",pr:1,t:"It's a community builder.",b:"The lean since Nov 9, and every vote so far agrees: you look after a settlement and its people. Tonight we settle the rest of the genre, how it plays and how it looks, from everyone's three picks with reference images and comparable games.",src:"Nov 9, settle Mon Nov 16"},
@@ -2144,7 +2450,7 @@ const DEC=[
 /* hub: role */
 {id:"hub-one",a:"hub",g:"world",k:"decision",as:1,t:"One city per player to start.",b:"You pick one and it's yours. Owning several, or losing one, comes later.",src:"Assumption to confirm"},
 /* hub: world */
-{id:"m-firstcity",a:"hub",g:"world",k:"decision",pr:1,as:1,t:"The Dec 3 build is one of the seven regions: the lowest-friction one, with one clear crisis.",b:"Somewhere we can research well and depict fairly, with a crisis that shows the whole loop (a flood works). Suggest a region in a comment.",src:"Proposal, follows Nov 12"},
+{id:"m-firstcity",ret:"Replaced Nov 16: the first city is the Bay.",a:"hub",g:"world",k:"decision",pr:1,as:1,t:"The Dec 3 build is one of the seven regions: the lowest-friction one, with one clear crisis.",b:"Somewhere we can research well and depict fairly, with a crisis that shows the whole loop (a flood works). Suggest a region in a comment.",src:"Proposal, follows Nov 12"},
 {id:"m-start",a:"hub",g:"world",k:"decision",t:"Your city starts as it is today.",b:"You inherit the real city's buildings and weak spots, then improve it. San Francisco starts with its earthquake risk.",src:"Nov 12"},
 {id:"m-regcost",a:"hub",g:"world",k:"decision",t:"What you can build, and what it costs, follows your city.",b:"Singapore gets glass towers, Miami gets beach houses, and prices follow the real place.",src:"Nov 12 / James"},
 /* hub: economy */
@@ -2213,7 +2519,7 @@ const DEC=[
 {id:"i-arena",a:"mini",k:"idea",t:"Resource arena",b:"Alliances send players to compete in party games for resources.",src:"Faction islands pitch, Nov 5"},
 /* craft */
 {id:"art-style",a:"craft",k:"decision",t:"Stylized, not hyperreal.",b:"Simple shapes and a strong style. Realism only with a very good reason. It avoids the uncanny valley, where almost-real looks creepy, and it's far cheaper to make.",src:"Nov 9 / Julia, Gray"},
-{id:"art-2d",a:"craft",k:"decision",t:"2D for the first build.",b:"The Nov 9 lean. A 3D world seen from one fixed angle, like Monument Valley, still counts. Settled alongside the genre and mood boards on Monday.",src:"Nov 9 / Julia"},
+{id:"art-2d",ret:"Replaced Nov 16: a 3D world that reads as 2D, like Paper Mario.",a:"craft",k:"decision",t:"2D for the first build.",b:"The Nov 9 lean. A 3D world seen from one fixed angle, like Monument Valley, still counts. Settled alongside the genre and mood boards on Monday.",src:"Nov 9 / Julia"},
 {id:"art-cut",a:"craft",k:"decision",t:"Simple in play, richer in cutscenes.",b:"Pixel or flat art while you play. More detailed art for cutscenes and menus.",src:"Nov 9 / Julia"},
 {id:"art-tone",a:"craft",k:"decision",as:1,t:"Hopeful, not grim.",b:"The crises are serious. The world is warm and worth protecting. Players should want to be there.",src:"Assumption to confirm"},
 {id:"snd",a:"craft",k:"decision",pr:3,t:"Sound is a deliverable, not an afterthought.",b:"Calm, atmospheric music gets an owner and a place in the plan.",src:"Nov 9 / Mark"},
@@ -2228,13 +2534,30 @@ const DEC=[
 {id:"p-gates",a:"process",g:"sprint",k:"decision",t:"Thursdays are gates.",b:"Each all-hands ends with a call: move on, cut, or change course. No carrying open questions forward.",src:"Proposed"},
 {id:"p-order",a:"process",g:"order",k:"decision",t:"Build order: grey box, finished screen, first playable, trailer.",b:"Play first, look second, trailer cut from both.",src:"Proposed"},
 {id:"p-cut2",a:"process",g:"order",k:"decision",t:"The cut list for a Hub-only build.",b:"If we fall behind, cut in this order: the talking resident (they appear but don't speak), the zoomed-in walking view (zoom out only), a second crisis. Never cut: the Hub loop, the beautiful corner, the trailer.",src:"Proposed, Nov 12 rewrite"},
-{id:"p-engine",a:"process",g:"build",k:"decision",pr:1,t:"The first playable is a 2D game that runs in a browser.",b:"Fastest path to something anyone can open from a link on Dec 3. Unity Hub is downloaded as the alternative. James and Gray make the call by tonight so the grey box can start.",src:"Proposed / James, Gray decide Mon Nov 16"},
+{id:"p-engine",ret:"Replaced Nov 16: we build in Unreal Engine.",a:"process",g:"build",k:"decision",pr:1,t:"The first playable is a 2D game that runs in a browser.",b:"Fastest path to something anyone can open from a link on Dec 3. Unity Hub is downloaded as the alternative. James and Gray make the call by tonight so the grey box can start.",src:"Proposed / James, Gray decide Mon Nov 16"},
 /* name */
 {id:"n-direction",a:"name",k:"decision",t:"The name comes from a word with deep meaning in another language.",b:"Latin, Greek, Arabic or others. Find the word first, then spell it so English speakers say it right.",src:"Nov 12"},
-{id:"n-game",a:"name",k:"decision",t:"The game gets its own name. \"The Hub\" is the concept, not the title.",b:"",src:"Nov 12"},
-{id:"n-terracotta",a:"name",k:"idea",t:"Terracotta Studios",b:"Baked earth. Something you shape and build with.",src:"Nov 12 favorite"},
-{id:"n-orbis",a:"name",k:"idea",t:"Orbis Studios",b:"Latin for circle or disc, and by extension the world. Watch out: Orbis Gaming and similar names already exist.",src:"Nov 12 favorite"},
-{id:"n-wip",a:"name",k:"idea",t:"Work in Progress Studios",b:"The world is never finished, and neither is the game.",src:"Nov 12 favorite"},
+{id:"n-game",a:"name",k:"decision",t:"The game gets its own name. \"The Hub\" is the concept, not the title.",b:"The studio name can come from another language. The game name can be plainer, if that sells better.",src:"Nov 12"},
+{id:"n-terracotta",a:"name",k:"idea",g:"company",t:"Terracotta Studios",say:"teh-ruh-KOT-uh",b:"Italian for baked earth. Something you shape and build with.",src:"Nov 12 favorite"},
+{id:"n-orbis",a:"name",k:"idea",g:"company",t:"Orbis Studios",say:"OR-bis",b:"Latin for circle or disc, and by extension the world.",flag:"Orbis Gaming and similar names already exist.",src:"Nov 12 favorite"},
+{id:"n-wip",a:"name",k:"idea",g:"company",t:"Work in Progress Studios",b:"The world is never finished, and neither is the game.",src:"Nov 12 favorite"},
+{id:"n-novus",a:"name",k:"idea",g:"company",t:"Novus Orbis",say:"NO-vus OR-bis",b:"Latin for a new world.",src:"Floated Nov 12"},
+{id:"n-venturi",a:"name",k:"idea",g:"company",t:"Venturi1",b:"Floated Nov 12. The story behind it wasn't captured. Whoever pitched it, add it in a comment.",src:"Floated Nov 12"},
+{id:"n-centrum",a:"name",k:"idea",g:"company",t:"Centrum Global",say:"SEN-trum",b:"Latin for center.",flag:"Centrum is a well-known vitamin brand.",src:"Floated Nov 12"},
+{id:"n-sanara",a:"name",k:"idea",g:"company",t:"Sanara",say:"sah-NAR-ah",b:"Spanish sanar\u00e1: it will heal. Keeps Sana's meaning and adds a promise. Hopeful, forward-looking.",flag:"There's a wound-care company called Sanara MedTech. Check trademarks.",src:"Name brainstorm, Nov 17"},
+{id:"n-mizan",a:"name",k:"idea",g:"company",t:"Mizan",say:"mee-ZAHN",b:"Arabic for balance, or the scale. Fits the SDGs: every goal trades off against another. Strong sound.",flag:"Balance can read as passive.",src:"Name brainstorm, Nov 17"},
+{id:"n-sana",a:"name",k:"idea",g:"company",t:"Sana",say:"SAH-nah",b:"Latin for heal, as a command, and Arabic for radiance. A double meaning, easy to say.",flag:"Sana'a is the capital of Yemen, at war since 2014. Search results lead with crisis news.",src:"Name brainstorm, Nov 17"},
+{id:"n-cura",a:"name",k:"idea",g:"company",t:"Cura",say:"KOO-rah",b:"Latin for care. Spanish and Portuguese for cure. Care plus cure.",flag:"Cura is a popular 3D-printing program.",src:"Name brainstorm, Nov 17"},
+{id:"n-sama",a:"name",k:"idea",g:"company",t:"Sama",say:"SAH-mah",b:"Sanskrit for equal or balanced. Arabic for sky.",flag:"Sama is an AI data company with an impact mission, close to our space.",src:"Name brainstorm, Nov 17"},
+{id:"n-ayni",a:"name",k:"idea",g:"company",t:"Ayni",say:"EYE-nee",b:"Quechua, from the Andes: reciprocity. I help you today, you help me tomorrow. That's our co-op aid.",flag:"People won't know how to say it at first.",src:"Name brainstorm, Nov 17"},
+{id:"n-salus",a:"name",k:"idea",g:"company",t:"Salus",say:"SAH-loos",b:"Latin for welfare and safety, from salus populi: the welfare of the people.",src:"Name brainstorm, Nov 17"},
+{id:"n-oikos",a:"name",k:"idea",g:"company",t:"Oikos",say:"OY-kos",b:"Greek for household. The root of both ecology and economy.",flag:"Danone sells a yogurt called Oikos.",src:"Name brainstorm, Nov 17"},
+{id:"g-kizuna",a:"name",k:"idea",g:"game",t:"Kizuna",say:"kee-ZOO-nah",b:"Japanese for the bonds people form through hardship. It became a national word after the 2011 tsunami. Fits crises and the residents you get to know.",flag:"Kizuna AI, a well-known virtual streamer, uses the name.",src:"New, Nov 18"},
+{id:"g-stewards",a:"name",k:"idea",g:"game",t:"Stewards",b:"What you are in the game. Plain, warm, says the job.",flag:"Generic, so hard to own as a trademark.",src:"New, Nov 18"},
+{id:"g-common",a:"name",k:"idea",g:"game",t:"Common Ground",b:"A shared city and shared aid. Also the place people meet to solve things.",flag:"A very common phrase. Search will be crowded.",src:"New, Nov 18"},
+{id:"g-tidewater",a:"name",k:"idea",g:"game",t:"Tidewater",b:"Coastal cities and rising water, our first theme. Calm and a little ominous.",flag:"Tidewater is also a region of Virginia.",src:"New, Nov 18"},
+{id:"g-minga",a:"name",k:"idea",g:"game",t:"Minga",say:"MEEN-gah",b:"Andean word for a day of communal work, when the whole village builds something together.",flag:"Sounds a little odd to English ears.",src:"Name brainstorm, Nov 17"},
+{id:"g-polis",a:"name",k:"idea",g:"game",t:"Polis",say:"POH-lis",b:"Greek for city, in the sense of a community of citizens, not just buildings.",flag:"Several civic-tech companies use it.",src:"New, Nov 18"},
 /* later */
 {id:"x-leader",a:"later",k:"idea",n9:1,t:"Which leader did you lead like?",b:"A profile that compares how you ran your city with a real leader in history. Parked: comparing players to dictators gets ugly fast. Maybe an add-on.",src:"Mark, Nov 9"},
 {id:"x-lab",a:"later",k:"idea",t:"The Lab",b:"A creative sandbox. Players upload solutions to a shared pool, and the best ones go into the Hub, with rewards like scholarships or a Hall of Solutions spot. Thumbs up if you want it first in line after the semester.",src:"Tabled Nov 9, Nov 12"},
@@ -2263,6 +2586,8 @@ function applyDecisions(){const O=viewOf("decisions");DEC.length=0;DEC_HIDDEN.le
     const hid=(o&&o.hidden!=null)?!!o.hidden:!!b.ret;d.__ret=!!b.ret&&!(o&&o.hidden!=null);
     if(hid)DEC_HIDDEN.push(d);else DEC.push(d);});
   Object.entries(O).forEach(([id,o])=>{if(seen.has(id)||!o||!o.t)return;const d={id,a:o.a||"hub",k:o.k||"decision",t:o.t,b:o.b||"",src:o.src||"",st:o.st||""};if(o.g)d.g=o.g;if(o.pr)d.pr=o.pr;if(o.hidden)DEC_HIDDEN.push(d);else DEC.push(d);});
+  const hx=x=>esc(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+  Object.entries(viewOf("names")).forEach(([id,v])=>{if(!v||v.deleted||!v.title)return;DEC.push({id:"nm-"+id,a:"name",k:"idea",g:v.kind==="Game"?"game":"company",t:hx(v.title),b:hx(v.meaning),say:hx(v.say),flag:hx(v.flag),src:v.by==="seed"?"Starter":"Added by "+nameOf(v.by).replace(/ \(you\)$/,""),user:id});});
   Object.keys(DECMAP).forEach(k=>delete DECMAP[k]);DEC.forEach(d=>{DECMAP[d.id]=d;});DEC_HIDDEN.forEach(d=>{DECMAP[d.id]=DECMAP[d.id]||d;});}
 let DE=null;
 function decAdminBtns(d,removed){return `<div class="adm" data-dadm="${d.id}">${removed?`<button type="button" data-dact="restore">Restore</button>`:`<button type="button" data-dact="edit">Edit</button>${d.st==="decided"?`<button type="button" data-dact="reopen">Reopen</button>`:`<button type="button" data-dact="decide">Mark decided</button>`}<button type="button" class="danger" data-dact="remove">Remove</button>`}</div>`;}
@@ -2290,6 +2615,7 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-dact]");if
   if(act==="restore"){saveDecision(id,{hidden:false},"Before restore");toast("Restored, with all its votes.");return;}
   if(act==="remove"){if(!b.dataset.armed){b.dataset.armed="1";b.textContent="Confirm remove";return;}saveDecision(id,{hidden:true},"Before remove");toast("Removed from the vote. Its votes and comments are still saved. Restore it any time under Removed.");}});
 const QS={
+loop:[["Fixed decision tree, or scenarios the AI writes?","A tree is predictable and quick to build and check. AI scenarios never run out, but are harder to check for accuracy."],["What does the player actually do when a crisis hits?","Pick from a few actions with costs, or act on the map against a clock? Both are in group 1 on the Votes tab."],["How do you run the city after the crisis?","Rebuild, recover, and prepare for the next one."]],
 hub:[["How do you actually solve a crisis?","The biggest open question from Nov 12. Two options are on the Votes tab under Core loop and strategy."],["How do cities talk to each other and share aid?","Raised Nov 12. Trade, aid, alliances: what's the actual mechanic?"],["Which city do we build first for Dec 3?","Low friction, one clear crisis, and someone we can ask who knows the place."],["How do goals you can't build show up?","Housing is a building. Education and equality aren't."],["What would make you open the Hub on a day with no crisis?",""],["Is the Hub enough on its own?","Gray: selling the Hub alone is like selling the iPhone home screen. What makes it the reason you open the game?"]],
 mini:[["What do you actually do in level 1?","Parked until the Hub is built."],["What exactly goes home to the Hub when you win?","A resource, a building, a skill?"]],
 rapid:[["Who checks the trees for accuracy and bias?","Raised in the Nov 5 round robin."],["Does a daily hook pull attention away from deeper learning?","Raised in the Nov 5 round robin."]]
@@ -2299,74 +2625,95 @@ const PB_PEOPLE=["James","Gray","Julia","Eleazar","Ashrita","Mark","Colin","Henr
 const TEAMS={"Everyone":PB_PEOPLE,"Design team":["Gray","Julia","Eleazar","Ashrita","Mark"],"Business team":["Colin","Henry"]};
 const ownsIt=(owners,p)=>!p||String(owners).split(", ").some(o=>o===p||(TEAMS[o]||[]).includes(p));
 const STAGES=[
-{k:"concept",n:"Concept",when:"Now, to Mon Nov 16",st:"now",
- what:"Decide what the game is before building any of it. Studios fit this on one page: the feelings it delivers, the genre, who you are, what it looks like, and what you do minute to minute.",
- ours:"Most of the world is set as of Nov 12. Two things aren't: the genre, and the strategy inside a crisis. Those decide what the grey box tests, so they come first.",
- items:[["Player role: the Steward, in the world, not a god","Julia","set"],["Camera: one zoom, out to run the city, in to walk it","Gray, Julia","set"],["World: real places renamed, seven regions, low friction first","Eleazar, Julia","set"],["Vote on every open item, group 1 first","Everyone","vote","Sun 11:59 PM"],["Pillars: four feelings, voted on","Everyone","vote"],["Three genre picks each, with reference images and comparable games","Everyone","open","Mon Nov 16"],["Run the genre vote and start the mood board","Julia, Gray","open","Mon Nov 16"],["Core loop: how you actually solve a crisis","Gray, Eleazar","vote","Mon Nov 16"],["The one-pager, once the rest is set","James","open"]],
- done:"Anyone on the team can explain the game in 30 seconds, and the one-pager says the same thing."},
-{k:"proto",n:"Prototype",when:"Nov 16 to 19",st:"next",
- what:"The core loop in grey boxes: plain shapes, no art, so it's cheap to change. The only question it answers is whether the loop makes sense and is fun.",
- ours:"One city, a few things to build, one crisis, one decision, one consequence.",
- items:[["Pick the engine (Unity Hub is downloaded)","James, Gray","open","This week"],["Grey-box the Hub loop","Gray, James","open","Thu Nov 19"],["Write the first crisis on one page: warning, 2 to 4 actions with costs, outcomes, what really happened","Eleazar","open","Mon Nov 16"],["Anyone who codes jumps in","Everyone","open"],["Play the loop as a team and note what feels off","Everyone","open","Thu Nov 19"]],
- done:"The team plays the loop end to end on Thu Nov 19 and it makes sense."},
-{k:"corner",n:"Beautiful corner",when:"Nov 16 to 19",st:"next",
- what:"One screen finished to final quality, so everyone draws toward the same look. It starts as a mood board: a wall of reference images.",
- ours:"Monday's genre picks become the mood board. The mood board becomes one finished Hub screen.",
- items:[["Mood board from everyone's genre picks","Julia, Ashrita","open","Mon Nov 16"],["One finished Hub screen in the chosen style","Ashrita, Julia","open","Thu Nov 19"],["Music direction: two or three sound hypotheses with reference tracks, matched to the mood board","Mark, Julia, Ashrita","open","Thu Nov 19"]],
- done:"One image we'd happily put on a poster."},
-{k:"playable",n:"First playable",when:"Nov 20 to 30",st:"sprint",
- what:"The grey-box loop wearing the real look. Rough, but you can sit down and play the game's intent from start to finish.",
- ours:"This is the Dec 3 build. Feature freeze is Mon Nov 30.",
- items:[["The real look on the grey box","Gray, Ashrita","open"],["One resident with written lines","Julia, Eleazar","open"],["Crisis, response and the real-outcome screen","Gray, Eleazar","open"],["Playtest and fix","Mark","open"],["Trailer cut from the corner and captured play","Mark","open","Tue Dec 1"]],
+{k:"concept",n:"Concept",when:"Done Nov 16",st:"done",
+ what:"Decide what the game is before building any of it: the feelings, the genre, who you are, what it looks like, what you do minute to minute.",
+ ours:"Set by Nov 16. Two things are still open and don't block the build: the pillars vote, and the name.",
+ items:[["Player role: the Steward, does favors, builds relationships","Julia","set"],["Camera: one zoom, click to move","Gray, Julia","set"],["World: real places renamed, seven cities, coastal first","Eleazar, Julia","set"],["First city: the Bay (San Francisco)","Everyone","set"],["Engine: Unreal","Gray","set"],["Look: a 3D world that reads as 2D, like Paper Mario","Julia, Gray","set"],["Buildings: about five tiers per type","Julia","set"],["Pillars: four feelings","Everyone","vote"],["Studio and game name","Everyone","vote","Names tab"]],
+ done:"Anyone on the team can explain the game in 30 seconds."},
+{k:"proto",n:"Gray loop",when:"Nov 16 to 29",st:"now",
+ what:"The core loop in plain gray shapes, no art, so it's cheap to change. Studios call it a grey box. It answers one question: is the loop fun and does it make sense?",
+ ours:"One city, a few things to build, one crisis, one decision, one consequence. Built in Unreal.",
+ items:[["Gray-loop hypothesis: fixed decision tree or AI-written scenarios, how you respond, how you run the city after","Eleazar, James","open","Thu Nov 19"],["Pick one loop at the all-hands","Everyone","open","Thu Nov 19"],["Write the first crisis on one page","Eleazar","open","Nov 22"],["Build the gray loop in Unreal","Gray","open","Sun Nov 29"],["Zoom out to manage, zoom in to follow the Steward","Gray","set"],["Anyone who codes jumps in","Everyone","open"]],
+ done:"The team plays it start to finish and it makes sense."},
+{k:"corner",n:"Beautiful corner",when:"Nov 16 to 29",st:"now",
+ what:"One screen finished to final quality, so everyone draws toward the same look.",
+ ours:"One corner of the Bay, modeled in Rhino, brought into Unreal, textured and lit.",
+ items:[["Pin the Bay and post look references in the team chat","James","open","Thu Nov 19"],["First Rhino models, in folders and subfolders","Julia","open","Thu Nov 19"],["Lock the aesthetic: organicism meets cityscape","Julia, Ashrita","open","Nov 22"],["Import with Datasmith, add textures and decals","Gray","open","Nov 25"],["One finished corner of the Bay","Julia","open","Sun Nov 29"],["Sound direction from the team's feedback on five tracks","Mark","open","Nov 22"]],
+ done:"One image of the Bay we'd happily put on a poster."},
+{k:"playable",n:"First playable",when:"Nov 30 to Dec 2",st:"next",
+ what:"The gray loop wearing the real look. Rough, but you can sit down and play the game's intent from start to finish.",
+ ours:"The corner's look on the gray loop. This is the Dec 3 build. Feature freeze Mon Nov 30.",
+ items:[["The corner's look on the gray loop","Gray, Julia","open","Mon Nov 30"],["One resident with a favor and written lines","Eleazar, Julia","open"],["Trailer, cut from the corner and captured play","Mark","open","Tue Dec 1"],["Full rehearsal","Everyone","open","Wed Dec 2"]],
  done:"Someone new plays the loop and gets it without us explaining."},
-{k:"slice",n:"Vertical slice",when:"Stretch, then spring",st:"stretch",
+{k:"slice",n:"Vertical slice",when:"Spring",st:"stretch",
  what:"A few minutes of gameplay at final quality. It's what studios pitch and raise money with.",
- ours:"Our vertical slice is the Hub. The business team pitches with it.",
+ ours:"Our vertical slice is the Hub in the Bay. The business team pitches with it.",
  items:[["The Hub polished to final quality","Design team","later"],["Pitch and fundraising story built on the slice","Colin, Henry, James","later"]],
  done:"A stranger watches five minutes and wants to play or fund it."},
 {k:"horiz",n:"Horizontal",when:"Spring",st:"later",
  what:"Build the rest of the game wide and rough: every mode playable, none finished.",
- ours:"Rapid Response, Mini games, and the Lab if it comes back. No time goes here for the next three weeks.",
- items:[["Rapid Response, tied to the Hub's world","Design team","later"],["Mini games, separate from the Hub's story","Design team","later"],["Revisit the Lab after the semester","Everyone","later"]],
+ ours:"More cities, then Rapid Response and Mini games, and the Lab if it comes back.",
+ items:[["More cities, starting with a second coastal one","Design team","later"],["Rapid Response and Mini games","Design team","later"],["Revisit the Lab","Everyone","later"]],
  done:"Every mode can be played end to end."},
-{k:"alpha",n:"Alpha",when:"Later",st:"later",what:"Every feature is in, many still with placeholder art or content.",ours:"",items:[],done:"Nothing new is added after alpha. Only content and fixes."},
+{k:"alpha",n:"Alpha",when:"Later",st:"later",what:"Every feature is in, many still with placeholder art or content.",ours:"",items:[],done:"Nothing new after alpha. Only content and fixes."},
 {k:"beta",n:"Beta and launch",when:"Later",st:"later",what:"All content in. Test with real players, fix, tune, ship.",ours:"",items:[],done:"Launch."}
 ];
-const ALONG=[["Business plan","Colin, Henry, James","Thu Nov 19","Send James your action items on Teams before Wed."],["Personal intelligences","Everyone","This week","Add yours on the Intelligences tab so roles map to strengths."],["Company and game name","Everyone","Async","Thumbs up your favorites on the Votes tab."],["Trailer","Mark","Tue Dec 1","Cinematic, 60 to 90 seconds."],["Presentation","James","Thu Dec 3","One story, everyone presents."]];
+const SHIP=[
+ {k:"corner",n:"The beautiful corner",tag:"01 / How it looks",what:"One corner of the Bay, finished to final quality, so everyone draws toward the same look.",lead:"Julia",with:"Ashrita (art and world), Gray (into Unreal)",done:"One image of the Bay, in Unreal, we'd put on a poster.",
+  steps:[["Thu Nov 19","Pin the Bay and post look references","James"],["Thu Nov 19","First Rhino models","Julia"],["Nov 22","Lock the aesthetic","Julia, Ashrita"],["Nov 25","Models in Unreal, textured","Gray"],["Sun Nov 29","The finished corner","Julia"]]},
+ {k:"proto",n:"The gray loop",tag:"02 / How it plays",what:"The smallest playable version of the game, in plain gray shapes. Studios call it a grey box.",lead:"Gray",with:"Eleazar and James (the loop design)",done:"The team plays it start to finish and it makes sense.",
+  steps:[["Thu Nov 19","Loop hypotheses","Eleazar, James"],["Thu Nov 19","Pick one loop","Everyone"],["Nov 22","First crisis on one page","Eleazar"],["Nov 19 to 29","Build it in Unreal","Gray"],["Sun Nov 29","Playable gray loop","Gray"]]}
+];
+const OWN=[
+ ["James",[["Pin the Bay and post look references in the team chat","Thu Nov 19"],["Gray-loop hypothesis","Thu Nov 19"],["Business plan, with Colin and Henry","Thu Nov 19"],["Presentation","Thu Dec 3"]]],
+ ["Gray",[["Build the gray loop in Unreal","Sun Nov 29"],["Bring Julia's models in with Datasmith, add textures and decals","Nov 25"]]],
+ ["Julia",[["First Rhino models, in folders not groups or blocks","Thu Nov 19"],["Lead the beautiful corner","Sun Nov 29"]]],
+ ["Eleazar",[["Gray-loop hypothesis","Thu Nov 19"],["First crisis on one page","Nov 22",1]]],
+ ["Ashrita",[["Lock the aesthetic with Julia, help model the corner","Nov 22",1]]],
+ ["Mark",[["Pick a sound direction from the team's feedback","Nov 22",1],["Trailer","Tue Dec 1"]]],
+ ["Colin",[["Business plan: pricing and costs","Thu Nov 19"]]],
+ ["Henry",[["Business plan: market and partners","Thu Nov 19"]]],
+ ["Everyone",[["Give Mark's five tracks about ten seconds each, and tell him","Thu Nov 19"],["Vote on names, add your own","Async"]]]
+];
+const ALONG=[["Business plan","Colin, Henry, James","Thu Nov 19","Rough pass of revenue, costs, market and partners."],["Names","Everyone","Async","Vote and add your own on the Names tab."],["Sound feedback","Everyone","Thu Nov 19","Ten seconds per track. Mark picks the direction."],["Trailer","Mark","Tue Dec 1","Cinematic, 60 to 90 seconds."],["Presentation","James","Thu Dec 3","One story, everyone presents."]];
 const CHECKS=[
-["Core loop and strategy","What you do in a crisis, and what makes one response better than another.","The biggest gap. We know the problem and the feeling, not how you win. Group 1 on the Votes tab.","open","Gray, Eleazar","concept"],
-["Genre","What kind of game it is, and what it looks like.","Community builder is the lean. Everyone brings three picks with references; vote Mon Nov 16.","open","Everyone","concept"],
-["Pillars","The few feelings the game has to deliver.","Four drafted. Feelings, not company values.","vote","Everyone","concept"],
-["Player role","Who you are, and why that's fun.","The Steward: in the world, builds relationships, makes the city-level calls. Not a god.","set","Julia","concept"],
-["Camera and views","How you see the world.","One continuous zoom: out to run the city, in to walk your character. Not first person.","set","Gray, Julia","concept"],
-["World and setting","Where it happens and what's at stake.","Real world, renamed like GTA. Seven cities, one per continent. Many players can run their own copy of a city.","set","Eleazar, Julia","concept"],
-["Tools and engine","What it's built in.","Unity Hub downloaded. Browser 2D is the fast option. James and Gray decide this week.","open","James, Gray","proto"],
-["Systems and economy","Resources, costs, and what limits you.","Five resources, building materials included. Open: regional materials, trade delays, limits on aid.","vote","Eleazar, Colin","proto"],
-["Crises","What goes wrong, and how often.","Real crises as they happen, simulated ones every week or two. How you resolve one is open.","vote","Eleazar","proto"],
-["Art direction","One look everyone draws toward.","Stylized, likely 2D. The mood board and beautiful corner are due Nov 19.","open","Julia, Ashrita","corner"],
-["Playtesting","Who plays it, when, and what we ask.","The team plays the grey box Nov 19. Outside playtests come later.","open","Mark","playable"],
-["Interface and controls","How you see and touch the game.","Mouse first. Point and click to move when zoomed in.","vote","Gray","playable"],
-["The first five minutes","How a new player learns the game.","Pick a city, meet one resident, place one build, get through one small crisis.","vote","Julia","playable"],
-["Sound and music","What it sounds like and who makes it.","Calm and atmospheric is the lean. Mark brings sound hypotheses by Nov 19, matched to the mood board.","open","Mark, Julia, Ashrita","corner"],
-["Scope and schedule","What's in, what's out, by when.","Hub only for three weeks. Freeze Nov 30. A cut list if we fall behind.","set","James","playable"],
-["Accuracy and sensitivity","Ours to get right: real crises, real people.","Lower-friction cities first. Research plus a first-person source for each region.","vote","James","playable"],
+["Core loop and strategy","What you do in a crisis, and what makes one response better than another.","Open. Fixed decision tree or AI-written scenarios? Eleazar and James bring hypotheses Thursday.","open","Eleazar, James","proto"],
+["Tools and engine","What it's built in.","Unreal Engine. Gray knows it; C++ plus a Python console.","set","Gray","concept"],
+["Art direction","One look everyone draws toward.","A 3D world that reads as 2D, like Paper Mario. The aesthetic, organicism meets cityscape, is still being locked.","vote","Julia, Ashrita","corner"],
+["World and setting","Where it happens and what's at stake.","Real world, renamed. Seven cities, coastal first. The Bay is first; London is the strong second.","set","Eleazar, Julia","concept"],
+["Player role","Who you are, and why that's fun.","The Steward: sees everything, lives there too, does favors for residents. The name is a working title.","set","Julia","concept"],
+["Camera and controls","How you see and move.","One zoom: out to manage, in to follow your Steward. Click to move, no free roaming.","set","Gray, Julia","concept"],
+["Buildings","What you build and how it grows.","About five tiers per type. Same look within a city, different between cities.","set","Julia","corner"],
+["Systems and economy","Resources, costs, and what limits you.","Five resources, building materials included. Regional materials, trade delays and aid limits are in the vote.","vote","Eleazar, Colin","proto"],
+["Crises","What goes wrong, and how often.","Real crises as they happen, simulated ones every week or two. How you respond is the loop question.","vote","Eleazar","proto"],
+["Residents and relationships","Who lives there and how you get close.","Favors build relationships. Relationship levels still need designing.","open","Julia, Eleazar","playable"],
+["Sound and music","What it sounds like.","Ambient and electronic. Mark shared five tracks; the team gives feedback by Thursday.","open","Mark","corner"],
+["Genre","What kind of game it is.","A community builder: an urban Stardew Valley in a small, explorable city.","vote","Everyone","concept"],
+["Pillars","The few feelings the game has to deliver.","Four drafted, in the vote.","vote","Everyone","concept"],
+["Name","What the studio and the game are called.","On the Names tab. Vote and add your own.","vote","Everyone","slice"],
+["The first five minutes","How a new player learns the game.","Pick a city, meet one resident, do one favor, place one build.","vote","Julia","playable"],
+["Scope and schedule","What's in, what's out, by when.","Gray loop and corner by Nov 29. Freeze Nov 30. A cut list if we fall behind.","set","James","playable"],
+["Accuracy and sensitivity","Ours to get right: real crises, real people.","Research plus a first-person source for each city. The Bay's issues need care.","vote","James","playable"],
 ["Trailer","How people first meet the game.","Cinematic, 60 to 90 seconds.","vote","Mark","playable"],
 ["Business model","How it pays for itself.","Business plan due Nov 19.","open","Colin, Henry","slice"],
-["Name","What the studio and the game are called.","Favorites: Terracotta, Orbis, Work in Progress Studios. The game needs its own name too.","open","Everyone","slice"],
 ["Platform","Where it runs.","PC first. Decided Oct 26.","set","Team","concept"],
-["Multiplayer","Playing with other people.","The Hub is the shared world. Co-op aid is designed for, built later.","later","Gray","horiz"],
-["Rapid Response and Mini games","The other two modes.","Tabled until the Hub is built.","later","Design team","horiz"]
+["Multiplayer","Playing with other people.","Co-op aid is designed for, built later.","later","Gray","horiz"],
+["Rapid Response and Mini games","The other two modes.","Parked until the Hub is built.","later","Design team","horiz"]
 ];
 const CST={set:"Set",vote:"In the vote",open:"Open",later:"After Dec 3"};
+const ownsIt2=(owners,p)=>ownsIt(owners,p)||(owners==="Everyone");
 const STAGE_NAME={};STAGES.forEach(s=>{STAGE_NAME[s.k]=s.n;});
-let PB={stage:"concept",who:""};
+let PB={stage:"proto",who:""};
 try{const v=JSON.parse(localStorage.getItem("17sg.pb")||"{}");if(v.who&&PB_PEOPLE.includes(v.who))PB.who=v.who;}catch(_){}
 function savePB(){try{localStorage.setItem("17sg.pb",JSON.stringify({who:PB.who}));}catch(_){}}
 function renderStages(){
   const f=$("pfilter");if(!f)return;const who=PB.who;
   f.innerHTML=`<span class="label">Show my part</span>`+["",...PB_PEOPLE].map(p=>`<button type="button" data-who="${p}" aria-pressed="${p===who}">${p||"Everyone"}</button>`).join("");
+  const f2=$("pfilter2");if(f2)f2.innerHTML=f.innerHTML;
+  const sh=$("ship");if(sh)sh.innerHTML=SHIP.map(x=>`<div class="shipcard"><span class="label">${x.tag}</span><h3>${x.n}</h3><p class="what">${x.what}</p><dl><div><dt>Lead</dt><dd>${x.lead}</dd></div><div><dt>With</dt><dd>${x.with}</dd></div><div><dt>Done when</dt><dd>${x.done}</dd></div></dl><ol class="shsteps">${x.steps.map(st=>`<li class="${who&&!ownsIt(st[2],who)?"off":""}${who&&ownsIt(st[2],who)?" mine":""}"><span class="d">${st[0]}</span><span class="t">${st[1]}</span><span class="o">${st[2]}</span></li>`).join("")}</ol><div class="sf"><button type="button" class="stg" data-stage="${x.k}">Full checklist</button><button class="pin" data-t="ship-${x.k}" data-l="Shipping: ${x.n}">Pin</button></div></div>`).join("");
+  const ow=$("owners");if(ow)ow.innerHTML=OWN.map(o=>`<div class="${who&&o[0]!==who&&o[0]!=="Everyone"?"off":""}${who&&o[0]===who?" mine":""}"><b>${o[0]}</b><ul>${o[1].map(it=>`<li><span>${it[0]}${it[2]?' <i class="asm">best guess</i>':""}</span><em>${it[1]}</em></li>`).join("")}</ul></div>`).join("");
   $("srail").innerHTML=STAGES.map((s,i)=>{const mine=who?s.items.filter(it=>ownsIt(it[1],who)&&it[2]!=="set").length:0;
-    return `<button type="button" role="tab" class="${s.st}" data-stage="${s.k}" aria-selected="${s.k===PB.stage}"><span class="label">${s.st==="now"?"You are here":s.when}</span><b>${String(i+1).padStart(2,"0")} ${s.n}</b>${who?`<em>${mine?mine+" for "+who:"Nothing for "+who}</em>`:`<em>${s.items.length?s.items.filter(it=>it[2]!=="set").length+" open":""}</em>`}</button>`;}).join("");
+    return `<button type="button" role="tab" class="${s.st}" data-stage="${s.k}" aria-selected="${s.k===PB.stage}"><span class="label">${s.st==="now"?"Now / "+s.when:s.when}</span><b>${String(i+1).padStart(2,"0")} ${s.n}</b>${who?`<em>${mine?mine+" for "+who:"Nothing for "+who}</em>`:`<em>${s.items.length?s.items.filter(it=>it[2]!=="set").length+" open":""}</em>`}</button>`;}).join("");
   const s=STAGES.find(x=>x.k===PB.stage)||STAGES[0];
   const rows=s.items.map(it=>{const m=ownsIt(it[1],who);return `<div class="${who&&!m?"off":""}${who&&m?" mine":""}"><span class="cst" data-c="${it[2]}">${CST[it[2]]}</span><span class="t">${it[0]}${it[3]?`<em>${it[3]}</em>`:""}</span><span class="o">${it[1]}</span></div>`;}).join("");
   $("spanel").innerHTML=`<div class="sp-h"><div><span class="label">${s.when}</span><h3>${s.n}</h3></div><button class="pin" data-t="stage-${s.k}" data-l="Playbook stage: ${s.n}">Pin</button></div>
@@ -2375,16 +2722,16 @@ function renderStages(){
     <div class="sp-d"><span class="label">Done when</span>${s.done}</div>`;
   $("along").innerHTML=ALONG.map(a=>`<div class="${who&&!ownsIt(a[1],who)?"off":""}"><span class="label">${a[2]}</span><b>${a[0]}</b><p>${a[3]}</p><span class="o">${a[1]}</span></div>`).join("");
   $("checks").innerHTML=CHECKS.map(c=>`<div class="${who&&!ownsIt(c[4],who)?"off":""}"><div class="top"><h4>${c[0]}</h4><span class="cst" data-c="${c[3]}">${CST[c[3]]}</span></div><p>${c[1]}</p><p class="us">${c[2]}</p><div class="cf"><span class="credit">${c[4]}</span><button type="button" class="stg" data-stage="${c[5]}">By ${STAGE_NAME[c[5]]}</button></div></div>`).join("");
-  dressPins($("spanel"));renderPins();
+  dressPins($("spanel"));dressPins($("ship"));renderPins();
 }
 document.addEventListener("click",e=>{
-  const w=e.target.closest("#pfilter [data-who]");if(w){PB.who=w.dataset.who;savePB();renderStages();return;}
+  const w=e.target.closest("#pfilter [data-who], #pfilter2 [data-who]");if(w){PB.who=w.dataset.who;savePB();renderStages();return;}
   const st=e.target.closest("[data-stage]");if(st&&st.closest("#v-playbook")){PB.stage=st.dataset.stage;renderStages();if(st.classList.contains("stg")){const r=$("srail");if(r)r.scrollIntoView({behavior:"smooth",block:"start"});}}
 });
 document.addEventListener("keydown",e=>{const t=e.target.closest&&e.target.closest("#srail [data-stage]");if(!t||(e.key!=="ArrowRight"&&e.key!=="ArrowLeft"))return;const i=STAGES.findIndex(s=>s.k===t.dataset.stage);const n=STAGES[(i+(e.key==="ArrowRight"?1:STAGES.length-1))%STAGES.length];PB.stage=n.k;renderStages();const b=document.querySelector(`#srail [data-stage="${n.k}"]`);if(b)b.focus();});
 const IDEA_MODES={"idea-avatar":["hub","mini"],"idea-freepaid":["hub"],"idea-islands":["hub","mini"],"idea-tree":["rapid"],"idea-mun":["rapid"],"idea-city":["hub"]};
 const MODE_COLOR={hub:"var(--ink)",mini:"var(--mini)",rapid:"var(--rr)",later:"var(--line)",craft:"var(--acc)"};
-const MODE_GO={hub:"g-hub",mini:"g-mini",rapid:"g-rapid",later:"g-later",craft:"g-craft"};
+const MODE_GO={hub:"g-hub",mini:"g-later",rapid:"g-later",later:"g-later",craft:"g-look"};
 const chip=m=>`<a class="chip" href="#game" data-jump="${MODE_GO[m]||""}"><i class="sq" style="background:${MODE_COLOR[m]||"var(--line)"}"></i>${AREA[m]}</a>`;
 const TH_UP=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>`;
 const TH_DN=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg>`;
@@ -2462,18 +2809,122 @@ function renderVoteList(){
     html+=p===4&&voteFilter==="all"?`<details class="more vpark"><summary>${PR[p][0]}<span>${tier.length} open</span></summary><div class="in" style="gap:0">${body}</div></details>`:head+body;});}
   if(voteFilter==="all"||voteFilter==="decided"){html+=`<div class="vgroup"><h2>Decision log</h2><span class="label">Locked by the team</span></div><div class="locklist">${lockRows(DEC.filter(d=>d.st==="decided"))}</div>`;
     const ret=DEC_HIDDEN.filter(d=>d.__ret);
-    if(ret.length)html+=`<details class="more"><summary>Retired after Nov 12<span>${ret.length} replaced / every vote and comment kept</span></summary><div class="in"><div class="decs three">${ret.map(d=>{const t=T[d.id]||{up:[],down:[]};return `<div class="dec removed"><div class="dh"><span class="dtag">${AREA[d.a]||""}</span><span class="src">Final: ${t.up.length} up, ${t.down.length} down</span></div><h4>${d.t}</h4><p>${d.ret}</p>${decAdminBtns(d,true)}</div>`;}).join("")}</div></div></details>`;}
+    if(ret.length)html+=`<details class="more"><summary>Retired<span>${ret.length} replaced / every vote and comment kept</span></summary><div class="in"><div class="decs three">${ret.map(d=>{const t=T[d.id]||{up:[],down:[]};return `<div class="dec removed"><div class="dh"><span class="dtag">${AREA[d.a]||""}</span><span class="src">Final: ${t.up.length} up, ${t.down.length} down</span></div><h4>${d.t}</h4><p>${d.ret}</p>${decAdminBtns(d,true)}</div>`;}).join("")}</div></div></details>`;}
   if(!html)html=`<div class="empty">${voteFilter==="mine"?"You've voted on everything. Thank you.":"Nothing matches this filter yet."}</div>`;
   const rem=DEC_HIDDEN.filter(d=>!d.__ret);
   if(S.admin&&rem.length&&voteFilter==="all")html+=`<div class="vgroup"><h2>Removed</h2><span class="label">Only you see this. Votes on these are still saved.</span></div><div class="decs three">${rem.map(d=>`<div class="dec removed"><div class="dh"><span class="dtag">${AREA[d.a]||""}</span><span class="src">${d.src||""}</span></div><h4>${d.t}</h4>${d.b?`<p>${d.b}</p>`:""}${decAdminBtns(d,true)}</div>`).join("")}</div>`;
   host.innerHTML=html;dressPins(host);paintVotes();renderPins();
 }
 document.querySelectorAll("#vfilters button").forEach(b=>b.addEventListener("click",()=>{voteFilter=b.dataset.vf;document.querySelectorAll("#vfilters button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));renderVoteList();}));
+/* ================= v8 (Nov 16): the Bay, paper characters, tiers ================= */
+function shade(h,f){const n=parseInt(h.slice(1),16);const c=[n>>16,(n>>8)&255,n&255].map(v=>Math.max(0,Math.min(255,Math.round(v*f))));return "#"+c.map(v=>v.toString(16).padStart(2,"0")).join("");}
+function wins(x,y,w,d,z,h,floors,col){let s="";const fh=h/floors;
+  for(let f=0;f<floors;f++){const z0=z+f*fh+fh*.3,z1=z+f*fh+fh*.75;
+    for(let k=0;k<2;k++){const a=.18+k*.42,b=a+.22;
+      s+=pg([ip(x+w*a,y+d,z0),ip(x+w*b,y+d,z0),ip(x+w*b,y+d,z1),ip(x+w*a,y+d,z1)],col||"rgba(255,248,220,.75)");
+      s+=pg([ip(x+w,y+d*(1-a),z0),ip(x+w,y+d*(1-b),z0),ip(x+w,y+d*(1-b),z1),ip(x+w,y+d*(1-a),z1)],col||"rgba(255,248,220,.55)");}}
+  return s;}
+const PASTEL=["#F6B8C2","#A9DCF0","#F7DC96","#BFE3B4","#DCC3EE","#F8C9A0"];
+function rowhouse(x,y,z,i,flats){const c=PASTEL[i%PASTEL.length];const h=flats?26:18,w=.62,d=.56,ox=x+.19,oy=y+.22;
+  return blk(ox,oy,w,d,z,h,[shade(c,1.05),shade(c,.92),shade(c,.78)])+wins(ox,oy,w,d,z,h,flats?2:1)+roof(ox-.04,oy-.04,w+.08,d+.08,z+h,9,["#8E6E62","#7A5C52","#644A42"]);}
+function apt(x,y,z,floors,col,green){const h=floors*7.5,w=.74,d=.74,ox=x+.13,oy=y+.13;const c=col||"#E9E1D3";
+  let s=blk(ox,oy,w,d,z,h,[green?"#7CC48B":shade(c,1.02),shade(c,.9),shade(c,.76)])+wins(ox,oy,w,d,z,h,floors);
+  if(green){s+=treeZ(x+.3,y+.3,z+h,0,.55)+treeZ(x+.62,y+.55,z+h,1,.5);}return s;}
+function pyramid(x,y,z){const ox=x+.2,oy=y+.2;return blk(ox,oy,.6,.6,z,34,["#F3F1EC","#DCD8CF","#C2BDB2"])+wins(ox,oy,.6,.6,z,34,4,"rgba(140,170,190,.5)")+roof(ox,oy,.6,.6,z+34,64,["#FAF8F3","#E4E0D8","#CBC6BC"]);}
+function treeZ(x,y,z,k,s){s=s||1;const b=ip(x+.5*s,y+.5*s,z),g=k?["#3F8F63","#2F7551"]:["#5DB57E","#45975F"];
+  return `<ellipse cx="${b[0]}" cy="${b[1]}" rx="${8*s}" ry="${4*s}" fill="rgba(0,0,0,.16)"></ellipse><rect x="${b[0]-1.5*s}" y="${b[1]-8*s}" width="${3*s}" height="${8*s}" fill="#6B4B3A"></rect><circle cx="${b[0]}" cy="${b[1]-15*s}" r="${9*s}" fill="${g[0]}"></circle><circle cx="${b[0]+3*s}" cy="${b[1]-13*s}" r="${6*s}" fill="${g[1]}"></circle>`;}
+/* a paper-flat character standing in the 3D world */
+function paper(x,y,z,col,s,bang,delay){const b=ip(x,y,z);s=s||1;const w=12*s,h=27*s,X=b[0]-w/2,Y=b[1]-h;
+  return `<g class="a-bob" style="animation-delay:${delay||0}s"><ellipse cx="${b[0]}" cy="${b[1]}" rx="${7*s}" ry="${2.8*s}" fill="rgba(0,0,0,.25)"></ellipse>`+
+  `<rect x="${X+1.6*s}" y="${Y+.6}" width="${w}" height="${h}" rx="${3.4*s}" fill="#BEB6A6"></rect><rect x="${X}" y="${Y}" width="${w}" height="${h}" rx="${3.4*s}" fill="#FFFFFF"></rect>`+
+  `<rect x="${X+2.2*s}" y="${Y+12*s}" width="${w-4.4*s}" height="${h-14.5*s}" rx="${2.4*s}" fill="${col}"></rect><circle cx="${b[0]}" cy="${Y+7.4*s}" r="${4.4*s}" fill="#F2CFA9"></circle><circle cx="${b[0]-1.5*s}" cy="${Y+7*s}" r="${.6*s}" fill="#222"></circle><circle cx="${b[0]+1.5*s}" cy="${Y+7*s}" r="${.6*s}" fill="#222"></circle>`+
+  (bang?`<g class="a-wob"><circle cx="${b[0]+10*s}" cy="${Y-6*s}" r="${6.5*s}" fill="#FCC30B"></circle><text x="${b[0]+10*s}" y="${Y-3.4*s}" text-anchor="middle" style="font:700 ${9*s}px var(--display);fill:#0D1820">!</text></g>`:"")+`</g>`;}
+const BAYMAP=(()=>{const n=13,m=[];for(let y=0;y<n;y++){let r="";for(let x=0;x<n;x++){let t;
+  if(y<4||x<2||x>10)t="w";else if(y===4||x===2||x===10)t="s";else if(x===6||y===8)t="p";else if(x>=7&&y>=9)t=((x+y)%3===0)?"d":"g";else if(x<=5&&y>=9)t="g";else t="q";r+=t;}m.push(r);}return m;})();
+function bayGround(){const n=BAYMAP.length;let s=blk(-3,-3,n+6,n+6,-6,0,["#3E9DC6","#2F7EA2","#276A88"]);
+  s+=blk(2,4,9,9,-26,26,["#000","#7C5E49","#5F4737"]);
+  const T=Object.assign({},TILE,{q:["#E9E2D2","#E2DBCA"],p:["#CFC8B8","#C9C2B1"]});
+  for(let y=0;y<n;y++)for(let x=0;x<n;x++){const t=BAYMAP[y][x];if(t==="w"){const m=ip(x+.5,y+.5);if((x*7+y*3)%5===0)s+=`<path d="M${m[0]-9} ${m[1]} h8 M${m[0]+2} ${m[1]+4} h7" stroke="#CFEFFB" stroke-width="1.2" stroke-linecap="round" class="a-blink" style="animation-delay:${((x*3+y*5)%7)/5}s;animation-duration:2.8s"></path>`;continue;}
+    s+=pg([ip(x,y),ip(x+1,y),ip(x+1,y+1),ip(x,y+1)],T[t][(x+y)%2]);}
+  /* street paint */
+  for(let y=5;y<12;y++){const a=ip(6.5,y+.2),b=ip(6.5,y+.6);s+=`<path d="M${a[0]} ${a[1]} L${b[0]} ${b[1]}" stroke="#F5F1E6" stroke-width="1.4"></path>`;}
+  for(let x=3;x<10;x++){const a=ip(x+.2,8.5),b=ip(x+.6,8.5);s+=`<path d="M${a[0]} ${a[1]} L${b[0]} ${b[1]}" stroke="#F5F1E6" stroke-width="1.4"></path>`;}
+  return s;}
+function bayScene(mode){const O=[];const add=(k,svg)=>O.push([k,svg]);
+  /* bridge into the bay */
+  let br="";const deck=8;br+=blk(9.25,-2.6,.5,6.8,deck,2.4,["#E2553E","#B83F2C","#9C3424"]);
+  [[.6],[2.9]].forEach(t=>{const y=t[0];br+=blk(9.18,y,.64,.18,0,58,["#E8604A","#C44530","#A33826"]);});
+  const top1=ip(9.5,.69,58),top2=ip(9.5,2.99,58),e0=ip(9.5,-2.6,deck+2),e1=ip(9.5,4.2,deck+2),mid=ip(9.5,1.84,deck+12);
+  br+=`<path d="M${e0[0]} ${e0[1]} Q${(e0[0]+top1[0])/2} ${top1[1]+40} ${top1[0]} ${top1[1]} Q${mid[0]} ${mid[1]} ${top2[0]} ${top2[1]} Q${(top2[0]+e1[0])/2} ${top2[1]+40} ${e1[0]} ${e1[1]}" fill="none" stroke="#C44530" stroke-width="1.6"></path>`;
+  add(-5,br);
+  /* sailboat */
+  add(-4,(()=>{const b=ip(5,1.6,0);return `<g class="a-bob" style="animation-duration:3.4s"><path d="M${b[0]-12} ${b[1]} h24 l-5 6 h-14 z" fill="#FFFFFF"></path><path d="M${b[0]} ${b[1]-1} v-24 l12 22 z" fill="#F7F3EA"></path></g>`;})());
+  /* pier with shelters */
+  add(5.9,blk(3.2,1.8,.7,2.3,-1,3,["#B58D62","#94704B","#7C5D3E"])+[2.2,2.9,3.6].map((y,i)=>{const a=ip(3.3,y,2),b=ip(3.8,y,2),t=ip(3.55,y-.1,13);const c=["#4DB4DC","#F0566A","#FCC30B"][i];return `<polygon points="${a[0]},${a[1]} ${b[0]},${b[1]} ${t[0]},${t[1]}" fill="${c}"></polygon><polygon points="${b[0]},${b[1]} ${t[0]},${t[1]} ${ip(3.8,y-.25,2)[0]},${ip(3.8,y-.25,2)[1]}" fill="${shade(c.length===7?c:"#888888",.75)}"></polygon>`;}).join(""));
+  /* waterfront row houses */
+  [3,4,5,7,8,9].forEach((x,i)=>add(x+5,rowhouse(x,5,0,i,i===2)));
+  /* mixed block: tiers 1 to 3 */
+  add(9,rowhouse(3,6,0,4,false));add(10,rowhouse(4,6,0,1,true));add(11,apt(5,6,0,3,"#F1E4C9"));
+  add(10,treeZ(3,7,0,1));add(11.2,treeZ(4,7,0,0));add(12,apt(5,7,0,5,"#E6DED0",true));
+  /* downtown */
+  add(13,apt(7,6,0,7,"#DDE3E6"));add(14,pyramid(8,6,0));add(15,apt(9,6,0,5,"#EADCCB",true));
+  add(14.1,apt(7,7,0,4,"#F0E6D6",true));add(15.1,apt(8,7,0,9,"#D7DEE2"));add(16,apt(9,7,0,6,"#E9E1D3"));
+  /* the hill */
+  add(11.9,blk(3,9,3,3,0,18,["#9AD3A3","#6E9C64","#5A8452"]));
+  [[3,9,0],[4,9,2],[5,9,5],[3,10,3]].forEach((h,i)=>add(h[0]+h[1]+.1,rowhouse(h[0],h[1],18,h[2],i===1)));
+  [[4,10],[5,10],[3,11],[4,11],[5,11]].forEach((t,i)=>add(t[0]+t[1]+.1,treeZ(t[0],t[1],18,i%2)));
+  /* park and garden */
+  [[7,9],[9,9],[7,11],[9,11],[10,10]].forEach((t,i)=>{if(t[0]<=10)add(t[0]+t[1],treeZ(t[0],t[1],0,i%2));});
+  add(18,(()=>{let s="";for(let k=0;k<3;k++){const a=ip(8.1,10.2+k*.28),b=ip(8.9,10.2+k*.28);s+=`<path d="M${a[0]} ${a[1]} L${b[0]} ${b[1]}" stroke="#7FA83A" stroke-width="3"></path>`;}return s;})());
+  /* cable car on the main street */
+  add(16.2,blk(6.25,10.1,.5,.9,0,9,["#F5EBD3","#C7372A","#A72E23"])+wins(6.25,10.1,.5,.9,0,9,1,"rgba(255,248,220,.9)"));
+  /* residents, the Steward */
+  add(9.3,paper(4.6,4.7,0,"#FD6925",1,true,.2));
+  add(15.6,paper(7.6,8.3,0,"#56C02B",.9,false,.6));add(13.8,paper(5.3,8.5,0,"#DD1367",.9,true,1));add(18.8,paper(8.4,10.6,0,"#26BDE2",.9,false,.4));
+  add(13.6,paper(3.6,10.6,18,"#A21942",.85,false,.9));
+  const st=ip(6.45,7.4,0);
+  add(13.9,`<ellipse cx="${st[0]}" cy="${st[1]}" rx="22" ry="11" fill="none" stroke="#FCC30B" stroke-width="2" class="a-ping"></ellipse>`+paper(6.45,7.4,0,"#19486A",1.45,false,0));
+  /* click-to-move marker */
+  const tg=ip(4.4,4.75,0);add(9.2,`<g><path d="M${st[0]} ${st[1]} Q${(st[0]+tg[0])/2} ${Math.min(st[1],tg[1])-40} ${tg[0]} ${tg[1]}" fill="none" stroke="#FCC30B" stroke-width="1.6" stroke-dasharray="3 5" class="a-flow"></path><ellipse cx="${tg[0]}" cy="${tg[1]}" rx="9" ry="4.5" fill="none" stroke="#FCC30B" stroke-width="1.6"></ellipse></g>`);
+  O.sort((a,b)=>a[0]-b[0]);
+  const fog=`<g class="cloud" opacity=".85"><ellipse cx="-300" cy="40" rx="70" ry="14" fill="#FFFFFF"></ellipse><ellipse cx="-262" cy="30" rx="40" ry="12" fill="#FFFFFF"></ellipse></g><g class="cloud c2" opacity=".75"><ellipse cx="260" cy="-10" rx="56" ry="12" fill="#FFFFFF"></ellipse><ellipse cx="290" cy="-18" rx="30" ry="10" fill="#FFFFFF"></ellipse></g>`;
+  const vb=mode==="in"?`${st[0]-150} ${st[1]-135} 300 175`:mode==="sm"?"-420 -40 840 520":"-470 -70 940 560";
+  return `<svg viewBox="${vb}" role="img" aria-label="${mode==="in"?"Zoomed in on the Steward, a flat paper-style character standing on a city street, with residents nearby.":"An isometric view of a hilly coastal city on a bay: colorful row houses, a downtown with a pyramid tower, a park, a cable car, a red suspension bridge and a pier with tents. Flat paper-style characters stand in the streets."}"><defs><radialGradient id="bayglow-${mode}" cx="50%" cy="50%" r="55%"><stop offset="0" stop-color="#5FB6D9" stop-opacity=".35"></stop><stop offset="1" stop-color="#5FB6D9" stop-opacity="0"></stop></radialGradient></defs><ellipse cx="0" cy="230" rx="520" ry="300" fill="url(#bayglow-${mode})"></ellipse>${bayGround()}${O.map(o=>o[1]).join("")}${mode==="in"?"":fog}</svg>`;}
+function tierScene(){const T=[["Tier 1","House",s=>rowhouse(0,0,0,0,false)],["Tier 2","Two flats",s=>rowhouse(0,0,0,1,true)],["Tier 3","Apartments",s=>apt(0,0,0,3,"#F1E4C9")],["Tier 4","Mid-rise, green roof",s=>apt(0,0,0,7,"#E6DED0",true)],["Tier 5","Tower",s=>apt(0,0,0,14,"#D7DEE2")]];
+  let s="";T.forEach((t,i)=>{const x=-320+i*160;s+=`<g transform="translate(${x} 130) scale(1.6)">${blk(-.1,-.1,1.2,1.2,-6,6,["#E9E2D2","#B9A88E","#9F8E74"])}${t[2]()}</g><text x="${x}" y="226" text-anchor="middle" style="font:500 11px var(--mono);fill:${i===1?"#FCC30B":"#7E95A3"};letter-spacing:.08em">${t[0].toUpperCase()}</text><text x="${x}" y="246" text-anchor="middle" style="font:500 14px var(--display);fill:#FFFFFF">${t[1]}</text>`;
+    if(i)s+=`<path d="M${x-100} 150 h34" stroke="#3A5466" stroke-width="2" stroke-dasharray="3 5"></path><path d="M${x-70} 145 l6 5 l-6 5" fill="none" stroke="#3A5466" stroke-width="2"></path>`;});
+  return `<svg viewBox="-420 -70 840 340" role="img" aria-label="Five housing tiers side by side: a house, two flats, apartments, a mid-rise with a green roof, and a tower.">${s}</svg>`;}
+/* camera-view icons for the reference cards */
+const VIEWICON={
+ paper:`<svg viewBox="0 0 80 48" aria-hidden="true"><path d="M8 32 L40 18 L72 32 L40 46 Z" class="sk"></path><path d="M30 30 v-12 h10 v12" class="sk"></path><rect x="48" y="16" width="8" height="18" rx="2" class="fb sk"></rect><circle cx="52" cy="21" r="2" class="fi"></circle></svg>`,
+ top:`<svg viewBox="0 0 80 48" aria-hidden="true"><rect x="14" y="4" width="52" height="40" class="sk"></rect><path d="M14 17 h52 M14 30 h52 M31 4 v40 M48 4 v40" class="sk" stroke-width=".6"></path><rect x="35" y="21" width="9" height="9" class="fi"></rect></svg>`,
+ iso:`<svg viewBox="0 0 80 48" aria-hidden="true"><path d="M8 30 L40 16 L72 30 L40 44 Z" class="sk"></path><path d="M32 26 L40 22 L48 26 L48 34 L40 38 L32 34 Z M32 26 L40 30 L48 26 M40 30 V38" class="sk"></path></svg>`,
+ front:`<svg viewBox="0 0 80 48" aria-hidden="true"><path d="M6 40 h68" class="sk"></path><path d="M10 40 V14 h60 V40" class="sk" stroke-dasharray="2 3"></path><circle cx="30" cy="24" r="4" class="sk"></circle><path d="M24 40 a6 8 0 0 1 12 0" class="sk"></path><circle cx="50" cy="24" r="4" class="sk"></circle><path d="M44 40 a6 8 0 0 1 12 0" class="sk"></path></svg>`
+};
+const REFS=[
+ {n:"Paper Mario: The Thousand-Year Door",v:"paper",vl:"3D world, flat paper characters / side-on, slightly raised",t:"The model for our look. Built 3D sets, paper-flat people. Say \"Paper Mario\" and everyone gets it.",src:"Nov 16 / the team",w:"Paper_Mario:_The_Thousand-Year_Door"},
+ {n:"Stardew Valley",v:"top",vl:"2D pixel art / top-down",t:"The format: a small town you can walk all of and come to care about. We want an urban version.",src:"Nov 16 / Julia's board",w:"Stardew_Valley"},
+ {n:"Animal Crossing: New Horizons",v:"iso",vl:"3D / fixed overhead angle",t:"The Steward model. You do favors for residents and the relationship grows. Not Clash of Clans.",src:"Nov 16",w:"Animal_Crossing:_New_Horizons"},
+ {n:"Tomodachi Life",v:"front",vl:"3D / front-facing",t:"Residents with personalities, and relationships you can level up.",src:"Nov 16",w:"Tomodachi_Life"},
+ {n:"Monument Valley",v:"iso",vl:"3D, orthographic / isometric",t:"Proof that a 3D world can read as flat and calm. Gray showed this camera working in Unreal.",src:"Nov 9 / Gray, Nov 16 demo",w:"Monument_Valley_(video_game)"}
+];
+function drawRefs(){const h=$("refgrid");if(!h)return;
+  h.innerHTML=REFS.map((r,i)=>`<div class="ref"><div class="vi">${VIEWICON[r.v]}</div><span class="label">${r.vl}</span><h4>${r.n}</h4><p>${r.t}</p><div class="rl"><a href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(r.n+" gameplay screenshot")}" target="_blank" rel="noopener">Screenshots</a><a href="https://en.wikipedia.org/wiki/${r.w}" target="_blank" rel="noopener">About</a><span class="credit">${r.src}</span></div><div><button class="pin" data-t="ref-${i}" data-l="Reference: ${r.n}">Pin</button></div></div>`).join("")+
+  `<div class="ref ask"><div class="vi">${VIEWICON.iso}</div><span class="label">Julia's mood board</span><h4>Organicism meets cityscape</h4><p>The bottom-center image was the strongest reference on Nov 16. Julia, add it below with a picture link so everyone can see it.</p></div>`;
+  dressPins(h);}
+const WORLD=[["The Bay","North America / first city","San Francisco, renamed. Homelessness, inequality, addiction, mental health. Room to satirize the California coast.","set"],["London","Europe / strong second","Flooding and water management, crops and sunlight, medieval streets.","vote"],["Asia","Open","","open"],["Africa","Open","","open"],["South America","Open","","open"],["Oceania","Open","","open"],["Seventh pick","Open","","open"]];
+function drawWorld(){const h=$("worldrow");if(!h)return;h.innerHTML=WORLD.map((w,i)=>`<div class="${w[3]}"><span class="label">${String(i+1).padStart(2,"0")}</span><b>${w[0]}</b><span class="sub">${w[1]}</span>${w[2]?`<p>${w[2]}</p>`:""}</div>`).join("");}
+document.addEventListener("click",e=>{const b=e.target.closest("#g-oldtoggle");if(!b)return;const o=$("g-old");const open=o.hidden;o.hidden=!open;b.setAttribute("aria-expanded",String(open));b.textContent=open?"Hide the earlier write-ups":"Show the earlier write-ups, Nov 5 to 12";if(open){fillDecs(o);hydrateFrames(o);paintVotes();renderPins();o.scrollIntoView({behavior:"smooth",block:"start"});}});
+(function(){const base=fillDecs;const row=d=>`<div><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"></path></svg>${d.t}<span>${d.src}</span></div>`;
+  fillDecs=function(root){base(root);const dd=DEC.filter(d=>d.st==="decided");const rec=d=>/Nov 16/.test(d.src||"");
+    root.querySelectorAll("[data-lockrecent]").forEach(h=>{h.innerHTML=dd.filter(rec).map(row).join("");});
+    root.querySelectorAll("[data-lockolder]").forEach(h=>{h.innerHTML=dd.filter(d=>!rec(d)).map(row).join("");});};})();
+
 function drawSprint(){
   const host=$("sprint");if(!host)return;const D=(m,d)=>Date.UTC(2026,m-1,d);const s=D(11,9),e=D(12,4),span=e-s;const pos=t=>Math.max(0,Math.min(100,(t-s)/span*100));
-  const PH=[["Lock the concept","Phase 0",D(11,9),D(11,17),"","Concept"],["Find the fun","Phase 1",D(11,16),D(11,20),"b2","Prototype, corner"],["First playable","Phase 2",D(11,20),D(11,30),"b3","First playable"],["Freeze and present","Phase 3",D(11,30),D(12,4),"b4","Freeze"]];
-  const marks=[["Mon Nov 9",D(11,9)],["Mon Nov 16",D(11,16)],["Thu Nov 19",D(11,19)],["Thanksgiving",D(11,26)],["Mon Nov 30",D(11,30)],["Thu Dec 3",D(12,3)]];
-  const gates=[D(11,16),D(11,19),D(11,30),D(12,3)];
+  const PH=[["Lock the concept","Phase 0",D(11,9),D(11,17),"","Concept"],["Pick the loop","Phase 1",D(11,16),D(11,20),"b2","Hypotheses"],["Build the two","Phase 2",D(11,19),D(11,30),"b3","Gray loop + corner"],["Combine and present","Phase 3",D(11,30),D(12,4),"b4","Playable, trailer"]];
+  const marks=[["Mon Nov 16",D(11,16)],["Thu Nov 19",D(11,19)],["Thanksgiving",D(11,26)],["Sun Nov 29",D(11,29)],["Thu Dec 3",D(12,3)]];
+  const gates=[D(11,16),D(11,19),D(11,29),D(12,3)];
   const n=new Date();const today=Date.UTC(n.getFullYear(),n.getMonth(),n.getDate());const mid=t=>pos(t+43200000);
   const ticks=marks.map(m=>`<i class="tick" style="left:${mid(m[1])}%"></i>`).join("")+(today>=s&&today<e?`<i class="now" style="left:${mid(today)}%"></i>`:"");
   host.innerHTML=`<div class="axis">${marks.map(m=>`<span style="left:${mid(m[1])}%">${m[0]}</span>`).join("")}</div>`+PH.map(p=>`<div class="ph"><div class="nm"><b>${p[0]}</b><span>${p[1]}</span></div><div class="trk">${ticks}<div class="bar ${p[4]}" style="left:${pos(p[2])}%;width:${pos(p[3])-pos(p[2])}%">${p[5]}</div>${gates.filter(g=>g>=p[2]&&g<p[3]).map(g=>`<i class="gate" style="left:${mid(g)}%" title="Gate"></i>`).join("")}</div></div>`).join("");
@@ -2485,20 +2936,48 @@ INIT.foundation=function(){const v=$("v-foundation");
   fillDecs(v);paintVotes();renderPins();};
 INIT.game=function(){const v=$("v-game");
   v.querySelectorAll("[data-board]").forEach(e=>{const k=e.dataset.board;e.innerHTML=BOARDS[k].map((p,i)=>`<div class="panel">${frame(p[0],String(i+1).padStart(2,"0"))}<div class="row"><h4>${p[1]}</h4><button class="pin" data-t="${k}-p${i+1}" data-l="${MODE[k]} frame ${i+1}: ${p[1]}">Pin</button></div><p>${p[2]}</p>${p[3]?`<span class="credit">${p[3]}</span>`:""}</div>`).join("");});
-  const mp=$("mpart");if(mp)mp.dataset.art="mp";
-  $("hubscene").innerHTML=hubScene();$("ladderscene").innerHTML=ladderScene();$("levelscene").innerHTML=levelScene();
+  const mp=$("oldmpart");if(mp)mp.dataset.art="mp";
+  $("oldhubscene").innerHTML=hubScene();$("oldladderscene").innerHTML=ladderScene();$("oldlevelscene").innerHTML=levelScene();
+  $("bayscene").innerHTML=bayScene("full");$("bayout").innerHTML=bayScene("sm");$("bayin").innerHTML=bayScene("in");$("tierscene").innerHTML=tierScene();drawRefs();drawWorld();
   fillDecs(v);hydrateFrames(v);paintVotes();renderPins();};
 INIT.playbook=function(){const v=$("v-playbook");
   renderStages();drawSprint();fillDecs(v);paintVotes();renderPins();};
 INIT.votes=function(){renderVoteList();};
 (function(){const base=INIT.ideas;INIT.ideas=function(){base();const host=$("ideas");
-  host.querySelectorAll(".idea").forEach((n,i)=>{const d=IDEAS[i];const f=el("div","modechips");f.innerHTML=(IDEA_MODES[d.id]||[]).map(chip).join("");const l=n.querySelector(".l");l.insertBefore(f,l.lastElementChild);});
-  const n9=$("ideas-n9");n9.innerHTML=["hub","mini","rapid","later"].map(a=>{const it=DEC.filter(d=>d.k==="idea"&&d.n9&&d.a===a);return it.length?`<div class="vgroup" style="margin-top:20px"><h2>${AREA[a]}</h2>${chip(a)}</div><div class="decs three">${it.map(x=>decCard(x,true)).join("")}</div>`:"";}).join("");
+  const pk=$("ideas-parked");let ph="";
+  host.querySelectorAll(".idea").forEach((n,i)=>{const d=IDEAS[i];const m=IDEA_MODES[d.id]||[];if(!m.includes("hub")){pk.appendChild(n);return;}const f=el("div","modechips");f.innerHTML=chip("hub");const l=n.querySelector(".l");l.insertBefore(f,l.lastElementChild);});
+  const n9=$("ideas-n9");const hubIt=DEC.filter(d=>d.k==="idea"&&d.n9&&d.a==="hub");n9.innerHTML=`<div class="decs three">${hubIt.map(x=>decCard(x,true)).join("")}</div>`;
+  ph=["mini","rapid","later"].map(a=>{const it=DEC.filter(d=>d.k==="idea"&&d.n9&&d.a===a);return it.length?`<div class="vgroup" style="margin-top:20px"><h2>${AREA[a]}</h2></div><div class="decs three">${it.map(x=>decCard(x,true)).join("")}</div>`:"";}).join("");
+  pk.insertAdjacentHTML("afterbegin",ph);dressPins(pk);
   dressPins(n9);paintVotes();renderPins();};})();
 
+/* ================= v8 (Nov 18): Names tab ================= */
+function nameCard(d){let h=decCard(d);
+  const extra=(d.say?`<span class="say">Say: ${d.say}</span>`:"");
+  h=h.replace("</h4>","</h4>"+extra);
+  if(d.flag)h=h.replace(`<div class="meter"`,`<p class="nflag"><b>Catch</b>${d.flag}</p><div class="meter"`);
+  if(d.user){const v=viewOf("names")[d.user];if(v&&canEditItem(v))h=h.replace(`<div class="dis"></div>`,`<div class="dis"></div><div class="adm" style="display:flex"><button type="button" data-nedit="${d.user}">Edit</button></div>`);}
+  return h;}
+function nameRank(list,T){return list.slice().sort((a,b)=>{const ta=T[a.id]||{up:[],down:[]},tb=T[b.id]||{up:[],down:[]};return (tb.up.length-tb.down.length*.5)-(ta.up.length-ta.down.length*.5)||(a.user?1:0)-(b.user?1:0);});}
+function nameLeads(kind,T){const L=nameRank(DEC.filter(d=>d.a==="name"&&d.k==="idea"&&d.g===kind),T).filter(d=>(T[d.id]||{up:[]}).up.length);
+  return L.length?L.slice(0,3).map((d,i)=>`<span><b>${i+1}</b>${d.t}<em>${T[d.id].up.length} up</em></span>`).join(""):`<span class="none">No votes yet. Be the first.</span>`;}
+function renderNames(){const host=$("names-body");if(!host||!done.names)return;const T=tally();
+  const rules=DEC.filter(d=>d.a==="name"&&d.k==="decision"&&d.st!=="decided");
+  const sec=(kind,title,sub,btn)=>{const items=nameRank(DEC.filter(d=>d.a==="name"&&d.k==="idea"&&d.g===kind),T);
+    return `<div class="nmhead" id="nm-${kind}"><div><span class="label">${sub}</span><h2>${title}</h2></div><div class="leads">${nameLeads(kind,T)}</div><button type="button" class="btn solid small" data-addname="${kind==="game"?"Game":"Company"}">${btn}</button></div><div class="decs three names">${items.map(nameCard).join("")}</div>`;};
+  host.innerHTML=sec("company","The studio","01 / Company name","Add a studio name")+sec("game","The game","02 / Game name","Add a game name")+
+    (rules.length?`<div class="nmhead"><div><span class="label">03 / Ground rules</span><h2>How we're choosing</h2></div></div><div class="decs two">${rules.map(x=>decCard(x)).join("")}</div>`:"");
+  dressPins(host);paintVotes();renderPins();}
+function paintNameLeads(){const T=tally();const f=$("f-nameleads");if(f)f.innerHTML=`<div><span class="label">Studio / leading</span><div class="leads">${nameLeads("company",T)}</div></div><div><span class="label">Game / leading</span><div class="leads">${nameLeads("game",T)}</div></div>`;
+  ["company","game"].forEach(k=>{const h=document.querySelector(`#nm-${k} .leads`);if(h)h.innerHTML=nameLeads(k,T);});}
+(function(){const base=paintVotes;paintVotes=function(){base();paintNameLeads();};})();
+document.addEventListener("click",e=>{const a=e.target.closest("[data-addname]");if(a){const m=gateMsg();if(m){toast(m);return;}openEntry("names",null,{kind:a.dataset.addname});return;}
+  const ed=e.target.closest("[data-nedit]");if(ed)openEntry("names",ed.dataset.nedit);});
+INIT.names=function(){renderNames();};
+
 /* ================= routing ================= */
-const VIEWS=["foundation","game","playbook","votes","history","ideas","timeline","team","deliverables","personas","stakeholders","hmw","foursets","questions","board","values","intel"];
-const VIEW_COLS={foundation:["people","decisions"],game:["people","decisions"],playbook:["people","decisions"],votes:["people","decisions"],history:["people","log"],ideas:["people","ideas"],timeline:["people","tasks"],team:["people","roles"],deliverables:["people","deliverables"],personas:["people","personas"],stakeholders:["people","stakeholders"],hmw:["people","hmw"],foursets:["people","foursets"],questions:["people","questions"],board:["people"],values:["people","values"],intel:["people","intelligences"]};
+const VIEWS=["foundation","game","playbook","names","votes","history","ideas","timeline","team","deliverables","personas","stakeholders","hmw","foursets","questions","board","values","intel"];
+const VIEW_COLS={foundation:["people","decisions","names"],game:["people","refs","decisions"],playbook:["people","decisions"],names:["people","names","decisions"],votes:["people","decisions","names"],history:["people","log"],ideas:["people","ideas"],timeline:["people","tasks"],team:["people","roles"],deliverables:["people","deliverables"],personas:["people","personas"],stakeholders:["people","stakeholders"],hmw:["people","hmw"],foursets:["people","foursets"],questions:["people","questions"],board:["people"],values:["people","values"],intel:["people","intelligences"]};
 const done={};let curView="foundation";const ALIAS={pitch:"game",hub:"game",home:"foundation"};
 function route(){
   let h=(location.hash||"#foundation").slice(1);h=ALIAS[h]||h;const v=VIEWS.includes(h)?h:"foundation";curView=v;
@@ -2826,6 +3305,8 @@ tasks:{title:"Task",t:"name",fields:[["name","Task","text"],["owner","Owner","te
 hmw:{title:"How might we",t:"statement",fields:[["statement","How might we...","text"],["goal","Company goal it serves","select",["1 / Make people feel it","2 / Turn play into action","3 / Scale to fund it","Cross-cutting"]],["source","Source","text"],["notes","Notes","area"]]},
 foursets:{title:"Four Sets entry",t:"text",group:"set",groups:["Desirability","Feasibility","Viability","Sustainability"],fields:[["set","Set","select",["Desirability","Feasibility","Viability","Sustainability"]],["kind","Type","select",["Hypothesis","Evidence","Risk","Test to run"]],["text","Entry","area"],["owner","Owner","text"]]},
 questions:{title:"Question",t:"question",group:"status",groups:["Open","Decided"],fields:[["question","Question","text"],["context","Context","area"],["owner","Owner","text"],["status","Status","select",["Open","Decided"]],["answer","Answer or decision","area"]]},
+names:{title:"Name idea",t:"title",fields:[["title","Name","text"],["kind","For","select",["Company","Game"]],["say","How to say it","text"],["meaning","Meaning or story","area"],["flag","Any catch? (taken, hard to spell)","text"]]},
+refs:{title:"Reference",t:"name",fields:[["name","Game, film or image","text"],["view","Camera view","select",["Top-down","Isometric","3D world, flat characters","Side-on","Front-facing","Third person","Other"]],["take","What we take from it","area"],["image","Picture link (https, ends in .jpg or .png)","text"],["link","More info link","text"]]},
 ideas:{title:"Idea",t:"title",fields:[["title","Idea","text"],["pitchedBy","Pitched by","text"],["summary","Summary","area"],["fit","Where it plugs into the Hub","area"]]},
 values:{title:"Value",t:"text",fields:[["kind","Type","select",["Core value","Problem statement","Mission","Vision","Value statement","Objective"]],["title","Short name (values and objectives)","text"],["text","Statement","area"],["note","In practice, or how we measure it","area"],["status","Status","select",["Draft","Agreed"]],["order","Order (1, 2, 3...)","text"]]},
 intelligences:{title:"Intelligence",t:"name",fields:[["person","Whose","select",PEOPLE.map(p=>p[0]).concat(["Someone else"])],["name","Intelligence (a word or two)","text"],["line","In one line","text"],["story","Where it comes from","area"],["order","Order (1, 2, 3...)","text"]]}
@@ -3001,9 +3482,16 @@ intelligences(){
   host.appendChild(grid);deletedToggle(col,host,del);dressPins(host);
 },
 log(){renderHistory();},
+names(){applyDecisions();S.decSig=JSON.stringify(viewOf("decisions"));["foundation","game","playbook"].forEach(v=>{if(done[v]){const r=$("v-"+v);if(r)fillDecs(r);}});renderNames();if(done.votes)renderVoteList();else paintVotes();renderPins();},
+refs(){const col="refs",host=document.querySelector('[data-list="refs"]');if(!host)return;host.textContent="";const {live,del}=listItems(col);statusLine(col,live.length,["reference","references"]);
+  if(!live.length&&S.subs[col]==="live")emptyBox(host,"No team references yet. Add a screenshot link of a game, a building or a mood-board image.");
+  const grid=el("div","cards refcards");live.sort((a,b)=>(a[1].at||0)-(b[1].at||0)).forEach(([id,v])=>{const c=card(col,id,v,{meta:[v.view],fields:[["take","What we take"]]});
+    const u=String(v.image||"").trim();if(/^https:\/\/[^\s"']+$/i.test(u)){const im=document.createElement("img");im.src=u;im.alt=esc(v.name);im.loading="lazy";im.referrerPolicy="no-referrer";im.className="refimg";c.insertBefore(im,c.firstChild);}
+    const l=String(v.link||"").trim();if(/^https?:\/\/[^\s"']+$/i.test(l)){const a=document.createElement("a");a.href=l;a.target="_blank";a.rel="noopener";a.className="credit";a.textContent="More";c.insertBefore(a,c.querySelector(".stamp"));}
+    grid.appendChild(c);});host.appendChild(grid);deletedToggle(col,host,del);dressPins(host);},
 decisions(){const sig=JSON.stringify(viewOf("decisions"));if(sig===S.decSig)return;S.decSig=sig;applyDecisions();
   ["foundation","game","playbook"].forEach(v=>{if(done[v]){const r=$("v-"+v);if(r)fillDecs(r);}});
-  if(done.votes)renderVoteList();else paintVotes();renderPins();},
+  if(done.names)renderNames();if(done.votes)renderVoteList();else paintVotes();renderPins();},
 people(){renderPins();if(done.history)renderHistory();if(done.votes)renderVoteList();else paintVotes();statusLine("people",allPins().filter(p=>!isVote(p)||p.kind==="down").length,"comment");},
 personas(){R.grouped("personas","persona",{card:v=>({avatar:character(v),meta:[v.segment,v.hook],quote:"quote",fields:[["who","Who they are"],["wants","What they want"],["frustrations","What turns them off"]]})});},
 stakeholders(){R.grouped("stakeholders","stakeholder",{card:v=>({meta:["Influence: "+(v.influence||"?"),v.owner?"Owner: "+v.owner:""],fields:[["interest","What they care about"],["need","What we need from them"]]})});},
@@ -3063,6 +3551,7 @@ tasks(){
 }
 };
 function renderCol(col){
+  if(col==="names"){RENDER.names();return;}
   if(col==="people"){RENDER.people();return;}
   if(col==="decisions"){RENDER.decisions();return;}
   if(col==="moderation"){RENDER.people();return;}
