@@ -649,6 +649,17 @@ a.chip:hover{border-color:var(--ink)}
 .hlog .row .k.del{color:#C5192D}
 .hlog .row p{margin:4px 0 0;color:var(--ink)}
 .hlog .row .t{color:var(--muted);font-size:13px}
+a.where{display:inline-flex;align-items:baseline;gap:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+a.where:hover{color:var(--ink)}
+a.where i{font-style:normal;text-decoration:none}
+.jumped{outline:2px solid var(--acc);outline-offset:6px;transition:outline-color 1.2s ease}
+.jumped.fade{outline-color:transparent}
+#jumpback{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;display:none;align-items:center;gap:10px;background:var(--ink);color:var(--bg);border:0;padding:10px 16px;font:500 13px var(--sans,system-ui);cursor:pointer}
+#jumpback.on{display:inline-flex}
+#jumpback span{opacity:.7;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+.spot .tally{display:flex;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted)}
+.spot .tally b{color:var(--ink);font-weight:500}
+.spot .tally .bad b{color:#C5192D}
 @media (max-width:640px){.hlog .row{grid-template-columns:1fr;gap:4px}}
 .safe{border:1px solid var(--line);padding:16px 18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
 .safe p{margin:0;font-size:14px;color:var(--muted);max-width:70ch}
@@ -838,7 +849,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
 .tracks > div + div{padding-left:14px;border-left:1px solid var(--line)}
 .tracks b{font-size:16px;font-weight:500}.tracks p{font-size:13px;color:var(--muted)}
 .srail button.done{border-bottom-color:var(--rr)}.srail button.done .label{color:var(--rr)}
-.ship{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.ship{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
 .shipcard .stg{all:unset;cursor:pointer;font-family:var(--mono);font-size:11px;text-decoration:underline;text-underline-offset:3px;color:var(--acc)}
 .shipcard{border:1px solid var(--ink);padding:24px;display:flex;flex-direction:column;gap:14px}
 .shipcard h3{font-size:30px;font-weight:400;letter-spacing:-0.03em;line-height:1.05}
@@ -908,14 +919,14 @@ header.top .row2 .wrap{scrollbar-width:thin}
   <div class="gridbg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="t">
-      <div class="label">17SG / Inc.ub8 / UH 4504 / Updated after the Nov 16 design meeting</div>
+      <div class="label">17SG / Inc.ub8 / UH 4504 / Updated after the Thu Nov 19 all-hands</div>
       <h1>Real places.<br>Real crises.<br>Your community.</h1>
       <p class="lede">A PC game where you steward a city modelled on a real one, get to know the people who live there, and respond when the world changes.</p>
       <div class="status-row">
-        <span><i class="sq" style="background:var(--warn)"></i>Now: the gray loop and the beautiful corner</span>
-        <span><i class="sq" style="background:var(--ink)"></i>Due: end of Thanksgiving break</span>
-        <span><i class="sq" style="background:var(--acc)"></i>First city: the Bay</span>
-        <span><i class="sq" style="background:var(--line)"></i>Rapid Response, Mini games, the Lab: later</span>
+        <span><i class="sq" style="background:var(--warn)"></i>Now: building. Gray loop, beautiful corner, business plan deck</span>
+        <span><i class="sq" style="background:var(--ink)"></i>Due: Thu Dec 3 presentation</span>
+        <span><i class="sq" style="background:var(--acc)"></i>First city: San Francisco</span>
+        <span><i class="sq" style="background:var(--line)"></i>Hub only for now. The Lab is earned, later</span>
       </div>
     </div>
     <div class="mark" aria-hidden="true"><svg viewBox="0 0 200 200"><g class="ring" id="heroring"></g></svg><b>17SG</b></div>
@@ -924,15 +935,15 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <section class="changed" aria-labelledby="chg-h">
   <div class="wrap">
-    <div class="h"><div class="label">Mon Nov 16 / design meeting</div><h2 id="chg-h">What changed</h2>
+    <div class="h"><div class="label">Thu Nov 19 / all-hands</div><h2 id="chg-h">What changed</h2>
       <div class="btns"><a class="btn solid" href="#playbook">Who owns what</a><a class="btn" href="#names">Vote on names</a></div></div>
     <ul>
-      <li><b>01</b><span><strong>Two things to ship</strong> by the end of Thanksgiving break: the <strong>beautiful corner</strong> (Julia) and the <strong>gray loop</strong> (Gray). Everything else supports them.</span></li>
-      <li><b>02</b><span><strong>Unreal Engine.</strong> A 3D world that reads as 2D, like Paper Mario. Gray showed the camera working live.</span></li>
-      <li><b>03</b><span><strong>First city: San Francisco</strong> and the Bay, renamed. Coastal cities first everywhere. London is the strong second.</span></li>
-      <li><b>04</b><span><strong>The Steward does favors</strong> and builds relationships, like Animal Crossing. Click to move.</span></li>
-      <li><b>05</b><span><strong>Buildings grow in about five tiers.</strong> Julia models in Rhino, Gray brings them into Unreal.</span></li>
-      <li><b>06</b><span><strong>Thursday:</strong> Eleazar and James bring gray-loop ideas. Before then, give Mark's five tracks ten seconds each, and vote on <a href="#names">names</a>.</span></li>
+      <li><b>01</b><span><strong>Voting is over. We're building.</strong> Gray (technical) and Julia (creative) make the build calls so work keeps moving. Votes stay on record as input. Names are still a vote.</span></li>
+      <li><b>02</b><span><strong>Dec 3 is three things:</strong> the <strong>gray loop</strong> (Gray), the <strong>beautiful corner</strong> (Julia) and the <strong>business plan deck</strong> (James). Stretch: the dean plays the gray loop for two or three minutes.</span></li>
+      <li><b>03</b><span><strong>The crisis is the hook, not the whole game.</strong> It hits, you debrief, you deploy, it resolves. Between crises you run the city, and the fallout (hunger, inequality, broken services) is where the goals live.</span></li>
+      <li><b>04</b><span><strong>One crisis, built all the way.</strong> San Francisco, full 3D. Earthquake or LA drought is still to pick, plus the two or three goals the first slice covers.</span></li>
+      <li><b>05</b><span><strong>The plan:</strong> about $5K for the vertical slice, Early Access on Steam at $9.99, Hub only, aiming for August. No pay to win. NGO partners only.</span></li>
+      <li><b>06</b><span><strong>Before Dec 3:</strong> sign up for Apex on your own through the Canvas invite, drop your comments on the business plan deck, and add or vote on <a href="#names">names</a>.</span></li>
     </ul>
   </div>
 </section>
@@ -985,12 +996,22 @@ header.top .row2 .wrap{scrollbar-width:thin}
   <div class="wrap">
     <aside class="side"><span class="n">03</span><span class="label">This semester</span></aside>
     <div class="main">
-      <div><h2>Tangible progress by Dec 3.</h2><p class="intro">We are not shipping a game in December. We are showing a plan, something you can play, something you can watch, and one clear story.</p></div>
+      <div><h2>Three things on Dec 3.</h2><p class="intro">Set at the Nov 19 all-hands. A plan you can fund, something you can play, and one screen that shows how it looks. The presentation ties them together.</p></div>
       <div class="order" style="grid-template-columns:repeat(4,minmax(0,1fr))">
-        <div><span class="label">Thu Nov 19</span><b>Business plan</b><p>Revenue and impact model, market, partners, costs. Colin, Henry, James.</p></div>
-        <div><span class="label">Sun Nov 29</span><b>Gray loop + beautiful corner</b><p>The game playable in plain shapes, and one finished screen of the Bay. Gray, Julia, with the design team.</p></div>
-        <div><span class="label">Tue Dec 1</span><b>Trailer</b><p>60 to 90 seconds that sells the feeling. Mark.</p></div>
-        <div><span class="label">Thu Dec 3</span><b>Presentation</b><p>One pitch for the sponsors and the dean. James, with everyone.</p></div>
+        <div><span class="label">James / Thu Dec 3</span><b>Business plan deck</b><p>Shared Nov 19. James fleshes it out over break with Colin and Henry. Leave your comments on the slide they belong to.</p></div>
+        <div><span class="label">Gray / Thu Dec 3</span><b>Gray loop</b><p>One crisis, played in plain shapes. Stretch: the dean plays it live for two or three minutes.</p></div>
+        <div><span class="label">Julia / Thu Dec 3</span><b>Beautiful corner</b><p>One finished view of San Francisco. Julia has the final call on the city and the look.</p></div>
+        <div><span class="label">Thu Dec 3</span><b>Presentation</b><p>About 30 minutes for the dean. Everyone speaks to their own piece. Arrive 4:45.</p></div>
+      </div>
+      <div class="block">
+        <div class="hd"><h3>How Dec 3 runs</h3><span class="label">Draft from Nov 19 / James sets times</span></div>
+        <div class="rows">
+          <div><b>01</b><span><strong>Intro and where we started, about 5 min.</strong> The water and sleeping-bag ideas, and how we landed on a game.</span></div>
+          <div><b>02</b><span><strong>The game, 5 to 7 min.</strong> What it is and why the crisis is the hook.</span></div>
+          <div><b>03</b><span><strong>The business plan, 5 to 7 min.</strong> Run it like the Apex pitch.</span></div>
+          <div><b>04</b><span><strong>The showcase, 5 to 10 min.</strong> The beautiful corner, the gray loop, the trailer.</span></div>
+          <div><b>05</b><span><strong>Q&amp;A, 5 to 10 min.</strong> Be ready to say how you got to your piece and why.</span></div>
+        </div>
       </div>
       <p class="muted" style="font-size:14px">How the build is sequenced week by week is on the <a href="#playbook">Playbook</a> tab. Owners and dates are on <a href="#timeline">Timeline</a> and <a href="#deliverables">Deliverables</a>.</p>
     </div>
@@ -1145,7 +1166,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <section class="sec" id="g-hub">
   <div class="wrap">
-    <aside class="side"><span class="n">03</span><span class="label">How it plays</span><span class="state soft">Loop open</span></aside>
+    <aside class="side"><span class="n">03</span><span class="label">How it plays</span><span class="state locked">Loop set Nov 19</span></aside>
     <div class="main">
       <div><h2>Look after a city and the people in it.</h2><p class="intro">You're the Steward: you see everything, but you live there too. You build, you upgrade, and you earn residents' trust by doing them favors.</p></div>
       <div class="block">
@@ -1155,13 +1176,31 @@ header.top .row2 .wrap{scrollbar-width:thin}
           <div><span class="label">02</span><b>Walk it</b><p>Zoom in, click to move.</p></div>
           <div><span class="label">03</span><b>Do a favor</b><p>A resident asks. Helping builds the relationship.</p></div>
           <div><span class="label">04</span><b>Build or upgrade</b><p>Every build helps one goal and strains another.</p></div>
-          <div class="open"><span class="label">05 / open</span><b>A crisis lands</b><p>How you respond is Thursday's question.</p></div>
+          <div><span class="label">05</span><b>A crisis lands</b><p>The four phases below. Then the fallout plays out in your city.</p></div>
         </div>
       </div>
       <div class="block">
-        <div class="hd"><h3>Open for Thursday: the gray loop</h3><span class="label">Eleazar and James bring hypotheses</span></div>
-        <div class="qlist" data-qs="loop"></div>
-        <p class="muted" style="font-size:14px">The related votes are group 1 on the <a href="#votes">Votes</a> tab.</p>
+        <div class="hd"><h3>When a crisis hits</h3><span class="label">Set Nov 19 / Gray builds it</span><button class="pin" data-t="crisis-flow" data-l="Game: When a crisis hits (Nov 19)">Pin</button></div>
+        <div class="flow" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+          <div><span class="label">01</span><b>It hits</b><p>Phones buzz, smoke, half the map goes dark. Little to no context, like real life.</p></div>
+          <div><span class="label">02</span><b>Debrief</b><p>Walk the city and talk to residents. A few talks a day, each with its own agenda, so pick well.</p></div>
+          <div><span class="label">03</span><b>Deploy</b><p>Send crews (rescue, fire, medical, repair), spend money, build shelters. Order evacuations, ask for federal aid or allies.</p></div>
+          <div><span class="label">04</span><b>Resolved</b><p>Everyone rescued, fires out, people sheltered, water back. Scored against what really happened.</p></div>
+        </div>
+        <div class="rows">
+          <div><b>01</b><span><strong>Scoring.</strong> Lives saved, people sheltered, services restored, next to the real record. Your score moves the goal gauges toward the next level. Doing everything right is a perfect win.</span></div>
+          <div><b>02</b><span><strong>The hook, not the whole game.</strong> The crisis is the rush (think GTA, Clash of Clans). Running the city between crises is the calm part (Stardew Valley, Animal Crossing).</span></div>
+          <div><b>03</b><span><strong>The fallout is where the goals live.</strong> An earthquake opens up hunger, inequality and broken infrastructure. Crisis playbooks already exist; the slow, second-order effects governments miss are what sets us apart.</span></div>
+          <div><b>04</b><span><strong>Goals on screen.</strong> The 17 goals sit in five areas. Click an area to see its goals, click a goal to see what's moving it.</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="hd"><h3>Still open before Dec 3</h3><span class="label">From Nov 19</span></div>
+        <div class="rows">
+          <div><b>01</b><span><strong>Which crisis.</strong> San Francisco earthquake (fire, power and water out) or the LA drought. One, built all the way.</span></div>
+          <div><b>02</b><span><strong>Which two or three goals.</strong> The ongoing San Francisco goals for the first slice. Floated: homelessness around the Tenderloin, life below water (Monterey), infrastructure, sustainable cities.</span></div>
+          <div><b>03</b><span><strong>A FEMA check.</strong> A teammate's FEMA contact can review the step-by-step crisis flow for accuracy.</span></div>
+        </div>
       </div>
       <div class="block">
         <div class="hd"><h3>Still to design</h3></div>
@@ -1632,7 +1671,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <section class="sec" id="p-ship" style="border-top:0">
   <div class="wrap">
-    <aside class="side"><span class="n">01</span><span class="label">What we're shipping</span><span class="state" style="border-color:var(--warn);color:var(--warn)">Due Sun Nov 29</span>
+    <aside class="side"><span class="n">01</span><span class="label">What we're shipping</span><span class="state" style="border-color:var(--warn);color:var(--warn)">Due Thu Dec 3</span>
       <div class="subnav" aria-label="Jump to section">
         <button data-go="p-ship"><b>01</b>What we're shipping</button>
         <button data-go="p-stages"><b>02</b>The stages</button>
@@ -1645,10 +1684,10 @@ header.top .row2 .wrap{scrollbar-width:thin}
       </div>
     </aside>
     <div class="main">
-      <div><h2>Two things by the end of Thanksgiving break.</h2><p class="intro">Set at the Nov 16 design meeting. One proves the game is fun. The other proves it looks like ours. Everything else this month feeds these two.</p></div>
+      <div><h2>Three things for Dec 3.</h2><p class="intro">Set at the Nov 19 all-hands. The gray loop proves it plays. The beautiful corner proves it looks like ours. The deck proves it can be funded. We're past voting: Gray and Julia make the build calls.</p></div>
       <div class="ship" id="ship"></div>
       <div class="block">
-        <div class="hd"><h3>Who owns what, through Nov 29</h3><span class="label">Pick a name to highlight it</span></div>
+        <div class="hd"><h3>Who owns what, through Dec 3</h3><span class="label">Pick a name to highlight it</span></div>
         <div class="pfilter" id="pfilter2" role="group" aria-label="Show one person's part"></div>
         <div class="owners" id="owners"></div>
         <p class="muted" style="font-size:13.5px">Items marked <span class="asm">best guess</span> weren't assigned in a meeting. If one's wrong, say so in a comment and it gets fixed.</p>
@@ -1713,15 +1752,15 @@ header.top .row2 .wrap{scrollbar-width:thin}
         <div><span class="label">Phase 0 / Nov 9 to 16 / done</span><h4>Lock the concept</h4>
           <ul><li>Genre picks, references, engine.</li><li>Unreal, 3D-as-2D, the Bay, the Steward, building tiers: all set Nov 16.</li></ul>
           <div class="gt"><span>Gate / Mon Nov 16</span>Passed.</div></div>
-        <div><span class="label">Phase 1 / Nov 16 to 19</span><h4>Pick the loop</h4>
-          <ul><li><b>Eleazar, James:</b> gray-loop hypotheses.</li><li><b>Julia:</b> first Rhino models.</li><li><b>James:</b> pin the Bay, post look references.</li><li><b>Everyone:</b> feedback on Mark's tracks, vote on names.</li><li><b>Colin, Henry, James:</b> business plan.</li></ul>
-          <div class="gt"><span>Gate / Thu Nov 19</span>We pick one loop to build.</div></div>
-        <div><span class="label">Phase 2 / Nov 19 to 29</span><h4>Build the two</h4>
-          <ul><li><b>Gray:</b> the gray loop in Unreal.</li><li><b>Julia, with Ashrita:</b> the beautiful corner.</li><li><b>Gray:</b> Julia's models into Unreal.</li><li><b>Mark:</b> trailer rough cut.</li></ul>
-          <div class="gt"><span>Thanksgiving week</span>Solo and async. Tasks are sized so nobody is blocked.</div></div>
-        <div><span class="label">Phase 3 / Nov 30 to Dec 3</span><h4>Combine and present</h4>
-          <ul><li><b>Mon Nov 30:</b> the corner's look on the gray loop. Feature freeze.</li><li><b>Tue Dec 1:</b> trailer final.</li><li><b>Wed Dec 2:</b> full rehearsal.</li></ul>
-          <div class="gt"><span>Thu Dec 3</span>Plan, playable, trailer, one story.</div></div>
+        <div><span class="label">Phase 1 / Nov 16 to 19 / done</span><h4>Pick the loop</h4>
+          <ul><li>Eleazar and James brought loop hypotheses.</li><li>Crisis flow, San Francisco, full 3D: set Nov 19.</li><li>Business plan deck shared.</li></ul>
+          <div class="gt"><span>Gate / Thu Nov 19</span>Passed. Voting is over; we build.</div></div>
+        <div><span class="label">Phase 2 / Nov 19 to break</span><h4>Build the three</h4>
+          <ul><li><b>Gray:</b> the gray loop in Unreal.</li><li><b>Julia, with Ashrita:</b> the beautiful corner.</li><li><b>James:</b> the business plan deck.</li><li><b>Henry:</b> the funding Gantt.</li></ul>
+          <div class="gt"><span>Over break</span>Design meets Mondays and Wednesdays on Zoom.</div></div>
+        <div><span class="label">Phase 3 / to Dec 3</span><h4>Combine and present</h4>
+          <ul><li>The corner's look on the gray loop, if there's time.</li><li>Trailer.</li><li>Full rehearsal.</li></ul>
+          <div class="gt"><span>Thu Dec 3</span>Gray loop, corner, deck, one story.</div></div>
       </div>
       <div class="block">
         <div class="hd"><h3>If we fall behind</h3><span class="label">Cut from the top / on the Votes tab</span></div>
@@ -1729,7 +1768,7 @@ header.top .row2 .wrap{scrollbar-width:thin}
           <div><b>01</b><span><strong>The talking resident.</strong> Residents appear but don't speak yet.</span></div>
           <div><b>02</b><span><strong>The zoomed-in walking view.</strong> Zoom out only for Dec 3.</span></div>
           <div><b>03</b><span><strong>A second crisis.</strong> One crisis, done well.</span></div>
-          <div><b>04</b><span><strong>Never cut:</strong> the Hub loop, the beautiful corner, the trailer.</span></div>
+          <div><b>04</b><span><strong>Never cut:</strong> the gray loop, the beautiful corner, the business plan deck.</span></div>
         </div>
       </div>
     </div>
@@ -1744,10 +1783,10 @@ header.top .row2 .wrap{scrollbar-width:thin}
       <div class="block">
         <div class="hd"><h3>The gray loop</h3><button class="pin" data-t="shell" data-l="Playbook: The Hub shell">Pin</button></div>
         <div class="rows">
-          <div><b>01</b><span>One city, the Bay, on one screen. Zoom out to manage, zoom in to follow your Steward.</span></div>
-          <div><b>02</b><span>A few things to build, each moving two or three gauges.</span></div>
-          <div><b>03</b><span>One crisis that arrives with a warning, and a way to respond.</span></div>
-          <div><b>04</b><span>A result: what it cost, and what really happened.</span></div>
+          <div><b>01</b><span>San Francisco on one screen. Zoom out to manage, zoom in to follow your Steward.</span></div>
+          <div><b>02</b><span>One crisis hits with little context. You talk to a few residents to learn what's going on.</span></div>
+          <div><b>03</b><span>You deploy crews, money and shelters, and make a call or two like an evacuation.</span></div>
+          <div><b>04</b><span>It resolves: lives saved, people sheltered, services restored, next to what really happened.</span></div>
           <div><b>05</b><span>Plain gray shapes, no art. It only has to prove the loop.</span></div>
         </div>
       </div>
@@ -1821,12 +1860,12 @@ header.top .row2 .wrap{scrollbar-width:thin}
 
 <!-- ================= VOTES ================= -->
 <main class="view" id="v-votes">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Decide / the only place to vote</div><h1>Votes</h1><p><strong style="color:var(--ink);font-weight:500">Group 1 settles Thursday, Nov 19:</strong> how you actually respond to a crisis. Vote before the all-hands. Thumbs up or down; a thumbs down needs one line on why. Five thumbs up carries it, out of ten voters (the eight of us plus Dr. Kretser and Prof. Jones). Names have their own tab.</p><div id="vprog" style="margin-top:22px;max-width:420px"></div></div><div class="r"><a class="btn" href="#game">See the game</a><button type="button" class="btn solid adminonly" id="dec-add">Add a decision</button></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Decide / the only place to vote</div><h1>Votes</h1><p><strong style="color:var(--ink);font-weight:500">Since Nov 19 we're building, not voting.</strong> Gray and Julia make the build calls; votes here stay open as input and every one stays on record. Names are still decided by vote, by Dec 3. Thumbs up or down; a thumbs down needs one line on why. Five thumbs up carries it, out of ten voters (the eight of us plus Dr. Kretser and Prof. Jones). Names have their own tab.</p><div id="vprog" style="margin-top:22px;max-width:420px"></div></div><div class="r"><a class="btn" href="#game">See the game</a><button type="button" class="btn solid adminonly" id="dec-add">Add a decision</button></div></div></section>
   <section class="pbody"><div class="wrap">
     <div class="vsum" id="vsum"></div>
     <a class="nmbanner" href="#names"><span class="label">New / priority</span><b>Name the studio and the game</b><span>Meanings, how to say each one, and room to add your own. Vote on the Names tab.</span><i>&rarr;</i></a>
     <div class="bar"><div class="filters" role="group" aria-label="Filter votes" id="vfilters">
-      <button aria-pressed="true" data-vf="all">All</button><button aria-pressed="false" data-vf="top">Decide Thursday</button><button aria-pressed="false" data-vf="mine">Needs my vote</button><button aria-pressed="false" data-vf="contested">Contested</button><button aria-pressed="false" data-vf="passing">Carrying</button><button aria-pressed="false" data-vf="decided">Decided</button>
+      <button aria-pressed="true" data-vf="all">All</button><button aria-pressed="false" data-vf="top">Gray loop input</button><button aria-pressed="false" data-vf="mine">Needs my vote</button><button aria-pressed="false" data-vf="contested">Contested</button><button aria-pressed="false" data-vf="passing">Carrying</button><button aria-pressed="false" data-vf="decided">Decided</button>
     </div></div>
     <div id="votelist"></div>
   </div></section>
@@ -1908,12 +1947,13 @@ header.top .row2 .wrap{scrollbar-width:thin}
   </div></section>
 </main>
 
+<button type="button" id="jumpback" aria-label="Go back"><span>Back to</span><b id="jumpback-to">Comments</b></button>
 <!-- ================= BOARD ================= -->
 <main class="view" id="v-board">
-  <section class="phead"><div class="wrap"><div class="l"><div class="label">Discuss / every comment, live</div><h1>Comments</h1><p>Every comment and every thumbs-down reason, across the whole site, newest first. Add +1 to agree.</p></div><div class="r"><button class="btn solid" id="newpin">Add a general comment</button></div></div></section>
+  <section class="phead"><div class="wrap"><div class="l"><div class="label">Discuss / every comment, live</div><h1>Comments</h1><p>Every comment and every thumbs-down reason, across the whole site, newest first. Click where a comment sits to jump straight to it, then use Back to come here. By spot shows where the pushback is piling up.</p></div><div class="r"><button class="btn solid" id="newpin">Add a general comment</button></div></div></section>
   <section class="pbody"><div class="wrap">
     <div class="bar"><div class="filters" role="group" aria-label="Filter pins">
-      <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="note">Comments</button><button aria-pressed="false" data-f="keep">Must keep</button><button aria-pressed="false" data-f="rethink">Rethink</button><button aria-pressed="false" data-f="down">Thumbs down</button><button aria-pressed="false" data-f="top">Most +1s</button><button aria-pressed="false" data-f="hidden" class="adminonly">Hidden</button>
+      <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="note">Comments</button><button aria-pressed="false" data-f="keep">Must keep</button><button aria-pressed="false" data-f="rethink">Rethink</button><button aria-pressed="false" data-f="down">Thumbs down</button><button aria-pressed="false" data-f="top">Most +1s</button><button aria-pressed="false" data-f="spot">By spot</button><button aria-pressed="false" data-f="hidden" class="adminonly">Hidden</button>
     </div><span class="status" data-stline="people"></span></div>
     <div class="cards" id="pinlist"></div>
   </div></section>
@@ -2402,12 +2442,26 @@ const AREA_VIEW={found:"foundation",hub:"game",mini:"game",rapid:"game",craft:"g
 const AREA_ORDER=["pillar","hub","craft","process","found","rapid","mini","later"];
 const SUB={hub:[["loop","Core loop and strategy"],["role","You and your role"],["world","World and map"],["econ","Resources and economy"],["crisis","Crises and failure"],["people","Residents and progress"],["scope","Scope for Dec 3"]]};
 /* v7 (Nov 12): priority tiers for the Votes tab. pr on an item wins; otherwise the area default. */
-const PR={1:["Decide Thursday","All-hands, Thu Nov 19. Eleazar and James bring gray-loop hypotheses. These votes settle what the gray loop tests."],2:["Before Thanksgiving","Needed while we build the gray loop and the beautiful corner."],3:["Before Dec 3","Words, names and process. Fine to settle async."],4:["Parked until the Hub is built","Rapid Response, Mini games and later ideas. Vote if you like. No meeting time goes here for three weeks."]};
+const PR={1:["Gray loop input","Nov 19 set the crisis flow: it hits, you debrief, you deploy, it resolves. These votes stay as input for Gray as he builds."],2:["While we build","Input for the gray loop and the beautiful corner. Gray and Julia make the call."],3:["Before Dec 3","Words, names and process. Names settle by vote."],4:["Parked until the Hub is built","Rapid Response, Mini games and later ideas. Vote if you like. No meeting time goes here for three weeks."]};
 const PR_AREA={pillar:1,hub:2,craft:2,process:2,found:3,name:3,rapid:4,mini:4,later:4};
 const prOf=d=>Number(d.pr)||PR_AREA[d.a]||2;
 const DEC=[
+/* locked Nov 19 all-hands (newest first) */
+{id:"L19-build",st:"decided",a:"process",t:"Voting is over. We're building.",b:"Gray (technical) and Julia (creative) make the build calls so work keeps moving. Votes stay open as input and every vote stays on record. Names are still decided by vote.",src:"Nov 19",ctx:[["Why","To get things built in time, the leads need room to decide. James suggested amending the team charter to match."]]},
+{id:"L19-dec3",st:"decided",a:"process",t:"Dec 3: the gray loop, the beautiful corner and the business plan deck.",b:"Gray leads the gray loop. Julia leads the beautiful corner. James fleshes out the deck. Stretch: the dean plays the gray loop for two or three minutes.",src:"Nov 19",ctx:[["Replaces","Two things by the end of Thanksgiving break (Nov 16)."]]},
+{id:"L19-hook",st:"decided",a:"hub",g:"loop",t:"The crisis is the hook, not the whole game.",b:"The crisis is the rush, like GTA or Clash of Clans. Running the city between crises is the calm part, like Stardew Valley or Animal Crossing. A crisis opens up slower problems (hunger, inequality, broken infrastructure), and those ongoing goals are what sets us apart.",src:"Nov 19",ctx:[["Why","Crisis response already has playbooks. The second-order effects governments miss are ours to show."]]},
+{id:"L19-flow",st:"decided",a:"hub",g:"crisis",t:"A crisis runs in four phases: it hits, you debrief, you deploy, it resolves.",b:"It hits with little context. You talk to a few residents a day, each with an agenda. You deploy crews, money, shelters and policy calls like evacuations or aid requests. It ends when everyone's rescued, fires are out, people are sheltered and water is back. Scored against what really happened; doing it all right is a perfect win.",src:"Nov 19 / the gray loop's starting point",ctx:[["Built by","Gray, from the flows Eleazar and James brought."]]},
+{id:"L19-one",st:"decided",a:"hub",g:"scope",t:"Build one crisis all the way before any other.",b:"Every asset, resource and mechanic for one crisis first, then expand. San Francisco earthquake or LA drought is still to pick, along with the two or three goals the first slice covers.",src:"Nov 19"},
+{id:"L19-sf",st:"decided",a:"hub",g:"world",t:"San Francisco is the first city, in full 3D.",b:"Familiar, with natural disasters and social issues to work with. 3D was chosen for how it looks. Julia has the final call on the city.",src:"Nov 19"},
+{id:"L19-hubonly",st:"decided",a:"process",t:"The first release is the Hub only, in Early Access, aiming for August.",b:"Like GTA VI shipping story mode first: focus ships sooner and builds attachment. Steam Early Access at $9.99, with 10,000 wishlists as the goal. Mini games are on ice for now. Schools come later.",src:"Nov 19"},
+{id:"L19-lab",st:"decided",a:"later",t:"The Lab is earned.",b:"The Hub is the pressure cooker: about two weeks of game time, roughly five hours of play. A strong solution unlocks a sandbox, then the Lab, where ideas that work can make it into the game. Still after the semester.",src:"Nov 19 / direction"},
+{id:"L19-nopw",st:"decided",a:"hub",g:"econ",t:"No pay to win. Every region is free.",b:"Add-ons are cosmetic: skins, avatar items, seasonal building packs. DLC over constant microtransactions. Which add-ons, and when, is still open.",src:"Nov 19"},
+{id:"L19-ngo",st:"decided",a:"found",t:"Sponsors are NGOs, or companies fully aligned with the goals.",b:"Patagonia-type yes, ExxonMobil-type no. Framed as proudly partnered with an NGO. Any donation promise comes after launch, tied to a milestone.",src:"Nov 19"},
+{id:"L19-kpi",st:"decided",a:"found",t:"Awareness needs a number: a 25% or greater gain in goal knowledge from one crisis run.",b:"A short baseline survey when you start, then quick check-ins (maybe rewarded with gems). James is cleaning up the value proposition wording for Dec 3.",src:"Nov 19 / draft"},
+{id:"L19-names",st:"decided",a:"name",t:"The studio and game names are set by Dec 3.",b:"Add yours and vote on the Names tab. Floated Nov 19: Crisis Averted, On the Clock, No Context, Then What.",src:"Nov 19"},
+{id:"L19-llc",st:"decided",a:"process",t:"Register a Virginia LLC at the start of next semester.",b:"$100 to file. Still open: who's CEO, the equity split, and whether there's a holding company.",src:"Nov 19 / target"},
 /* locked Nov 16 (newest first) */
-{id:"L-two",st:"decided",a:"process",t:"Two things by the end of Thanksgiving break: the beautiful corner and the gray loop.",b:"Julia leads the beautiful corner. Gray leads the gray loop. Everything else this month supports them.",src:"Nov 16"},
+{id:"L-two",ret:"Replaced Nov 19: three things, due Thu Dec 3",st:"decided",a:"process",t:"Two things by the end of Thanksgiving break: the beautiful corner and the gray loop.",b:"Julia leads the beautiful corner. Gray leads the gray loop. Everything else this month supports them.",src:"Nov 16"},
 {id:"L-unreal",st:"decided",a:"process",t:"We build in Unreal Engine.",b:"Gray knows it in depth, so we can start now. It's C++, with a Python console for quick commands, and AI tools can help with the C++.",src:"Nov 16",ctx:[["Why not Unity or a browser build","Either would mean learning from scratch and leaning hard on AI."]]},
 {id:"L-3d",st:"decided",a:"craft",t:"A 3D world that reads as 2D, like Paper Mario.",b:"3D is easier to build at our scale than a true 2D world. It takes both 2D and 3D assets, and the camera can go isometric or orthographic. Gray showed it working live.",src:"Nov 16",ctx:[["Replaces","2D for the first build, the Nov 9 lean."]]},
 {id:"L-bay",st:"decided",a:"hub",g:"world",t:"Our first city is San Francisco and the Bay Area, renamed.",b:"Homelessness, inequality, addiction and mental health. Familiar to the team and interesting to map. London is the strong second.",src:"Nov 16"},
@@ -2437,7 +2491,7 @@ const DEC=[
 {id:"f-vision",a:"found",g:"words",k:"decision",t:"Vision",b:"Millions of players who have stood inside a real crisis, made the hard call, and carry that into the real world.",src:"Draft"},
 {id:"f-value",a:"found",g:"words",k:"decision",t:"Value statement",b:"We build games that tell the truth about hard problems, respect the people who live them, and turn players' time into real progress with real partners.",src:"Draft"},
 {id:"f-deliver",ret:"Replaced Nov 18 with updated dates after the Nov 16 meeting.",a:"found",g:"sem",k:"decision",t:"These four deliverables, on these dates.",b:"Business plan Nov 19. Playable prototype Nov 30. Trailer Dec 1. Presentation Dec 3. Thumbs down if a date or an owner is wrong for you, and say which.",src:"Set Nov 2 and Nov 4"},
-{id:"f-deliver2",a:"found",g:"sem",k:"decision",t:"These deliverables, on these dates.",b:"Business plan Thu Nov 19. Beautiful corner and gray loop by Sun Nov 29, the end of Thanksgiving break. Trailer Tue Dec 1. Presentation Thu Dec 3. Thumbs down if a date or owner is wrong for you, and say which.",src:"Updated Nov 18"},
+{id:"f-deliver2",ret:"Replaced Nov 19: everything lands Thu Dec 3",a:"found",g:"sem",k:"decision",t:"These deliverables, on these dates.",b:"Business plan Thu Nov 19. Beautiful corner and gray loop by Sun Nov 29, the end of Thanksgiving break. Trailer Tue Dec 1. Presentation Thu Dec 3. Thumbs down if a date or owner is wrong for you, and say which.",src:"Updated Nov 18"},
 {id:"f-line",a:"found",g:"line",k:"decision",t:"Real crises, renamed places, framing on people and aid.",b:"We don't avoid politics. We rename places, leaders and groups, and a person screens every crisis before it goes in.",src:"Nov 5 / James"},
 /* hub: core loop and strategy (the Nov 12 gap) */
 {id:"hub-genre",a:"hub",g:"loop",k:"decision",pr:1,t:"It's a community builder.",b:"The lean since Nov 9, and every vote so far agrees: you look after a settlement and its people. Tonight we settle the rest of the genre, how it plays and how it looks, from everyone's three picks with reference images and comparable games.",src:"Nov 9, settle Mon Nov 16"},
@@ -2630,24 +2684,24 @@ const STAGES=[
  ours:"Set by Nov 16. Two things are still open and don't block the build: the pillars vote, and the name.",
  items:[["Player role: the Steward, does favors, builds relationships","Julia","set"],["Camera: one zoom, click to move","Gray, Julia","set"],["World: real places renamed, seven cities, coastal first","Eleazar, Julia","set"],["First city: the Bay (San Francisco)","Everyone","set"],["Engine: Unreal","Gray","set"],["Look: a 3D world that reads as 2D, like Paper Mario","Julia, Gray","set"],["Buildings: about five tiers per type","Julia","set"],["Pillars: four feelings","Everyone","vote"],["Studio and game name","Everyone","vote","Names tab"]],
  done:"Anyone on the team can explain the game in 30 seconds."},
-{k:"proto",n:"Gray loop",when:"Nov 16 to 29",st:"now",
+{k:"proto",n:"Gray loop",when:"Nov 16 to Dec 3",st:"now",
  what:"The core loop in plain gray shapes, no art, so it's cheap to change. Studios call it a grey box. It answers one question: is the loop fun and does it make sense?",
- ours:"One city, a few things to build, one crisis, one decision, one consequence. Built in Unreal.",
- items:[["Gray-loop hypothesis: fixed decision tree or AI-written scenarios, how you respond, how you run the city after","Eleazar, James","open","Thu Nov 19"],["Pick one loop at the all-hands","Everyone","open","Thu Nov 19"],["Write the first crisis on one page","Eleazar","open","Nov 22"],["Build the gray loop in Unreal","Gray","open","Sun Nov 29"],["Zoom out to manage, zoom in to follow the Steward","Gray","set"],["Anyone who codes jumps in","Everyone","open"]],
+ ours:"San Francisco, one crisis, the four-phase flow set Nov 19: it hits, you debrief, you deploy, it resolves. Built in Unreal.",
+ items:[["Loop hypotheses from Eleazar and James","Eleazar, James","set","Thu Nov 19"],["Crisis flow: hits, debrief, deploy, resolved, scored against reality","Everyone","set","Thu Nov 19"],["Review the asset catalog before building more","Gray","open","Before break"],["Pick the crisis: SF earthquake or LA drought","Gray, Julia","open","Before Dec 3"],["Pick the 2 or 3 goals for the first slice","Gray, Julia","open","Before Dec 3"],["Build the gray loop in Unreal","Gray","open","Thu Dec 3"],["Jump in on the build","James","open"]],
  done:"The team plays it start to finish and it makes sense."},
-{k:"corner",n:"Beautiful corner",when:"Nov 16 to 29",st:"now",
+{k:"corner",n:"Beautiful corner",when:"Nov 16 to Dec 3",st:"now",
  what:"One screen finished to final quality, so everyone draws toward the same look.",
- ours:"One corner of the Bay, modeled in Rhino, brought into Unreal, textured and lit.",
- items:[["Pin the Bay and post look references in the team chat","James","open","Thu Nov 19"],["First Rhino models, in folders and subfolders","Julia","open","Thu Nov 19"],["Lock the aesthetic: organicism meets cityscape","Julia, Ashrita","open","Nov 22"],["Import with Datasmith, add textures and decals","Gray","open","Nov 25"],["One finished corner of the Bay","Julia","open","Sun Nov 29"],["Sound direction from the team's feedback on five tracks","Mark","open","Nov 22"]],
- done:"One image of the Bay we'd happily put on a poster."},
-{k:"playable",n:"First playable",when:"Nov 30 to Dec 2",st:"next",
+ ours:"One corner of San Francisco in full 3D, modeled in Rhino, brought into Unreal, textured and lit.",
+ items:[["San Francisco and full 3D","Everyone","set","Thu Nov 19"],["Final call on the city and the look","Julia","open","Before break"],["Rhino models, in folders and subfolders","Julia","open"],["Import with Datasmith, add textures and decals","Gray","open"],["One finished corner of San Francisco","Julia","open","Thu Dec 3"],["Sound direction from the team's feedback on five tracks","Mark","open"]],
+ done:"One image of San Francisco we'd happily put on a poster."},
+{k:"playable",n:"First playable",when:"Stretch for Dec 3",st:"next",
  what:"The gray loop wearing the real look. Rough, but you can sit down and play the game's intent from start to finish.",
- ours:"The corner's look on the gray loop. This is the Dec 3 build. Feature freeze Mon Nov 30.",
- items:[["The corner's look on the gray loop","Gray, Julia","open","Mon Nov 30"],["One resident with a favor and written lines","Eleazar, Julia","open"],["Trailer, cut from the corner and captured play","Mark","open","Tue Dec 1"],["Full rehearsal","Everyone","open","Wed Dec 2"]],
+ ours:"The corner's look on the gray loop. A stretch for Dec 3: the gray loop and the corner are the must-haves.",
+ items:[["The corner's look on the gray loop","Gray, Julia","open","Stretch"],["The dean plays two or three minutes live","Gray","open","Thu Dec 3"],["Trailer, cutscenes or captured play","Mark","open","Thu Dec 3"],["Full rehearsal","Everyone","open","Before Dec 3"]],
  done:"Someone new plays the loop and gets it without us explaining."},
 {k:"slice",n:"Vertical slice",when:"Spring",st:"stretch",
  what:"A few minutes of gameplay at final quality. It's what studios pitch and raise money with.",
- ours:"Our vertical slice is the Hub in the Bay. The business team pitches with it.",
+ ours:"Our vertical slice is the Hub in San Francisco, about $5K to build. It's what Epic MegaGrant and the spring competitions need.",
  items:[["The Hub polished to final quality","Design team","later"],["Pitch and fundraising story built on the slice","Colin, Henry, James","later"]],
  done:"A stranger watches five minutes and wants to play or fund it."},
 {k:"horiz",n:"Horizontal",when:"Spring",st:"later",
@@ -2659,43 +2713,45 @@ const STAGES=[
 {k:"beta",n:"Beta and launch",when:"Later",st:"later",what:"All content in. Test with real players, fix, tune, ship.",ours:"",items:[],done:"Launch."}
 ];
 const SHIP=[
- {k:"corner",n:"The beautiful corner",tag:"01 / How it looks",what:"One corner of the Bay, finished to final quality, so everyone draws toward the same look.",lead:"Julia",with:"Ashrita (art and world), Gray (into Unreal)",done:"One image of the Bay, in Unreal, we'd put on a poster.",
-  steps:[["Thu Nov 19","Pin the Bay and post look references","James"],["Thu Nov 19","First Rhino models","Julia"],["Nov 22","Lock the aesthetic","Julia, Ashrita"],["Nov 25","Models in Unreal, textured","Gray"],["Sun Nov 29","The finished corner","Julia"]]},
- {k:"proto",n:"The gray loop",tag:"02 / How it plays",what:"The smallest playable version of the game, in plain gray shapes. Studios call it a grey box.",lead:"Gray",with:"Eleazar and James (the loop design)",done:"The team plays it start to finish and it makes sense.",
-  steps:[["Thu Nov 19","Loop hypotheses","Eleazar, James"],["Thu Nov 19","Pick one loop","Everyone"],["Nov 22","First crisis on one page","Eleazar"],["Nov 19 to 29","Build it in Unreal","Gray"],["Sun Nov 29","Playable gray loop","Gray"]]}
+ {k:"proto",n:"The gray loop",tag:"01 / How it plays",what:"One crisis you can play start to finish, in plain gray shapes. Built from the Nov 19 flow: it hits, you debrief, you deploy, it resolves.",lead:"Gray",with:"James (jumps in on the build), Eleazar (the crisis)",done:"The team plays one crisis start to finish and it makes sense. Stretch: the dean plays it for two or three minutes.",
+  steps:[["Thu Nov 19","Crisis flow set","Everyone"],["Before break","Review Gray's asset catalog before building more","Gray"],["Before Dec 3","Pick the crisis and the 2 or 3 goals","Gray, Julia"],["Over break","Build it in Unreal","Gray"],["Thu Dec 3","Playable gray loop","Gray"]]},
+ {k:"corner",n:"The beautiful corner",tag:"02 / How it looks",what:"One view of San Francisco finished to final quality, so everyone draws toward the same look. Full 3D.",lead:"Julia",with:"Ashrita (art and world), Gray (into Unreal)",done:"One image of San Francisco, in Unreal, we'd put on a poster.",
+  steps:[["Thu Nov 19","San Francisco and full 3D confirmed","Everyone"],["Before break","Final call on the city and the look","Julia"],["Over break","Models in Rhino, into Unreal","Julia, Gray"],["Thu Dec 3","The finished corner","Julia"]]},
+ {k:"deck",n:"The business plan deck",tag:"03 / How it pays",what:"The deck version of the business plan: costs, revenue, funding, impact. Shared Nov 19; the full plan and an appendix sit behind it.",lead:"James",with:"Colin (pricing, costs), Henry (market, funding)",done:"It holds up as an Apex pitch, with margins as percentages.",
+  steps:[["Thu Nov 19","Deck shared with the team","James"],["This week","Everyone drops comments on the slide they belong to","Everyone"],["Before Dec 3","Gross and operating margins as percentages","James"],["Before Dec 3","Funding Gantt: every grant, its rules and deadline","Henry"],["Thu Dec 3","Final deck","James"]]}
 ];
 const OWN=[
- ["James",[["Pin the Bay and post look references in the team chat","Thu Nov 19"],["Gray-loop hypothesis","Thu Nov 19"],["Business plan, with Colin and Henry","Thu Nov 19"],["Presentation","Thu Dec 3"]]],
- ["Gray",[["Build the gray loop in Unreal","Sun Nov 29"],["Bring Julia's models in with Datasmith, add textures and decals","Nov 25"]]],
- ["Julia",[["First Rhino models, in folders not groups or blocks","Thu Nov 19"],["Lead the beautiful corner","Sun Nov 29"]]],
- ["Eleazar",[["Gray-loop hypothesis","Thu Nov 19"],["First crisis on one page","Nov 22",1]]],
- ["Ashrita",[["Lock the aesthetic with Julia, help model the corner","Nov 22",1]]],
- ["Mark",[["Pick a sound direction from the team's feedback","Nov 22",1],["Trailer","Tue Dec 1"]]],
- ["Colin",[["Business plan: pricing and costs","Thu Nov 19"]]],
- ["Henry",[["Business plan: market and partners","Thu Nov 19"]]],
- ["Everyone",[["Give Mark's five tracks about ten seconds each, and tell him","Thu Nov 19"],["Vote on names, add your own","Async"]]]
+ ["James",[["Flesh out the business plan deck: margins as percentages, fold in everyone's comments","Thu Dec 3"],["Clean up the value proposition wording","Thu Dec 3"],["Run the presentation and set speaking times","Thu Dec 3"],["Jump in on the gray loop build where Gray needs it","Over break"]]],
+ ["Gray",[["Build the gray loop in Unreal","Thu Dec 3"],["Review the existing asset catalog before building or buying more","Before break"]]],
+ ["Julia",[["Lead the beautiful corner","Thu Dec 3"],["Final call on the city","Before break"]]],
+ ["Eleazar",[["Help Gray turn the crisis flow into a script","Before Dec 3",1]]],
+ ["Ashrita",[["Help Julia model the corner","Thu Dec 3",1]]],
+ ["Mark",[["Trailer, can be keyframed cutscenes in Unreal","Thu Dec 3",1]]],
+ ["Colin",[["Deck comments: pricing and costs","Before Dec 3",1]]],
+ ["Henry",[["Gantt chart of funding: requirements, deadlines, whether we're eligible in time","Before Dec 3"]]],
+ ["Everyone",[["Sign up for Apex yourself through the Canvas invite","Before Dec 3"],["Drop comments on the business plan deck","This week"],["Add or vote on names","Thu Dec 3"],["Be ready to speak to your piece","Thu Dec 3"]]]
 ];
-const ALONG=[["Business plan","Colin, Henry, James","Thu Nov 19","Rough pass of revenue, costs, market and partners."],["Names","Everyone","Async","Vote and add your own on the Names tab."],["Sound feedback","Everyone","Thu Nov 19","Ten seconds per track. Mark picks the direction."],["Trailer","Mark","Tue Dec 1","Cinematic, 60 to 90 seconds."],["Presentation","James","Thu Dec 3","One story, everyone presents."]];
+const ALONG=[["Business plan deck","James, with Colin and Henry","Thu Dec 3","The deck version, margins as percentages, comments folded in."],["Names","Everyone","Thu Dec 3","Vote and add your own on the Names tab."],["Apex","Everyone","Before Dec 3","Sign up yourself through the Canvas invite, not as a team."],["Funding Gantt","Henry","Before Dec 3","Every grant: requirements, deadline, whether we qualify in time."],["Trailer","Mark","Thu Dec 3","Cinematic. It can be cutscenes, not gameplay."],["Presentation","James","Thu Dec 3","About 30 minutes. Everyone speaks to their piece."]];
 const CHECKS=[
-["Core loop and strategy","What you do in a crisis, and what makes one response better than another.","Open. Fixed decision tree or AI-written scenarios? Eleazar and James bring hypotheses Thursday.","open","Eleazar, James","proto"],
+["Core loop and strategy","What you do in a crisis, and what makes one response better than another.","Set Nov 19: it hits, you debrief, you deploy, it resolves, scored against what really happened. Gray builds it.","set","Gray","proto"],
 ["Tools and engine","What it's built in.","Unreal Engine. Gray knows it; C++ plus a Python console.","set","Gray","concept"],
-["Art direction","One look everyone draws toward.","A 3D world that reads as 2D, like Paper Mario. The aesthetic, organicism meets cityscape, is still being locked.","vote","Julia, Ashrita","corner"],
+["Art direction","One look everyone draws toward.","Full 3D, confirmed Nov 19 for how it looks. The design team described the style as a pastel kind of graphic realism. Julia's call.","set","Julia, Ashrita","corner"],
 ["World and setting","Where it happens and what's at stake.","Real world, renamed. Seven cities, coastal first. The Bay is first; London is the strong second.","set","Eleazar, Julia","concept"],
 ["Player role","Who you are, and why that's fun.","The Steward: sees everything, lives there too, does favors for residents. The name is a working title.","set","Julia","concept"],
 ["Camera and controls","How you see and move.","One zoom: out to manage, in to follow your Steward. Click to move, no free roaming.","set","Gray, Julia","concept"],
 ["Buildings","What you build and how it grows.","About five tiers per type. Same look within a city, different between cities.","set","Julia","corner"],
 ["Systems and economy","Resources, costs, and what limits you.","Five resources, building materials included. Regional materials, trade delays and aid limits are in the vote.","vote","Eleazar, Colin","proto"],
-["Crises","What goes wrong, and how often.","Real crises as they happen, simulated ones every week or two. How you respond is the loop question.","vote","Eleazar","proto"],
+["Crises","What goes wrong, and how often.","One crisis built all the way first: San Francisco earthquake or LA drought, still to pick. The crisis is the hook; its fallout feeds the goals.","open","Gray, Julia","proto"],
 ["Residents and relationships","Who lives there and how you get close.","Favors build relationships. Relationship levels still need designing.","open","Julia, Eleazar","playable"],
 ["Sound and music","What it sounds like.","Ambient and electronic. Mark shared five tracks; the team gives feedback by Thursday.","open","Mark","corner"],
 ["Genre","What kind of game it is.","A community builder: an urban Stardew Valley in a small, explorable city.","vote","Everyone","concept"],
 ["Pillars","The few feelings the game has to deliver.","Four drafted, in the vote.","vote","Everyone","concept"],
 ["Name","What the studio and the game are called.","On the Names tab. Vote and add your own.","vote","Everyone","slice"],
 ["The first five minutes","How a new player learns the game.","Pick a city, meet one resident, do one favor, place one build.","vote","Julia","playable"],
-["Scope and schedule","What's in, what's out, by when.","Gray loop and corner by Nov 29. Freeze Nov 30. A cut list if we fall behind.","set","James","playable"],
+["Scope and schedule","What's in, what's out, by when.","Gray loop, corner and deck by Thu Dec 3. Hub only. A cut list if we fall behind.","set","James","playable"],
 ["Accuracy and sensitivity","Ours to get right: real crises, real people.","Research plus a first-person source for each city. The Bay's issues need care.","vote","James","playable"],
 ["Trailer","How people first meet the game.","Cinematic, 60 to 90 seconds.","vote","Mark","playable"],
-["Business model","How it pays for itself.","Business plan due Nov 19.","open","Colin, Henry","slice"],
+["Business model","How it pays for itself.","Steam Early Access at $9.99, Hub only, aiming for August. 10,000 wishlists is the goal. Cosmetic add-ons only, no pay to win.","set","James, Colin, Henry","slice"],
 ["Platform","Where it runs.","PC first. Decided Oct 26.","set","Team","concept"],
 ["Multiplayer","Playing with other people.","Co-op aid is designed for, built later.","later","Gray","horiz"],
 ["Rapid Response and Mini games","The other two modes.","Parked until the Hub is built.","later","Design team","horiz"]
@@ -2710,7 +2766,7 @@ function renderStages(){
   const f=$("pfilter");if(!f)return;const who=PB.who;
   f.innerHTML=`<span class="label">Show my part</span>`+["",...PB_PEOPLE].map(p=>`<button type="button" data-who="${p}" aria-pressed="${p===who}">${p||"Everyone"}</button>`).join("");
   const f2=$("pfilter2");if(f2)f2.innerHTML=f.innerHTML;
-  const sh=$("ship");if(sh)sh.innerHTML=SHIP.map(x=>`<div class="shipcard"><span class="label">${x.tag}</span><h3>${x.n}</h3><p class="what">${x.what}</p><dl><div><dt>Lead</dt><dd>${x.lead}</dd></div><div><dt>With</dt><dd>${x.with}</dd></div><div><dt>Done when</dt><dd>${x.done}</dd></div></dl><ol class="shsteps">${x.steps.map(st=>`<li class="${who&&!ownsIt(st[2],who)?"off":""}${who&&ownsIt(st[2],who)?" mine":""}"><span class="d">${st[0]}</span><span class="t">${st[1]}</span><span class="o">${st[2]}</span></li>`).join("")}</ol><div class="sf"><button type="button" class="stg" data-stage="${x.k}">Full checklist</button><button class="pin" data-t="ship-${x.k}" data-l="Shipping: ${x.n}">Pin</button></div></div>`).join("");
+  const sh=$("ship");if(sh)sh.innerHTML=SHIP.map(x=>`<div class="shipcard"><span class="label">${x.tag}</span><h3>${x.n}</h3><p class="what">${x.what}</p><dl><div><dt>Lead</dt><dd>${x.lead}</dd></div><div><dt>With</dt><dd>${x.with}</dd></div><div><dt>Done when</dt><dd>${x.done}</dd></div></dl><ol class="shsteps">${x.steps.map(st=>`<li class="${who&&!ownsIt(st[2],who)?"off":""}${who&&ownsIt(st[2],who)?" mine":""}"><span class="d">${st[0]}</span><span class="t">${st[1]}</span><span class="o">${st[2]}</span></li>`).join("")}</ol><div class="sf">${x.k==="deck"?"":`<button type="button" class="stg" data-stage="${x.k}">Full checklist</button>`}<button class="pin" data-t="ship-${x.k}" data-l="Shipping: ${x.n}">Pin</button></div></div>`).join("");
   const ow=$("owners");if(ow)ow.innerHTML=OWN.map(o=>`<div class="${who&&o[0]!==who&&o[0]!=="Everyone"?"off":""}${who&&o[0]===who?" mine":""}"><b>${o[0]}</b><ul>${o[1].map(it=>`<li><span>${it[0]}${it[2]?' <i class="asm">best guess</i>':""}</span><em>${it[1]}</em></li>`).join("")}</ul></div>`).join("");
   $("srail").innerHTML=STAGES.map((s,i)=>{const mine=who?s.items.filter(it=>ownsIt(it[1],who)&&it[2]!=="set").length:0;
     return `<button type="button" role="tab" class="${s.st}" data-stage="${s.k}" aria-selected="${s.k===PB.stage}"><span class="label">${s.st==="now"?"Now / "+s.when:s.when}</span><b>${String(i+1).padStart(2,"0")} ${s.n}</b>${who?`<em>${mine?mine+" for "+who:"Nothing for "+who}</em>`:`<em>${s.items.length?s.items.filter(it=>it[2]!=="set").length+" open":""}</em>`}</button>`;}).join("");
@@ -2780,7 +2836,7 @@ document.addEventListener("click",e=>{
   if(v==="up"){castVote(d,"up","");return;}
   VT=d;$("vote-target").textContent=AREA[d.a]+": "+d.t;$("vote-why").value="";MEN.vote.reset();$("vote-err").textContent="";openScrim("votescrim");$("vote-why").focus();
 });
-$("voteform").addEventListener("submit",e=>{e.preventDefault();if(!VT)return;const txt=$("vote-why").value.trim();if(txt.length<3){$("vote-err").textContent="Say why in a line, so we know what to fix.";return;}const ms=MEN.vote.list();const target=AREA[VT.a]+": "+VT.t;castVote(VT,"down",txt,ms);if(ms.length)notify(ms,{text:txt,where:target,kind:"Thumbs down",hash:"votes"});VT=null;closeScrims();});
+$("voteform").addEventListener("submit",e=>{e.preventDefault();if(!VT)return;const txt=$("vote-why").value.trim();if(txt.length<3){$("vote-err").textContent="Say why in a line, so we know what to fix.";return;}const ms=MEN.vote.list();const target=AREA[VT.a]+": "+VT.t;castVote(VT,"down",txt,ms);if(ms.length)notify(ms,{at:"vote:"+VT.id,text:txt,where:target,kind:"Thumbs down",hash:"votes"});VT=null;closeScrims();});
 let voteFilter="all";
 function renderVoteSummary(T){
   const sum=$("vsum");if(!sum||!done.votes)return;
@@ -2922,9 +2978,9 @@ document.addEventListener("click",e=>{const b=e.target.closest("#g-oldtoggle");i
 
 function drawSprint(){
   const host=$("sprint");if(!host)return;const D=(m,d)=>Date.UTC(2026,m-1,d);const s=D(11,9),e=D(12,4),span=e-s;const pos=t=>Math.max(0,Math.min(100,(t-s)/span*100));
-  const PH=[["Lock the concept","Phase 0",D(11,9),D(11,17),"","Concept"],["Pick the loop","Phase 1",D(11,16),D(11,20),"b2","Hypotheses"],["Build the two","Phase 2",D(11,19),D(11,30),"b3","Gray loop + corner"],["Combine and present","Phase 3",D(11,30),D(12,4),"b4","Playable, trailer"]];
-  const marks=[["Mon Nov 16",D(11,16)],["Thu Nov 19",D(11,19)],["Thanksgiving",D(11,26)],["Sun Nov 29",D(11,29)],["Thu Dec 3",D(12,3)]];
-  const gates=[D(11,16),D(11,19),D(11,29),D(12,3)];
+  const PH=[["Lock the concept","Phase 0",D(11,9),D(11,17),"","Concept"],["Pick the loop","Phase 1",D(11,16),D(11,20),"b2","Crisis flow"],["Build the three","Phase 2",D(11,19),D(11,30),"b3","Loop, corner, deck"],["Combine and present","Phase 3",D(11,30),D(12,4),"b4","Rehearse, present"]];
+  const marks=[["Mon Nov 16",D(11,16)],["Thu Nov 19",D(11,19)],["Thanksgiving",D(11,26)],["Thu Dec 3",D(12,3)]];
+  const gates=[D(11,16),D(11,19),D(12,3)];
   const n=new Date();const today=Date.UTC(n.getFullYear(),n.getMonth(),n.getDate());const mid=t=>pos(t+43200000);
   const ticks=marks.map(m=>`<i class="tick" style="left:${mid(m[1])}%"></i>`).join("")+(today>=s&&today<e?`<i class="now" style="left:${mid(today)}%"></i>`:"");
   host.innerHTML=`<div class="axis">${marks.map(m=>`<span style="left:${mid(m[1])}%">${m[0]}</span>`).join("")}</div>`+PH.map(p=>`<div class="ph"><div class="nm"><b>${p[0]}</b><span>${p[1]}</span></div><div class="trk">${ticks}<div class="bar ${p[4]}" style="left:${pos(p[2])}%;width:${pos(p[3])-pos(p[2])}%">${p[5]}</div>${gates.filter(g=>g>=p[2]&&g<p[3]).map(g=>`<i class="gate" style="left:${mid(g)}%" title="Gate"></i>`).join("")}</div></div>`).join("");
@@ -2980,15 +3036,63 @@ const VIEWS=["foundation","game","playbook","names","votes","history","ideas","t
 const VIEW_COLS={foundation:["people","decisions","names"],game:["people","refs","decisions"],playbook:["people","decisions"],names:["people","names","decisions"],votes:["people","decisions","names"],history:["people","log"],ideas:["people","ideas"],timeline:["people","tasks"],team:["people","roles"],deliverables:["people","deliverables"],personas:["people","personas"],stakeholders:["people","stakeholders"],hmw:["people","hmw"],foursets:["people","foursets"],questions:["people","questions"],board:["people"],values:["people","values"],intel:["people","intelligences"]};
 const done={};let curView="foundation";const ALIAS={pitch:"game",hub:"game",home:"foundation"};
 function route(){
-  let h=(location.hash||"#foundation").slice(1);h=ALIAS[h]||h;const v=VIEWS.includes(h)?h:"foundation";curView=v;
+  const raw=(location.hash||"#foundation").slice(1);const qi=raw.indexOf("?");let h=qi>=0?raw.slice(0,qi):raw;
+  let at=null;if(qi>=0){try{at=new URLSearchParams(raw.slice(qi+1)).get("at");}catch(_){}}
+  h=ALIAS[h]||h;const v=VIEWS.includes(h)?h:"foundation";curView=v;
   VIEWS.forEach(x=>{const n=$("v-"+x);if(n)n.classList.toggle("on",x===v);});
   document.querySelectorAll("header .navgroup a").forEach(a=>{if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
   if(!done[v]){done[v]=true;if(INIT[v])INIT[v]();}
   VIEW_COLS[v].forEach(subscribe);
   VIEW_COLS[v].forEach(renderCol);
-  window.scrollTo(0,0);
+  if(at)seek(at);else if(RESTORE_Y!=null){const y=RESTORE_Y;RESTORE_Y=null;setTimeout(()=>window.scrollTo(0,y),80);}else window.scrollTo(0,0);
+  if(JUMP_BACK&&v===JUMP_BACK.view&&!at){JUMP_BACK=null;}paintJumpBack();
 }
 window.addEventListener("hashchange",route);
+
+/* ================= jump links: from a comment to where it lives, and back ================= */
+const COL_VIEW={};Object.entries(VIEW_COLS).forEach(([v,cols])=>cols.forEach(c=>{if(c!=="people"&&c!=="decisions"&&c!=="names"&&c!=="log"&&!COL_VIEW[c])COL_VIEW[c]=v;}));
+const VIEW_LABEL={board:"Comments",history:"History",votes:"Votes",names:"Names",foundation:"Foundation",game:"The game",playbook:"Playbook"};
+let RESTORE_Y=null,JUMP_BACK=null,SEEK=null;
+const decOfT=t=>{const m=/^(?:vote:|d-)(.+)$/.exec(String(t||""));return m?m[1]:null;};
+const cssq=x=>(window.CSS&&CSS.escape)?CSS.escape(x):String(x).replace(/["\\]/g,"\\$&");
+function viewOfTarget(t){
+  if(!t)return null;const did=decOfT(t);
+  if(did){const d=DECMAP[did];if(d)return d.a==="name"?"names":"votes";}
+  const c=t.indexOf(":");if(c>0&&!did){const col=t.slice(0,c);if(COL_VIEW[col])return COL_VIEW[col];}
+  if(/^(ship|stage)-/.test(t))return "playbook";
+  const find=()=>{const n=document.querySelector(`.pin[data-t="${cssq(t)}"]`);const m=n&&n.closest("main.view");return m?m.id.slice(2):null;};
+  let v=find();if(v)return v;
+  /* not drawn yet: draw every tab once, then look again */
+  VIEWS.forEach(x=>{if(!done[x]&&INIT[x]){done[x]=true;try{INIT[x]();}catch(_){}}});dressPins();
+  return find();}
+function hrefFor(t){const v=viewOfTarget(t);return v?"#"+v+"?at="+encodeURIComponent(t):null;}
+function whereLink(p){const href=hrefFor(p.t);const lab=String(p.l||p.t||"");
+  if(!href)return el("span","label",lab);
+  {const did=decOfT(p.t);if(did&&!DEC.some(x=>x.id===did)&&DEC_HIDDEN.some(x=>x.id===did))return el("span","label",lab+" (retired)");}
+  const a=el("a","where");a.href=href;a.textContent=lab+" ";const i=el("i",null,"\u2192");a.appendChild(i);a.title="Jump to where this sits";a.dataset.jumpfrom="1";return a;}
+function findTarget(t){const v=$("v-"+curView);if(!v)return null;const did=decOfT(t);let e=null;
+  if(did)e=v.querySelector(`[data-d="${cssq(did)}"]`);
+  if(!e)e=v.querySelector(`.pin[data-t="${cssq(t)}"]`);
+  if(!e&&did)e=v.querySelector(`.pin[data-t="d-${cssq(did)}"]`);
+  if(!e)return null;
+  return e.closest(".dec,.cell,.panel,.shipcard,.goal,.idea,.block,.sec .main > div,[data-id],article")||e;}
+function seek(t){
+  if(SEEK)clearInterval(SEEK.iv);let tries=0;
+  {const did=decOfT(t);if(did&&!DEC.some(x=>x.id===did)&&DEC_HIDDEN.some(x=>x.id===did)){window.scrollTo(0,0);toast("That decision was retired after a later meeting. Its votes and comments are all kept in History.");return;}}
+  if(/^stage-/.test(t)&&typeof renderStages==="function"){PB.stage=t.slice(6);try{renderStages();}catch(_){}}
+  if(curView==="votes"&&voteFilter!=="all"){voteFilter="all";document.querySelectorAll("#vfilters button").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.vf==="all")));try{renderVoteList();}catch(_){}}
+  const go=()=>{tries++;const e=findTarget(t);
+    if(e){clearInterval(SEEK.iv);SEEK=null;const d=e.closest("details");if(d)d.open=true;
+      e.scrollIntoView({behavior:"smooth",block:"center"});e.classList.remove("fade");e.classList.add("jumped");
+      setTimeout(()=>e.classList.add("fade"),1600);setTimeout(()=>e.classList.remove("jumped","fade"),3000);return;}
+    if(tries>30){clearInterval(SEEK.iv);SEEK=null;const did=decOfT(t);
+      toast(did&&DEC_HIDDEN.some(x=>x.id===did)?"That decision was retired. Its votes and comments are kept in History.":"Couldn't find that spot. It may have moved. Its comment is still on record.");}};
+  SEEK={iv:setInterval(go,120)};window.scrollTo(0,0);go();}
+function paintJumpBack(){const b=$("jumpback");if(!b)return;const on=!!JUMP_BACK&&curView!==JUMP_BACK.view;b.classList.toggle("on",on);if(on)$("jumpback-to").textContent=VIEW_LABEL[JUMP_BACK.view]||JUMP_BACK.view;}
+document.addEventListener("click",e=>{const a=e.target.closest("a[data-jumpfrom]");if(!a||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;
+  e.preventDefault();JUMP_BACK={view:curView,y:window.scrollY};const href=a.getAttribute("href");
+  if(location.hash===href)route();else location.hash=href;});
+$("jumpback").addEventListener("click",()=>{if(!JUMP_BACK)return;RESTORE_Y=JUMP_BACK.y;const v=JUMP_BACK.view;JUMP_BACK=null;location.hash=v;});
 
 /* ================= data layer ================= */
 const S={db:null,user:null,me:null,ready:false,readonly:false,connected:false,server:{},subs:{},subErr:{},names:{},queue:[],pumping:false,retryT:null,retrying:false,everSaved:false,showDeleted:{}};
@@ -3150,7 +3254,7 @@ $("pinform").addEventListener("submit",e=>{
   $("pin-save").disabled=true;const pin={id:PT.id,t:PT.t,l:PT.l,kind:document.querySelector("input[name=kind]:checked").value,note:txt.slice(0,600),at:Date.now()};
   const ms=MEN.pin.list();if(ms.length)pin.mentions=ms;
   writePeople(d=>{if(d.pins.some(x=>x.id===pin.id))return false;d.pins.push(pin);},"Comment: "+PT.l);
-  if(ms.length)notify(ms,{text:pin.note,where:PT.l,kind:pin.kind==="keep"?"Must keep":pin.kind==="rethink"?"Rethink":"Comment",hash:curView});
+  if(ms.length)notify(ms,{at:PT.t,text:pin.note,where:PT.l,kind:pin.kind==="keep"?"Must keep":pin.kind==="rethink"?"Rethink":"Comment",hash:curView});
   lsDel("17sg.draft.pin."+PT.t);PT=null;closeScrims();
 });
 /* ================= mentions + email pings ================= */
@@ -3190,16 +3294,16 @@ const MEN={pin:makeMention("pin","pin-note","pin-tags","pin-who"),vote:makeMenti
 if(!MAIL_URL&&$("pin-mailnote"))$("pin-mailnote").textContent="Tagged people get an email with your comment and a link back here. (Your email app will open with it ready to send.)";
 function linkFor(hash){return location.origin+location.pathname+"#"+(hash||"board");}
 function notify(ms,info){
-  const me=(S.names[S.me]||"A teammate").replace(/ \(you\)$/,"");const link=linkFor(info.hash);
+  const me=(S.names[S.me]||"A teammate").replace(/ \(you\)$/,"");const link=info.at&&hrefFor(info.at)?location.origin+location.pathname+hrefFor(info.at):linkFor(info.hash);
   const subject=me+" tagged you in 17SG: "+String(info.where||"").slice(0,80);
   const body=me+" tagged you on \""+info.where+"\" ("+info.kind+"):\n\n"+info.text+"\n\nOpen it: "+link;
   if(!MAIL_URL){location.href="mailto:"+ms.map(m=>m.email).join(",")+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
-    window.FB.addLog({type:"mention",name:me,to:ms,where:info.where,text:info.text,status:"email app opened"}).catch(()=>{});return;}
+    window.FB.addLog({type:"mention",name:me,to:ms,where:info.where,at_t:info.at||"",text:info.text,status:"email app opened"}).catch(()=>{});return;}
   (async()=>{let status="sent";try{const tok=await window.FB.idToken();
       const r=await fetch(MAIL_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({idToken:tok,to:ms.map(m=>m.email),fromName:me,where:info.where,kind:info.kind,text:info.text,link})});
       const j=await r.json().catch(()=>({}));if(!j.ok)throw new Error(j.error||"failed");toast("Emailed "+ms.map(m=>firstName(m.name)).join(", ")+".");}
     catch(e){status="failed: "+(e&&e.message||"error");toast("Your comment is saved, but the email to "+ms.map(m=>firstName(m.name)).join(", ")+" didn't send. Tag them again or message them.");}
-    window.FB.addLog({type:"mention",name:me,to:ms,where:info.where,text:info.text,status}).catch(()=>{});})();
+    window.FB.addLog({type:"mention",name:me,to:ms,where:info.where,at_t:info.at||"",text:info.text,status}).catch(()=>{});})();
 }
 
 /* ================= history (append-only log) ================= */
@@ -3222,9 +3326,9 @@ function renderHistory(){
     const c1=el("div");c1.appendChild(k);c1.appendChild(el("div","t",when(e.at)));r.appendChild(c1);
     r.appendChild(el("div",null,who.replace(/ \(you\)$/,"")));
     const c3=el("div");const p=e.pin||{};
-    if(e.type==="mention"){c3.appendChild(el("span","label","To "+(e.to||[]).map(m=>m.name).join(", ")+" / "+esc(e.where)));c3.appendChild(el("p",null,esc(e.text)));c3.appendChild(el("span","t","Email: "+esc(e.status)));}
-    else if(e.type==="plus"||e.type==="plus-removed"){const t=rawPins().find(x=>x.key===e.key);c3.appendChild(el("p",null,t?"On "+nameOf(t.uid).replace(/ \(you\)$/,"")+"'s comment: "+esc(t.note).slice(0,140):"On a comment"));}
-    else{c3.appendChild(el("span","label",esc(p.l||p.t)));
+    if(e.type==="mention"){c3.appendChild(el("span","label","To "+(e.to||[]).map(m=>m.name).join(", ")));c3.appendChild(e.at_t?whereLink({t:e.at_t,l:e.where}):el("span","label",esc(e.where)));c3.appendChild(el("p",null,esc(e.text)));c3.appendChild(el("span","t","Email: "+esc(e.status)));}
+    else if(e.type==="plus"||e.type==="plus-removed"){const t=rawPins().find(x=>x.key===e.key);if(t&&t.t)c3.appendChild(whereLink(t));c3.appendChild(el("p",null,t?"On "+nameOf(t.uid).replace(/ \(you\)$/,"")+"'s comment: "+esc(t.note).slice(0,140):"On a comment"));}
+    else{c3.appendChild(p.t?whereLink(p):el("span","label",esc(p.l||p.t)));
       const v=isVote(p)?(p.kind==="down"?"Thumbs down":p.kind==="clear"?"Took back their vote":"Thumbs up"):(p.kind==="keep"?"Must keep":p.kind==="rethink"?"Rethink":"");
       const txt=[v,esc(p.note)].filter(Boolean).join(": ");if(txt)c3.appendChild(el("p",null,txt));
       if(Array.isArray(p.mentions)&&p.mentions.length)c3.appendChild(el("span","t","Tagged: "+p.mentions.map(m=>m.name).join(", ")));
@@ -3247,17 +3351,26 @@ function rawPins(){const P=viewOf("people");const out=[],pc={};Object.values(P).
 function modState(p){const m=(S.server.moderation||{})[p.uid+"_"+p.id];return m?m.state:"";}
 function allPins(){const raw=rawPins();const latest={};raw.forEach(p=>{if(!isVote(p))return;const k=p.uid+"|"+p.t;if(!latest[k]||(p.at||0)>=(latest[k].at||0))latest[k]=p;});
   return raw.filter(p=>{const ms=modState(p);if(ms==="hidden")return false;if(p.deleted&&ms!=="shown")return false;if(isVote(p))return latest[p.uid+"|"+p.t]===p&&p.kind!=="clear";return true;});}
+function renderSpots(pins){const list=$("pinlist");list.textContent="";const G={};
+  pins.forEach(p=>{const g=G[p.t]||(G[p.t]={t:p.t,l:p.l||p.t,n:0,down:0,rethink:0,keep:0,last:0});g.n++;if(p.kind==="down")g.down++;else if(p.kind==="rethink")g.rethink++;else if(p.kind==="keep")g.keep++;if(p.l)g.l=p.l;g.last=Math.max(g.last,p.at||0);});
+  const rows=Object.values(G).sort((a,b)=>(b.down+b.rethink)-(a.down+a.rethink)||b.n-a.n||b.last-a.last);
+  if(!rows.length){const e=el("div","empty","No comments yet.");e.style.gridColumn="1 / -1";list.appendChild(e);return;}
+  rows.forEach(g=>{const c=el("div","c spot");const meta=el("div","meta");meta.appendChild(el("span","kind "+(g.down+g.rethink?"rethink":"note"),g.down+g.rethink?"Pushback":"Discussed"));meta.appendChild(el("span","label",g.n+(g.n===1?" comment":" comments")));c.appendChild(meta);
+    c.appendChild(whereLink(g));const ty=el("div","tally");
+    [["Thumbs down",g.down,1],["Rethink",g.rethink,1],["Must keep",g.keep,0],["Comments",g.n-g.down-g.rethink-g.keep,0]].forEach(x=>{if(!x[1])return;const sp=el("span",x[2]?"bad":null,x[0]+" ");sp.appendChild(el("b",null,String(x[1])));ty.appendChild(sp);});
+    c.appendChild(ty);c.appendChild(el("span","stamp","Latest "+when(g.last)));list.appendChild(c);});}
 function renderPins(){
   if(pinFilter==="hidden"&&done.board){return renderHiddenPins();}
   const pins=allPins().filter(p=>!isVote(p)||p.kind==="down");const counts={};pins.forEach(p=>{counts[p.t]=(counts[p.t]||0)+1;});
   document.querySelectorAll(".pin").forEach(b=>{b.dataset.n=String(counts[b.dataset.t]||0);});
   if(!done.board)return;
   let shown=pins.slice();if(pinFilter==="keep"||pinFilter==="rethink"||pinFilter==="down")shown=shown.filter(p=>p.kind===pinFilter);if(pinFilter==="note")shown=shown.filter(p=>p.kind!=="keep"&&p.kind!=="rethink"&&p.kind!=="down");
+  if(pinFilter==="spot")return renderSpots(shown);
   if(pinFilter==="top")shown.sort((a,b)=>b.plus-a.plus||b.at-a.at);else shown.sort((a,b)=>b.at-a.at);
   const list=$("pinlist");list.textContent="";
   if(!shown.length){const e=el("div","empty",pins.length?"Nothing matches this filter.":"No comments yet. Press Comment on anything in the site to start.");e.style.gridColumn="1 / -1";list.appendChild(e);return;}
   const mine=myPeople();
-  shown.forEach(p=>{const c=el("div","c"+(p.pending&&p.uid===S.me?" pending":""));const meta=el("div","meta");meta.appendChild(el("span","kind "+(p.kind==="rethink"||p.kind==="down"?"rethink":p.kind==="keep"?"keep":"note"),p.kind==="down"?"Thumbs down":p.kind==="rethink"?"Rethink":p.kind==="keep"?"Must keep":"Comment"));meta.appendChild(el("span","label",nameOf(p.uid)));c.appendChild(meta);c.appendChild(el("span","label",esc(p.l||p.t)));c.appendChild(el("p","note",esc(p.note)));if(Array.isArray(p.mentions)&&p.mentions.length)c.appendChild(el("span","ment","Tagged: "+p.mentions.map(m=>m.name).join(", ")));c.appendChild(el("span","stamp",when(p.at)));
+  shown.forEach(p=>{const c=el("div","c"+(p.pending&&p.uid===S.me?" pending":""));const meta=el("div","meta");meta.appendChild(el("span","kind "+(p.kind==="rethink"||p.kind==="down"?"rethink":p.kind==="keep"?"keep":"note"),p.kind==="down"?"Thumbs down":p.kind==="rethink"?"Rethink":p.kind==="keep"?"Must keep":"Comment"));meta.appendChild(el("span","label",nameOf(p.uid)));c.appendChild(meta);c.appendChild(whereLink(p));c.appendChild(el("p","note",esc(p.note)));if(Array.isArray(p.mentions)&&p.mentions.length)c.appendChild(el("span","ment","Tagged: "+p.mentions.map(m=>m.name).join(", ")));c.appendChild(el("span","stamp",when(p.at)));
     const acts=el("div","acts");const on=mine.plus.includes(p.key);const plus=el("button","btn small","+1"+(p.plus?" ("+p.plus+")":""));plus.type="button";plus.setAttribute("aria-pressed",String(on));if(on)plus.style.borderColor="var(--ink)";plus.disabled=!!gateMsg()||p.uid===S.me;
     plus.addEventListener("click",()=>writePeople(d=>{const i=d.plus.indexOf(p.key);if(i>=0)d.plus.splice(i,1);else d.plus.push(p.key);},"+1"));acts.appendChild(plus);
     if(S.admin&&p.uid!==S.me&&!isVote(p)){const hb=el("button","btn small","Hide");hb.type="button";hb.title="Hides it from the boards. It stays in History, and you can bring it back.";hb.addEventListener("click",()=>{if(!hb.dataset.armed){hb.dataset.armed="1";hb.textContent="Confirm hide";return;}moderate(p,"hidden");});acts.appendChild(hb);}
@@ -3269,7 +3382,7 @@ function renderHiddenPins(){const list=$("pinlist");list.textContent="";
   const hid=rawPins().filter(p=>!isVote(p)&&(modState(p)==="hidden"||(p.deleted&&modState(p)!=="shown")));
   if(!hid.length){const e=el("div","empty","Nothing hidden.");e.style.gridColumn="1 / -1";list.appendChild(e);return;}
   hid.sort((a,b)=>(b.at||0)-(a.at||0)).forEach(p=>{const c=el("div","c");const meta=el("div","meta");meta.appendChild(el("span","kind rethink",modState(p)==="hidden"?"Hidden by James":"Deleted by "+nameOf(p.uid).replace(/ \(you\)$/,"")));meta.appendChild(el("span","label",nameOf(p.uid)));c.appendChild(meta);
-    c.appendChild(el("span","label",esc(p.l||p.t)));c.appendChild(el("p","note",esc(p.note)));c.appendChild(el("span","stamp",when(p.at)));
+    c.appendChild(whereLink(p));c.appendChild(el("p","note",esc(p.note)));c.appendChild(el("span","stamp",when(p.at)));
     const acts=el("div","acts");const b=el("button","btn small","Bring back");b.type="button";b.addEventListener("click",()=>moderate(p,"shown"));acts.appendChild(b);c.appendChild(acts);list.appendChild(c);});}
 
 /* ================= shared boards ================= */
